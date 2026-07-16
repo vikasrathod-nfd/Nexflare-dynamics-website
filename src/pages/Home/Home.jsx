@@ -56,7 +56,6 @@ const technologies = [
 ];
 
 const Home = () => {
-
   const navigate = useNavigate();
 
   const colorScheme = useComputedColorScheme("light");
@@ -85,7 +84,7 @@ const Home = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/contact/send",
+        "/api/contact",
         {
           name: formData.name,
           email: formData.email,
@@ -124,7 +123,7 @@ const Home = () => {
 
   return (
     <>
-    <PageTitle title="Home" />
+      <PageTitle title="Home" />
       <Box
         style={{
           minHeight: "100vh",

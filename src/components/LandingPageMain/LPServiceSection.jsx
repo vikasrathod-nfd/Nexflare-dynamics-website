@@ -98,7 +98,7 @@ const LPServiceSection = () => {
         </Stack>
 
         {/* Service Cards */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="xl">
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
           {services.map((service, index) => (
             <Paper
               key={index}
