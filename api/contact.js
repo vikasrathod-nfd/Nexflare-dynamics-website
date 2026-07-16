@@ -141,7 +141,7 @@ export default async function handler(req, res) {
 
     const adminResponse = await resend.emails.send({
       // from: process.env.FROM_EMAIL,
-      from: "Nexflare Dynamics <contact@nexflaredynamics.com>",
+      from: "Nexflare Dynamics <vikas.rathod@nexflaredynamics.com>",
       to: process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `📩 New Contact Form Submission - ${name}`,
@@ -233,7 +233,7 @@ ${message}
 
     const userResponse = await resend.emails.send({
       // from: process.env.FROM_EMAIL,
-      from: "Nexflare Dynamics <contact@nexflaredynamics.com>",
+      from: "Nexflare Dynamics <vikas.rathod@nexflaredynamics.com>",
       to: email,
       subject: "Thank You for Contacting Nexflare Dynamics",
       html: `
