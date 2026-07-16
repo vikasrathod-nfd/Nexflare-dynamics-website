@@ -95,10 +95,14 @@ const ContactFormScreen = () => {
       formData.append("company", company);
       formData.append("query", query);
 
-      const response = await axios.post(
-        "https://nexflaredynamics.com/wp-content/themes/nexflaredynamics/submit-contact.php",
-        formData,
-      );
+      const response = await axios.post("/api/contact", {
+        name,
+        email,
+        phone,
+        service,
+        company,
+        message: query,
+      });
 
       console.log(response.data);
 
