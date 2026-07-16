@@ -608,7 +608,7 @@ const testimonials = [
   {
     id: 3,
     name: "Shanti Bhushan",
-    position: "Owner",
+    position: "Manager Director",
     company: "Maceo Pvt Ltd",
     rating: 5,
     review:
@@ -621,7 +621,7 @@ const testimonials = [
     company: "P&G Solar",
     rating: 5,
     review:
-      "Nexflare Dynamics gave us a sales and marketing system that actually understands our industry. Lead tracking and follow-ups are now automated, and our conversion rate has genuinely improved.",
+      "Nexflare Dynamics built us a website that truly represents our brand — fast, clean and easy to navigate. Customers now find it much easier to learn about our solar solutions and get in touch.",
   },
   {
     id: 5,
@@ -630,7 +630,7 @@ const testimonials = [
     company: "Janakalyan Multipurpose",
     rating: 5,
     review:
-      "The CRM and marketing dashboard they built gave us complete visibility into our sales pipeline for the first time. Campaign tracking and reporting are now effortless.",
+      "Nexflare Dynamics ran our performance marketing campaigns with real focus on ROI, not just impressions. Our cost per lead dropped significantly while conversions kept climbing month after month.",
   },
   {
     id: 6,
@@ -639,25 +639,25 @@ const testimonials = [
     company: "Urja Solar",
     rating: 5,
     review:
-      "Managing leads used to be scattered across calls and notebooks. Nexflare's solution centralized everything, and our sales team now closes deals faster with better follow-up tracking.",
+      "Their SEO and social media strategy brought us genuine, high-quality leads instead of just vanity numbers. We've seen a real increase in inquiries from our target audience.",
   },
   {
     id: 7,
     name: "Yash Gorde Patil",
-    position: "Owner",
+    position: "CEO",
     company: "Oscillation Energy LLP",
     rating: 4,
     review:
-      "Their marketing automation tools helped us run targeted campaigns without extra manpower. The insights we get on customer engagement have been a real game-changer for our energy business.",
+      "The digital ad campaigns Nexflare ran for us were well targeted and cost-effective. Our brand visibility in the energy sector has noticeably improved over the past few months.",
   },
   {
     id: 8,
     name: "Pranav Kaningdhwaj",
-    position: "Owner",
+    position: "Founder",
     company: "Grover Academy",
     rating: 4,
     review:
-      "Nexflare Dynamics built us a sales and enrollment tracking system perfectly suited to an academy setup. Parent inquiries and admissions follow-ups are now organized and never fall through the cracks.",
+      "Nexflare handled our social media and admissions marketing beautifully. Parent engagement online has gone up, and our academy's brand feels far more professional now.",
   },
 ];
 // Card ko duplicate karke seamless loop banate hain
