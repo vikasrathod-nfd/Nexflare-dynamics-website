@@ -324,7 +324,7 @@ const testimonials = [
     image: "/fugened.png",
     rating: 4,
     review:
-      "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics built us a system that's very fast and genuinely easy for our whole team to use.",
+      "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics Private Limited built us a system that's very fast and genuinely easy for our whole team to use.",
   },
   {
     id: 3,
@@ -333,7 +333,7 @@ const testimonials = [
     company: "Maceo Private Limited",
     rating: 5,
     review:
-      "The onboarding, leave management and reporting features in NexHRMS have brought real structure to our HR processes. Support from the Nexflare team throughout was quick and reliable.",
+      "The onboarding, leave management and reporting features in NexHRMS have brought real structure to our HR processes. Support from the Nexflare Dynamics Private Limited team throughout was quick and reliable.",
   },
   {
     id: 4,
@@ -343,7 +343,7 @@ const testimonials = [
     image: "/p&g.png",
     rating: 5,
     review:
-      "Nexflare Dynamics transformed our ideas into a professional and engaging website. Their attention to detail, quick responses, and dedication to quality made the entire experience seamless. We're extremely satisfied with the final result.",
+      "Nexflare Dynamics Private Limited transformed our ideas into a professional and engaging website. Their attention to detail, quick responses, and dedication to quality made the entire experience seamless. We're extremely satisfied with the final result.",
   },
   {
     id: 5,
@@ -353,7 +353,7 @@ const testimonials = [
     image: "/jankalyan.png",
     rating: 5,
     review:
-      "Nexflare Dynamics managed our performance marketing campaigns with exceptional professionalism and attention to detail. Their transparent communication, and consistent support made the entire experience smooth and highly effective.",
+      "Nexflare Dynamics Private Limited managed our performance marketing campaigns with exceptional professionalism and attention to detail. Their transparent communication, and consistent support made the entire experience smooth and highly effective.",
   },
   {
     id: 6,
@@ -363,7 +363,7 @@ const testimonials = [
     image: "/akshayurja.png",
     rating: 5,
     review:
-      "From planning to execution, the Nexflare Dynamics team was supportive, knowledgeable, and easy to work with. Their digital marketing efforts have significantly strengthened our online presence and helped us reach more potential customers.",
+      "From planning to execution, the Nexflare Dynamics Private Limited team was supportive, knowledgeable, and easy to work with. Their digital marketing efforts have significantly strengthened our online presence and helped us reach more potential customers.",
   },
   {
     id: 7,
@@ -373,7 +373,7 @@ const testimonials = [
     image: "/oscillation.png",
     rating: 5,
     review:
-      "We appreciate the professionalism and commitment shown by Nexflare Dynamics throughout our collaboration. Their creative solutions and focus on delivering quality have made them a trusted technology partner for our business.",
+      "We appreciate the professionalism and commitment shown by Nexflare Dynamics Private Limited throughout our collaboration. Their creative solutions and focus on delivering quality have made them a trusted technology partner for our business.",
   },
   {
     id: 8,
@@ -383,7 +383,7 @@ const testimonials = [
     image: "/groovers.png",
     rating: 5,
     review:
-      "It was a pleasure working with Nexflare Dynamics. They understood our academy's identity and delivered a beautiful digital presence that showcases our classes, events, and achievements. Their creativity and dedication exceeded our expectations.",
+      "It was a pleasure working with Nexflare Dynamics Private Limited. They understood our academy's identity and delivered a beautiful digital presence that showcases our classes, events, and achievements. Their creativity and dedication exceeded our expectations.",
     // "The team at Nexflare Dynamics was professional, creative, and easy to work with. They helped us build a strong digital identity for our dance academy, and we're extremely happy with the quality of their work"
   },
 ];
