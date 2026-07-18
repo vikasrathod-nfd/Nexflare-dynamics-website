@@ -104,6 +104,11 @@ const ContactFormScreen = () => {
         message: query,
       });
 
+      //  const response = await axios.post(
+      //   "https://nexflaredynamics.com/wp-content/themes/nexflaredynamics/submit-contact.php",
+      //   formData,
+      // );
+
       console.log(response.data);
 
       alert("Message Sent Successfully");

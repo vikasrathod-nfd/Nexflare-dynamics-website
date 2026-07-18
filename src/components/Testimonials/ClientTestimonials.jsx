@@ -1,8 +1,8 @@
+
 // import {
 //   Avatar,
 //   Badge,
 //   Box,
-//   Button,
 //   Container,
 //   Group,
 //   Paper,
@@ -13,105 +13,98 @@
 //   Title,
 //   useComputedColorScheme,
 // } from "@mantine/core";
-
-// import { Carousel } from "@mantine/carousel";
-
 // import { motion } from "framer-motion";
-
 // import { IconQuoteFilled, IconStarFilled } from "@tabler/icons-react";
-
-// import "@mantine/carousel/styles.css";
-
-// const MotionPaper = motion(Paper);
-
 // const testimonials = [
 //   {
 //     id: 1,
-//     name: "Rahul Sharma",
-//     position: "CEO",
-//     company: "TechNova Solutions",
-//     image: "https://randomuser.me/api/portraits/men/32.jpg",
+//     name: "Azaj Shaikh",
+//     position: "Owner",
+//     company: "Perfect Security Service",
 //     rating: 5,
 //     review:
-//       "Nexflare Dynamics completely transformed our business with a modern ERP solution. Their professionalism, communication and technical expertise exceeded our expectations.",
+//       "NexHRMS has completely simplified how we manage our workforce. Attendance tracking, payroll and employee records are now just a few clicks away — saving us hours every single week.",
 //   },
-
 //   {
 //     id: 2,
-//     name: "Priya Mehta",
-//     position: "Founder",
-//     company: "FinCore Pvt. Ltd.",
-//     image: "https://randomuser.me/api/portraits/women/44.jpg",
-//     rating: 5,
+//     name: "Umair",
+//     position: "Owner",
+//     company: "FuGenEd",
+//     rating: 4,
 //     review:
-//       "Outstanding experience! The team delivered our fintech platform before deadline with excellent UI/UX and enterprise-level performance.",
+//       "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics built us a system that's intuitive, fast and genuinely easy for our whole team to use.",
 //   },
-
 //   {
 //     id: 3,
-//     name: "John Anderson",
-//     position: "Director",
-//     company: "Global Logistics",
-//     image: "https://randomuser.me/api/portraits/men/75.jpg",
+//     name: "Shanti Bhushan",
+//     position: "Manager Director",
+//     company: "Maceo Pvt Ltd",
 //     rating: 5,
 //     review:
-//       "Their logistics management software streamlined our operations and increased productivity. Highly recommended for enterprise projects.",
+//       "The onboarding, leave management and reporting features in NexHRMS have brought real structure to our HR processes. Support from the Nexflare team throughout was quick and reliable.",
 //   },
-
 //   {
 //     id: 4,
-//     name: "Sneha Patil",
-//     position: "CTO",
-//     company: "HealthBridge",
-//     image: "https://randomuser.me/api/portraits/women/65.jpg",
+//     name: "Ahesas Naik",
+//     position: "Founder",
+//     company: "P&G Solar",
 //     rating: 5,
 //     review:
-//       "From planning to deployment everything was handled professionally. The healthcare platform they built is secure, scalable and incredibly fast.",
+//       "Nexflare Dynamics built us a website that truly represents our brand — fast, clean and easy to navigate. Customers now find it much easier to learn about our solar solutions and get in touch.",
 //   },
-
 //   {
 //     id: 5,
-//     name: "David Wilson",
-//     position: "Product Manager",
-//     company: "EduSphere",
-//     image: "https://randomuser.me/api/portraits/men/15.jpg",
+//     name: "Rahul Salve",
+//     position: "CEO & Founder",
+//     company: "Janakalyan Multipurpose",
 //     rating: 5,
 //     review:
-//       "Amazing development team with excellent communication. Our LMS platform has received outstanding feedback from students and teachers.",
+//       "Nexflare Dynamics ran our performance marketing campaigns with real focus on ROI, not just impressions. Our cost per lead dropped significantly while conversions kept climbing month after month.",
 //   },
-
 //   {
 //     id: 6,
-//     name: "Amit Kulkarni",
-//     position: "Managing Director",
-//     company: "Smart Manufacturing",
-//     image: "https://randomuser.me/api/portraits/men/52.jpg",
+//     name: "Akshay More",
+//     position: "Owner",
+//     company: "Urja Solar",
 //     rating: 5,
 //     review:
-//       "Professional developers who understand business requirements perfectly. The ERP system has automated most of our manufacturing workflow.",
+//       "Their SEO and social media strategy brought us genuine, high-quality leads instead of just vanity numbers. We've seen a real increase in inquiries from our target audience.",
+//   },
+//   {
+//     id: 7,
+//     name: "Yash Gorde Patil",
+//     position: "CEO",
+//     company: "Oscillation Energy LLP",
+//     rating: 4,
+//     review:
+//       "The digital ad campaigns Nexflare ran for us were well targeted and cost-effective. Our brand visibility in the energy sector has noticeably improved over the past few months.",
+//   },
+//   {
+//     id: 8,
+//     name: "Pranav Kaningdhwaj",
+//     position: "Founder",
+//     company: "Grover Academy",
+//     rating: 4,
+//     review:
+//       "Nexflare handled our social media and admissions marketing beautifully. Parent engagement online has gone up, and our academy's brand feels far more professional now.",
 //   },
 // ];
-
+// // Card ko duplicate karke seamless loop banate hain
+// const loopTestimonials = [...testimonials, ...testimonials];
 // const ClientTestimonials = () => {
 //   const isDark = useComputedColorScheme("light") === "dark";
-
 //   return (
 //     <Box
-//       py={{
-//         base: 90,
-//         md: 60,
-//       }}
+//       py={{ base: 90, md: 60 }}
 //       style={{
 //         position: "relative",
 //         overflow: "hidden",
-
 //         background: isDark
 //           ? "linear-gradient(180deg,#050816,#081120,#0F172A)"
 //           : "linear-gradient(180deg,#ffffff,#F8FAFC,#EEF5FF)",
 //       }}
 //     >
 //       {/* Background Glow */}
-
 //       <Box
 //         style={{
 //           position: "absolute",
@@ -124,7 +117,6 @@
 //           filter: "blur(140px)",
 //         }}
 //       />
-
 //       <Box
 //         style={{
 //           position: "absolute",
@@ -137,27 +129,16 @@
 //           filter: "blur(150px)",
 //         }}
 //       />
-
-//       <Container
-//         size="xl"
-//         style={{
-//           position: "relative",
-//           zIndex: 5,
-//         }}
-//       >
+//       <Container size="xl" style={{ position: "relative", zIndex: 5 }}>
 //         <Stack align="center" mb={70}>
 //           <Badge
 //             radius="xl"
 //             size="lg"
 //             variant="gradient"
-//             gradient={{
-//               from: "blue",
-//               to: "cyan",
-//             }}
+//             gradient={{ from: "blue", to: "cyan" }}
 //           >
 //             CLIENT TESTIMONIALS
 //           </Badge>
-
 //           <Title
 //             ta="center"
 //             style={{
@@ -178,396 +159,134 @@
 //               Say About Us
 //             </span>
 //           </Title>
-
-//           <Text
-//             ta="center"
-//             maw={760}
-//             size="lg"
-//             c="dimmed"
-//             style={{
-//               lineHeight: 1.9,
-//             }}
-//           >
+//           <Text ta="center" maw={760} size="lg" c="dimmed" style={{ lineHeight: 1.9 }}>
 //             We believe long-term relationships are built on trust, transparency
 //             and delivering exceptional software solutions that help businesses
 //             grow faster.
 //           </Text>
 //         </Stack>
-
-//         <motion.div
-//           initial={{ opacity: 0, y: 50 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-        
-//         >
-//           <Carousel
-//             slideSize={{
-//               base: "100%",
-//               sm: "50%",
-//               lg: "33.333333%",
-//             }}
-//             slideGap="xl"
-//             align="start"
-//             withIndicators
-//             withControls
-//             loop
-//             styles={{
-//               indicator: {
-//                 width: 10,
-//                 height: 10,
-//                 transition: ".3s",
-//               },
-//               control: {
-//                 width: 42,
-//                 height: 42,
-//                 borderRadius: "50%",
-//                 backdropFilter: "blur(15px)",
-//               },
-//             }}
-//           >
-//             {testimonials.map((item, index) => (
-//               <Carousel.Slide key={item.id}>
-//                 <MotionPaper
-//                   radius="xl"
-//                   h="100%"
-//                   p={35}
-//                   className="testimonial-card"
-//                   initial={{
-//                     opacity: 0,
-//                     y: 40,
-//                   }}
-//                   whileInView={{
-//                     opacity: 1,
-//                     y: 0,
-//                   }}
-//                   transition={{
-//                     delay: index * 0.08,
-//                     duration: 0.6,
-//                   }}
-//                   whileHover={{
-//                     y: -10,
-//                     scale: 1.02,
-//                   }}
-//                   style={{
-//                     position: "relative",
-//                     overflow: "hidden",
-
-//                     background: isDark ? "rgba(255,255,255,.05)" : "#ffffff",
-
-//                     border: isDark
-//                       ? "1px solid rgba(255,255,255,.08)"
-//                       : "1px solid rgba(37,99,235,.08)",
-
-//                     backdropFilter: "blur(18px)",
-
-//                     boxShadow: isDark
-//                       ? "0 20px 45px rgba(0,0,0,.28)"
-//                       : "0 20px 45px rgba(37,99,235,.08)",
-//                   }}
-//                 >
-//                   {/* Hover Glow */}
-
-//                   <Box
-//                     className="testimonial-glow"
-//                     style={{
-//                       position: "absolute",
-//                       inset: 0,
-//                       opacity: 0,
-//                       transition: ".35s",
-
-//                       background:
-//                         "radial-gradient(circle at top right, rgba(37,99,235,.25), transparent 70%)",
-//                     }}
-//                   />
-
-//                   <Group justify="space-between" mb={25}>
-//                     <ThemeIcon
-//                       radius="xl"
-//                       size={52}
-//                       variant="light"
-//                       color="blue"
-//                     >
-//                       <IconQuoteFilled size={28} />
-//                     </ThemeIcon>
-
-//                     <Group gap={3}>
-//                       {Array.from({ length: 5 }).map((_, i) => (
-//                         <IconStarFilled
-//                           key={i}
-//                           size={18}
-//                           color="#FFC107"
-//                           fill="#FFC107"
-//                         />
-//                       ))}
-//                     </Group>
-//                   </Group>
-
-//                   <Text
-//                     c="dimmed"
-//                     style={{
-//                       lineHeight: 1.9,
-//                       minHeight: 180,
-//                       fontStyle: "italic",
-//                     }}
-//                   >
-//                     "{item.review}"
-//                   </Text>
-
-//                   <Rating value={item.rating} readOnly mt={18} color="yellow" />
-
-//                   <Group mt={30} wrap="nowrap">
-//                     <Avatar src={item.image} size={68} radius="xl" />
-
-//                     <Stack gap={2}>
-//                       <Title
-//                         order={4}
-//                         style={{
-//                           color: isDark ? "#fff" : "#111827",
-//                         }}
-//                       >
-//                         {item.name}
-//                       </Title>
-
-//                       <Text size="sm" c="dimmed">
-//                         {item.position}
-//                       </Text>
-
-//                       <Badge
-//                         radius="xl"
-//                         variant="light"
-//                         color="blue"
-//                         w="fit-content"
-//                       >
-//                         {item.company}
-//                       </Badge>
-//                     </Stack>
-//                   </Group>
-//                 </MotionPaper>
-//               </Carousel.Slide>
-//             ))}
-//           </Carousel>
-//         </motion.div>
-//         {/* Bottom Statistics */}
-
-//         {/* <motion.div
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <Group justify="space-between" mt={90} gap={25} wrap="wrap">
-//             {[
-//               {
-//                 number: "250+",
-//                 title: "Happy Clients",
-//               },
-//               {
-//                 number: "500+",
-//                 title: "Projects Delivered",
-//               },
-//               {
-//                 number: "99%",
-//                 title: "Client Satisfaction",
-//               },
-//               {
-//                 number: "24/7",
-//                 title: "Technical Support",
-//               },
-//             ].map((item) => (
-//               <Paper
-//                 key={item.title}
-//                 radius="xl"
-//                 p={28}
-//                 style={{
-//                   flex: 1,
-//                   minWidth: 200,
-
-//                   background: isDark ? "rgba(255,255,255,.05)" : "#fff",
-
-//                   border: isDark
-//                     ? "1px solid rgba(255,255,255,.08)"
-//                     : "1px solid rgba(37,99,235,.08)",
-
-//                   textAlign: "center",
-
-//                   boxShadow: isDark
-//                     ? "0 20px 45px rgba(0,0,0,.25)"
-//                     : "0 20px 40px rgba(37,99,235,.08)",
-//                 }}
-//               >
-//                 <Title order={2} c="blue" fw={900}>
-//                   {item.number}
-//                 </Title>
-
-//                 <Text mt={8} c="dimmed">
-//                   {item.title}
-//                 </Text>
-//               </Paper>
-//             ))}
-//           </Group>
-//         </motion.div> */}
-
-//         {/* CTA */}
-
-//         {/* <motion.div
-//           initial={{ opacity: 0, y: 50 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <Paper
-//             radius={30}
-//             mt={100}
-//             p={{
-//               base: 35,
-//               md: 60,
-//             }}
-//             style={{
-//               position: "relative",
-//               overflow: "hidden",
-
-//               background: isDark
-//                 ? "linear-gradient(135deg,#111827,#1E3A8A,#2563EB)"
-//                 : "linear-gradient(135deg,#2563EB,#3B82F6,#38BDF8)",
-
-//               color: "#fff",
-//             }}
-//           >
-
-//             <Box
-//               style={{
-//                 position: "absolute",
-//                 width: 350,
-//                 height: 350,
-//                 borderRadius: "50%",
-//                 right: -140,
-//                 top: -140,
-//                 background: "rgba(255,255,255,.08)",
-//               }}
-//             />
-
-//             <Stack
-//               align="center"
-//               gap={25}
-//               ta="center"
+//       </Container>
+//       {/* Marquee wrapper - full width, edge fade */}
+//       <Box
+//         className="marquee-wrapper"
+//         style={{
+//           position: "relative",
+//           width: "100%",
+//           overflow: "hidden",
+//           maskImage:
+//             "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+//           WebkitMaskImage:
+//             "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+//         }}
+//       >
+//         <Box className="marquee-track">
+//           {loopTestimonials.map((item, index) => (
+//             <Paper
+//               key={`${item.id}-${index}`}
+//               radius="xl"
+//               p={35}
+//               className="testimonial-card"
 //               style={{
 //                 position: "relative",
-//                 zIndex: 2,
+//                 overflow: "hidden",
+//                 flex: "0 0 auto",
+//                 width: 380,
+//                 background: isDark ? "rgba(255,255,255,.05)" : "#ffffff",
+//                 border: isDark
+//                   ? "1px solid rgba(255,255,255,.08)"
+//                   : "1px solid rgba(37,99,235,.08)",
+//                 backdropFilter: "blur(18px)",
+//                 boxShadow: isDark
+//                   ? "0 20px 45px rgba(0,0,0,.28)"
+//                   : "0 20px 45px rgba(37,99,235,.08)",
 //               }}
 //             >
-//               <Badge radius="xl" color="white" c="blue" variant="filled">
-//                 LET'S BUILD TOGETHER
-//               </Badge>
-
-//               <Title
-//                 c="white"
+//               <Box
+//                 className="testimonial-glow"
 //                 style={{
-//                   fontWeight: 900,
-//                   fontSize: "clamp(2rem,4vw,3.5rem)",
+//                   position: "absolute",
+//                   inset: 0,
+//                   opacity: 0,
+//                   transition: ".35s",
+//                   background:
+//                     "radial-gradient(circle at top right, rgba(37,99,235,.25), transparent 70%)",
 //                 }}
-//               >
-//                 Ready To Transform
-//                 <br />
-//                 Your Business?
-//               </Title>
-
+//               />
+//               <Group justify="space-between" mb={25}>
+//                 <ThemeIcon radius="xl" size={52} variant="light" color="blue">
+//                   <IconQuoteFilled size={28} />
+//                 </ThemeIcon>
+//                 {/* <Group gap={3}>
+//                   {Array.from({ length:  }).map((_, i) => (
+//                     <IconStarFilled key={i} size={18} color="#FFC107" fill="#FFC107" />
+//                   ))}
+//                 </Group> */}
+//               </Group>
 //               <Text
-//                 maw={700}
-//                 style={{
-//                   color: "rgba(255,255,255,.9)",
-//                   lineHeight: 1.9,
-//                 }}
+//                 c="dimmed"
+//                 style={{ lineHeight: 1.9, minHeight: 180, fontStyle: "italic" }}
 //               >
-//                 Join hundreds of satisfied clients who trust Nexflare Dynamics
-//                 for innovative software, web applications, mobile apps and
-//                 enterprise digital transformation.
+//                 "{item.review}"
 //               </Text>
-
-//               <Button size="xl" radius="xl" color="dark" mt={10}>
-//                 Start Your Project
-//               </Button>
-//             </Stack>
-//           </Paper>
-//         </motion.div> */}
-//       </Container>
-
+//               <Rating value={item.rating} readOnly mt={18} color="yellow" />
+//               <Group mt={30} wrap="nowrap">
+//                 <Avatar src={item.image} size={68} radius="xl" />
+//                 <Stack gap={2}>
+//                   <Title order={4} style={{ color: isDark ? "#fff" : "#111827" }}>
+//                     {item.name}
+//                   </Title>
+//                   <Text size="sm" c="dimmed">
+//                     {item.position}
+//                   </Text>
+//                   <Badge radius="xl" variant="light" color="blue" w="fit-content">
+//                     {item.company}
+//                   </Badge>
+//                 </Stack>
+//               </Group>
+//             </Paper>
+//           ))}
+//         </Box>
+//       </Box>
 //       {/* Internal Styles */}
-
 //       <style>{`
-
-//       .testimonial-card{
-
-//         transition:.35s ease;
-
-//       }
-
-//       .testimonial-card:hover{
-
-//         transform:translateY(-10px);
-
-//         border-color:#2563EB !important;
-
-//       }
-
-//       .testimonial-card:hover .testimonial-glow{
-
-//         opacity:1 !important;
-
-//       }
-
-//       @media(max-width:992px){
-
-//         .testimonial-card{
-
-//           padding:28px !important;
-
+//         .marquee-track{
+//           display:flex;
+//           gap:28px;
+//           width:max-content;
+//           animation: marquee-scroll 35s linear infinite;
 //         }
-
-//       }
-
-//       @media(max-width:768px){
-
-//         .testimonial-card{
-
-//           padding:22px !important;
-
+//         .marquee-wrapper:hover .marquee-track{
+//           animation-play-state: paused;
 //         }
-
-//       }
-
-//       @media(max-width:576px){
-
-//         .testimonial-card{
-
-//           padding:18px !important;
-
+//         @keyframes marquee-scroll{
+//           from{ transform: translateX(0); }
+//           to{ transform: translateX(-50%); }
 //         }
-
-//       }
-
-//       .mantine-Carousel-indicator{
-
-//         transition:.3s;
-
-//       }
-
-//       .mantine-Carousel-indicator[data-active]{
-
-//         width:30px;
-
-//         border-radius:20px;
-
-//         background:#2563EB;
-
-//       }
-
+//         .testimonial-card{
+//           transition:.35s ease;
+//         }
+//         .testimonial-card:hover{
+//           transform:translateY(-10px);
+//           border-color:#2563EB !important;
+//         }
+//         .testimonial-card:hover .testimonial-glow{
+//           opacity:1 !important;
+//         }
+//         @media(max-width:992px){
+//           .testimonial-card{ padding:28px !important; width:320px; }
+//         }
+//         @media(max-width:768px){
+//           .testimonial-card{ padding:22px !important; width:280px; }
+//         }
+//         @media(max-width:576px){
+//           .testimonial-card{ padding:18px !important; width:250px; }
+//         }
 //       `}</style>
 //     </Box>
 //   );
 // };
-
 // export default ClientTestimonials;
+
 
 
 import {
@@ -591,25 +310,27 @@ const testimonials = [
     id: 1,
     name: "Azaj Shaikh",
     position: "Owner",
-    company: "Perfect Security Service",
+    company: "Perfect Industrial Security Agency",
+    image: "/perfect.png",
     rating: 5,
     review:
-      "NexHRMS has completely simplified how we manage our workforce. Attendance tracking, payroll and employee records are now just a few clicks away — saving us hours every single week.",
+      "NexHRMS has completely simplified how we manage our workforce. Attendance tracking, payroll and employee records are now very easy — saving us hours every single week.",
   },
   {
     id: 2,
     name: "Umair",
     position: "Owner",
     company: "FuGenEd",
+    image: "/fugened.png",
     rating: 4,
     review:
-      "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics built us a system that's intuitive, fast and genuinely easy for our whole team to use.",
+      "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics built us a system that's very fast and genuinely easy for our whole team to use.",
   },
   {
     id: 3,
     name: "Shanti Bhushan",
-    position: "Manager Director",
-    company: "Maceo Pvt Ltd",
+    position: "Managing  Director",
+    company: "Maceo Private Limited",
     rating: 5,
     review:
       "The onboarding, leave management and reporting features in NexHRMS have brought real structure to our HR processes. Support from the Nexflare team throughout was quick and reliable.",
@@ -619,45 +340,51 @@ const testimonials = [
     name: "Ahesas Naik",
     position: "Founder",
     company: "P&G Solar",
+    image: "/p&g.png",
     rating: 5,
     review:
-      "Nexflare Dynamics built us a website that truly represents our brand — fast, clean and easy to navigate. Customers now find it much easier to learn about our solar solutions and get in touch.",
+      "Nexflare Dynamics transformed our ideas into a professional and engaging website. Their attention to detail, quick responses, and dedication to quality made the entire experience seamless. We're extremely satisfied with the final result.",
   },
   {
     id: 5,
     name: "Rahul Salve",
     position: "CEO & Founder",
-    company: "Janakalyan Multipurpose",
+    company: "Janakalyan Multipurpose Society",
+    image: "/jankalyan.png",
     rating: 5,
     review:
-      "Nexflare Dynamics ran our performance marketing campaigns with real focus on ROI, not just impressions. Our cost per lead dropped significantly while conversions kept climbing month after month.",
+      "Nexflare Dynamics managed our performance marketing campaigns with exceptional professionalism and attention to detail. Their transparent communication, and consistent support made the entire experience smooth and highly effective.",
   },
   {
     id: 6,
     name: "Akshay More",
     position: "Owner",
     company: "Urja Solar",
+    image: "/akshayurja.png",
     rating: 5,
     review:
-      "Their SEO and social media strategy brought us genuine, high-quality leads instead of just vanity numbers. We've seen a real increase in inquiries from our target audience.",
+      "From planning to execution, the Nexflare Dynamics team was supportive, knowledgeable, and easy to work with. Their digital marketing efforts have significantly strengthened our online presence and helped us reach more potential customers.",
   },
   {
     id: 7,
     name: "Yash Gorde Patil",
     position: "CEO",
     company: "Oscillation Energy LLP",
-    rating: 4,
+    image: "/oscillation.png",
+    rating: 5,
     review:
-      "The digital ad campaigns Nexflare ran for us were well targeted and cost-effective. Our brand visibility in the energy sector has noticeably improved over the past few months.",
+      "We appreciate the professionalism and commitment shown by Nexflare Dynamics throughout our collaboration. Their creative solutions and focus on delivering quality have made them a trusted technology partner for our business.",
   },
   {
     id: 8,
     name: "Pranav Kaningdhwaj",
     position: "Founder",
-    company: "Grover Academy",
-    rating: 4,
+    company: "The Groovers Academy",
+    image: "/groovers.png",
+    rating: 5,
     review:
-      "Nexflare handled our social media and admissions marketing beautifully. Parent engagement online has gone up, and our academy's brand feels far more professional now.",
+      "It was a pleasure working with Nexflare Dynamics. They understood our academy's identity and delivered a beautiful digital presence that showcases our classes, events, and achievements. Their creativity and dedication exceeded our expectations.",
+    // "The team at Nexflare Dynamics was professional, creative, and easy to work with. They helped us build a strong digital identity for our dance academy, and we're extremely happy with the quality of their work"
   },
 ];
 // Card ko duplicate karke seamless loop banate hain
@@ -707,8 +434,9 @@ const ClientTestimonials = () => {
             size="lg"
             variant="gradient"
             gradient={{ from: "blue", to: "cyan" }}
+            tt="none"
           >
-            CLIENT TESTIMONIALS
+            Client Testimonials
           </Badge>
           <Title
             ta="center"
@@ -809,7 +537,15 @@ const ClientTestimonials = () => {
                   <Text size="sm" c="dimmed">
                     {item.position}
                   </Text>
-                  <Badge radius="xl" variant="light" color="blue" w="fit-content">
+                  <Badge
+                    radius="xl"
+                    variant="light"
+                    color="blue"
+                    w="fit-content"
+                    tt="none"
+                    size="lg"
+                    style={{ fontSize: 14, padding: "10px 16px" }}
+                  >
                     {item.company}
                   </Badge>
                 </Stack>
