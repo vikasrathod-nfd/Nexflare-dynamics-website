@@ -22,62 +22,109 @@ import { motion } from "framer-motion";
 
 const MotionPaper = motion.create(Paper);
 
+// const services = [
+//   {
+//     title: "Web Development",
+//     description:
+//       "Modern, scalable, and responsive web applications built using the latest technologies to deliver exceptional user experiences.",
+//     icon: IconWorld,
+//     color: "blue",
+//   },
+//   {
+//     title: "Mobile App Development",
+//     description:
+//       "Cross-platform and native mobile applications designed to engage users and accelerate business growth.",
+//     icon: IconDeviceMobile,
+//     color: "cyan",
+//   },
+//   {
+//     title: "ERP Development",
+//     description:
+//       "Enterprise resource planning solutions that streamline operations and improve business efficiency.",
+//     icon: IconBuilding,
+//     color: "indigo",
+//   },
+//   {
+//     title: "CRM Development",
+//     description:
+//       "Customer relationship management systems that enhance customer engagement and sales performance.",
+//     icon: IconUsersGroup,
+//     color: "grape",
+//   },
+//   {
+//     title: "HRMS Solutions",
+//     description:
+//       "Comprehensive HR software for employee management, payroll, attendance, and workforce optimization.",
+//     icon: IconBriefcase,
+//     color: "teal",
+//   },
+//   {
+//     title: "AI Solutions",
+//     description:
+//       "AI-powered applications and automation tools that improve decision-making and operational efficiency.",
+//     icon: IconRobot,
+//     color: "violet",
+//   },
+//   {
+//     title: "Cloud Solutions",
+//     description:
+//       "Secure and scalable cloud infrastructure services that support modern digital transformation initiatives.",
+//     icon: IconCloud,
+//     color: "sky",
+//   },
+//   {
+//     title: "Digital Marketing",
+//     description:
+//       "Data-driven marketing strategies to increase visibility, generate leads, and strengthen your online presence.",
+//     icon: IconBrandGoogle,
+//     color: "orange",
+//   },
+// ];
+
 const services = [
   {
-    title: "Web Development",
+    // id: "custom-software",
+    // category: "Development",
+    icon: IconCode,
+    title: "Custom Software Development",
     description:
-      "Modern, scalable, and responsive web applications built using the latest technologies to deliver exceptional user experiences.",
-    icon: IconWorld,
-    color: "blue",
+      "Tailored solutions that align perfectly with your unique business goals — web, mobile, or enterprise. Our expert team leverages agile methodologies to deliver high-quality, innovative products that drive success.",
   },
+
   {
-    title: "Mobile App Development",
-    description:
-      "Cross-platform and native mobile applications designed to engage users and accelerate business growth.",
-    icon: IconDeviceMobile,
-    color: "cyan",
-  },
-  {
-    title: "ERP Development",
-    description:
-      "Enterprise resource planning solutions that streamline operations and improve business efficiency.",
-    icon: IconBuilding,
-    color: "indigo",
-  },
-  {
-    title: "CRM Development",
-    description:
-      "Customer relationship management systems that enhance customer engagement and sales performance.",
-    icon: IconUsersGroup,
-    color: "grape",
-  },
-  {
-    title: "HRMS Solutions",
-    description:
-      "Comprehensive HR software for employee management, payroll, attendance, and workforce optimization.",
-    icon: IconBriefcase,
-    color: "teal",
-  },
-  {
-    title: "AI Solutions",
-    description:
-      "AI-powered applications and automation tools that improve decision-making and operational efficiency.",
-    icon: IconRobot,
-    color: "violet",
-  },
-  {
-    title: "Cloud Solutions",
-    description:
-      "Secure and scalable cloud infrastructure services that support modern digital transformation initiatives.",
-    icon: IconCloud,
-    color: "sky",
-  },
-  {
+    // id: "digital-marketing",
+    // category: "Marketing",
+    icon: IconUsers,
     title: "Digital Marketing",
     description:
-      "Data-driven marketing strategies to increase visibility, generate leads, and strengthen your online presence.",
-    icon: IconBrandGoogle,
-    color: "orange",
+      "Grow your business with data-driven digital marketing strategies. Our services include SEO, Social Media Marketing, Google Ads, Meta Ads, Content Marketing, Branding, and Performance Marketing to increase visibility, generate quality leads, and maximize your ROI.",
+  },
+
+  {
+    // id: "website-development",
+    // category: "Web Development",
+    icon: IconWorld,
+    title: "Website Development",
+    description:
+      "We create modern, responsive, and high-performance websites tailored to your business needs. From corporate websites and landing pages to e-commerce platforms and custom web applications, we deliver secure, scalable, and user-friendly solutions that strengthen your online presence.",
+  },
+
+  {
+    // id: "devops",
+    // category: "DevOps",
+    icon: IconRefresh,
+    title: "DevOps",
+    description:
+      "Streamline your software lifecycle by integrating development and operations. We leverage CI/CD pipelines, infrastructure as code, and automated monitoring for seamless deployments, scalability, and reliability.",
+  },
+
+  {
+    // id: "software-outsourcing",
+    // category: "Outsourcing",
+    icon: IconUsersGroup,
+    title: "Software Outsourcing",
+    description:
+      "End-to-end development solutions tailored to your business needs. High-quality, scalable, and cost-effective solutions using a global talent pool — from custom application development to maintenance and support.",
   },
 ];
 

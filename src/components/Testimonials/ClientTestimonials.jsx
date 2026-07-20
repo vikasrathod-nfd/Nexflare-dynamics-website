@@ -311,7 +311,7 @@ const testimonials = [
     name: "Azaj Shaikh",
     position: "Owner",
     company: "Perfect Industrial Security Agency",
-    image: "/perfect.png",
+    image: "TestimonialsLogo/perfect.png",
     rating: 5,
     review:
       "NexHRMS has completely simplified how we manage our workforce. Attendance tracking, payroll and employee records are now very easy — saving us hours every single week.",
@@ -321,7 +321,7 @@ const testimonials = [
     name: "Umair",
     position: "Owner",
     company: "FuGenEd",
-    image: "/fugened.png",
+    image: "TestimonialsLogo/fugened.png",
     rating: 4,
     review:
       "Before NexHRMS, managing staff data was a mess of spreadsheets and paperwork. Nexflare Dynamics Private Limited built us a system that's very fast and genuinely easy for our whole team to use.",
@@ -340,7 +340,7 @@ const testimonials = [
     name: "Ahesas Naik",
     position: "Founder",
     company: "P&G Solar",
-    image: "/p&g.png",
+    image: "TestimonialsLogo/p&g.png",
     rating: 5,
     review:
       "Nexflare Dynamics Private Limited transformed our ideas into a professional and engaging website. Their attention to detail, quick responses, and dedication to quality made the entire experience seamless. We're extremely satisfied with the final result.",
@@ -350,7 +350,7 @@ const testimonials = [
     name: "Rahul Salve",
     position: "CEO & Founder",
     company: "Janakalyan Multipurpose Society",
-    image: "/jankalyan.png",
+    image: "TestimonialsLogo/jankalyan.png",
     rating: 5,
     review:
       "Nexflare Dynamics Private Limited managed our performance marketing campaigns with exceptional professionalism and attention to detail. Their transparent communication, and consistent support made the entire experience smooth and highly effective.",
@@ -360,7 +360,7 @@ const testimonials = [
     name: "Akshay More",
     position: "Owner",
     company: "Urja Solar",
-    image: "/akshayurja.png",
+    image: "TestimonialsLogo/akshayurja.png",
     rating: 5,
     review:
       "From planning to execution, the Nexflare Dynamics Private Limited team was supportive, knowledgeable, and easy to work with. Their digital marketing efforts have significantly strengthened our online presence and helped us reach more potential customers.",
@@ -370,7 +370,7 @@ const testimonials = [
     name: "Yash Gorde Patil",
     position: "CEO",
     company: "Oscillation Energy LLP",
-    image: "/oscillation.png",
+    image: "TestimonialsLogo/oscillation.png",
     rating: 5,
     review:
       "We appreciate the professionalism and commitment shown by Nexflare Dynamics Private Limited throughout our collaboration. Their creative solutions and focus on delivering quality have made them a trusted technology partner for our business.",
@@ -380,7 +380,7 @@ const testimonials = [
     name: "Pranav Kaningdhwaj",
     position: "Founder",
     company: "The Groovers Academy",
-    image: "/groovers.png",
+    image: "TestimonialsLogo/groovers.png",
     rating: 5,
     review:
       "It was a pleasure working with Nexflare Dynamics Private Limited. They understood our academy's identity and delivered a beautiful digital presence that showcases our classes, events, and achievements. Their creativity and dedication exceeded our expectations.",

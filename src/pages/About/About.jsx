@@ -4,7 +4,8 @@ import AboutHero from "./AboutHero";
 import AboutCompany from "./AboutCompany";
 import MissionVision from "./MissionVision";
 import WhyChooseUs from "./WhyChooseUs";
-import OurServicesOverview from "./OurServicesOverview";
+// import OurServicesOverview from "./OurServicesOverview";
+import OurServices from "../../services/OurServices";
 import MeetOurTeam from "./MeetOurTeam";
 import ElevateCTAScreen from "./Elevatectascreen";
 import PageTitle from "../../components/PageTitle";
@@ -36,7 +37,8 @@ const About = () => {
         <AboutCompany />
         <MissionVision />
         <WhyChooseUs />
-        <OurServicesOverview />
+        {/* <OurServicesOverview /> */}
+<OurServices/>
         <MeetOurTeam />
         <ElevateCTAScreen />
       </Box>
