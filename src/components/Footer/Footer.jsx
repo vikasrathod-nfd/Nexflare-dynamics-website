@@ -130,7 +130,7 @@ const Footer = () => {
                 <Image src={logoSrc} w={220} fit="contain" style={{ display: "block" }} />
               </Box>
               <Text size="md" fw={500} lh={1.75} style={{ color: dimCol }}>
-                Our mission is to understand the unique challenges faced by our clients and deliver tailored solutions that drive efficiency, productivity, and growth.
+                Our mission is to understand the unique challenges faced by our clients and deliver tailored solutions that drive efficiency, productivity and growth.
               </Text>
               <Group gap={8} mt={10}>
                 {socialLinks.map(({ Icon, href, label, color }) => (
