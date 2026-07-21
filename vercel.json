@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/Softwaredevelopmentcompany/our-products",
+      "destination": "/products",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api).*)",
