@@ -237,7 +237,7 @@ const Home = () => {
                   </Group>
 
                   {/* Main Heading */}
-                  <Title
+                  {/* <Title
                     order={1}
                     ta={{ base: "center", lg: "left" }}
                     style={{
@@ -261,10 +261,57 @@ const Home = () => {
                     </span>
                     <br />
                     Company
+                  </Title> */}
+                  <Title
+                    order={1}
+                    ta={{ base: "center", lg: "left" }}
+                    style={{
+                      fontSize: "clamp(2rem,3.5vw,4.5rem)",
+                      lineHeight: 1.05,
+                      fontWeight: 900,
+                      color: isDark ? "#fff" : "#0F172A",
+                      width: "100%",
+                    }}
+                  >
+                                        
+                    <span
+                      style={{
+                        background: "linear-gradient(90deg,#2563EB,#38BDF8)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                                            Software Development &
+                                          
+                    </span>
+                                                             
+                    {"   "}
+                    <span
+                      style={{
+                        background: "linear-gradient(90deg,#0EA5E9,#22D3EE)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                                            Digital Marketing
+                                          
+                    </span>
+                                        
+                    {"  "}
+                                        
+                    <span
+                      style={{
+                        background: "linear-gradient(90deg,#0EA5E9,#22D3EE)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                                           Company                     
+                    </span>
+                                      
                   </Title>
-
                   {/* Description */}
-                  <Text
+                  {/* <Text
                     size="lg"
                     ta={{ base: "center", lg: "left" }}
                     style={{
@@ -278,10 +325,25 @@ const Home = () => {
                     Revolutionizing software solutions with innovative digital
                     technologies to maximize productivity, ease business
                     operations, and deliver seamless user interactions.
+                  </Text> */}
+                  <Text
+                    size="lg"
+                    ta={{ base: "center", lg: "left" }}
+                    style={{
+                      lineHeight: 1.9,
+                      color: isDark ? "#CBD5E1" : "#475569",
+                      fontSize: "clamp(0.9rem, 2vw, 1.125rem)",
+                      width: "100%",
+                      maxWidth: "100%",
+                    }}
+                  >
+                                        Empowering businesses with innovative
+                    software development and result-driven digital marketing
+                    solutions that accelerate growth, streamline operations, and
+                    create exceptional digital experiences.                   
                   </Text>
-
                   {/* Feature Pills */}
-                  <Box
+                  {/* <Box
                     style={{
                       display: "flex",
                       flexWrap: "wrap",
@@ -303,7 +365,7 @@ const Home = () => {
                       </ThemeIcon>
                       <Text fw={600}>UI / UX Design</Text>
                     </Group>
-                  </Box>
+                  </Box> */}
 
                   {/* CTA Buttons */}
                   <Box
@@ -684,7 +746,7 @@ const Home = () => {
           </Grid>
 
           {/* ================= TECH SCROLL ================= */}
-          <Box mt={{ base: 30, sm: 40, lg: 50 }}>
+        <Box mt={{ base: 40, sm: 50, lg: 60 }}>
             <Stack align="center" mb={40}>
               <Text
                 fw={800}
@@ -696,54 +758,74 @@ const Home = () => {
                 Technologies We've Mastered and Integrated
               </Text>
             </Stack>
-
             <Box
               style={{
                 overflow: "hidden",
                 width: "100%",
                 position: "relative",
-                padding: "15px 0",
+                padding: "20px 0",
               }}
             >
               <motion.div
-                style={{ display: "flex", gap: 25, width: "max-content" }}
+                style={{ display: "flex", gap: 24, width: "max-content" }}
                 animate={{ x: ["0%", "-50%"] }}
-                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+                transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
               >
                 {[...technologies, ...technologies].map(
                   ({ name, icon: Icon, color }, index) => (
-                    <Box
+                    <motion.div
                       key={index}
-                      px={{ base: 16, sm: 22, md: 28 }}
-                      py={{ base: 12, sm: 16, md: 18 }}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 15,
-                        borderRadius: 18,
-                        minWidth: 170,
-                        backdropFilter: "blur(18px)",
-                        background: isDark
-                          ? "rgba(255,255,255,.05)"
-                          : "#ffffff",
-                        border: isDark
-                          ? "1px solid rgba(255,255,255,.08)"
-                          : "1px solid #E5E7EB",
-                        boxShadow: isDark
-                          ? "0 10px 35px rgba(0,0,0,.35)"
-                          : "0 10px 35px rgba(0,0,0,.08)",
-                      }}
+                      whileHover={{ scale: 1.06, y: -6 }}
+                      transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <Icon size={28} color={color} />
-                      <Text fw={700} size="md">
-                        {name}
-                      </Text>
-                    </Box>
-                  ),
+                      <Box
+                        px={{ base: 20, sm: 28 }}
+                        py={{ base: 18, sm: 22 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 16,
+                          borderRadius: 20,
+                          minWidth: 190,
+                          background: isDark
+                            ? `${color}25`
+                            : `${color}15`,
+                          border: `1px solid ${color}40`,
+                          boxShadow: isDark
+                            ? "0 10px 25px rgba(0,0,0,0.35)"
+                            : "0 10px 25px rgba(15,23,42,0.06)",
+                        }}
+                      >
+                        {/* Icon Container */}
+                        <Box
+                          style={{
+                            background: isDark ? `${color}35` : "#ffffff",
+                            borderRadius: "50%",
+                            padding: "12px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Icon size={28} color={color} />
+                        </Box>
+                        <Text
+                          fw={700}
+                          size="md"
+                          style={{
+                            color: isDark ? "#f1f5f9" : "#1e2937",
+                          }}
+                        >
+                          {name}
+                        </Text>
+                      </Box>
+                    </motion.div>
+                  )
                 )}
               </motion.div>
             </Box>
-          </Box>
+            </Box>
+
         </Container>
       </Box>
 

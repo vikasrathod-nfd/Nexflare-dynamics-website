@@ -97,7 +97,6 @@
 
 // export default AboutCompany;
 
-
 import {
   Container,
   Grid,
@@ -171,19 +170,19 @@ const AboutCompany = () => {
               </Title>
 
               <Text size="lg" c="dimmed" lh={1.9}>
-                Nexflare Dynamics is a technology-driven company specializing
-                in <b>Software Development</b> and{" "}
-                <b>Digital Marketing</b> solutions. We partner with startups,
-                growing businesses, and enterprises to build innovative digital
-                products while creating impactful marketing strategies that
-                strengthen brands and accelerate business growth.
+                Nexflare Dynamics is a technology-driven company specializing in{" "}
+                <b>Software Development</b> and <b>Digital Marketing</b>{" "}
+                solutions. We collaborate with businesses and enterprises to
+                deliver innovative digital products and data-driven marketing
+                strategies that strengthen brands, enhance customer engagement,
+                and accelerate business growth.
               </Text>
 
               <Text size="lg" c="dimmed" lh={1.9}>
                 Our expertise includes custom software development, web and
                 mobile application development, enterprise software, cloud
                 solutions, UI/UX design, and API integrations. Alongside
-                technology, we provide SEO, social media marketing, branding,
+                technology, we provide social media marketing, branding, SEO, 
                 performance marketing, and digital advertising to help
                 businesses increase visibility, generate quality leads, and
                 achieve measurable results.
@@ -265,18 +264,11 @@ const AboutCompany = () => {
 
               <Text ta="center" c="dimmed" lh={1.8}>
                 We combine modern software development with strategic digital
-                marketing to help businesses innovate, reach the right
-                audience, strengthen their online presence, and achieve
-                long-term success.
+                marketing to help businesses innovate, reach the right audience,
+                strengthen their online presence, and achieve long-term success.
               </Text>
 
-              <Paper
-                radius="lg"
-                p="md"
-                withBorder
-                w="100%"
-                bg="gray.0"
-              >
+              <Paper radius="lg" p="md" withBorder w="100%" bg="gray.0">
                 <Stack gap="sm">
                   <Group justify="space-between">
                     <Text fw={600}>✔ Custom Software</Text>
