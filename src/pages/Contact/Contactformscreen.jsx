@@ -12,10 +12,12 @@ import {
   useComputedColorScheme,
   ThemeIcon,
   Button,
+  Paper,
 } from "@mantine/core";
 import { Phone, ArrowRight } from "lucide-react";
 import axios from "axios";
 import { IconCheck, IconSend } from "@tabler/icons-react";
+import { motion } from "framer-motion";
 
 const teal = "#06b6d4";
 
