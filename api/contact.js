@@ -189,7 +189,6 @@ export default async function handler(req, res) {
 <td>${phone || "-"}</td>
 </tr>
 
-
 <tr>
 <td><strong>Submitted On</strong></td>
 <td>${new Date().toLocaleString()}</td>

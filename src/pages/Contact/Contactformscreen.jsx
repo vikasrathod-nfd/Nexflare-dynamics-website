@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { Phone, ArrowRight } from "lucide-react";
 import axios from "axios";
-import { IconCheck } from "@tabler/icons-react";
+import { IconCheck, IconSend } from "@tabler/icons-react";
 
 const teal = "#06b6d4";
 
@@ -216,14 +216,39 @@ const ContactFormScreen = () => {
           </Stack>
 
           {/* Right column — form */}
-          <Box
+          {/* <Box
             style={{
               background: isDark ? "rgba(255,255,255,0.02)" : "#ffffff",
               border: `1px solid ${cardBorder}`,
               borderRadius: 18,
               padding: "32px",
             }}
+          > */}
+          <Box
+            style={{
+              background: isDark ? "#1B2434" : "#FFFFFF",
+              borderRadius: 28,
+              padding: 36,
+              border: `1px solid ${
+                isDark ? "rgba(255,255,255,.08)" : "#DCE8F8"
+              }`,
+              boxShadow: isDark
+                ? "0 20px 60px rgba(0,0,0,.35)"
+                : "0 25px 60px rgba(37,99,235,.10)",
+              position: "relative",
+              overflow: "hidden",
+            }}
           >
+            <Box
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: 4,
+                background: "linear-gradient(90deg,#2563EB,#38BDF8)",
+              }}
+            />
             <Title
               order={3}
               style={{
@@ -245,30 +270,118 @@ const ContactFormScreen = () => {
             </Text>
 
             {submitted ? (
-              <Stack align="center" justify="center" gap="lg" py={40}>
-                <ThemeIcon size={90} radius="xl" color="teal" variant="light">
-                  <IconCheck size={50} stroke={2.5} />
-                </ThemeIcon>
+              // <Stack align="center" justify="center" gap="lg" py={40}>
+              //   <ThemeIcon size={90} radius="xl" color="teal" variant="light">
+              //     <IconCheck size={50} stroke={2.5} />
+              //   </ThemeIcon>
 
-                <Title order={2} ta="center">
-                  Message Sent Successfully!
-                </Title>
+              //   <Title order={2} ta="center">
+              //     Message Sent Successfully!
+              //   </Title>
 
-                <Text ta="center" c="dimmed" maw={420} size="sm" lh={1.7}>
-                  Thank you for contacting us. Our team has received your
-                  enquiry and will get back to you within 24 hours.
-                </Text>
+              //   <Text ta="center" c="dimmed" maw={420} size="sm" lh={1.7}>
+              //     Thank you for contacting us. Our team has received your
+              //     enquiry and will get back to you within 24 hours.
+              //   </Text>
 
-                <Button
-                  radius="md"
-                  size="md"
-                  variant="gradient"
-                  gradient={{ from: "cyan", to: "teal" }}
-                  onClick={() => setSubmitted(false)}
+              //   <Button
+              //     radius="md"
+              //     size="md"
+              //     variant="gradient"
+              //     gradient={{ from: "cyan", to: "teal" }}
+              //     onClick={() => setSubmitted(false)}
+              //   >
+              //     Submit Another Form
+              //   </Button>
+              // </Stack>
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Paper
+                  radius={22}
+                  p={40}
+                  mt={30}
+                  withBorder
+                  style={{
+                    textAlign: "center",
+                    background: isDark ? "#1F2E4D" : "#EEF5FF",
+                    border: `1px solid ${
+                      isDark ? "rgba(59,130,246,.25)" : "rgba(59,130,246,.18)"
+                    }`,
+                  }}
                 >
-                  Submit Another Form
-                </Button>
-              </Stack>
+                  <ThemeIcon
+                    size={74}
+                    radius="xl"
+                    mx="auto"
+                    mb={22}
+                    variant="gradient"
+                    gradient={{ from: "#17A9E6", to: "#2589E6" }}
+                  >
+                    <IconSend
+                      size={34}
+                      stroke={2}
+                      color="white"
+                      style={{ transform: "rotate(-20deg)" }}
+                    />
+                  </ThemeIcon>
+
+                  <Title
+                    order={3}
+                    mb={8}
+                    style={{
+                      color: isDark ? "#fff" : "#202020",
+                      fontWeight: 700,
+                    }}
+                  >
+                    Message sent!
+                  </Title>
+
+                  <Text
+                    size="sm"
+                    c={isDark ? "gray.4" : "gray.7"}
+                    maw={320}
+                    mx="auto"
+                    mb={30}
+                    lh={1.7}
+                  >
+                    Thanks for contacting us. Our team will reach out to you
+                    within 24 hours.
+                  </Text>
+
+                  <Button
+                    radius="xl"
+                    size="md"
+                    px={36}
+                    variant="gradient"
+                    gradient={
+                      isDark
+                        ? { from: "#153B69", to: "#0F4C81" }
+                        : { from: "#D8ECFF", to: "#B9DEFF" }
+                    }
+                    styles={{
+                      root: {
+                        color: isDark ? "#fff" : "#1971C2",
+                        fontWeight: 600,
+                        height: 46,
+                      },
+                    }}
+                    onClick={() => {
+                      setSubmitted(false);
+                      setName("");
+                      setEmail("");
+                      setPhone("");
+                      setCompany("");
+                      setService("");
+                      setQuery("");
+                    }}
+                  >
+                    Send another message
+                  </Button>
+                </Paper>
+              </motion.div>
             ) : (
               <Stack gap={18} mt={26}>
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={16}>
