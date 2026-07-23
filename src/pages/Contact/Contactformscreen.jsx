@@ -10,9 +10,12 @@ import {
   Textarea,
   Select,
   useComputedColorScheme,
+  ThemeIcon,
+  Button,
 } from "@mantine/core";
 import { Phone, ArrowRight } from "lucide-react";
 import axios from "axios";
+import { IconCheck } from "@tabler/icons-react";
 
 const teal = "#06b6d4";
 
@@ -46,6 +49,8 @@ const expectations = [
 const ContactFormScreen = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
+
+  const [submitted, setSubmitted] = useState(false);
 
   // const [query, setQuery] = useState("");
 
@@ -111,7 +116,7 @@ const ContactFormScreen = () => {
 
       console.log(response.data);
 
-      alert("Message Sent Successfully");
+      setSubmitted(true);
 
       setName("");
       setEmail("");
@@ -239,105 +244,137 @@ const ContactFormScreen = () => {
               team will get back to you promptly.
             </Text>
 
-            <Stack gap={18} mt={26}>
-              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={16}>
-                <TextInput
-                  label="Full Name *"
-                  placeholder="e.g. Rahul Sharma"
-                  styles={inputStyles}
-                  value={name}
-                  onChange={(e) => setName(e.currentTarget.value)}
-                />
-                <TextInput
-                  label="Email Address *"
-                  placeholder="you@company.com"
-                  styles={inputStyles}
-                  value={email}
-                  onChange={(e) => setEmail(e.currentTarget.value)}
-                />
-              </SimpleGrid>
+            {submitted ? (
+              <Stack align="center" justify="center" gap="lg" py={40}>
+                <ThemeIcon size={90} radius="xl" color="teal" variant="light">
+                  <IconCheck size={50} stroke={2.5} />
+                </ThemeIcon>
 
-              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={16}>
-                <TextInput
-                  label="Phone Number *"
-                  placeholder="+91 98765 43210"
-                  styles={inputStyles}
-                  value={phone}
-                  onChange={(e) => setPhone(e.currentTarget.value)}
-                />
-                <Select
-                  label="Service Interested In"
-                  placeholder="Select a service"
-                  data={[
-                    "HRM Software",
-                    "ERP Software",
-                    "CRM Software",
-                    "Project Manager",
-                    "Mobile Apps",
-                    "Appointment Booking",
-                    "Accounting & Finance",
-                    "Not sure yet",
-                  ]}
-                  styles={inputStyles}
-                  value={service}
-                  onChange={setService}
-                />
-              </SimpleGrid>
+                <Title order={2} ta="center">
+                  Message Sent Successfully!
+                </Title>
 
-              <TextInput
-                label="Company / Organisation"
-                placeholder="Your company name (optional)"
-                styles={inputStyles}
-                value={company}
-                onChange={(e) => setCompany(e.currentTarget.value)}
-              />
-
-              <Box>
-                <Textarea
-                  label="Your Query *"
-                  placeholder="Tell us about your project, requirements, or any questions you have..."
-                  minRows={4}
-                  maxLength={500}
-                  value={query}
-                  onChange={(e) => setQuery(e.currentTarget.value)}
-                  styles={inputStyles}
-                />
-                <Text size="xs" ta="right" mt={4} style={{ color: bodyColor }}>
-                  {query.length} / 500
+                <Text ta="center" c="dimmed" maw={420} size="sm" lh={1.7}>
+                  Thank you for contacting us. Our team has received your
+                  enquiry and will get back to you within 24 hours.
                 </Text>
-              </Box>
 
-              <Box
-                component="button"
-                type="button"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 8,
-                  width: "100%",
-                  padding: "14px 0",
-                  borderRadius: 10,
-                  border: "none",
-                  background: "linear-gradient(135deg,#0891b2,#06b6d4)",
-                  color: "#fff",
-                  fontWeight: 600,
-                  fontSize: 15,
-                  cursor: "pointer",
-                }}
-                onClick={handleSubmit}
-              >
-                Send Message <ArrowRight size={16} />
-              </Box>
+                <Button
+                  radius="md"
+                  size="md"
+                  variant="gradient"
+                  gradient={{ from: "cyan", to: "teal" }}
+                  onClick={() => setSubmitted(false)}
+                >
+                  Submit Another Form
+                </Button>
+              </Stack>
+            ) : (
+              <Stack gap={18} mt={26}>
+                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={16}>
+                  <TextInput
+                    label="Full Name *"
+                    placeholder="e.g. Rahul Sharma"
+                    styles={inputStyles}
+                    value={name}
+                    onChange={(e) => setName(e.currentTarget.value)}
+                  />
+                  <TextInput
+                    label="Email Address *"
+                    placeholder="you@company.com"
+                    styles={inputStyles}
+                    value={email}
+                    onChange={(e) => setEmail(e.currentTarget.value)}
+                  />
+                </SimpleGrid>
 
-              <Text size="xs" ta="center" style={{ color: bodyColor }}>
-                We typically respond within{" "}
-                <Text component="span" fw={700} style={{ color: teal }}>
-                  24 hours
-                </Text>{" "}
-                on business days.
-              </Text>
-            </Stack>
+                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={16}>
+                  <TextInput
+                    label="Phone Number *"
+                    placeholder="+91 98765 43210"
+                    styles={inputStyles}
+                    value={phone}
+                    onChange={(e) => setPhone(e.currentTarget.value)}
+                  />
+                  <Select
+                    label="Service Interested In"
+                    placeholder="Select a service"
+                    data={[
+                      "HRM Software",
+                      "ERP Software",
+                      "CRM Software",
+                      "Project Manager",
+                      "Mobile Apps",
+                      "Appointment Booking",
+                      "Accounting & Finance",
+                      "Not sure yet",
+                    ]}
+                    styles={inputStyles}
+                    value={service}
+                    onChange={setService}
+                  />
+                </SimpleGrid>
+
+                <TextInput
+                  label="Company / Organisation"
+                  placeholder="Your company name (optional)"
+                  styles={inputStyles}
+                  value={company}
+                  onChange={(e) => setCompany(e.currentTarget.value)}
+                />
+
+                <Box>
+                  <Textarea
+                    label="Your Query *"
+                    placeholder="Tell us about your project, requirements, or any questions you have..."
+                    minRows={4}
+                    maxLength={500}
+                    value={query}
+                    onChange={(e) => setQuery(e.currentTarget.value)}
+                    styles={inputStyles}
+                  />
+                  <Text
+                    size="xs"
+                    ta="right"
+                    mt={4}
+                    style={{ color: bodyColor }}
+                  >
+                    {query.length} / 500
+                  </Text>
+                </Box>
+
+                <Box
+                  component="button"
+                  type="button"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    width: "100%",
+                    padding: "14px 0",
+                    borderRadius: 10,
+                    border: "none",
+                    background: "linear-gradient(135deg,#0891b2,#06b6d4)",
+                    color: "#fff",
+                    fontWeight: 600,
+                    fontSize: 15,
+                    cursor: "pointer",
+                  }}
+                  onClick={handleSubmit}
+                >
+                  Send Message <ArrowRight size={16} />
+                </Box>
+
+                <Text size="xs" ta="center" style={{ color: bodyColor }}>
+                  We typically respond within{" "}
+                  <Text component="span" fw={700} style={{ color: teal }}>
+                    24 hours
+                  </Text>{" "}
+                  on business days.
+                </Text>
+              </Stack>
+            )}
           </Box>
         </SimpleGrid>
       </Container>

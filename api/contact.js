@@ -162,7 +162,7 @@ export default async function handler(req, res) {
 
 <tr>
 <td style="background:#0B5ED7;padding:25px;color:#ffffff;text-align:center;">
-<h1 style="margin:0;">Nexflare Dynamics</h1>
+<h1 style="margin:0;">Nexflare Dynamics Pvt Ltd</h1>
 <p style="margin-top:10px;">New Contact Form Submission</p>
 </td>
 </tr>
@@ -189,6 +189,7 @@ export default async function handler(req, res) {
 <td>${phone || "-"}</td>
 </tr>
 
+
 <tr>
 <td><strong>Submitted On</strong></td>
 <td>${new Date().toLocaleString()}</td>
@@ -209,7 +210,7 @@ ${message}
 
 <tr>
 <td style="background:#fafafa;padding:20px;text-align:center;font-size:13px;color:#777;">
-© ${new Date().getFullYear()} Nexflare Dynamics. All Rights Reserved.
+© ${new Date().getFullYear()} Nexflare Dynamics Pvt Ltd. All Rights Reserved.
 </td>
 </tr>
 
@@ -235,7 +236,7 @@ ${message}
       from: process.env.FROM_EMAIL,
       // from: "Nexflare Dynamics <contact-us@nexflaredynamics.com>",
       to: email,
-      subject: "Thank You for Contacting Nexflare Dynamics",
+      subject: "Thank You for Contacting Nexflare Dynamics Pvt Ltd",
       html: `
 <!DOCTYPE html>
 <html>
@@ -256,7 +257,7 @@ ${message}
 <tr>
 <td style="background:#0B5ED7;padding:30px;text-align:center;color:#ffffff;">
 
-<h1 style="margin:0;">Nexflare Dynamics</h1>
+<h1 style="margin:0;">Nexflare Dynamics Pvt Ltd</h1>
 
 <p style="margin-top:10px;">
 Empowering Businesses with Innovative Technology
@@ -272,7 +273,7 @@ Empowering Businesses with Innovative Technology
 <h2>Hello ${name}, 👋</h2>
 
 <p>
-Thank you for contacting <strong>Nexflare Dynamics</strong>.
+Thank you for contacting <strong>Nexflare Dynamics Pvt Ltd</strong>.
 </p>
 
 <p>
@@ -322,7 +323,7 @@ Regards,<br>
 
 <td style="background:#fafafa;padding:25px;text-align:center;font-size:13px;color:#777;">
 
-Nexflare Dynamics<br>
+Nexflare Dynamics Pvt Ltd<br>
 
 🌐 https://www.nexflaredynamics.com
 
