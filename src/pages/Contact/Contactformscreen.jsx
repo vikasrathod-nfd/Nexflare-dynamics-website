@@ -13,6 +13,7 @@ import {
   ThemeIcon,
   Button,
   Paper,
+  Loader,
 } from "@mantine/core";
 import { Phone, ArrowRight } from "lucide-react";
 import axios from "axios";
@@ -458,7 +459,7 @@ const ContactFormScreen = () => {
                   </Text>
                 </Box>
 
-                <Box
+                {/* <Box
                   component="button"
                   type="button"
                   style={{
@@ -479,8 +480,28 @@ const ContactFormScreen = () => {
                   onClick={handleSubmit}
                 >
                   Send Message <ArrowRight size={16} />
-                </Box>
-
+                </Box> */}
+                <Button
+                  fullWidth
+                  radius="md"
+                  size="md"
+                  onClick={handleSubmit}
+                  disabled={loading}
+                  leftSection={
+                    loading ? (
+                      <Loader color="white" size="xs" type="oval" />
+                    ) : null
+                  }
+                  rightSection={!loading ? <ArrowRight size={16} /> : null}
+                  style={{
+                    height: 50,
+                    background: "linear-gradient(135deg,#0891b2,#06b6d4)",
+                    color: "#fff",
+                    fontWeight: 600,
+                  }}
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </Button>
                 <Text size="xs" ta="center" style={{ color: bodyColor }}>
                   We typically respond within{" "}
                   <Text component="span" fw={700} style={{ color: teal }}>
