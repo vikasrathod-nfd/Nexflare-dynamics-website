@@ -243,10 +243,10 @@ const AboutCompany = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(248,250,252,1) 0%, rgba(255,255,255,1) 100%)",
-            }}
+            // style={{
+            //   background:
+            //     "linear-gradient(180deg, rgba(248,250,252,1) 0%, rgba(255,255,255,1) 100%)",
+            // }}
           >
             <Stack align="center" gap="lg">
               <ThemeIcon
@@ -268,7 +268,7 @@ const AboutCompany = () => {
                 strengthen their online presence, and achieve long-term success.
               </Text>
 
-              <Paper radius="lg" p="md" withBorder w="100%" bg="gray.0">
+              <Paper radius="lg" p="md" withBorder w="100%">
                 <Stack gap="sm">
                   <Group justify="space-between">
                     <Text fw={600}>✔ Custom Software</Text>

@@ -153,6 +153,7 @@ import {
   ActionIcon,
   Box,
   Container,
+  Flex,
   Group,
   Paper,
   SimpleGrid,
@@ -174,22 +175,22 @@ const teamMembers = [
     id: 1,
     name: "Shubham Lokhande",
     role: "Founder & CEO",
-    image: "Images/ShubhamSir.jpeg",
+    image: "Images/ShubhamSirNewOnee.jpeg",
   },
 
   {
     id: 2,
     name: "Rohit Lokhande",
     role: "Marketing Head",
-    image: "Images/RohitSir.jpeg",
+    image: "Images/RohitSirNew.jpeg",
   },
 
-  {
-    id: 3,
-    name: "Vikas Rathod",
-    role: "Lead Software Engineer",
-    image: "Images/Vikas4.jpeg",
-  },
+  // {
+  //   id: 3,
+  //   name: "Vikas Rathod",
+  //   role: "Lead Software Engineer",
+  //   image: "Images/Vikas4.jpeg",
+  // },
 ];
 
 const MeetOurTeam = () => {
@@ -235,32 +236,27 @@ const MeetOurTeam = () => {
           </Text>
         </Stack>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={28}>
+        <Group justify="center" gap={30} align="flex-start" wrap="wrap">
           {teamMembers.map((member, index) => (
             <MotionPaper
               key={member.id}
               radius={0}
               shadow="none"
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.15,
               }}
-              whileHover={{
-                y: -8,
-              }}
+              whileHover={{ y: -8 }}
               style={{
+                width: 450,
+                maxWidth: "100%",
                 cursor: "pointer",
                 overflow: "hidden",
                 background: "transparent",
+                flex: "0 0 450px",
               }}
             >
               {/* Image */}
@@ -268,28 +264,24 @@ const MeetOurTeam = () => {
                 style={{
                   position: "relative",
                   overflow: "hidden",
-                  height: 340,
+                  height: 500,
                 }}
               >
                 <motion.img
                   src={member.image}
                   alt={member.name}
-                  whileHover={{
-                    scale: 1.08,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                  }}
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.4 }}
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    objectPosition: "top",
                     display: "block",
                   }}
                 />
 
                 {/* Bottom Information Card */}
-
                 <Paper
                   radius={0}
                   shadow="md"
@@ -300,11 +292,9 @@ const MeetOurTeam = () => {
                     right: 18,
                     bottom: 18,
                     background: isDark ? theme.colors.dark[7] : theme.white,
-
                     border: isDark
                       ? `1px solid ${theme.colors.dark[5]}`
                       : "1px solid #ECECEC",
-
                     boxShadow: isDark
                       ? "0 10px 40px rgba(0,0,0,.45)"
                       : "0 10px 30px rgba(0,0,0,.08)",
@@ -324,19 +314,12 @@ const MeetOurTeam = () => {
                         {member.role}
                       </Text>
                     </Stack>
-
-                    {/* <ActionIcon
-                      variant="subtle"
-                      color={isDark ? "gray" : "dark"}
-                    >
-                      <IconArrowUpRight size={18} stroke={1.8} />
-                    </ActionIcon> */}
                   </Group>
                 </Paper>
               </Box>
             </MotionPaper>
           ))}
-        </SimpleGrid>
+        </Group>
 
         {/* Slider Dots */}
 
