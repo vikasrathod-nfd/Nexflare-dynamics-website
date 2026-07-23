@@ -109,13 +109,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, service, company, message } = req.body;
 
-    // ===========================
-    // Validation
-    // ===========================
-
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !message) {
       return res.status(400).json({
         success: false,
         message: "Please fill all required fields.",
@@ -127,11 +123,25 @@ export default async function handler(req, res) {
     // ===========================
 
     await sql`
-      INSERT INTO contact_messages
-      (full_name, email, phone, message)
-      VALUES
-      (${name}, ${email}, ${phone}, ${message});
-    `;
+  INSERT INTO contact_messages
+  (
+    full_name,
+    email,
+    phone,
+    service,
+    company,
+    message
+  )
+  VALUES
+  (
+    ${name},
+    ${email},
+    ${phone},
+    ${service || null},
+    ${company || null},
+    ${message}
+  );
+`;
 
     console.log("Database Saved Successfully");
 
