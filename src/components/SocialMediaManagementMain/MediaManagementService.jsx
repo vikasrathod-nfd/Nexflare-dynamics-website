@@ -1,126 +1,132 @@
-import {
-  Box,
-  Card,
-  Container,
-  rem,
-  SimpleGrid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-  useComputedColorScheme,
-} from "@mantine/core";
-import {
-  IconCalendarEvent,
-  IconMessage2,
-  IconAd2,
-  IconUsersGroup,
-  IconChartInfographic,
-  IconApps,
-} from "@tabler/icons-react";
-
-const services = [
+import { Box, Container, Title, Text, SimpleGrid, Stack, useComputedColorScheme } from "@mantine/core";
+const PLATFORMS = [
   {
-    icon: IconCalendarEvent,
-    title: "Content Strategy & Creation",
-    description:
-      "Custom content calendars, on-brand graphics, short-form video, and copy built around what your audience actually engages with.",
+    icon: "📸",
+    title: "Instagram",
+    description: "Daily Posts, Stories & Reels",
   },
   {
-    icon: IconMessage2,
-    title: "Community Management",
-    description:
-      "Timely replies to comments and DMs, proactive engagement, and a consistent brand voice across every conversation.",
+    icon: "📘",
+    title: "Facebook",
+    description: "Page Management & Groups",
   },
   {
-    icon: IconAd2,
-    title: "Paid Social Advertising",
-    description:
-      "Full-funnel campaigns on Meta, TikTok, and LinkedIn — audience targeting, creative testing, and budget optimization.",
+    icon: "💼",
+    title: "LinkedIn",
+    description: "Company Page & Employee Advocacy",
   },
   {
-    icon: IconUsersGroup,
-    title: "Influencer Partnerships",
-    description:
-      "Creator sourcing, outreach, and campaign management that fits your budget and puts your product in front of the right people.",
+    icon: "▶️",
+    title: "YouTube",
+    description: "Uploads, Descriptions & Community Tab",
   },
   {
-    icon: IconChartInfographic,
-    title: "Analytics & Reporting",
-    description:
-      "Monthly reporting on reach, engagement, and conversions, with clear takeaways on what to double down on next.",
+    icon: "🎵",
+    title: "Twitter/X",
+    description: "Daily Posting & Engagement",
   },
   {
-    icon: IconApps,
-    title: "Platform-Specific Strategy",
-    description:
-      "Tailored playbooks for Instagram, Facebook, LinkedIn, TikTok, X, and YouTube — because a one-size approach doesn't work.",
+    icon: "📌",
+    title: "Pinterest",
+    description: "Pin Scheduling & Board Management",
   },
 ];
-
-const SMMServiceSection = () => {
+const MediaManagementService = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-
+  const colors = {
+    eyebrow: "#14b8a6",
+    heading: isDark ? "#ffffff" : "#0f172a",
+    headingAccent: "#14b8a6",
+    subtitle: isDark ? "rgba(226,232,240,0.72)" : "#475569",
+    cardBg: isDark ? "rgba(255,255,255,0.03)" : "#ffffff",
+    cardBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
+    cardShadow: isDark
+      ? "0 1px 2px rgba(0,0,0,0.4)"
+      : "0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04)",
+    cardTitle: isDark ? "#ffffff" : "#0f172a",
+    cardText: isDark ? "rgba(226,232,240,0.65)" : "#64748b",
+  };
   return (
-    <Box py={rem(100)}>
-      <Container size="lg">
-        <Stack align="center" gap="xs" mb={rem(56)}>
-          <Text fw={600} c="cyan" tt="uppercase" size="sm">
-            What We Do
+    <Box component="section" style={{ padding: "96px 0" }}>
+      <Container size="xl">
+        <Stack gap={6} maw={720} mb={56}>
+          <Text
+            style={{
+              color: colors.eyebrow,
+              textTransform: "uppercase",
+              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: 1.2,
+            }}
+          >
+            Platforms We Manage
           </Text>
-          <Title order={2} ta="center" style={{ fontSize: rem(38) }}>
-            Everything your social presence needs
+          <Title
+            order={2}
+            style={{
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              margin: 0,
+              color: colors.heading,
+            }}
+          >
+            Every Channel,{" "}
+            <Box component="span" style={{ color: colors.headingAccent }}>
+              Handled Daily
+            </Box>
           </Title>
-          <Text ta="center" c="dimmed" maw={rem(560)}>
-            One team, every platform — strategy, creative, community, and paid
-            media working together instead of in silos.
+          <Text
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.7,
+              color: colors.subtitle,
+              marginTop: 8,
+            }}
+          >
+            We take full ownership of your day-to-day presence across every
+            platform your audience uses.
           </Text>
         </Stack>
-
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
-          {services.map(({ icon: Icon, title, description }) => (
-            <Card
-              key={title}
-              radius="lg"
-              padding="xl"
-              withBorder
+        <SimpleGrid cols={{ base: 2, sm: 3, lg: 6 }} spacing={20}>
+          {PLATFORMS.map((platform) => (
+            <Box
+              key={platform.title}
               style={{
-                background: isDark
-                  ? "rgba(255,255,255,0.02)"
-                  : "rgba(255,255,255,0.7)",
-                transition: "transform 150ms ease, box-shadow 150ms ease",
+                backgroundColor: colors.cardBg,
+                border: `1px solid ${colors.cardBorder}`,
+                borderRadius: 16,
+                padding: "32px 20px",
+                boxShadow: colors.cardShadow,
+                textAlign: "center",
               }}
-              className="smm-service-card"
             >
-              <ThemeIcon
-                size={48}
-                radius="md"
-                variant="gradient"
-                gradient={{ from: "#2563eb", to: "#06b6d4", deg: 90 }}
-                mb="md"
+              <Text style={{ fontSize: 32, marginBottom: 16, lineHeight: 1 }}>{platform.icon}</Text>
+              <Text
+                style={{
+                  fontSize: "1.0625rem",
+                  fontWeight: 700,
+                  color: colors.cardTitle,
+                  marginBottom: 8,
+                }}
               >
-                <Icon size={24} stroke={1.6} />
-              </ThemeIcon>
-              <Text fw={600} size="lg" mb={4}>
-                {title}
+                {platform.title}
               </Text>
-              <Text c="dimmed" size="sm">
-                {description}
+              <Text
+                style={{
+                  fontSize: "0.875rem",
+                  lineHeight: 1.55,
+                  color: colors.cardText,
+                }}
+              >
+                {platform.description}
               </Text>
-            </Card>
+            </Box>
           ))}
         </SimpleGrid>
       </Container>
-
-      <style>{`
-        .smm-service-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(6,182,212,0.12);
-        }
-      `}</style>
     </Box>
   );
 };
-
-export default SMMServiceSection;
+export default MediaManagementService;

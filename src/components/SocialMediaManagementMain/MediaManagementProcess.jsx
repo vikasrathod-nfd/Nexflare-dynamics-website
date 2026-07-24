@@ -1,114 +1,157 @@
-import {
-  Box,
-  Container,
-  Group,
-  rem,
-  Stack,
-  Text,
-  Title,
-  useComputedColorScheme,
-} from "@mantine/core";
-
-const steps = [
+import { Box, Container, Title, Text, SimpleGrid, Stack, useComputedColorScheme } from "@mantine/core";
+const FEATURES = [
   {
-    number: "01",
-    title: "Audit & Discovery",
+    icon: "📅",
+    title: "Daily Posting",
     description:
-      "We review your current channels, competitors, and audience to find the gaps and opportunities worth acting on.",
+      "Consistent, on-brand posts scheduled and published across all your channels every single day — no gaps, no missed windows.",
   },
   {
-    number: "02",
-    title: "Strategy & Content Calendar",
+    icon: "💬",
+    title: "Community Management",
     description:
-      "A platform-by-platform plan with themes, posting cadence, and campaign tentpoles mapped out a month at a time.",
+      "Real-time monitoring, comment replies, and DM management so no follower message ever goes unanswered.",
   },
   {
-    number: "03",
-    title: "Content Creation & Publishing",
+    icon: "🎨",
+    title: "Content Calendar",
     description:
-      "Design, copy, and video get produced, approved, and scheduled — nothing goes live without your sign-off.",
+      "A monthly calendar planned around key dates, campaigns, and trends — approved by you before anything goes live.",
   },
   {
-    number: "04",
-    title: "Community Engagement",
+    icon: "🛡️",
+    title: "Reputation Monitoring",
     description:
-      "We monitor and respond to comments and messages daily, keeping your brand voice consistent and present.",
+      "Ongoing tracking of mentions and sentiment so we can flag issues early and protect your brand's reputation.",
   },
   {
-    number: "05",
-    title: "Measure & Optimize",
+    icon: "📊",
+    title: "Performance Reporting",
     description:
-      "Monthly reporting shows what's working, and we adjust targeting, formats, and spend based on real performance data.",
+      "Monthly reports on reach, engagement, and follower growth, with clear takeaways and next steps — no jargon.",
+  },
+  {
+    icon: "🤝",
+    title: "Dedicated Account Manager",
+    description:
+      "One point of contact who knows your brand inside-out and is accountable for results across every platform.",
   },
 ];
-
-const SMMProcessSection = () => {
+const MediaManagementProcess = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-
+  const colors = {
+    eyebrow: "#14b8a6",
+    heading: isDark ? "#ffffff" : "#0f172a",
+    headingAccent: "#14b8a6",
+    subtitle: isDark ? "rgba(226,232,240,0.72)" : "#475569",
+    cardBg: isDark ? "rgba(255,255,255,0.03)" : "#ffffff",
+    cardBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
+    cardShadow: isDark
+      ? "0 1px 2px rgba(0,0,0,0.4)"
+      : "0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04)",
+    iconBg: isDark ? "rgba(255,255,255,0.05)" : "rgba(13,148,136,0.08)",
+    iconBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(13,148,136,0.15)",
+    cardTitle: isDark ? "#ffffff" : "#0f172a",
+    cardText: isDark ? "rgba(226,232,240,0.65)" : "#64748b",
+  };
   return (
-    <Box py={rem(100)}>
-      <Container size="md">
-        <Stack align="center" gap="xs" mb={rem(64)}>
-          <Text fw={600} c="cyan" tt="uppercase" size="sm">
-            How It Works
+    <Box component="section" style={{ padding: "96px 0" }}>
+      <Container size="xl">
+        <Stack gap={6} maw={720} mb={56}>
+          <Text
+            style={{
+              color: colors.eyebrow,
+              textTransform: "uppercase",
+              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: 1.2,
+            }}
+          >
+            What We Offer
           </Text>
-          <Title order={2} ta="center" style={{ fontSize: rem(38) }}>
-            A repeatable process, not guesswork
+          <Title
+            order={2}
+            style={{
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              margin: 0,
+              color: colors.heading,
+            }}
+          >
+            Full-Service Social{" "}
+            <Box component="span" style={{ color: colors.headingAccent }}>
+              Management
+            </Box>
           </Title>
+          <Text
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.7,
+              color: colors.subtitle,
+              marginTop: 8,
+            }}
+          >
+            From daily posting to reputation monitoring — everything needed
+            to keep your social presence active and on-brand.
+          </Text>
         </Stack>
-
-        <Stack gap={0}>
-          {steps.map((step, idx) => (
-            <Group
-              key={step.number}
-              align="flex-start"
-              wrap="nowrap"
-              gap="lg"
-              py="lg"
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={24}>
+          {FEATURES.map((feature) => (
+            <Box
+              key={feature.title}
               style={{
-                borderLeft: `2px solid ${
-                  isDark ? "rgba(6,182,212,0.25)" : "rgba(37,99,235,0.15)"
-                }`,
-                paddingLeft: rem(32),
-                marginLeft: rem(20),
                 position: "relative",
+                backgroundColor: colors.cardBg,
+                border: `1px solid ${colors.cardBorder}`,
+                borderRadius: 16,
+                padding: "32px 28px",
+                boxShadow: colors.cardShadow,
+                overflow: "hidden",
               }}
             >
               <Box
                 style={{
-                  position: "absolute",
-                  left: rem(-21),
-                  top: rem(20),
-                  width: rem(40),
-                  height: rem(40),
-                  borderRadius: "50%",
+                  width: 48,
+                  height: 48,
+                  borderRadius: 12,
+                  backgroundColor: colors.iconBg,
+                  border: `1px solid ${colors.iconBorder}`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontWeight: 700,
-                  fontSize: rem(13),
-                  color: "#fff",
-                  background:
-                    "linear-gradient(90deg, #2563eb, #06b6d4)",
+                  fontSize: 22,
+                  marginBottom: 20,
                 }}
               >
-                {step.number}
+                {feature.icon}
               </Box>
-              <Stack gap={4}>
-                <Text fw={600} size="lg">
-                  {step.title}
-                </Text>
-                <Text c="dimmed" size="sm" maw={rem(520)}>
-                  {step.description}
-                </Text>
-              </Stack>
-            </Group>
+              <Text
+                style={{
+                  fontSize: "1.0625rem",
+                  fontWeight: 700,
+                  color: colors.cardTitle,
+                  marginBottom: 10,
+                  lineHeight: 1.35,
+                }}
+              >
+                {feature.title}
+              </Text>
+              <Text
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.65,
+                  color: colors.cardText,
+                }}
+              >
+                {feature.description}
+              </Text>
+            </Box>
           ))}
-        </Stack>
+        </SimpleGrid>
       </Container>
     </Box>
   );
 };
-
-export default SMMProcessSection;
+export default MediaManagementProcess;

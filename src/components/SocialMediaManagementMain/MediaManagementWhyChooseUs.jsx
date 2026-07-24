@@ -1,103 +1,143 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Group,
-  rem,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-  useComputedColorScheme,
-} from "@mantine/core";
-import {
-  IconClockHour4,
-  IconPalette,
-  IconTargetArrow,
-  IconShieldCheck,
-} from "@tabler/icons-react";
-
-const reasons = [
-  {
-    icon: IconClockHour4,
-    title: "Consistent, on-time posting",
-    description:
-      "No more gaps in your feed. Your calendar is planned and published on schedule, every week.",
-  },
-  {
-    icon: IconPalette,
-    title: "In-house creative team",
-    description:
-      "Designers, video editors, and copywriters who build content specifically for your brand — no templates.",
-  },
-  {
-    icon: IconTargetArrow,
-    title: "Strategy tied to real goals",
-    description:
-      "Every post ladders up to awareness, engagement, or conversion targets we agree on together.",
-  },
-  {
-    icon: IconShieldCheck,
-    title: "Full transparency",
-    description:
-      "You get a shared content calendar and monthly reporting — always know what's posted and how it performed.",
-  },
+import { Box, Container, Title, Text, Stack, Group, SimpleGrid, UnstyledButton, useComputedColorScheme } from "@mantine/core";
+const CHECKLIST = [
+  "Dedicated account manager who knows your brand voice",
+  "Posts go live daily — never a stale or inactive feed",
+  "Comments and DMs answered within hours, not days",
+  "Monthly reporting with clear, jargon-free insights",
+  "Content approved by you before it ever goes live",
+  "Crisis response plan in place for reputation issues",
 ];
-
-const SMMWhyChooseUs = () => {
+const MediaManagementWhyChooseUs = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-
+  const colors = {
+    eyebrow: "#14b8a6",
+    heading: isDark ? "#ffffff" : "#0f172a",
+    headingAccent: "#14b8a6",
+    paragraph: isDark ? "rgba(226,232,240,0.72)" : "#475569",
+    checkIcon: "#14b8a6",
+    checkText: isDark ? "rgba(226,232,240,0.85)" : "#334155",
+    imageBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
+    imageShadow: isDark
+      ? "0 20px 60px rgba(0,0,0,0.5)"
+      : "0 20px 45px rgba(15,23,42,0.12)",
+  };
+  const handleStartTodayClick = () => {
+    window.location.href = "/contact"; // Change if your contact route is different
+  };
   return (
-    <Box
-      py={rem(100)}
-      style={{
-        background: isDark
-          ? "rgba(37,99,235,0.04)"
-          : "rgba(37,99,235,0.03)",
-      }}
-    >
-      <Container size="lg">
-        <Grid gutter={rem(48)} align="center">
-          <Grid.Col span={{ base: 12, md: 5 }}>
-            <Text fw={600} c="cyan" tt="uppercase" size="sm" mb="xs">
-              Why Choose Us
-            </Text>
-            <Title order={2} style={{ fontSize: rem(38), lineHeight: 1.15 }}>
-              Social media management that actually moves the business
-            </Title>
-            <Text c="dimmed" mt="md">
-              We treat your channels like a growth channel, not a checkbox —
-              with the strategy, creative, and accountability to prove it.
-            </Text>
-          </Grid.Col>
-
-          <Grid.Col span={{ base: 12, md: 7 }}>
-            <Stack gap="lg">
-              {reasons.map(({ icon: Icon, title, description }) => (
-                <Group key={title} align="flex-start" wrap="nowrap" gap="md">
-                  <ThemeIcon
-                    size={44}
-                    radius="md"
-                    variant="light"
-                    color="blue"
+    <Box component="section" style={{ padding: "96px 0" }}>
+      <Container size="xl">
+        <SimpleGrid cols={{ base: 1, md: 2 }} spacing={64} verticalSpacing={40}>
+          <Box
+            style={{
+              borderRadius: 16,
+              overflow: "hidden",
+              border: `1px solid ${colors.imageBorder}`,
+              boxShadow: colors.imageShadow,
+              alignSelf: "start",
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1200&q=80"
+              alt="Team managing social media accounts"
+              style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+            />
+          </Box>
+          <Stack gap={20}>
+            <Stack gap={6}>
+              <Text
+                style={{
+                  color: colors.eyebrow,
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  fontSize: 13,
+                  letterSpacing: 1.2,
+                }}
+              >
+                Why Choose Us
+              </Text>
+              <Title
+                order={2}
+                style={{
+                  fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                  fontWeight: 800,
+                  lineHeight: 1.15,
+                  margin: 0,
+                  color: colors.heading,
+                }}
+              >
+                Consistent Presence,{" "}
+                <Box component="span" style={{ color: colors.headingAccent }}>
+                  Zero Hassle
+                </Box>
+              </Title>
+              <Text
+                style={{
+                  fontSize: "1.0625rem",
+                  lineHeight: 1.7,
+                  color: colors.paragraph,
+                  marginTop: 8,
+                }}
+              >
+                We take social media off your plate completely — handling
+                the daily grind so you can focus on running your business.
+              </Text>
+            </Stack>
+            <Stack gap={14}>
+              {CHECKLIST.map((item) => (
+                <Group key={item} gap={12} wrap="nowrap" align="flex-start">
+                  <Box
+                    component="span"
+                    style={{
+                      color: colors.checkIcon,
+                      fontWeight: 700,
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      flexShrink: 0,
+                    }}
                   >
-                    <Icon size={22} stroke={1.6} />
-                  </ThemeIcon>
-                  <Stack gap={2}>
-                    <Text fw={600}>{title}</Text>
-                    <Text c="dimmed" size="sm">
-                      {description}
-                    </Text>
-                  </Stack>
+                    ✓
+                  </Box>
+                  <Text
+                    style={{
+                      fontSize: "1rem",
+                      lineHeight: 1.6,
+                      color: colors.checkText,
+                    }}
+                  >
+                    {item}
+                  </Text>
                 </Group>
               ))}
             </Stack>
-          </Grid.Col>
-        </Grid>
+            <UnstyledButton
+              style={{
+                backgroundColor: "#14b8a6",
+                color: "#04201c",
+                fontWeight: 700,
+                fontSize: 15,
+                paddingLeft: 28,
+                paddingRight: 28,
+                height: 52,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 999,
+                width: "fit-content",
+                marginTop: 12,
+                transition: "background-color 150ms ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#14b8a6")}
+              onClick={handleStartTodayClick}
+            >
+              Get Started Today
+            </UnstyledButton>
+          </Stack>
+        </SimpleGrid>
       </Container>
     </Box>
   );
 };
-
-export default SMMWhyChooseUs;
+export default MediaManagementWhyChooseUs;
