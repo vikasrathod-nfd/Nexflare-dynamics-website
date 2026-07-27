@@ -94,8 +94,8 @@ const Services = () => {
 
         <HowWeWork />
         <IndustriesWeServe />
-        <ConnectOurTeam />
-        <ClientReviews />
+        {/* <ConnectOurTeam /> */}
+        {/* <ClientReviews /> */}
         <LetsBuildTogether />
       </Box>
     </>
