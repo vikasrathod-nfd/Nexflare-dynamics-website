@@ -49,7 +49,7 @@ const technologies = [
 
 const services = [
   {
-    title: "Enterprise Software",
+    title: "Enterprise resource planning",
     icon: IconBuilding,
     color: "blue",
   },
@@ -151,10 +151,7 @@ const CustomSoftwareDevelopment = () => {
                   {/* Description */}
 
                   <Text size="lg" c="dimmed" lh={1.9}>
-                    We build modern software products that help startups,
-                    enterprises, and growing businesses automate operations,
-                    improve customer experience, and scale faster using the
-                    latest technologies.
+                    Modern businesses require technology that is agile, reliable, and built to scale. We create innovative software, intelligent automation, and digital platforms that simplify complex processes, improve efficiency, and help organizations stay competitive in a rapidly evolving market.
                   </Text>
 
                   {/* Features */}
@@ -316,6 +313,7 @@ const CustomSoftwareDevelopment = () => {
                                 ? "rgba(255,255,255,.03)"
                                 : "#ffffff",
                           }}
+                         
                         >
                           <Group justify="space-between">
                             <Group>
@@ -335,7 +333,7 @@ const CustomSoftwareDevelopment = () => {
                         </MotionCard>
                       </motion.div>
                     ))}
-
+                    
                     <Paper
                       radius="lg"
                       p="md"

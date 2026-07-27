@@ -29,49 +29,49 @@ const DigitalMarketing = () => {
   const isDark = computedColorScheme === "dark";
 
   const services = [
-    {
-      icon: Megaphone,
-      title: "Paid Advertising (PPC)",
-      description:
-        "Strategic ad campaigns across Google Ads, Meta, and LinkedIn to drive immediate traffic and maximize your ROI with precision targeting.",
-      image: "/ServicesImage/PPC.jpg",
-    },
-    {
-      icon: Search,
-      title: "SEO & Content Strategy",
-      description:
-        "Boost organic visibility with technical SEO, on-page optimization, and high-value content that resonates with your audience and ranks.",
-      image: "/ServicesImage/SEO.jpg",
-    },
-    {
-      icon: Share2,
-      title: "Social Media Marketing",
-      description:
-        "Engage communities across platforms. We create and curate content that builds brand loyalty and turns followers into customers.",
-      image: "/ServicesImage/Social.jpg",
-    },
-    {
-      icon: BarChart3,
-      title: "Analytics & Data Reporting",
-      description:
-        "Make informed decisions with transparent reporting. We track KPIs that matter, providing deep insights into campaign performance and growth.",
-      image: "/ServicesImage/Analyticsss.jpg",
-    },
-    {
-      icon: Mail,
-      title: "Email Marketing & Automation",
-      description:
-        "Nurture leads and drive repeat sales with personalized email sequences, automated workflows, and targeted customer segmentation.",
-      image: "/ServicesImage/Email.jpg",
-    },
-    {
-      icon: PenTool,
-      title: "Conversion Rate Optimization (CRO)",
-      description:
-        "Turn more visitors into buyers. We analyze user behavior and A/B test landing pages to continuously improve your conversion rates.",
-      image: "/ServicesImage/cro.jpg",
-    },
-  ];
+  {
+    icon: Share2,
+    title: "Social Media Marketing",
+    description:
+      "Engage communities across every major platform with content that sparks conversation and builds brand loyalty. We craft a consistent voice backed by data-driven insights to refine what works. Every post ties back to your broader business goals, turning followers into loyal customers.",
+    image: "/ServicesImage/Social.jpg",
+  },
+  {
+    icon: Search,
+    title: "SEO & Content Strategy",
+    description:
+      "Boost organic visibility with technical SEO, on-page optimization, and content built around real keyword research. We help you rank higher while establishing your brand as an authority in your niche. The result is sustainable traffic growth without relying on paid spend.",
+    image: "/ServicesImage/SEO.jpg",
+  },
+  {
+    icon: Megaphone,
+    title: "Paid Advertising (PPC)",
+    description:
+      "Strategic ad campaigns across Google Ads, Meta, and LinkedIn drive immediate, measurable traffic to your business. We handle targeting, creative, and bid optimization to eliminate wasted spend. The goal is always to maximize ROI while scaling your reach efficiently.",
+    image: "/ServicesImage/PPC.jpg",
+  },
+  {
+    icon: Share2, // or IconBrandInstagram / Users / MessageCircle if available
+    title: "Social Media Management",
+    description:
+      "Build a strong online presence with consistent posting, engaging content, and active audience interaction across every platform. We manage day-to-day engagement while tracking performance to refine strategy over time. The result is a cohesive brand presence that grows authentically.",
+    image: "/ServicesImage/SocialMediaManagement.jpg",
+  },
+  {
+    icon: Mail,
+    title: "Email Marketing & Automation",
+    description:
+      "Nurture leads and drive repeat sales with personalized email sequences and automated workflows. Targeted customer segmentation ensures each message reaches the right audience at the right time. It's a reliable, low-cost channel that keeps customers engaged long-term.",
+    image: "/ServicesImage/Email.jpg",
+  },
+  {
+    icon: PenTool,
+    title: "Conversion Rate Optimization (CRO)",
+    description:
+      "Turn more visitors into buyers without increasing ad spend. We analyze real user behavior and run A/B tests on landing pages and CTAs to find what converts. Every optimization is backed by evidence for steady, sustainable improvement.",
+    image: "/ServicesImage/cro.jpg",
+  },
+];
 
   const highlights = [
     "Data-Driven Growth Strategies",
@@ -116,9 +116,7 @@ const DigitalMarketing = () => {
             mx="auto"
             lh={1.6}
           >
-            Scale your online presence with result-oriented digital marketing
-            services. From SEO to paid advertising, we create strategies that
-            deliver measurable growth.
+            Power your business with innovative marketing solutions that turn online visibility into profitable customer relationships.
           </Text>
         </Box>
 
@@ -133,12 +131,11 @@ const DigitalMarketing = () => {
                 style={{
                   position: "relative",
                   // HR-Changes: Required for zoom effect on child
-                  overflow: "hidden", 
+                  overflow: "hidden",
                   height: 420,
                   cursor: "pointer",
-                  border: `1px solid ${
-                    isDark ? "rgba(255,255,255,.08)" : "rgba(37,99,235,.08)"
-                  }`,
+                  border: `1px solid ${isDark ? "rgba(255,255,255,.08)" : "rgba(37,99,235,.08)"
+                    }`,
                   transition: "all .35s ease",
                 }}
                 // HR-Changes: Hover selector targeting class on Image
@@ -158,7 +155,7 @@ const DigitalMarketing = () => {
                   w="100%"
                   fit="cover"
                   style={{
-                    transition: "transform 0.8s ease-out", 
+                    transition: "transform 0.8s ease-out",
                     position: "absolute", // Sit behind everything
                     top: 0,
                     left: 0
@@ -175,8 +172,8 @@ const DigitalMarketing = () => {
                     background:
                       "linear-gradient(to top, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 60%, rgba(0,0,0,.3) 100%)",
                     // The blur effect applied to the area behind this box
-                    backdropFilter: "blur(2px)", 
-                    WebkitBackdropFilter: "blur(2px)", 
+                    backdropFilter: "blur(2px)",
+                    WebkitBackdropFilter: "blur(2px)",
                     zIndex: 1,
                   }}
                 />
@@ -236,9 +233,8 @@ const DigitalMarketing = () => {
             background: isDark
               ? "linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(6,182,212,0.08) 100%)"
               : "linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.04) 100%)",
-            border: `1px solid ${
-              isDark ? "rgba(37,99,235,0.2)" : "rgba(37,99,235,0.1)"
-            }`,
+            border: `1px solid ${isDark ? "rgba(37,99,235,0.2)" : "rgba(37,99,235,0.1)"
+              }`,
           }}
         >
           <SimpleGrid
