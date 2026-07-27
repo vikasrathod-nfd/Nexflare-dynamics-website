@@ -223,228 +223,226 @@
 // export default ServicesOverview;
 
 
-import React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Grid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-  useComputedColorScheme,
-} from "@mantine/core";
+  import React from "react";
+  import {
+    Box,
+    Button,
+    Card,
+    Container,
+    Grid,
+    Stack,
+    Text,
+    ThemeIcon,
+    Title,
+    useComputedColorScheme,
+  } from "@mantine/core";
 
-import { Link } from "react-router-dom";
+  import { Link } from "react-router-dom";
 
-import {
-  IconCode,
-  IconDeviceMobile,
-  IconCloud,
-  IconArrowRight,
-  IconBrandGoogle,
-  IconWorldWww,
-} from "@tabler/icons-react";
+  import {
+    IconCode,
+    IconDeviceMobile,
+    IconCloud,
+    IconArrowRight,
+    IconBrandGoogle,
+    IconWorldWww,
+  } from "@tabler/icons-react";
 
-const services = [
-  {
-    title: "Custom Software Development",
-    id: "custom-software",
-    description:
-      "Tailored web, mobile, and enterprise products built with agile methodology — aligned perfectly to your unique business goals.",
-    icon: IconCode,
-    color: "#10b981",
-  },
-  {
-    title: "Digital Marketing",
-    id: "digital-marketing",
-    description:
-      "SEO, PPC, Social Media Marketing, Content Marketing, and Performance Campaigns designed to increase brand visibility, generate quality leads, and maximize ROI.",
-    icon: IconBrandGoogle,
-    color: "#f97316",
-  },
-  {
-    title: "Website Development",
-    id: "web-development",
-    description:
-      "Modern, responsive, and high-performance websites built with the latest technologies to deliver exceptional user experiences and drive business growth.",
-    icon: IconWorldWww,
-    color: "#0ea5e9",
-  },
-  {
-    title: "Dev Ops",
-    id: "devops",
-    description:
-      "CI/CD pipelines, infrastructure as code, automated monitoring. Seamless deployments with enterprise-grade reliability.",
-    icon: IconCloud,
-    color: "#2563eb",
-  },
-  {
-    title: "Software Outsourcing",
-    id: "software-outsourcing",
-    description:
-      "End-to-end development using a global talent pool. High quality, cost-effective, and fully managed from discovery to launch.",
-    icon: IconDeviceMobile,
-    color: "#06b6d4",
-  },
-  {
-    title: "Project & Resource Consulting",
-    id: "consulting",
-    description:
-      "Expert guidance, team augmentation, and strategic technology advisory for optimal project outcomes at every scale.",
-    icon: IconCloud,
-    color: "#8b5cf6",
-  },
-];
+  const services = [
+    {
+      title: "Custom Software Development",
+      id: "custom-software",
+      description:
+        "Tailored web, mobile, and enterprise products built with agile methodology — aligned perfectly to your unique business goals.",
+      icon: IconCode,
+      color: "#10b981",
+    },
+    {
+      title: "Digital Marketing",
+      id: "digital-marketing",
+      description:
+        "Social Media Marketing, Performance Mrketing, Social Media Management, SEO, PPC Advertising, Email Marketing, and Analytics & Reporting designed to increase brand visibility, generate quality leads, and maximize ROI.",
+      icon: IconBrandGoogle,
+      color: "#f97316",
+    },
+    {
+      title: "Website Development",
+      id: "website-development",
+      description:
+        "Modern, responsive, and high-performance websites built with the latest technologies to deliver exceptional user experiences and drive business growth.",
+      icon: IconWorldWww,
+      color: "#0ea5e9",
+    },
+    {
+      title: "Dev Ops",
+      id: "devops",
+      description:
+        "CI/CD pipelines, infrastructure as code, automated monitoring. Seamless deployments with enterprise-grade reliability.",
+      icon: IconCloud,
+      color: "#2563eb",
+    },
+    {
+      title: "Software Outsourcing",
+      id: "software-outsourcing",
+      description:
+        "End-to-end development using a global talent pool. High quality, cost-effective, and fully managed from discovery to launch.",
+      icon: IconDeviceMobile,
+      color: "#06b6d4",
+    },
+    {
+      title: "Project & Resource Consulting",
+      id: "consulting",
+      description:
+        "Expert guidance, team augmentation, and strategic technology advisory for optimal project outcomes at every scale.",
+      icon: IconCloud,
+      color: "#8b5cf6",
+    },
+  ];
 
-const ServicesOverview = () => {
-  const scheme = useComputedColorScheme("light");
+  const ServicesOverview = () => {
+    const scheme = useComputedColorScheme("light");
 
-  return (
-    <Container size="xl" py={120}>
-      {/* Custom Styles for Marquee Animation and Equal Height Cards */}
-      <style>{`
-        @keyframes scrollMarquee {
-          0% {
-            transform: translateX(0);
+    return (
+      <Container size="xl" py={120}>
+        {/* Custom Styles for Marquee Animation and Equal Height Cards */}
+        <style>{`
+          @keyframes scrollMarquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
           }
-          100% {
-            transform: translateX(-50%);
+
+          .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
           }
-        }
 
-        .marquee-container {
-          overflow: hidden;
-          width: 100%;
-          position: relative;
-        }
+          .marquee-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scrollMarquee 30s linear infinite;
+          }
 
-        .marquee-track {
-          display: flex;
-          gap: 24px;
-          width: max-content;
-          animation: scrollMarquee 30s linear infinite;
-        }
+          .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+          }
 
-        .marquee-container:hover .marquee-track {
-          animation-play-state: paused;
-        }
+          .marquee-card {
+            width: 320px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            height: 400px !important; /* Fixed uniform height for all cards */
+          }
+        `}</style>
 
-        .marquee-card {
-          width: 320px;
-          flex-shrink: 0;
-          display: flex;
-          flex-direction: column;
-          height: 400px !important; /* Fixed uniform height for all cards */
-        }
-      `}</style>
+        {/* Top Section */}
+        <Grid mb={70} align="center">
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <Stack gap="md">
+              <Text fw={700} c="blue" tt="uppercase" size="sm">
+                OUR CORE SERVICES
+              </Text>
 
-      {/* Top Section */}
-      <Grid mb={70} align="center">
-        <Grid.Col span={{ base: 12, md: 6 }}>
-          <Stack gap="md">
-            <Text fw={700} c="blue" tt="uppercase" size="sm">
-              OUR CORE SERVICES
-            </Text>
-
-            <Title
-              order={1}
-              style={{
-                fontSize: "clamp(2.5rem,4vw,4rem)",
-                lineHeight: 1.1,
-              }}
-            >
-              Technology Solutions
-              <br />
-              Built For Modern
-              <br />
-              Businesses
-            </Title>
-          </Stack>
-        </Grid.Col>
-
-        <Grid.Col span={{ base: 12, md: 6 }}>
-          <Stack gap="xl">
-            <Text size="lg" c="dimmed" lh={1.9}>
-              We deliver end-to-end digital solutions that help startups,
-              enterprises, and growing businesses accelerate innovation, improve
-              operational efficiency, and build future-ready software products.
-            </Text>
-
-            <Button
-              component={Link}
-              to="/contact"
-              radius="xl"
-              size="md"
-              w={200}
-              rightSection={<IconArrowRight size={18} />}
-            >
-              Get Free Quote
-            </Button>
-          </Stack>
-        </Grid.Col>
-      </Grid>
-
-      {/* Marquee Cards Section */}
-      <div className="marquee-container">
-        <div className="marquee-track">
-          {/* Render cards twice to create a seamless infinite loop effect */}
-          {[...services, ...services].map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card
-                key={index}
-                withBorder
-                radius={0}
-                p={35}
-                className="marquee-card"
+              <Title
+                order={1}
                 style={{
-                  background: scheme === "dark" ? "#0f172a" : "#ffffff",
-                  borderColor: scheme === "dark" ? "#1e293b" : "#e5e7eb",
-                  cursor: "pointer",
+                  fontSize: "clamp(2.5rem,4vw,4rem)",
+                  lineHeight: 1.1,
                 }}
               >
-                <Stack justify="space-between" h="100%">
-                  <Stack gap="md">
-                    <ThemeIcon size={60} radius="xl" variant="light" color="blue">
-                      <IconComponent size={30} color={service.color} />
-                    </ThemeIcon>
+                Technology Solutions
+                <br />
+                Built For Modern
+                <br />
+                Businesses
+              </Title>
+            </Stack>
+          </Grid.Col>
 
-                    <Title order={3} fz={20}>{service.title}</Title>
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <Stack gap="xl">
+              <Text size="lg" c="dimmed" lh={1.9}>
+              We deliver innovative technology solutions that help modern businesses streamline operations, improve productivity, and accelerate growth. From custom software and cloud applications to AI-powered systems and digital transformation, we build solutions designed for today's challenges and tomorrow's opportunities.
+              </Text>
 
-                    <Text c="dimmed" size="sm" lh={1.6}>
-                      {service.description}
-                    </Text>
+              <Button
+                component={Link}
+                to="/contact"
+                radius="xl"
+                size="md"
+                w={200}
+                rightSection={<IconArrowRight size={18} />}
+              >
+                Get Free Quote
+              </Button>
+            </Stack>
+          </Grid.Col>
+        </Grid>
+
+        {/* Marquee Cards Section */}
+        <div className="marquee-container">
+          <div className="marquee-track">
+            {/* Render cards twice to create a seamless infinite loop effect */}
+            {[...services, ...services].map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card
+                  key={index}
+                  withBorder
+                  radius={0}
+                  p={35}
+                  className="marquee-card"
+                  style={{
+                    background: scheme === "dark" ? "#0f172a" : "#ffffff",
+                    borderColor: scheme === "dark" ? "#1e293b" : "#e5e7eb",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Stack justify="space-between" h="100%">
+                    <Stack gap="md">
+                      <ThemeIcon size={60} radius="xl" variant="light" color="blue">
+                        <IconComponent size={30} color={service.color} />
+                      </ThemeIcon>
+
+                      <Title order={3} fz={20}>{service.title}</Title>
+
+                      <Text c="dimmed" size="sm" lh={1.6}>
+                        {service.description}
+                      </Text>
+                    </Stack>
+
+                    <Button
+                      variant="subtle"
+                      p={10}
+                      justify="start"
+                      color="blue"
+                      rightSection={<IconArrowRight size={16} />}
+                      onClick={() => {
+                        const element = document.getElementById(service.id);
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }
+                      }}
+                    >
+                      Explore
+                    </Button>
                   </Stack>
-
-                  <Button
-                    variant="subtle"
-                    p={10}
-                    justify="start"
-                    color="blue"
-                    rightSection={<IconArrowRight size={16} />}
-                    onClick={() => {
-                      const element = document.getElementById(service.id);
-                      if (element) {
-                        element.scrollIntoView({
-                          behavior: "smooth",
-                          block: "start",
-                        });
-                      }
-                    }}
-                  >
-                    Explore
-                  </Button>
-                </Stack>
-              </Card>
-            );
-          })}
+                </Card>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </Container>
-  );
-};
+      </Container>
+    );
+  };
 
-export default ServicesOverview;
+  export default ServicesOverview;

@@ -12,11 +12,7 @@ import {
 import { IconArrowRight } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
-const contactInfo = [
-  { label: "Phone", value: "+91-8237525097" },
-  { label: "Email", value: "enquiry@nexflaredynamics.com" },
-  { label: "Location", value: "Kharadi, Pune" },
-];
+
 
 const LetsBuildTogether = () => {
   const navigate = useNavigate();
@@ -167,30 +163,8 @@ const LetsBuildTogether = () => {
             </Box>
           </Group>
 
-          <Divider w="100%" color={dividerColor} mb={32} />
 
-          <Group gap={0} justify="center" w="100%">
-            {contactInfo.map(({ label, value }, i) => (
-              <Group key={label} gap={0} wrap="nowrap">
-                <Stack gap={4} align="center" px={{ base: 20, sm: 40 }}>
-                  <Text
-                    size="xs"
-                    fw={600}
-                    tt="uppercase"
-                    style={{ letterSpacing: 1, color: labelColor }}
-                  >
-                    {label}
-                  </Text>
-                  <Text fw={700} size="sm" style={{ color: accent }}>
-                    {value}
-                  </Text>
-                </Stack>
-                {i < contactInfo.length - 1 && (
-                  <Divider orientation="vertical" color={dividerColor} />
-                )}
-              </Group>
-            ))}
-          </Group>
+          
         </Stack>
       </Container>
     </Box>

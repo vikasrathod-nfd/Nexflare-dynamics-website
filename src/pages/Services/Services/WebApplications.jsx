@@ -303,6 +303,20 @@
 
 
 import React from "react";
+// import {
+//   Container,
+//   Title,
+//   Text,
+//   SimpleGrid,
+//   Card,
+//   Group,
+//   ThemeIcon,
+//   Button,
+//   Box,
+//   Badge,
+//   useComputedColorScheme,
+//   Image,
+// } from "@mantine/core";
 import {
   Container,
   Title,
@@ -333,50 +347,50 @@ const WebApplications = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
-  const features = [
-    {
-      icon: Layout,
-      title: "Custom Single-Page Apps (SPAs)",
-      description:
-        "Lightning-fast, highly responsive dynamic web applications built with modern frameworks like React and Next.js.",
-      image: "/ServicesImage/SPA.webp",
-    },
-    {
-      icon: Zap,
-      title: "Progressive Web Apps (PWAs)",
-      description:
-        "Deliver native mobile-like experiences on the web with offline capabilities.",
-      image: "/ServicesImage/pwa.jpg",
-    },
-    {
-      icon: Layers,
-      title: "Enterprise Portals & Dashboards",
-      description:
-        "Data-rich dashboards and enterprise portals for modern businesses.",
-      image: "/ServicesImage/dashboard.webp",
-    },
-    {
-      icon: Globe,
-      title: "Scalable SaaS Platforms",
-      description:
-        "End-to-end SaaS product development engineered for high availability.",
-      image: "/ServicesImage/saas.webp",
-    },
-    {
-      icon: Database,
-      title: "Backend & API Integration",
-      description:
-        "Secure APIs, scalable databases and third-party integrations.",
-      image: "/ServicesImage/api.jpg",
-    },
-    {
-      icon: Smartphone,
-      title: "Responsive UI/UX",
-      description:
-        "Pixel-perfect mobile-first interfaces with exceptional user experience.",
-      image: "/ServicesImage/responsive.jpg",
-    },
-  ];
+const features = [
+  {
+    icon: Layout,
+    title: "Custom Single-Page Apps (SPAs)",
+    description:
+      "Lightning-fast, highly responsive web applications built with modern frameworks like React and Next.js. We architect every SPA for smooth client-side routing, instant page transitions, and minimal load times. The result is an app-like experience that keeps users engaged without full page reloads.",
+    image: "/ServicesImage/SPA.webp",
+  },
+  {
+    icon: Zap,
+    title: "Progressive Web Apps (PWAs)",
+    description:
+      "Deliver native mobile-like experiences on the web with offline capabilities and push notifications built in. Our PWAs load instantly, work reliably even on flaky networks, and can be installed directly from the browser. Users get app-store quality without ever visiting an app store.",
+    image: "/ServicesImage/pwa.jpg",
+  },
+  {
+    icon: Layers,
+    title: "Enterprise Portals & Dashboards",
+    description:
+      "Data-rich dashboards and enterprise portals designed to simplify complex workflows for modern businesses. We build role-based access, real-time data visualization, and intuitive navigation into every portal. The result is a centralized system that empowers teams to make faster, informed decisions.",
+    image: "/ServicesImage/dashboard.webp",
+  },
+  {
+    icon: Globe,
+    title: "Scalable SaaS Platforms",
+    description:
+      "End-to-end SaaS product development engineered for high availability, multi-tenancy, and effortless scaling. From initial architecture to billing integrations and user onboarding, we build platforms ready to grow with your business. Every layer is optimized to handle increasing users and data without compromising performance.",
+    image: "/ServicesImage/saas.webp",
+  },
+  {
+    icon: Database,
+    title: "Backend & API Integration",
+    description:
+      "Secure, well-documented APIs paired with scalable databases and seamless third-party integrations. We design backend architecture that handles high traffic loads while keeping your data protected and consistent. Whether connecting payment gateways, CRMs, or internal systems, we ensure everything communicates reliably.",
+    image: "/ServicesImage/api.jpg",
+  },
+  {
+    icon: Smartphone,
+    title: "Responsive UI/UX",
+    description:
+      "Pixel-perfect, mobile-first interfaces crafted for an exceptional user experience across every device and screen size. We focus on intuitive navigation, accessibility, and consistent visual design from mobile to desktop. The result is an interface that feels effortless no matter how users access it.",
+    image: "/ServicesImage/responsive.jpg",
+  },
+];
 
   const highlights = [
     "High Performance & Core Web Vitals Optimization",

@@ -396,7 +396,7 @@ const ServicesHero = () => {
   return (
     <Box
       component="section"
-      style={{ 
+      style={{
         position: "relative",
         background: parentBackground, // Inherited complex gradient background
         width: "100%",
@@ -424,27 +424,30 @@ const ServicesHero = () => {
                 </Badge>
               </MotionDiv>
 
-              <MotionDiv custom={1} initial="hidden" animate="visible" variants={ANIMATION_UP_VARIANTS}>
+              <MotionDiv
+                custom={1}
+                initial="hidden"
+                animate="visible"
+                variants={ANIMATION_UP_VARIANTS}
+              >
                 <Title
                   c={titleColor}
                   style={{
-                    fontSize: "clamp(2.8rem, 5vw, 4.8rem)", // Slightly adjusted to match first component
-                    lineHeight: 1.15, // Slightly adjusted to match first component
-                    fontWeight: 800, // Slightly adjusted to match first component
-                    letterSpacing: "-1px", // Slightly softened
+                    fontSize: "clamp(2.8rem, 3.5vw, 4.5rem)",
+                    lineHeight: 1.15,
+                    fontWeight: 800,
+                    letterSpacing: "-1px",
                   }}
                 >
-                  Build Future-Ready
+                  Build Future-Ready with
                   <br />
-                  {/* Development removed, Services moved here to match structure */}
                   <Text
                     component="span"
                     inherit
                     variant="gradient"
-                    gradient={{ from: "blue", to: "cyan", deg: 90 }} // Simplified gradient to match first component
+                    gradient={{ from: "blue", to: "cyan", deg: 90 }}
                   >
-                    {" "}
-                    Digital Solutions
+                    Software Services & Digital Marketing Solutions
                   </Text>
                 </Title>
               </MotionDiv>
@@ -457,7 +460,7 @@ const ServicesHero = () => {
                   lh={1.9} // Adjusted to match first component
                   style={{ fontWeight: 400 }}
                 >
-                  We design and develop secure, scalable and modern software products that help startups, SMEs and enterprises automate operations and accelerate growth.
+                  Empower your business with innovative software development and result-driven digital marketing solutions. From custom web and mobile applications to SEO, social media marketing, branding, and performance marketing, we help businesses streamline operations, strengthen their online presence, and achieve sustainable growth in the digital era.
                 </Text>
               </MotionDiv>
 
@@ -499,7 +502,7 @@ const ServicesHero = () => {
                 <Text fw={800} fz="lg" mb="lg" c={capabilitiesTitleColor}>
                   Core Capabilities
                 </Text>
-                
+
                 <Stack gap="lg">
                   {/* Capability 1 */}
                   <Group align="flex-start" wrap="nowrap">
@@ -507,11 +510,11 @@ const ServicesHero = () => {
                       <IconSettings size={20} />
                     </ThemeIcon>
                     <div>
-                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Custom Development</Text>
+                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Customization Software Development</Text>
                       <Text fz="sm" c={capabilitiesTextColor}>Tailored software solutions built from the ground up to meet specific business logic.</Text>
                     </div>
                   </Group>
-                  
+
                   <Divider color={isDark ? "dark.4" : "gray.2"} />
 
                   {/* Capability 2 */}
@@ -520,7 +523,7 @@ const ServicesHero = () => {
                       <IconDeviceLaptop size={20} />
                     </ThemeIcon>
                     <div>
-                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Web & Mobile</Text>
+                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Web & Mobile Application Development</Text>
                       <Text fz="sm" c={capabilitiesTextColor}>High-performance applications delivering seamless user experiences across all devices.</Text>
                     </div>
                   </Group>
@@ -533,18 +536,18 @@ const ServicesHero = () => {
                       <IconUsersGroup size={20} />
                     </ThemeIcon>
                     <div>
-                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Enterprise Ecosystems</Text>
+                      <Text fw={700} c={capabilitiesTitleColor} fz="lg">Enterprise Resource Planning</Text>
                       <Text fz="sm" c={capabilitiesTextColor}>Robust ERP, CRM, and HRMS solutions to centralize and automate operations.</Text>
                     </div>
                   </Group>
                 </Stack>
               </Box>
-              
+
               {/* Simple Stats Footer */}
               <SimpleGrid cols={3} mt={50}>
-                  <StatCard icon={IconSettings} label="Experience" value="10+ Yrs" isDark={isDark} />
-                  <StatCard icon={IconUsersGroup} label="Clients" value="98%" isDark={isDark} />
-                  <StatCard icon={IconServer} label="Rating" value="4.9/5" isDark={isDark} />
+                <StatCard icon={IconSettings} label="Experience" value="5+ Yrs" isDark={isDark} />
+                <StatCard icon={IconUsersGroup} label="Clients" value="98%" isDark={isDark} />
+                <StatCard icon={IconServer} label="Rating" value="4.9/5" isDark={isDark} />
               </SimpleGrid>
             </motion.div>
           </Grid.Col>
