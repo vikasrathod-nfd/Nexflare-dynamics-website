@@ -85,7 +85,7 @@ const ApiCTASection = () => {
           >
             Book Free API Consultation
           </Button>
-          <Button
+          {/* <Button
             size="lg"
             radius="xl"
             variant="outline"
@@ -109,7 +109,7 @@ const ApiCTASection = () => {
             }}
           >
             Call +91-8237525097
-          </Button>
+          </Button> */}
         </Group>
       </Container>
     </Box>

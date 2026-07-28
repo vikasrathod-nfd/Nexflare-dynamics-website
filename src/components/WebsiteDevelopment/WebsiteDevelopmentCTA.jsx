@@ -105,7 +105,7 @@ const WebsiteDevelopmentCTA = () => {
               Get Free Quote
             </Button>
 
-            <Button
+            {/* <Button
               radius="xl"
               size="md"
               variant="outline"
@@ -130,7 +130,7 @@ const WebsiteDevelopmentCTA = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Stack>
       </Container>

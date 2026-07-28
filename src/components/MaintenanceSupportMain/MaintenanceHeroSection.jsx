@@ -169,7 +169,7 @@ const MaintenanceHeroSection = () => {
               maxWidth: 560,
             }}
           >
-            Keep your software running at peak performance — always. Our
+            Keep your software running at peak performance always. Our
             dedicated maintenance and support teams handle bug fixes,
             security patches, performance tuning, and feature updates so
             your team can stay focused on growth.

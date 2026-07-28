@@ -84,7 +84,7 @@ const CTASection = () => {
             >
               Book Free Discovery Call
             </Button>
-            <Button
+            {/* <Button
               size="lg"
               radius="xl"
               variant="outline"
@@ -100,7 +100,7 @@ const CTASection = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Box>
       </Container>

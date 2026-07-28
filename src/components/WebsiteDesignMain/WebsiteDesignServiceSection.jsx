@@ -99,7 +99,7 @@ const WebsiteDesignServiceSection = () => {
         </Text>
 
         {/* Service Cards */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing={24}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={24}>
           {services.map((service, index) => (
             <Box
               key={index}
