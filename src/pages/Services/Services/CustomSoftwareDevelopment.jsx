@@ -49,29 +49,34 @@ const technologies = [
 
 const services = [
   {
-    title: "Enterprise resource planning",
+    title: "Enterprise Resource Planning",
     icon: IconBuilding,
     color: "blue",
+    path: "/services/custom-software-development/erp-software",
   },
   {
     title: "Web Applications",
     icon: IconWorld,
     color: "cyan",
+    path: "/services/website-development-design/web-applications",
   },
   {
     title: "Mobile Apps",
     icon: IconDeviceMobile,
     color: "grape",
+    path: "/services/website-development-design/mobile-applications",
   },
   {
     title: "Cloud",
     icon: IconCloud,
     color: "teal",
+    path: "/services/custom-software-development/cloud-solutions",
   },
   {
     title: "AI",
     icon: IconBrain,
     color: "indigo",
+    path: "/services/custom-software-development/ai-solutions",
   },
 ];
 
@@ -197,7 +202,7 @@ const CustomSoftwareDevelopment = () => {
                     mt="md"
                     color="cyan"
                     rightSection={<IconArrowRight size={18} />}
-                    onClick={()=>navigate("/contact")}
+                    onClick={() => navigate("/contact")}
                   >
                     Start Your Project
                   </Button>
@@ -307,13 +312,14 @@ const CustomSoftwareDevelopment = () => {
                           transition={{
                             duration: 0.25,
                           }}
+                          onClick={() => navigate(service.path)}
                           style={{
+                            cursor: "pointer",
                             background:
                               colorScheme === "dark"
                                 ? "rgba(255,255,255,.03)"
                                 : "#ffffff",
                           }}
-                         
                         >
                           <Group justify="space-between">
                             <Group>
@@ -333,7 +339,7 @@ const CustomSoftwareDevelopment = () => {
                         </MotionCard>
                       </motion.div>
                     ))}
-                    
+
                     <Paper
                       radius="lg"
                       p="md"

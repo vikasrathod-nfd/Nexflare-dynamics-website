@@ -81,7 +81,7 @@ const EmailCTA = () => {
           >
             Get Free Email Audit
           </Box>
-          <Box
+          {/* <Box
             component="button"
             style={{
               padding: "16px 32px",
@@ -112,7 +112,7 @@ const EmailCTA = () => {
             }}
           >
             Call Us Now
-          </Box>
+          </Box> */}
         </Group>
       </Container>
     </Box>

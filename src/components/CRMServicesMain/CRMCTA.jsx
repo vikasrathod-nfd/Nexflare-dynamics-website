@@ -92,7 +92,7 @@ const CRMCTA = () => {
             >
               Book Free CRM Consultation
             </Button>
-            <Button
+            {/* <Button
               size="lg"
               radius="xl"
               variant="outline"
@@ -108,7 +108,7 @@ const CRMCTA = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Box>
       </Container>

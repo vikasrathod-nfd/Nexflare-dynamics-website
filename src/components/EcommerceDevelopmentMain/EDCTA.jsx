@@ -100,7 +100,7 @@ const EDCTA = () => {
             >
               Get Free Store Audit
             </Button>
-            <Button
+            {/* <Button
               radius="xl"
               size="md"
               variant="outline"
@@ -125,7 +125,7 @@ const EDCTA = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Stack>
       </Container>

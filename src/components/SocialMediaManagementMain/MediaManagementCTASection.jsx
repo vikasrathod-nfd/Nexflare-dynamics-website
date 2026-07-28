@@ -79,7 +79,7 @@ const MediaManagementCTASection = () => {
           >
             Book Free Consultation
           </Box>
-          <Box
+          {/* <Box
             component="button"
             style={{
               padding: "16px 32px",
@@ -110,7 +110,7 @@ const MediaManagementCTASection = () => {
             }}
           >
             Call Us Now
-          </Box>
+          </Box> */}
         </Group>
       </Container>
     </Box>

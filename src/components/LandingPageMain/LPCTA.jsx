@@ -105,7 +105,7 @@ const LPCTA = () => {
               Get Free Mockup
             </Button>
 
-            <Button
+            {/* <Button
               radius="xl"
               size="md"
               variant="outline"
@@ -130,7 +130,7 @@ const LPCTA = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Stack>
       </Container>

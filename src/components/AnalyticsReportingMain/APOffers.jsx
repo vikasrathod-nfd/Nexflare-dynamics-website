@@ -109,7 +109,7 @@ const APOffers = () => {
             every marketing decision your business makes.
           </Text>
         </Stack>
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing={24}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={24}>
           {FEATURES.map((feature) => (
             <Box
               key={feature.title}

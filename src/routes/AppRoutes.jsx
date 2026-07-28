@@ -204,7 +204,14 @@ import WebsiteDevelopment from "../pages/Services/WebsiteDevelopment/WebsiteDeve
 import AppDevelopment from "../pages/Services/WebsiteDevelopment/AppDevelopment";
 import EcommerceDevelopment from "../pages/Services/WebsiteDevelopment/EcommerceDevelopment";
 import LandingPage from "../pages/Services/WebsiteDevelopment/LandingPage";
-
+// ============================
+// Services Page
+// ============================
+import ERPSoftware from "../pages/MainPageServices/ERPSoftware";
+import WebApplications from "../pages/MainPageServices/WebApplication";
+import MobileApplications from "../pages/MainPageServices/MobileApplication";
+import CloudSolutions from "../pages/MainPageServices/CloudSolutions";
+import AISolutions from "../pages/MainPageServices/AISolutions";
 
 const AppRoutes = () => {
   return (
@@ -228,7 +235,7 @@ const AppRoutes = () => {
 
         <Route path="/blogs" element={<Blogs />} />
 
-      <Route path="/blogs/ctc-vs-gross-salary" element={<Blog1 />} />
+        <Route path="/blogs/ctc-vs-gross-salary" element={<Blog1 />} />
         <Route path="/blogs/hr-software-benefits-2026" element={<Blog2 />} />
         <Route path="/blogs/best-hrms-software-india-2026" element={<Blog3 />} />
         <Route path="/blogs/erp-benefits-small-business" element={<Blog4 />} />
@@ -308,12 +315,12 @@ const AppRoutes = () => {
           element={<AnalyticsReporting />}
         />
 
-         <Route
+        <Route
           path="/services/digital-marketing/Performance-Marketing"
           element={<PerformanceMarketing />}
         />
 
-         <Route
+        <Route
           path="/services/digital-marketing/social-media-management"
           element={<SocialMediaManagement />}
         />
@@ -345,6 +352,35 @@ const AppRoutes = () => {
         <Route
           path="/services/website-development-design/landing-page"
           element={<LandingPage />}
+        />
+        {/* ====================================================== */}
+        {/* Digital Marketing */}
+        {/* ====================================================== */}
+
+
+        <Route
+          path="/services/custom-software-development/erp-software"
+          element={<ERPSoftware />}
+        />
+
+        <Route
+          path="/services/website-development-design/web-applications"
+          element={<WebApplications />}
+        />
+
+        <Route
+          path="/services/website-development-design/mobile-applications"
+          element={<MobileApplications />}
+        />
+
+        <Route
+          path="/services/custom-software-development/cloud-solutions"
+          element={<CloudSolutions />}
+        />
+
+        <Route
+          path="/services/custom-software-development/ai-solutions"
+          element={<AISolutions />}
         />
 
       </Route>
