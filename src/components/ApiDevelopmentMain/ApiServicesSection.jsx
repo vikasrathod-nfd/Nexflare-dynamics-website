@@ -109,7 +109,7 @@ const ApiServicesSection = () => {
           build APIs that are clean, secure, well-documented, and a pleasure
           for developers to integrate with.
         </Text>
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing={24}>
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={24}>
           {SERVICES.map((service) => (
             <Paper
               key={service.title}

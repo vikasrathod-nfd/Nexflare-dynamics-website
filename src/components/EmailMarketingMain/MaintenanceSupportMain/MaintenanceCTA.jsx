@@ -91,7 +91,7 @@ const MaintenanceCTA = () => {
               Book Free Consultation
             </Button>
 
-            <Button
+            {/* <Button
               size="lg"
               radius="xl"
               variant="outline"
@@ -107,7 +107,7 @@ const MaintenanceCTA = () => {
               }}
             >
               Call +91-8237525097
-            </Button>
+            </Button> */}
           </Group>
         </Box>
       </Container>

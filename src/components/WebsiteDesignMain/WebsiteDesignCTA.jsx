@@ -106,7 +106,7 @@ const WebsiteDesignCTA = () => {
               Book Free Consultation
             </Button>
 
-            <Button
+            {/* <Button
               radius="xl"
               size="md"
               variant="outline"
@@ -131,7 +131,7 @@ const WebsiteDesignCTA = () => {
               }}
             >
               Call Us Now
-            </Button>
+            </Button> */}
           </Group>
         </Stack>
       </Container>
