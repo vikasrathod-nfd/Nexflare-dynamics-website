@@ -7,7 +7,16 @@ const MobileMenu = ({ opened, close }) => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <Drawer
+    // <Drawer
+    //   opened={opened}
+    //   onClose={close}
+    //   position="right"
+    //   size="85%"
+    //   padding="lg"
+    //   title="Menu"
+    //   zIndex={9999}
+    // >
+      <Drawer
       opened={opened}
       onClose={close}
       position="right"

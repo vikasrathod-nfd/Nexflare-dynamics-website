@@ -5,7 +5,7 @@ const WhatsAppChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
 
-  const phoneNumber = '9834496938'; //masira
+  const phoneNumber = '917385727111'; // Tumcha mobile number
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -43,7 +43,7 @@ const WhatsAppChatWidget = () => {
 
           <div className="whatsapp-chat-body">
             <div className="chat-bubble">
-              <p>👋 Hi there! How can I help you ?</p>
+              <p>👋 Hi there! Mala website baddal madat karu ka?</p>
               <span className="chat-time">Just now</span>
             </div>
           </div>
