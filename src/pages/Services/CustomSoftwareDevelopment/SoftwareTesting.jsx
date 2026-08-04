@@ -3,7 +3,7 @@ import TestingHeroSection from "../../../components/SoftwareTestingMain/TestingH
 import TestingServices from "../../../components/SoftwareTestingMain/TestingServices";
 import TestingProcess from "../../../components/SoftwareTestingMain/TestingProcess";
 import WhyChooseTesting from "../../../components/SoftwareTestingMain/WhyChooseTesting";
-import TestingStats from "../../../components/SoftwareTestingMain/TestingStats";
+// import TestingStats from "../../../components/SoftwareTestingMain/TestingStats";
 import TestingFAQ from "../../../components/SoftwareTestingMain/TestingFAQ";
 import TestingCTA from "../../../components/SoftwareTestingMain/TestingCTA";
 const SoftwareTesting = () => {
@@ -31,7 +31,7 @@ const SoftwareTesting = () => {
       <TestingServices/>
       <TestingProcess/>
       <WhyChooseTesting/>
-      <TestingStats/>
+      {/* <TestingStats/> */}
       <TestingFAQ/>
       <TestingCTA/>
     </Box>

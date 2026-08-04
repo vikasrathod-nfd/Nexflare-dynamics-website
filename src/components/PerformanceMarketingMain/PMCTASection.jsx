@@ -54,8 +54,7 @@ const PMCTASection = () => {
           }}
         >
           Let's turn your ad spend into a predictable growth channel.
-          <br />
-          Free ad account audit — no strings attached.
+          
         </Text>
 
         <Group justify="center" gap={16}>
@@ -82,7 +81,7 @@ const PMCTASection = () => {
             }}
             onClick={handleBookFreeAuditCall}
           >
-            Book Free Ad Audit
+            Schedule a Call
           </Box>
 
           {/* <Box

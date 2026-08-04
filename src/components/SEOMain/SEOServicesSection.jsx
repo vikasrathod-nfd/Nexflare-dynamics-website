@@ -1,114 +1,145 @@
-import { Box, Container, Title, Text, SimpleGrid, Stack, useComputedColorScheme } from "@mantine/core";
+import {
+  Box,
+  Card,
+  Container,
+  Grid,
+  Group,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+  useMantineColorScheme,
+  useMantineTheme,
+} from "@mantine/core";
+import {
+  IconSearch,
+  IconKey,
+  IconFileText,
+  IconLink,
+  IconMapPin,
+  IconChartBar,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
 
-const FEATURES = [
+const MotionCard = motion.create(Card);
+
+const features = [
   {
-    icon: "🔍",
     title: "Technical SEO Audit",
     description:
-      "Deep dive into your website's technical health — crawlability, indexation, site speed, Core Web Vitals, and structured data to fix what's holding you back.",
-    highlight: false,
+      "Our comprehensive technical SEO audit identifies and resolves issues that impact your website's search performance. We analyze crawlability, indexation, site architecture, Core Web Vitals, page speed, mobile responsiveness, structured data, broken links, and overall technical health to build a strong foundation for higher search engine rankings.",
+    icon: IconSearch,
   },
   {
-    icon: "🔑",
     title: "Keyword Research & Strategy",
     description:
-      "Identify high-intent, low-competition keywords your customers actually search for. Build a content roadmap that captures demand at every funnel stage.",
-    highlight: false,
+      "We perform in-depth keyword research to uncover high-value search opportunities based on user intent, competition, and industry trends. Our strategic keyword planning helps you target the right audience, improve search visibility, and create content that attracts qualified traffic and drives meaningful business growth.",
+    icon: IconKey,
   },
   {
-    icon: "📝",
     title: "On-Page Optimization",
     description:
-      "Optimize meta tags, headings, content structure, internal linking, and schema markup to make every page a ranking powerhouse.",
-    highlight: false,
+      "Enhance your website's search engine performance with comprehensive on-page optimization. We optimize title tags, meta descriptions, headings, content structure, internal linking, image optimization, URL structure, and schema markup to improve relevance, user experience, and organic rankings across search engines.",
+    icon: IconFileText,
   },
   {
-    icon: "🔗",
     title: "Link Building",
     description:
-      "Earn high-authority backlinks from reputable sites through strategic outreach, digital PR, and content partnerships that boost your domain authority.",
-    highlight: false,
+      "Strengthen your website's authority through ethical, high-quality link-building strategies. We acquire relevant backlinks from trusted websites using content marketing, digital PR, guest posting, and strategic outreach to improve domain authority, increase credibility, and support sustainable organic growth.",
+    icon: IconLink,
   },
   {
-    icon: "📍",
     title: "Local SEO",
     description:
-      'Dominate local search results, Google Maps, and "near me" queries. Optimize your Google Business Profile and build local citations for maximum visibility.',
-    highlight: false,
+      "Increase your visibility in local search results and attract customers in your target locations with our Local SEO services. We optimize your Google Business Profile, build consistent local citations, manage reviews, and implement location-specific strategies that help your business rank higher in Google Maps and local searches.",
+    icon: IconMapPin,
   },
   {
-    icon: "📊",
     title: "SEO Analytics & Reporting",
     description:
-      "Monthly performance reports with clear KPIs — rankings, traffic, conversions, and ROI. Transparent data so you always know exactly what's working.",
-    highlight: false,
+      "Stay informed with detailed SEO reports that provide valuable insights into your website's performance. We track keyword rankings, organic traffic, user behavior, conversions, backlink growth, and overall SEO progress, delivering actionable recommendations to continuously improve your search visibility and return on investment.",
+    icon: IconChartBar,
   },
 ];
 
 const SEOServicesSection = () => {
-  const computedColorScheme = useComputedColorScheme("light");
-  const isDark = computedColorScheme === "dark";
-
-  // All colors are resolved here in JS and applied via inline `style`,
-  // so nothing depends on Mantine's built-in light/dark component CSS.
-  const colors = {
-    eyebrow: "#14b8a6",
-    heading: isDark ? "#ffffff" : "#0f172a",
-    headingAccent: "#14b8a6",
-    subtitle: isDark ? "rgba(226,232,240,0.72)" : "#475569",
-    cardBg: isDark ? "rgba(255,255,255,0.03)" : "#ffffff",
-    cardBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
-    cardBorderHighlight: "rgba(20,184,166,0.55)",
-    cardShadow: isDark
-      ? "0 1px 2px rgba(0,0,0,0.4)"
-      : "0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04)",
-    cardShadowHighlight: isDark
-      ? "0 0 0 1px rgba(20,184,166,0.25), 0 12px 32px rgba(20,184,166,0.12)"
-      : "0 0 0 1px rgba(20,184,166,0.2), 0 12px 28px rgba(20,184,166,0.1)",
-    iconBg: isDark ? "rgba(255,255,255,0.05)" : "rgba(13,148,136,0.08)",
-    iconBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(13,148,136,0.15)",
-    cardTitle: isDark ? "#ffffff" : "#0f172a",
-    cardText: isDark ? "rgba(226,232,240,0.65)" : "#64748b",
-  };
+  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const isDark = colorScheme === "dark";
 
   return (
-    <Box component="section" style={{ padding: "96px 0" }}>
-      <Container size="xl">
-        <Stack gap={6} maw={720} mb={56}>
-          <Text
-            style={{
-              color: colors.eyebrow,
-              textTransform: "uppercase",
-              fontWeight: 700,
-              fontSize: 13,
-              letterSpacing: 1.2,
-            }}
-          >
-            What We Offer
-          </Text>
+    <Box
+      py={120}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: isDark ? "transparent" : theme.colors.gray[0],
+      }}
+    >
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(20,184,166,.14), transparent 70%)",
+            top: 80,
+            left: -180,
+            filter: "blur(80px)",
+          }}
+        />
+      )}
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(37,99,235,.14), transparent 70%)",
+            bottom: 0,
+            right: -180,
+            filter: "blur(90px)",
+          }}
+        />
+      )}
 
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Stack gap="md" mb={70}>
+          <Text
+            fw={700}
+            c="teal"
+            tt="uppercase"
+            style={{ letterSpacing: 3, fontSize: 15 }}
+          >
+            WHAT WE OFFER
+          </Text>
           <Title
-            order={2}
             style={{
-              fontSize: "clamp(2rem, 4vw, 2.75rem)",
-              fontWeight: 800,
+              fontSize: "clamp(2rem,3vw,4.5rem)",
+              fontWeight: 900,
               lineHeight: 1.15,
-              margin: 0,
-              color: colors.heading,
             }}
           >
             Complete{" "}
-            <Box component="span" style={{ color: colors.headingAccent }}>
+            <Text
+              component="span"
+              inherit
+              variant="gradient"
+              gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+            >
               SEO Solutions
-            </Box>
+            </Text>
           </Title>
-
           <Text
+            maw={760}
             style={{
-              fontSize: "1.0625rem",
-              lineHeight: 1.7,
-              color: colors.subtitle,
-              marginTop: 8,
+              fontSize: 18,
+              lineHeight: 1.6,
+              color: isDark ? "rgba(255,255,255,.72)" : theme.colors.gray[7],
             }}
           >
             From technical audits to content strategy, we handle every
@@ -116,75 +147,89 @@ const SEOServicesSection = () => {
           </Text>
         </Stack>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={24}>
-          {FEATURES.map((feature) => (
-            <Box
-              key={feature.title}
-              style={{
-                position: "relative",
-                backgroundColor: feature.highlight ? (isDark ? "rgba(20,184,166,0.05)" : "rgba(20,184,166,0.04)") : colors.cardBg,
-                border: `1px solid ${feature.highlight ? colors.cardBorderHighlight : colors.cardBorder}`,
-                borderRadius: 16,
-                padding: "32px 28px",
-                boxShadow: feature.highlight ? colors.cardShadowHighlight : colors.cardShadow,
-                overflow: "hidden",
-              }}
-            >
-              {feature.highlight && (
+        <Grid gutter={30}>
+          {features.map((item, index) => (
+            <Grid.Col key={item.title} span={{ base: 12, sm: 6, lg: 4 }}>
+              <MotionCard
+                p={0}
+                radius={24}
+                h="100%"
+                withBorder
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  background: isDark ? "rgba(18, 26, 36, 0.92)" : theme.white,
+                  border: isDark
+                    ? "1px solid rgba(255,255,255,.08)"
+                    : `1px solid ${theme.colors.gray[3]}`,
+                  backdropFilter: isDark ? "blur(18px)" : "none",
+                  boxShadow: isDark
+                    ? "0 20px 60px rgba(0,0,0,.35)"
+                    : "0 10px 30px rgba(0,0,0,.06)",
+                  cursor: "pointer",
+                  transition: "all .35s ease",
+                }}
+              >
+                {/* top gradient accent bar */}
                 <Box
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 3,
-                    background:
-                      "linear-gradient(90deg, rgba(20,184,166,0) 0%, #2dd4bf 50%, rgba(20,184,166,0) 100%)",
+                    height: 5,
+                    width: "100%",
+                    background: "linear-gradient(90deg, #22d3ee, #14b8a6)",
                   }}
                 />
-              )}
 
-              <Box
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 12,
-                  backgroundColor: colors.iconBg,
-                  border: `1px solid ${colors.iconBorder}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 22,
-                  marginBottom: 20,
-                }}
-              >
-                {feature.icon}
-              </Box>
+                <Box p={40} style={{ position: "relative" }}>
+                  <Stack gap={20}>
+                    {/* Icon + Heading in one row */}
+                    <Group gap={16} wrap="nowrap" align="center">
+                      <ThemeIcon
+                        size={58}
+                        radius={16}
+                        variant="gradient"
+                        gradient={{ from: "#22d3ee", to: "#14b8a6", deg: 135 }}
+                        style={{
+                          boxShadow: "0 10px 24px rgba(20,184,166,.35)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <item.icon size={30} stroke={1.8} color="#fff" />
+                      </ThemeIcon>
+                      <Title
+                        order={3}
+                        style={{
+                          fontSize: 21,
+                          fontWeight: 800,
+                          lineHeight: 1.35,
+                          color: isDark ? theme.white : theme.black,
+                        }}
+                      >
+                        {item.title}
+                      </Title>
+                    </Group>
 
-              <Text
-                style={{
-                  fontSize: "1.0625rem",
-                  fontWeight: 700,
-                  color: colors.cardTitle,
-                  marginBottom: 10,
-                  lineHeight: 1.35,
-                }}
-              >
-                {feature.title}
-              </Text>
-
-              <Text
-                style={{
-                  fontSize: "0.9375rem",
-                  lineHeight: 1.65,
-                  color: colors.cardText,
-                }}
-              >
-                {feature.description}
-              </Text>
-            </Box>
+                    <Text
+                      style={{
+                        fontSize: 16.5,
+                        lineHeight: 1.85,
+                        color: isDark
+                          ? "rgba(255,255,255,.68)"
+                          : theme.colors.gray[7],
+                      }}
+                    >
+                      {item.description}
+                    </Text>
+                  </Stack>
+                </Box>
+              </MotionCard>
+            </Grid.Col>
           ))}
-        </SimpleGrid>
+        </Grid>
       </Container>
     </Box>
   );

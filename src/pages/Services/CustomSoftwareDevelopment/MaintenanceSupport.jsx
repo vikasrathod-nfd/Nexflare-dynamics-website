@@ -1,9 +1,9 @@
 import { Box, useComputedColorScheme } from "@mantine/core";
 import MaintenanceHeroSection from "../../../components/MaintenanceSupportMain/MaintenanceHeroSection";
 import MaintenanceServices from "../../../components/MaintenanceSupportMain/MaintenanceServices";
-import MaintenanceProcess from "../../../components/MaintenanceSupportMain/MaintenanceProcess";
+// import MaintenanceProcess from "../../../components/MaintenanceSupportMain/MaintenanceProcess";
 import MaintenanceBenefits from "../../../components/MaintenanceSupportMain/MaintenanceBenefits";
-import MaintenanceStats from "../../../components/MaintenanceSupportMain/MaintenanceStats";
+// import MaintenanceStats from "../../../components/MaintenanceSupportMain/MaintenanceStats";
 import MaintenanceFAQ from "../../../components/MaintenanceSupportMain/MaintenanceFAQ";
 import MaintenanceCTA from "../../../components/MaintenanceSupportMain/MaintenanceCTA";
 const MaintenanceSupport = () => {
@@ -29,9 +29,9 @@ const MaintenanceSupport = () => {
     >
       <MaintenanceHeroSection />
       <MaintenanceServices />
-      <MaintenanceProcess/>
+      {/* <MaintenanceProcess/> */}
       <MaintenanceBenefits />
-      <MaintenanceStats />
+      {/* <MaintenanceStats /> */}
       <MaintenanceFAQ />
       <MaintenanceCTA />
     </Box>

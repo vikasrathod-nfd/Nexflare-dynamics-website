@@ -1,169 +1,243 @@
 import {
   Box,
+  Card,
   Container,
-  Text,
-  Title,
+  Grid,
+  Group,
   Stack,
-  SimpleGrid,
-  Paper,
-  useComputedColorScheme,
+  Text,
+  ThemeIcon,
+  Title,
+  useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
+import {
+  IconBrandApple,
+  IconBrandAndroid,
+  IconDevices,
+  IconWorldWww,
+  IconPalette,
+  IconTool,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
+
+const MotionCard = motion.create(Card);
+
 const services = [
   {
-    icon: "📱",
     title: "iOS App Development",
     description:
-      "Native iOS apps built with Swift and SwiftUI — fast, intuitive, and fully optimised for the Apple ecosystem including iPhone, iPad, and Apple Watch.",
+      "Build powerful and seamless iOS applications using Swift and SwiftUI. We create high-performance apps optimized for the Apple ecosystem, delivering exceptional user experiences across iPhone, iPad, and Apple Watch devices.",
+    icon: IconBrandApple,
   },
   {
-    icon: "🤖",
     title: "Android App Development",
     description:
-      "High-performance Android apps using Kotlin and Jetpack Compose, engineered for every screen size and the full diversity of Android devices.",
+      "Develop scalable and feature-rich Android applications using modern technologies like Kotlin and Jetpack Compose. Our solutions are designed for superior performance, security, and compatibility across diverse Android devices.",
+    icon: IconBrandAndroid,
   },
   {
-    icon: "⚡",
-    title: "Cross-Platform Apps",
+    title: "Cross-Platform App Development",
     description:
-      "One codebase, two platforms — React Native and Flutter apps that deliver near-native performance on both iOS and Android at reduced cost.",
+      "Accelerate your digital presence with cross-platform applications built using React Native and Flutter. We deliver cost-effective, scalable apps with native-like performance across both iOS and Android platforms.",
+    icon: IconDevices,
   },
   {
-    icon: "🌐",
-    title: "Progressive Web Apps",
+    title: "Progressive Web App Development",
     description:
-      "Fast, installable PWAs that work offline, load instantly, and deliver an app-like experience directly in the browser without app store friction.",
+      "Create fast, reliable, and engaging Progressive Web Applications that combine the best of web and mobile experiences. Our PWAs offer offline functionality, faster loading, and seamless accessibility across devices.",
+    icon: IconWorldWww,
   },
   {
-    icon: "🎨",
     title: "UI/UX Design",
     description:
-      "User-centred design with wireframes, prototypes, and pixel-perfect interfaces that maximise engagement, retention, and conversion.",
+      "Design intuitive and visually engaging app experiences with user-focused UI/UX strategies. From wireframes and prototypes to final interfaces, we create designs that improve usability, engagement, and customer satisfaction.",
+    icon: IconPalette,
   },
   {
-    icon: "🔧",
     title: "App Maintenance & Support",
     description:
-      "Post-launch support, OS update compatibility, performance monitoring, and feature enhancements to keep your app running flawlessly.",
+      "Ensure your application stays secure, updated, and optimized with our ongoing maintenance and support services. We provide performance monitoring, bug fixes, enhancements, and updates to keep your app future-ready.",
+    icon: IconTool,
   },
 ];
+
 const AppServiceSection = () => {
-  const computedColorScheme = useComputedColorScheme("light");
-  const isDark = computedColorScheme === "dark";
+  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const isDark = colorScheme === "dark";
+
   return (
-    <Box component="section" py={100}>
-      <Container size="lg">
-        {/* Section Header */}
-        <Stack gap={10} mb={50} maw={700}>
+    <Box
+      py={120}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: isDark ? "transparent" : theme.colors.gray[0],
+      }}
+    >
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(20,184,166,.14), transparent 70%)",
+            top: 80,
+            left: -180,
+            filter: "blur(80px)",
+          }}
+        />
+      )}
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(34,211,238,.14), transparent 70%)",
+            bottom: 0,
+            right: -180,
+            filter: "blur(90px)",
+          }}
+        />
+      )}
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Stack gap="md" mb={70}>
           <Text
             fw={700}
-            size="sm"
-            style={{
-              letterSpacing: 3,
-              color: "#14b8a6",
-              textTransform: "uppercase",
-            }}
+            c="teal"
+            tt="uppercase"
+            style={{ letterSpacing: 3, fontSize: 15 }}
           >
-            What We Offer
+            WHAT WE OFFER
           </Text>
+
           <Title
-            order={2}
-            fw={800}
             style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-              color: isDark ? "#f8fafc" : "#0f172a",
-              lineHeight: 1.2,
+              fontSize: "clamp(2rem,3vw,4.5rem)",
+              fontWeight: 900,
+              lineHeight: 1.15,
             }}
           >
             Complete{" "}
-            <span style={{ color: "#14b8a6" }}>
+            <Text
+              component="span"
+              inherit
+              variant="gradient"
+              gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+            >
               App Development Solutions
-            </span>
+            </Text>
           </Title>
+
           <Text
+            maw={760}
             style={{
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              color: isDark
-                ? "rgba(226,232,240,0.75)"
-                : "rgba(15,23,42,0.65)",
+              fontSize: 18,
+              lineHeight: 1.6,
+              color: isDark ? "rgba(255,255,255,.72)" : theme.colors.gray[7],
             }}
           >
-            End-to-end app development — from ideation and UI/UX to launch
-            and ongoing maintenance — built for scale and performance.
+            Build powerful mobile experiences with our end-to-end app
+            development expertise. We combine strategic consulting, creative
+            UI/UX design, advanced development frameworks, and continuous
+            support to deliver secure, scalable, and user-centric
+            applications that drive business transformation.
           </Text>
         </Stack>
-        {/* Service Cards */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
-          {services.map((service, index) => (
-            <Paper
-              key={index}
-              radius="lg"
-              p="xl"
-              style={{
-                background: isDark
-                  ? "rgba(255,255,255,0.03)"
-                  : "#ffffff",
-                border: isDark
-                  ? "1px solid rgba(255,255,255,0.08)"
-                  : "1px solid rgba(15,23,42,0.08)",
-                boxShadow: isDark
-                  ? "0 8px 24px rgba(0,0,0,0.25)"
-                  : "0 8px 24px rgba(15,23,42,0.06)",
-                height: "100%",
-                transition: "transform .25s ease, box-shadow .25s ease",
-              }}
-              className="app-service-card"
-            >
-              <Box
+
+        <Grid gutter={30}>
+          {services.map((item, index) => (
+            <Grid.Col key={item.title} span={{ base: 12, sm: 6, lg: 4 }}>
+              <MotionCard
+                p={0}
+                radius={24}
+                h="100%"
+                withBorder
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
                 style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 12,
-                  // display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.4rem",
-                  marginBottom: 20,
-                  background: isDark
-                    ? "rgba(20,184,166,0.1)"
-                    : "rgba(20,184,166,0.08)",
+                  position: "relative",
+                  overflow: "hidden",
+                  background: isDark ? "rgba(18, 26, 36, 0.92)" : theme.white,
+                  border: isDark
+                    ? "1px solid rgba(255,255,255,.08)"
+                    : `1px solid ${theme.colors.gray[3]}`,
+                  backdropFilter: isDark ? "blur(18px)" : "none",
+                  boxShadow: isDark
+                    ? "0 20px 60px rgba(0,0,0,.35)"
+                    : "0 10px 30px rgba(0,0,0,.06)",
+                  cursor: "pointer",
+                  transition: "all .35s ease",
                 }}
               >
-                {service.icon}
-              </Box>
-              <Text
-                fw={700}
-                mb={10}
-                style={{
-                  fontSize: "1.1rem",
-                  color: isDark ? "#f8fafc" : "#0f172a",
-                }}
-              >
-                {service.title}
-              </Text>
-              <Text
-                style={{
-                  fontSize: "0.92rem",
-                  lineHeight: 1.7,
-                  color: isDark
-                    ? "rgba(226,232,240,0.65)"
-                    : "rgba(15,23,42,0.6)",
-                }}
-              >
-                {service.description}
-              </Text>
-            </Paper>
+                {/* top gradient accent bar */}
+                <Box
+                  style={{
+                    height: 5,
+                    width: "100%",
+                    background: "linear-gradient(90deg, #22d3ee, #14b8a6)",
+                  }}
+                />
+
+                <Box p={40} style={{ position: "relative" }}>
+                  <Stack gap={20}>
+                    {/* Icon + Heading in one row */}
+                    <Group gap={16} wrap="nowrap" align="center">
+                      <ThemeIcon
+                        size={58}
+                        radius={16}
+                        variant="gradient"
+                        gradient={{ from: "#22d3ee", to: "#14b8a6", deg: 135 }}
+                        style={{
+                          boxShadow: "0 10px 24px rgba(20,184,166,.35)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <item.icon size={30} stroke={1.8} color="#fff" />
+                      </ThemeIcon>
+                      <Title
+                        order={3}
+                        style={{
+                          fontSize: 21,
+                          fontWeight: 800,
+                          lineHeight: 1.35,
+                          color: isDark ? theme.white : theme.black,
+                        }}
+                      >
+                        {item.title}
+                      </Title>
+                    </Group>
+
+                    <Text
+                      style={{
+                        fontSize: 16.5,
+                        lineHeight: 1.85,
+                        color: isDark
+                          ? "rgba(255,255,255,.68)"
+                          : theme.colors.gray[7],
+                      }}
+                    >
+                      {item.description}
+                    </Text>
+                  </Stack>
+                </Box>
+              </MotionCard>
+            </Grid.Col>
           ))}
-        </SimpleGrid>
+        </Grid>
       </Container>
-      <style>
-        {`
-          .app-service-card:hover {
-            transform: translateY(-4px);
-          }
-        `}
-      </style>
     </Box>
   );
 };
+
 export default AppServiceSection;

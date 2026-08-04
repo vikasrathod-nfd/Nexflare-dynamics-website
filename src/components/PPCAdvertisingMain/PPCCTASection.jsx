@@ -70,7 +70,7 @@ const PPCCTASection = () => {
               marginBottom: 40,
             }}
           >
-            Get a free PPC audit and find out exactly where your money is going — and how to make it work harder.
+            Schedule a Call for PPC audit and find out exactly where your money is going and how to make it work harder.
           </Text>
 
           {/* Buttons */}
@@ -88,7 +88,7 @@ const PPCCTASection = () => {
               }}
               onClick={handleGetFreePPCAudit}   
             >
-              Get Free PPC Audit
+              Schedule a Call
             </Button>
 
             {/* <Button

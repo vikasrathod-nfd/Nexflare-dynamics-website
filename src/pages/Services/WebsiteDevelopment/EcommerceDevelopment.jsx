@@ -5,7 +5,7 @@ import EDProcessSection from "../../../components/EcommerceDevelopmentMain/EDPro
 import EDWhyChooseUs from "../../../components/EcommerceDevelopmentMain/EDWhyChooseUs";
 import EDStatsSections from "../../../components/EcommerceDevelopmentMain/EDStatsSections";
 import EDTools from "../../../components/EcommerceDevelopmentMain/EDTools";
-import EDClientSection from "../../../components/EcommerceDevelopmentMain/EDClientSection";
+// import EDClientSection from "../../../components/EcommerceDevelopmentMain/EDClientSection";
 import EDFaq from "../../../components/EcommerceDevelopmentMain/EDFaq";
 import EDCTA from "../../../components/EcommerceDevelopmentMain/EDCTA";
 const EcommerceDevelopment= () => {
@@ -33,9 +33,9 @@ const EcommerceDevelopment= () => {
         <EDServiceSection/>
         <EDProcessSection/>
         <EDWhyChooseUs/>
-        <EDStatsSections/>
-        <EDTools/>
-        <EDClientSection/>
+        {/* <EDStatsSections/> */}
+        {/* <EDTools/> */}
+        {/* <EDClientSection/> */}
         <EDFaq/>
         <EDCTA/>
       

@@ -1,175 +1,240 @@
 import {
   Box,
+  Card,
   Container,
-  Text,
-  Title,
+  Grid,
+  Group,
   Stack,
-  SimpleGrid,
-  Paper,
-  useComputedColorScheme,
+  Text,
+  ThemeIcon,
+  Title,
+  useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
+import {
+  IconBrandWordpress,
+  IconCode,
+  IconRocket,
+  IconShieldLock,
+  IconPlugConnected,
+  IconSearch,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
+
+const MotionCard = motion.create(Card);
 
 const services = [
   {
-    icon: "🌐",
     title: "WordPress Development",
     description:
-      "Custom WordPress themes and plugins — fully tailored, performant, and easy for your team to manage without developer support.",
+      "Develop custom WordPress websites with tailored themes, plugins, and intuitive content management solutions that provide flexibility, security, and seamless administration.",
+    icon: IconBrandWordpress,
   },
   {
-    icon: "⚙️",
     title: "Custom Web Development",
     description:
-      "Bespoke websites built from scratch with React, Next.js, or Laravel for complete flexibility and maximum performance.",
+      "Build fully customized web applications and business websites using modern technologies, delivering high performance, seamless functionality, and solutions tailored to your unique requirements.",
+    icon: IconCode,
   },
   {
-    icon: "🚀",
     title: "Website Optimisation",
     description:
-      "Speed optimisation, Core Web Vitals improvement, caching, CDN setup, and image compression for faster load times.",
+      "Enhance website speed, responsiveness, and overall performance through advanced optimization techniques that improve user experience and maximize operational efficiency.",
+    icon: IconRocket,
   },
   {
-    icon: "🔒",
     title: "Security & Maintenance",
     description:
-      "SSL, firewall, malware scanning, regular backups, and software updates to keep your website safe and always up to date.",
+      "Protect your website with proactive security management, regular maintenance, software updates, performance monitoring, and reliable technical support for uninterrupted operations.",
+    icon: IconShieldLock,
   },
   {
-    icon: "🔗",
     title: "API & Third-Party Integration",
     description:
-      "Seamless integrations with CRMs, payment gateways, booking systems, analytics tools, and any third-party service your business needs.",
+      "Integrate your website seamlessly with business applications, payment solutions, customer relationship management systems, and external platforms to streamline workflows and improve connectivity.",
+    icon: IconPlugConnected,
   },
   {
-    icon: "📈",
     title: "SEO-Friendly Architecture",
     description:
-      "Clean semantic code, schema markup, fast page speed, and proper URL structure so your website ranks from day one.",
+      "Develop websites with search engine optimized architecture, clean code, structured data, and performance-focused practices that enhance visibility and support long-term online success.",
+    icon: IconSearch,
   },
 ];
 
 const WebsiteDevelopmentServiceSection = () => {
-  const computedColorScheme = useComputedColorScheme("light");
-  const isDark = computedColorScheme === "dark";
+  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const isDark = colorScheme === "dark";
 
   return (
-    <Box component="section" py={100}>
-      <Container size="lg">
-        {/* Section Header */}
-        <Stack gap={10} mb={50} maw={700}>
+    <Box
+      py={120}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: isDark ? "transparent" : theme.colors.gray[0],
+      }}
+    >
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(20,184,166,.14), transparent 70%)",
+            top: 80,
+            left: -180,
+            filter: "blur(80px)",
+          }}
+        />
+      )}
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(34,211,238,.14), transparent 70%)",
+            bottom: 0,
+            right: -180,
+            filter: "blur(90px)",
+          }}
+        />
+      )}
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Stack gap="md" mb={70}>
           <Text
             fw={700}
-            size="sm"
-            style={{
-              letterSpacing: 3,
-              color: "#14b8a6",
-              textTransform: "uppercase",
-            }}
+            c="teal"
+            tt="uppercase"
+            style={{ letterSpacing: 3, fontSize: 15 }}
           >
-            What We Build
+            WHAT WE BUILD
           </Text>
 
           <Title
-            order={2}
-            fw={800}
             style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-              color: isDark ? "#f8fafc" : "#0f172a",
-              lineHeight: 1.2,
+              fontSize: "clamp(2rem,3vw,4.5rem)",
+              fontWeight: 900,
+              lineHeight: 1.15,
             }}
           >
             Development Services{" "}
-            <span style={{ color: "#14b8a6" }}>Built to Scale</span>
+            <Text
+              component="span"
+              inherit
+              variant="gradient"
+              gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+            >
+              Built to Scale
+            </Text>
           </Title>
 
           <Text
+            maw={760}
             style={{
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              color: isDark
-                ? "rgba(226,232,240,0.75)"
-                : "rgba(15,23,42,0.65)",
+              fontSize: 18,
+              lineHeight: 1.6,
+              color: isDark ? "rgba(255,255,255,.72)" : theme.colors.gray[7],
             }}
           >
-            Clean code, solid architecture, and future-proof technology —
-            every website we build is engineered to grow with your business.
+            Every website is developed using industry best practices,
+            efficient code, and modern frameworks to deliver exceptional
+            performance, seamless functionality, and a strong technical
+            foundation for long-term success.
           </Text>
         </Stack>
 
-        {/* Service Cards */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
-          {services.map((service, index) => (
-            <Paper
-              key={index}
-              radius="lg"
-              p="xl"
-              style={{
-                background: isDark
-                  ? "rgba(255,255,255,0.03)"
-                  : "#ffffff",
-                border: isDark
-                  ? "1px solid rgba(255,255,255,0.08)"
-                  : "1px solid rgba(15,23,42,0.08)",
-                boxShadow: isDark
-                  ? "0 8px 24px rgba(0,0,0,0.25)"
-                  : "0 8px 24px rgba(15,23,42,0.06)",
-                height: "100%",
-                transition: "transform .25s ease, box-shadow .25s ease",
-              }}
-              className="dev-service-card"
-            >
-              <Box
+        <Grid gutter={30}>
+          {services.map((item, index) => (
+            <Grid.Col key={item.title} span={{ base: 12, sm: 6, lg: 4 }}>
+              <MotionCard
+                p={0}
+                radius={24}
+                h="100%"
+                withBorder
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
                 style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 12,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.4rem",
-                  marginBottom: 20,
-                  background: isDark
-                    ? "rgba(20,184,166,0.1)"
-                    : "rgba(20,184,166,0.08)",
+                  position: "relative",
+                  overflow: "hidden",
+                  background: isDark ? "rgba(18, 26, 36, 0.92)" : theme.white,
+                  border: isDark
+                    ? "1px solid rgba(255,255,255,.08)"
+                    : `1px solid ${theme.colors.gray[3]}`,
+                  backdropFilter: isDark ? "blur(18px)" : "none",
+                  boxShadow: isDark
+                    ? "0 20px 60px rgba(0,0,0,.35)"
+                    : "0 10px 30px rgba(0,0,0,.06)",
+                  cursor: "pointer",
+                  transition: "all .35s ease",
                 }}
               >
-                {service.icon}
-              </Box>
+                {/* top gradient accent bar */}
+                <Box
+                  style={{
+                    height: 5,
+                    width: "100%",
+                    background: "linear-gradient(90deg, #22d3ee, #14b8a6)",
+                  }}
+                />
 
-              <Text
-                fw={700}
-                mb={10}
-                style={{
-                  fontSize: "1.1rem",
-                  color: isDark ? "#f8fafc" : "#0f172a",
-                }}
-              >
-                {service.title}
-              </Text>
+                <Box p={40} style={{ position: "relative" }}>
+                  <Stack gap={20}>
+                    {/* Icon + Heading in one row */}
+                    <Group gap={16} wrap="nowrap" align="center">
+                      <ThemeIcon
+                        size={58}
+                        radius={16}
+                        variant="gradient"
+                        gradient={{ from: "#22d3ee", to: "#14b8a6", deg: 135 }}
+                        style={{
+                          boxShadow: "0 10px 24px rgba(20,184,166,.35)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <item.icon size={30} stroke={1.8} color="#fff" />
+                      </ThemeIcon>
+                      <Title
+                        order={3}
+                        style={{
+                          fontSize: 21,
+                          fontWeight: 800,
+                          lineHeight: 1.35,
+                          color: isDark ? theme.white : theme.black,
+                        }}
+                      >
+                        {item.title}
+                      </Title>
+                    </Group>
 
-              <Text
-                style={{
-                  fontSize: "0.92rem",
-                  lineHeight: 1.7,
-                  color: isDark
-                    ? "rgba(226,232,240,0.65)"
-                    : "rgba(15,23,42,0.6)",
-                }}
-              >
-                {service.description}
-              </Text>
-            </Paper>
+                    <Text
+                      style={{
+                        fontSize: 16.5,
+                        lineHeight: 1.85,
+                        color: isDark
+                          ? "rgba(255,255,255,.68)"
+                          : theme.colors.gray[7],
+                      }}
+                    >
+                      {item.description}
+                    </Text>
+                  </Stack>
+                </Box>
+              </MotionCard>
+            </Grid.Col>
           ))}
-        </SimpleGrid>
+        </Grid>
       </Container>
-
-      <style>
-        {`
-          .dev-service-card:hover {
-            transform: translateY(-4px);
-          }
-        `}
-      </style>
     </Box>
   );
 };

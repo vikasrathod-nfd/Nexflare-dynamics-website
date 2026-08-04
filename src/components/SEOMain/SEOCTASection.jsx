@@ -71,7 +71,7 @@ const SEOCTASection = () => {
               marginBottom: 40,
             }}
           >
-            Get a free, no-obligation SEO audit worth ₹15,000. See exactly where you stand and what it will take to reach the top.
+            Schedule a Call for no-obligation SEO audit worth ₹15,000. See exactly where you stand and what it will take to reach the top.
           </Text>
 
           {/* Buttons */}
@@ -89,7 +89,7 @@ const SEOCTASection = () => {
               }}
               onClick={handleGetFreeSEOAudit}   
             >
-              Get Free SEO Audit
+              Schedule a Call
             </Button>
 
             {/* <Button

@@ -2,7 +2,7 @@ import { Box, useComputedColorScheme } from "@mantine/core";
 import HeroSection from "../../../components/CustomSoftwareMain/HeroSection";
 import ProcessSection from "../../../components/CustomSoftwareMain/ProcessSection";
 import WhyChooseUs from "../../../components/CustomSoftwareMain/WhyChooseUs";
-import StatsSection from "../../../components/CustomSoftwareMain/StatsSection";
+// import StatsSection from "../../../components/CustomSoftwareMain/StatsSection";
 import FAQSection from "../../../components/CustomSoftwareMain/FAQSection";
 import CTASection from "../../../components/CustomSoftwareMain/CTASection";
 import WhatWeBuild from "../../../components/CustomSoftwareMain/WhatWeBuild";
@@ -31,7 +31,7 @@ const CustomSoftware = () => {
       <WhatWeBuild/>
       <ProcessSection />
       <WhyChooseUs />
-      <StatsSection/>
+      {/* <StatsSection/> */}
       <FAQSection />
       <CTASection />
       

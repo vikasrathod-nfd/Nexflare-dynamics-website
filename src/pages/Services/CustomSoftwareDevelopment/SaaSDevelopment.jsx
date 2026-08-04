@@ -3,7 +3,7 @@ import HeroSaas from "../../../components/SaaSDevelopment/HeroSaas";
 import SaaSFeatures from "../../../components/SaaSDevelopment/SaaSFeatures";
 import SaasDevelopmentProcess from "../../../components/SaaSDevelopment/SaasDevelopmentProcess";
 import WhyChooseSaaS from "../../../components/SaaSDevelopment/WhyChooseSaaS";
-import SuccessStats from "../../../components/SaaSDevelopment/SaasSuccessStats";
+// import SuccessStats from "../../../components/SaaSDevelopment/SaasSuccessStats";
 import SaasFAQSection from "../../../components/SaaSDevelopment/SaasFAQSection";
 import SaasCTASection from "../../../components/SaaSDevelopment/SaasCTASection";
 const SaaSDevelopment = () => {
@@ -31,7 +31,7 @@ const SaaSDevelopment = () => {
       <SaaSFeatures/>
       <SaasDevelopmentProcess/>
       <WhyChooseSaaS/>
-      <SuccessStats/>
+      {/* <SuccessStats/> */}
       <SaasFAQSection/>
       <SaasCTASection/>
       

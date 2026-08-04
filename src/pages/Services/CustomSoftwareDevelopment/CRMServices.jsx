@@ -3,7 +3,7 @@ import CRMHero from "../../../components/CRMServicesMain/CRMHero";
 import CRMServiceSection from "../../../components/CRMServicesMain/CRMServiceSection";
 import CRMProcessSection from "../../../components/CRMServicesMain/CRMProcessSection";
 import CRMWhyChooseUs from "../../../components/CRMServicesMain/CRMWhyChooseUs";
-import CRMStatsSection from "../../../components/CRMServicesMain/CRMStatsSection";
+// import CRMStatsSection from "../../../components/CRMServicesMain/CRMStatsSection";
 import CRMFaq from "../../../components/CRMServicesMain/CRMFaq";
 import CRMCTA from "../../../components/CRMServicesMain/CRMCTA";
 const ApiDevelopment = () => {
@@ -31,7 +31,7 @@ const ApiDevelopment = () => {
       <CRMServiceSection/>
       <CRMProcessSection/>
       <CRMWhyChooseUs/>
-      <CRMStatsSection/>
+      {/* <CRMStatsSection/> */}
       <CRMFaq/>
       <CRMCTA/>
     </Box>

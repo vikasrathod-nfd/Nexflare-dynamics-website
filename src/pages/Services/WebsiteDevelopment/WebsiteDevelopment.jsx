@@ -37,9 +37,9 @@ const WebsiteDevelopment = () => {
       <WebsiteDevelopmentServiceSection />
       <WebsiteDevelopmentWhyChooseUs />
       <WebsiteDevelopmentProcess />
-      <WebsiteDevelopmentStatsSection />
-      <WebsiteDevelopmentTools />
-      <WebsiteDevelopmentClientSection />
+      {/* <WebsiteDevelopmentStatsSection /> */}
+      {/* <WebsiteDevelopmentTools /> */}
+      {/* <WebsiteDevelopmentClientSection /> */}
       <WebsiteDevelopmentFaq />
       <WebsiteDevelopmentCTA />
     </Box>

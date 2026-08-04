@@ -1,15 +1,15 @@
 import { Box, useComputedColorScheme } from "@mantine/core";
 import APHero from "../../../components/AnalyticsReportingMain/APHero";
-import APServiceSection from "../../../components/AnalyticsReportingMain/APServiceSection";
+// import APServiceSection from "../../../components/AnalyticsReportingMain/APServiceSection";
 import APOffers from "../../../components/AnalyticsReportingMain/APOffers";
 import APProcess from "../../../components/AnalyticsReportingMain/APProcess";
 import APWhyChooseus from "../../../components/AnalyticsReportingMain/APWhyChooseus";
 import APStatsSection from "../../../components/AnalyticsReportingMain/APStatsSection";
 import APTools from "../../../components/AnalyticsReportingMain/APTools";
-import APClientSection from "../../../components/AnalyticsReportingMain/APClientSection";
+// import APClientSection from "../../../components/AnalyticsReportingMain/APClientSection";
 import APFaq from "../../../components/AnalyticsReportingMain/APFaq";
 import APCTA from "../../../components/AnalyticsReportingMain/APCTA";
-import APResults from "../../../components/AnalyticsReportingMain/APResults";
+// import APResults from "../../../components/AnalyticsReportingMain/APResults";
 const AnalyticsReporting = () => {
   const computedColorScheme = useComputedColorScheme("light");
   return (
@@ -32,14 +32,14 @@ const AnalyticsReporting = () => {
       }}
     >
         <APHero/>
-        <APServiceSection/>
+        {/* <APServiceSection/> */}
         <APOffers/>
         <APProcess/>
         <APWhyChooseus/>
         <APStatsSection/>
-        <APResults/>
-        <APTools/>
-        <APClientSection/>
+        {/* <APResults/> */}
+        {/* <APTools/> */}
+        {/* <APClientSection/> */}
         <APFaq/>
         <APCTA/>
       
