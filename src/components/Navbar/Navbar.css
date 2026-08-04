@@ -149,15 +149,25 @@
    MOBILE LINKS
 =========================== */
 
-.mobile-link {
+/* .mobile-link {
   display: block;
   text-decoration: none;
   color: #222;
   font-size: 16px;
-  /* font-weight: 600; */
+  font-weight: 600;
   padding: 12px 14px;
   border-radius: 10px;
   transition: all 0.25s;
+} */
+
+.mobile-link {
+  display: block;
+  text-decoration: none;
+  color: var(--mantine-color-text);
+  /* font-weight: 500; */
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
 }
 
 .mobile-link:hover {
