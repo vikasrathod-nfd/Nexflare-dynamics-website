@@ -89,45 +89,14 @@ const ProjectManagementScreen = () => {
                 borderRadius:16, overflow:"hidden", position:"relative",
                 border:`1px solid ${border}`, height:240,
               }}>
-                <Box style={{ position:"absolute", inset:0, background:imgBg }}>
-                  {/* people around table silhouettes */}
-                  {[
-                    { left:"5%",  bottom:0, width:70,  height:160, rx:8 },
-                    { left:"22%", bottom:0, width:90,  height:200, rx:8 },
-                    { left:"45%", bottom:0, width:110, height:180, rx:8 },
-                    { left:"70%", bottom:0, width:80,  height:150, rx:8 },
-                  ].map((s,i)=>(
-                    <Box key={i} style={{
-                      position:"absolute", left:s.left, bottom:s.bottom,
-                      width:s.width, height:s.height, borderRadius:s.rx,
-                      background:silShade[i],
-                    }}/>
-                  ))}
-                  {/* laptop glow shapes */}
-                  {[
-                    { left:"10%", bottom:"35%", w:55, h:35 },
-                    { left:"48%", bottom:"40%", w:90, h:50 },
-                  ].map((b,i)=>(
-                    <Box key={i} style={{
-                      position:"absolute", left:b.left, bottom:b.bottom,
-                      width:b.w, height:b.h, borderRadius:6,
-                      background: isDark ? "rgba(0,212,200,0.10)" : "rgba(8,145,178,0.14)",
-                      filter:"blur(3px)",
-                    }}/>
-                  ))}
-                  {/* window lights top */}
-                  {[
-                    { left:"60%", top:"10%", w:22, h:36 },
-                    { left:"75%", top:"6%",  w:18, h:28 },
-                  ].map((b,i)=>(
-                    <Box key={i} style={{
-                      position:"absolute", left:b.left, top:b.top,
-                      width:b.w, height:b.h, borderRadius:4,
-                      background: isDark ? "rgba(200,160,80,0.30)" : "rgba(255,255,255,0.55)",
-                      filter:"blur(2px)",
-                    }}/>
-                  ))}
-                </Box>
+                <img
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project Management Team Collaboration"
+                  style={{
+                    width:"100%", height:"100%", objectFit:"cover",
+                    position:"absolute", inset:0,
+                  }}
+                />
 
                 <Box style={{
                   position:"absolute", bottom:0, left:0, right:0,

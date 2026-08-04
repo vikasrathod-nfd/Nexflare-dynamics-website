@@ -52,7 +52,7 @@ const EmailCTA = () => {
             color: isDark ? "rgba(255,255,255,0.65)" : "rgba(11,19,38,0.65)",
           }}
         >
-          Get a free email audit and discover exactly how much revenue you're leaving on the table — and how to capture it.
+          Schedule a Call for email audit and discover exactly how much revenue you're leaving on the table — and how to capture it.
         </Text>
         {/* Buttons */}
         <Group justify="center" gap={16}>
@@ -79,7 +79,7 @@ const EmailCTA = () => {
             }}
             onClick={handleGetFreeEmailAudit}   
           >
-            Get Free Email Audit
+            Schedule a Call
           </Box>
           {/* <Box
             component="button"

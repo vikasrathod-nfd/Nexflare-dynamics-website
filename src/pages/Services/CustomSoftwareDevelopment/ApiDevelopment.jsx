@@ -3,7 +3,7 @@ import ApiHeroSection from "../../../components/ApiDevelopmentMain/ApiHeroSectio
 import ApiServicesSection from "../../../components/ApiDevelopmentMain/ApiServicesSection";
 import ApiProcessSection from "../../../components/ApiDevelopmentMain/ApiProcessSection";
 import ApiWhyChooseUs from "../../../components/ApiDevelopmentMain/ApiWhyChooseUs";
-import ApiStatsSection from "../../../components/ApiDevelopmentMain/ApiStatsSection";
+// import ApiStatsSection from "../../../components/ApiDevelopmentMain/ApiStatsSection";
 import ApiCTASection from "../../../components/ApiDevelopmentMain/ApiCTASection";
 import ApiFaq from "../../../components/ApiDevelopmentMain/Apifaq";
 const ApiDevelopment = () => {
@@ -31,7 +31,7 @@ const ApiDevelopment = () => {
       <ApiServicesSection />
       <ApiProcessSection />
       <ApiWhyChooseUs />
-      <ApiStatsSection />
+      {/* <ApiStatsSection /> */}
       <ApiFaq/>
       <ApiCTASection />
     </Box>

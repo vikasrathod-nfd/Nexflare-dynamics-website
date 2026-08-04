@@ -1,11 +1,11 @@
 import { Box, Container, SimpleGrid, Stack, Text, useComputedColorScheme } from "@mantine/core";
 const features = [
-  "Dedicated email strategist and copywriter for your account",
-  "Full ESP setup and migration (Klaviyo, Mailchimp, ActiveCampaign)",
-  "GDPR & CAN-SPAM compliant campaigns",
-  "Deliverability monitoring — we keep you out of spam",
-  "Revenue attribution so you see exactly what each email earns",
-  "Unlimited revisions until you're 100% happy",
+  "Dedicated email marketing specialist delivering strategy, content, and campaign management",
+  "End-to-end email marketing platform implementation, migration, and configuration",
+  "Privacy-compliant email campaigns built to meet international industry standards",
+  "Proactive email deliverability optimization for maximum inbox placement and engagement",
+  "Comprehensive campaign performance and revenue attribution with transparent reporting",
+  "Ongoing collaboration and refinements to ensure every campaign achieves your business objectives",
 ];
 const EmailWhyChooseUs = () => {
   const computedColorScheme = useComputedColorScheme("light");
@@ -67,7 +67,7 @@ const EmailWhyChooseUs = () => {
                 color: isDark ? "rgba(255,255,255,0.65)" : "rgba(11,19,38,0.65)",
               }}
             >
-              With an average ROI of 42:1, email is the highest-returning channel in digital marketing — when done right. We make sure it's done right.
+             Email marketing remains one of the most effective digital marketing channels when executed strategically. We design personalized campaigns, intelligent automation, and data-driven optimization strategies that strengthen customer relationships, increase conversions, and deliver measurable business growth.
             </Text>
             {/* Feature list */}
             <Stack gap={16} mb={36}>

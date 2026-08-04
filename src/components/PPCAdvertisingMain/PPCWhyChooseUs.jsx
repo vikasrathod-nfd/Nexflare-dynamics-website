@@ -5,31 +5,31 @@ const STEPS = [
     number: "01",
     title: "Account Audit",
     description:
-      "Full review of existing campaigns, wasted spend, Quality Scores, and conversion tracking setup.",
+      "We evaluate your existing campaigns, conversion tracking, audience targeting, and overall account performance to identify improvement opportunities.",
   },
   {
     number: "02",
     title: "Strategy & Setup",
     description:
-      "Audience research, keyword planning, competitor analysis, and campaign architecture design.",
+      "Our team develops a customized campaign strategy with audience research, keyword planning, and a structured account setup aligned with your business goals.",
   },
   {
     number: "03",
     title: "Creative & Copy",
     description:
-      "Compelling ad copy, A/B test variants, and landing page optimisation for maximum conversion.",
+      "We create compelling advertisements, engaging visuals, and optimized landing page experiences designed to maximize clicks and conversions.",
   },
   {
     number: "04",
     title: "Launch & Monitor",
     description:
-      "Live campaign monitoring with daily budget checks, bid adjustments, and negative keyword refinement.",
+      "Campaigns are launched with continuous performance monitoring, budget optimization, and audience refinement to ensure consistent results.",
   },
   {
     number: "05",
-    title: "Optimise & Scale",
+    title: "Optimize & Scale",
     description:
-      "Monthly reviews to cut losers, scale winners, and explore new ad formats and audience segments.",
+      "Using performance insights and ongoing testing, we refine successful campaigns, expand high-performing audiences, and scale your advertising investment.",
   },
 ];
 
@@ -90,8 +90,7 @@ const PPCWhyChooseUs = () => {
               marginTop: 8,
             }}
           >
-            A battle-tested PPC workflow that eliminates wasted spend and
-            maximises your return from day one.
+            From audience research and campaign setup to ongoing optimization and transparent reporting, our data-driven process ensures your advertising budget is invested efficiently to generate qualified leads and sustainable business growth.
           </Text>
         </Stack>
 

@@ -11,33 +11,27 @@ import {
 } from "@mantine/core";
 import { motion } from "framer-motion";
 const MotionBox = motion.create(Box);
-const stats = [
-  { value: "100+", label: "Dashboards Built" },
-  { value: "3x", label: "Avg. ROI Improvement" },
-  { value: "99%", label: "Report Accuracy" },
-];
+
 const APHero = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-  const imageOpacity = isDark ? 0.9 : 0.7;
-  // Improved scroll function
+
   const handleGetFreeAudit = () => {
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-      // Scroll to contact form if it exists on the same page
       contactForm.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     } else {
-      // Fallback: Redirect to contact page (change URL if needed)
-      window.location.href = "/contact"; // ← Change this if your contact page route is different
+      window.location.href = "/contact"; // Change this if your contact page route is different
     }
   };
+
   return (
     <Box
       component="section"
-      py={140}
+      py={170}
       style={{
         position: "relative",
         overflow: "hidden",
@@ -45,7 +39,7 @@ const APHero = () => {
         alignItems: "center",
       }}
     >
-      {/* Background image */}
+      {/* Background image - kept bright/visible, not washed out */}
       <Box
         style={{
           position: "absolute",
@@ -54,23 +48,22 @@ const APHero = () => {
             "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpl40DcV5ggsXYOMndXAMISXp1xghqmZU43tyME6xXQbWyr50ibKlM6ZIn&s=10')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: imageOpacity,
-          filter: isDark ? "brightness(0.45)" : "brightness(0.9)",
+          filter: "brightness(1)",
         }}
       />
-      {/* Overlay */}
+      {/* Text-side overlay only - fades quickly so most of the image stays visible */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
           background: isDark
             ? `
-              linear-gradient(90deg, rgba(4,10,18,0.97) 0%, rgba(4,10,18,0.88) 40%, rgba(4,10,18,0.55) 65%, rgba(4,10,18,0.35) 100%),
-              radial-gradient(circle at 15% 20%, rgba(20,184,166,.12), transparent 40%)
+              linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
+              linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
             `
             : `
-              linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.65) 65%, rgba(255,255,255,0.4) 100%),
-              radial-gradient(circle at 15% 20%, rgba(20,184,166,.08), transparent 40%)
+              linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
+              linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
             `,
         }}
       />
@@ -79,15 +72,14 @@ const APHero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          maw={620}
+          maw={640}
         >
           <Stack gap={30}>
-            {/* Badge */}
             <Badge
               radius="xl"
               size="xl"
               color="teal"
-              variant={isDark ? "light" : "outline"}
+              variant="filled"
               px={22}
               py={14}
               style={{
@@ -99,13 +91,13 @@ const APHero = () => {
             >
               ● Digital Marketing
             </Badge>
-            {/* Heading */}
             <Title
               style={{
-                fontSize: "clamp(2.6rem, 6vw, 4rem)",
-                lineHeight: 1.1,
+                fontSize: "clamp(2.8rem, 6vw, 4.2rem)",
+                lineHeight: 1.05,
                 fontWeight: 900,
-                color: isDark ? "#ffffff" : "#0b1326",
+                color: "#ffffff",
+                textShadow: "0 2px 20px rgba(0,0,0,0.5)",
               }}
             >
               Analytics &amp;
@@ -114,24 +106,23 @@ const APHero = () => {
                 component="span"
                 inherit
                 variant="gradient"
-                gradient={{ from: "#0d9488", to: "#14b8a6" }}
+                gradient={{ from: "#22d3ee", to: "#14b8a6" }}
               >
                 Reporting
               </Text>
             </Title>
-            {/* Description */}
             <Text
-              lh={1.7}
+              lh={1.8}
               style={{
                 fontSize: 18,
-                color: isDark ? "rgba(255,255,255,.75)" : "rgba(11,19,38,.75)",
+                color: "rgba(255,255,255,.92)",
+                textShadow: "0 1px 12px rgba(0,0,0,0.55)",
               }}
             >
               Turn raw data into clear decisions. We track every click,
               conversion, and campaign — and translate the numbers into
               actionable strategies that drive real growth.
             </Text>
-            {/* Buttons */}
             <Group mt={10}>
               <Button
                 size="lg"
@@ -139,42 +130,10 @@ const APHero = () => {
                 color="teal"
                 h={54}
                 px={34}
-                onClick={handleGetFreeAudit}   
+                onClick={handleGetFreeAudit}
               >
-                Get Free Audit
+                Start Your Project
               </Button>
-              
-            </Group>
-            {/* Stats */}
-            <Group mt={30} gap={48}>
-              {stats.map((stat, index) => (
-                <Box key={index}>
-                  <Title
-                    order={1}
-                    c="teal"
-                    fw={900}
-                    style={{
-                      fontSize: "clamp(26px, 3vw, 34px)",
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    {stat.value}
-                  </Title>
-                  <Text
-                    tt="uppercase"
-                    size="xs"
-                    fw={600}
-                    style={{
-                      letterSpacing: 1,
-                      color: isDark
-                        ? "rgba(255,255,255,0.6)"
-                        : "rgba(11,19,38,0.6)",
-                    }}
-                  >
-                    {stat.label}
-                  </Text>
-                </Box>
-              ))}
             </Group>
           </Stack>
         </MotionBox>
@@ -182,4 +141,5 @@ const APHero = () => {
     </Box>
   );
 };
+
 export default APHero;

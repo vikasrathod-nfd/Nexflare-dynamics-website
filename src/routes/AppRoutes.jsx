@@ -203,7 +203,7 @@ import WebsiteDesign from "../pages/Services/WebsiteDevelopment/WebsiteDesign";
 import WebsiteDevelopment from "../pages/Services/WebsiteDevelopment/WebsiteDevelopment";
 import AppDevelopment from "../pages/Services/WebsiteDevelopment/AppDevelopment";
 import EcommerceDevelopment from "../pages/Services/WebsiteDevelopment/EcommerceDevelopment";
-import LandingPage from "../pages/Services/WebsiteDevelopment/LandingPage";
+// import LandingPage from "../pages/Services/WebsiteDevelopment/LandingPage";
 // ============================
 // Services Page
 // ============================
@@ -349,10 +349,10 @@ const AppRoutes = () => {
           element={<EcommerceDevelopment />}
         />
 
-        <Route
+        {/* <Route
           path="/services/website-development-design/landing-page"
           element={<LandingPage />}
-        />
+        /> */}
         {/* ====================================================== */}
         {/* Digital Marketing */}
         {/* ====================================================== */}

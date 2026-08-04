@@ -1,4 +1,3 @@
-
 import {
   Badge,
   Box,
@@ -12,57 +11,49 @@ import {
 } from "@mantine/core";
 import { motion } from "framer-motion";
 const MotionBox = motion.create(Box);
-const stats = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "98%", label: "On-Time Delivery" },
-  { value: "40+", label: "Industries Served" },
-];
+
 const HeroSection = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-  // Function to navigate to Contact page
   const handleStartProject = () => {
-    // Option 1: If using React Router
-    // navigate('/contact');   // Uncomment if you have useNavigate
-    // Option 2: Simple redirect (works everywhere)
-    window.location.href = "/contact"; // Change path if your contact page route is different
+    window.location.href = "/contact";
   };
   return (
     <Box
       component="section"
       py={140}
-      style={{
+      style={{ 
         position: "relative",
         overflow: "hidden",
         minHeight: "88vh",
         alignItems: "center",
       }}
     >
-      {/* Background image */}
+      {/* Background image - kept bright/visible, not washed out */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1920&auto=format&fit=crop')",
+            "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTESWjpnXvwpMBnliWPcDzA472luESWrm9lETIxR3_ZD9eWekXCyyS2ypY&s=10')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: isDark ? "brightness(0.5)" : "brightness(0.95)",
+          filter: "brightness(1)",
         }}
       />
-      {/* Theme-aware overlay */}
+      {/* Text-side overlay only - fades quickly so most of the image stays visible */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
           background: isDark
             ? `
-              linear-gradient(90deg, rgba(4,10,18,0.94) 0%, rgba(4,10,18,0.85) 42%, rgba(4,10,18,0.6) 68%, rgba(4,10,18,0.4) 100%),
-              radial-gradient(circle at 15% 20%, rgba(20,184,166,.12), transparent 40%)
+              linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
+              linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
             `
             : `
-              linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.9) 42%, rgba(255,255,255,0.65) 68%, rgba(255,255,255,0.4) 100%),
-              radial-gradient(circle at 15% 20%, rgba(20,184,166,.08), transparent 40%)
+              linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
+              linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
             `,
         }}
       />
@@ -74,12 +65,11 @@ const HeroSection = () => {
           maw={640}
         >
           <Stack gap={30}>
-            {/* Badge */}
             <Badge
               radius="xl"
               size="xl"
               color="teal"
-              variant={isDark ? "light" : "outline"}
+              variant="filled"
               px={22}
               py={14}
               style={{
@@ -91,13 +81,13 @@ const HeroSection = () => {
             >
               ● Software Development
             </Badge>
-            {/* Heading */}
             <Title
               style={{
                 fontSize: "clamp(2.8rem, 6vw, 4.2rem)",
                 lineHeight: 1.05,
                 fontWeight: 900,
-                color: isDark ? "#ffffff" : "#0b1326",
+                color: "#ffffff",
+                textShadow: "0 2px 20px rgba(0,0,0,0.5)",
               }}
             >
               Custom
@@ -111,20 +101,16 @@ const HeroSection = () => {
                 Software
               </Text>
             </Title>
-            {/* Description */}
             <Text
               lh={1.8}
               style={{
                 fontSize: 18,
-                color: isDark ? "rgba(255,255,255,.75)" : "rgba(11,19,38,.75)",
+                color: "rgba(255,255,255,.92)",
+                textShadow: "0 1px 12px rgba(0,0,0,0.55)",
               }}
             >
-              No two businesses are alike — so why use generic software? At
-              Nexflare Dynamics, we build tailored software solutions that
-              align perfectly with your goals, ensuring scalability,
-              efficiency, and seamless integration.
+             Your business deserves software that works the way you do. We develop intelligent, customized solutions that automate processes, enhance efficiency, and seamlessly integrate with your existing systems helping you reduce costs, accelerate growth, and deliver exceptional customer experiences.
             </Text>
-            {/* Buttons */}
             <Group mt={10}>
               <Button
                 size="lg"
@@ -136,40 +122,6 @@ const HeroSection = () => {
               >
                 Start Your Project
               </Button>
-              {/* <Button size="lg" radius="xl" variant="default" h={54} px={30}>
-                Explore Services
-              </Button> */}
-            </Group>
-            {/* Stats */}
-            <Group mt={30} gap={48}>
-              {stats.map((stat, index) => (
-                <Box key={index}>
-                  <Title
-                    order={1}
-                    c="teal"
-                    fw={900}
-                    style={{
-                      fontSize: "clamp(26px, 3vw, 34px)",
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    {stat.value}
-                  </Title>
-                  <Text
-                    tt="uppercase"
-                    size="xs"
-                    fw={600}
-                    style={{
-                      letterSpacing: 1,
-                      color: isDark
-                        ? "rgba(255,255,255,0.6)"
-                        : "rgba(11,19,38,0.6)",
-                    }}
-                  >
-                    {stat.label}
-                  </Text>
-                </Box>
-              ))}
             </Group>
           </Stack>
         </MotionBox>

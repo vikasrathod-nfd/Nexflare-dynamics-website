@@ -3,11 +3,11 @@ import SEOHeroSection from "../../../components/SEOMain/SEOHeroSection";
 import SEOServicesSection from "../../../components/SEOMain/SEOServicesSection";
 import SEOProcessSection from "../../../components/SEOMain/SEOProcessSection";
 import SEOWhyChooseUs from "../../../components/SEOMain/SEOWhyChooseUs";
-import SEOStatsSection from "../../../components/SEOMain/SEOStatsSection";
+// import SEOStatsSection from "../../../components/SEOMain/SEOStatsSection";
 import SEOCTASection from "../../../components/SEOMain/SEOCTASection";
 import SEOFaq from "../../../components/SEOMain/SEOFaq";
 import SEOTools from "../../../components/SEOMain/SEOTools";
-import ClientSuccess from "../../../components/SEOMain/ClientSuccess";
+// import ClientSuccess from "../../../components/SEOMain/ClientSuccess";
 const SEO = () => {
   const computedColorScheme = useComputedColorScheme("light");
   return (
@@ -33,9 +33,9 @@ const SEO = () => {
       <SEOServicesSection />
       <SEOProcessSection />
       <SEOWhyChooseUs />
-      <SEOStatsSection />
-      <SEOTools/>
-      <ClientSuccess/>
+      {/* <SEOStatsSection /> */}
+      {/* <SEOTools/> */}
+      {/* <ClientSuccess/> */}
       <SEOFaq />
       <SEOCTASection />
     </Box>

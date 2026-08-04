@@ -218,17 +218,17 @@ const navLinks = [
             path: "/services/website-development-design/web-development",
           },
           {
-            label: "App Development",
+            label: "Application Development",
             path: "/services/website-development-design/app-development",
           },
           {
-            label: "eCommerce Development",
+            label: "eCommerce Website Development",
             path: "/services/website-development-design/ecommerce",
           },
-          {
-            label: "Landing Page Design",
-            path: "/services/website-development-design/landing-page",
-          },
+          // {
+          //   label: "Landing Page Design",
+          //   path: "/services/website-development-design/landing-page",
+          // },
         ],
       },
     ],

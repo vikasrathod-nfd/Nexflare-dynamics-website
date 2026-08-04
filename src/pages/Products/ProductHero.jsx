@@ -461,8 +461,6 @@
 // };
 
 // export default ProductHero;
-
-
 import {
   Badge,
   Box,
@@ -479,7 +477,7 @@ import {
   useComputedColorScheme,
 } from "@mantine/core";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import {
   IconApps,
@@ -516,7 +514,6 @@ const products = [
   },
 ];
 
-// 4 cards jo "View All Products" click karne pe show honge
 const allProducts = [
   {
     name: "NexHRMS",
@@ -568,15 +565,30 @@ const ProductHero = () => {
   const colorScheme = useComputedColorScheme("light");
   const isDark = colorScheme === "dark";
 
-  // naya state - ye control karega ki 4 cards dikhne chaiye ya nahi
   const [showAllProducts, setShowAllProducts] = useState(false);
+  const allProductsRef = useRef(null);
+
+  const handleToggleProducts = () => {
+    setShowAllProducts((prev) => {
+      const next = !prev;
+      if (next) {
+        // Wait a bit for the AnimatePresence height animation to start rendering
+        setTimeout(() => {
+          allProductsRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 150);
+      }
+      return next;
+    });
+  };
 
   return (
     <Box py={100}>
       <Container size="xl" py={60}>
         <Grid align="center" gutter={70}>
           {/* ================= LEFT SIDE ================= */}
-
           <Grid.Col span={{ base: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -60 }}
@@ -604,7 +616,7 @@ const ProductHero = () => {
                     color: isDark ? "#fff" : "#0F172A",
                   }}
                 >
-                  Best Custom
+                  Best
                   <br />
                   <span
                     style={{
@@ -633,8 +645,6 @@ const ProductHero = () => {
                   capacity with intelligent automation.
                 </Text>
 
-                {/* ================= FEATURES ================= */}
-
                 <Stack gap="md">
                   {features.map((feature) => (
                     <Group key={feature} gap="sm" align="center">
@@ -646,15 +656,12 @@ const ProductHero = () => {
                       >
                         <IconCircleCheck size={16} />
                       </ThemeIcon>
-
                       <Text fw={500} size="md" c={isDark ? "gray.1" : "dark"}>
                         {feature}
                       </Text>
                     </Group>
                   ))}
                 </Stack>
-
-                {/* ================= BUTTONS ================= */}
 
                 <Group mt="lg">
                   <Button
@@ -697,7 +704,6 @@ const ProductHero = () => {
           </Grid.Col>
 
           {/* ================= RIGHT SIDE ================= */}
-
           <Grid.Col span={{ base: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 60 }}
@@ -723,19 +729,13 @@ const ProductHero = () => {
                       <Text fw={700} size="xl">
                         Our Software Suite
                       </Text>
-
                       <Text size="sm" c="dimmed" mt={4}>
                         Modern enterprise products designed to help businesses
                         grow with powerful digital solutions.
                       </Text>
                     </Box>
 
-                    <ThemeIcon
-                      size={55}
-                      radius="xl"
-                      variant="light"
-                      color="blue"
-                    >
+                    <ThemeIcon size={55} radius="xl" variant="light" color="blue">
                       <IconApps size={28} />
                     </ThemeIcon>
                   </Group>
@@ -744,7 +744,6 @@ const ProductHero = () => {
 
                   {products.map((product) => {
                     const Icon = product.icon;
-
                     return (
                       <Card
                         key={product.name}
@@ -767,21 +766,14 @@ const ProductHero = () => {
                             >
                               <Icon size={24} />
                             </ThemeIcon>
-
                             <Box>
                               <Text fw={700}>{product.name}</Text>
-
                               <Text size="sm" c="dimmed">
                                 Enterprise Software
                               </Text>
                             </Box>
                           </Group>
-
-                          <Badge
-                            radius="xl"
-                            color={product.color}
-                            variant="light"
-                          >
+                          <Badge radius="xl" color={product.color} variant="light">
                             {product.status}
                           </Badge>
                         </Group>
@@ -792,12 +784,11 @@ const ProductHero = () => {
                   <Divider />
 
                   <Group grow>
-                    {/* onClick add kiya - toggle state */}
                     <Button
                       radius="xl"
                       variant="light"
                       color="blue"
-                      onClick={() => setShowAllProducts((prev) => !prev)}
+                      onClick={handleToggleProducts}
                     >
                       {showAllProducts ? "Hide Products" : "View All Products"}
                     </Button>
@@ -805,10 +796,7 @@ const ProductHero = () => {
                     <Button
                       radius="xl"
                       variant="gradient"
-                      gradient={{
-                        from: "blue",
-                        to: "cyan",
-                      }}
+                      gradient={{ from: "blue", to: "cyan" }}
                       rightSection={<IconArrowRight size={18} />}
                       onClick={() => navigate("/contact")}
                     >
@@ -821,8 +809,7 @@ const ProductHero = () => {
           </Grid.Col>
         </Grid>
 
-        {/* ================= 4 PRODUCT CARDS (View All Products click pe) ================= */}
-
+        {/* ================= 4 PRODUCT CARDS ================= */}
         <AnimatePresence>
           {showAllProducts && (
             <motion.div
@@ -832,11 +819,10 @@ const ProductHero = () => {
               transition={{ duration: 0.4 }}
               style={{ overflow: "hidden" }}
             >
-              <Box mt={60}>
+              <Box mt={60} ref={allProductsRef}>
                 <Grid gutter="xl">
                   {allProducts.map((product, index) => {
                     const Icon = product.icon;
-
                     return (
                       <Grid.Col
                         key={product.name}
@@ -873,7 +859,6 @@ const ProductHero = () => {
                             }}
                           >
                             <Stack gap="md" style={{ height: "100%" }}>
-                              {/* Icon + Status Badge */}
                               <Group justify="space-between" align="flex-start">
                                 <ThemeIcon
                                   size={56}
@@ -883,7 +868,6 @@ const ProductHero = () => {
                                 >
                                   <Icon size={28} />
                                 </ThemeIcon>
-
                                 <Badge
                                   radius="xl"
                                   size="sm"
@@ -894,12 +878,10 @@ const ProductHero = () => {
                                 </Badge>
                               </Group>
 
-                              {/* Title + Description */}
                               <Box style={{ flexGrow: 1 }}>
                                 <Text fw={700} size="lg">
                                   {product.name}
                                 </Text>
-
                                 <Text size="sm" c="dimmed" mt={4}>
                                   {product.description}
                                 </Text>
@@ -907,11 +889,12 @@ const ProductHero = () => {
 
                               <Divider />
 
-                              {/* View Details Button - sirf Live products k liye clickable */}
                               <Button
                                 radius="xl"
                                 variant="light"
-                                color={product.status === "Live" ? "blue" : "gray"}
+                                color={
+                                  product.status === "Live" ? "blue" : "gray"
+                                }
                                 fullWidth
                                 disabled={product.status !== "Live"}
                                 rightSection={
@@ -929,7 +912,8 @@ const ProductHero = () => {
                                     product.status === "Live"
                                       ? "pointer"
                                       : "not-allowed",
-                                  opacity: product.status === "Live" ? 1 : 0.6,
+                                  opacity:
+                                    product.status === "Live" ? 1 : 0.6,
                                 }}
                               >
                                 {product.status === "Live"
@@ -949,11 +933,10 @@ const ProductHero = () => {
         </AnimatePresence>
 
         {/* ================= PRODUCT HIGHLIGHTS ================= */}
-
         <Box mt={80}>
           <Card
             radius={24}
-            p="xl"
+            p={{ base: "xl", md: 40 }}
             withBorder
             shadow="md"
             style={{
@@ -964,101 +947,170 @@ const ProductHero = () => {
             }}
           >
             <Stack gap="xl">
-              <Title order={2} ta="center" fw={800}>
-                Why Choose Our Products?
-              </Title>
+              <Box ta="center">
+                <Title order={2} fw={800} mb={8}>
+                  Why Choose Our Products?
+                </Title>
+                <Text maw={700} mx="auto" c="dimmed" size="md">
+                  Our enterprise software products are designed to improve
+                  productivity, automate business processes, and help your
+                  organization scale with confidence.
+                </Text>
+              </Box>
 
-              <Text ta="center" maw={700} mx="auto" c="dimmed">
-                Our enterprise software products are designed to improve
-                productivity, automate business processes, and help your
-                organization scale with confidence.
-              </Text>
+              <Grid gutter={24}>
+                {[
+                  {
+                    icon: IconCloudComputing,
+                    title: "Cloud Ready",
+                    description:
+                      "Secure cloud infrastructure with easy accessibility from anywhere.",
+                    color: "blue",
+                    image:
+                      "https://www.epsoftinc.com/wp-content/uploads/2021/03/cloud-1.jpg",
+                  },
+                  {
+                    icon: IconCircleCheck,
+                    title: "Easy to Use",
+                    description:
+                      "Modern & intuitive UI that requires minimal training for your team.",
+                    color: "teal",
+                    image:
+                      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
+                  },
+                  {
+                    icon: IconApps,
+                    title: "Modular Design",
+                    description:
+                      "Flexible modules that scale perfectly with businesses of every size.",
+                    color: "orange",
+                    image:
+                      "https://thumbs.dreamstime.com/b/internet-information-technology-businessman-hand-showing-concept-75784736.jpg",
+                  },
+                  {
+                    icon: IconBrandReact,
+                    title: "Modern Technology",
+                    description:
+                      "Built with the latest stack for high performance and scalability.",
+                    color: "cyan",
+                    image:
+                      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                  },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Grid.Col key={item.title} span={{ base: 12, sm: 6, md: 3 }}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        style={{ height: "100%" }}
+                      >
+                        <Card
+                          radius="xl"
+                          p={0}
+                          withBorder
+                          shadow="md"
+                          style={{
+                            height: "100%",
+                            overflow: "hidden",
+                            transition: "all 0.35s ease",
+                            cursor: "default",
+                            position: "relative",
+                            border: "1px solid rgba(255,255,255,0.15)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = "translateY(-10px)";
+                            e.currentTarget.style.boxShadow =
+                              "0 20px 40px rgba(37, 99, 235, 0.25)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = "translateY(0)";
+                            e.currentTarget.style.boxShadow = "";
+                          }}
+                        >
+                          {/* Background Image */}
+                          <Box
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              backgroundImage: `url(${item.image})`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              zIndex: 0,
+                              filter: "brightness(0.85)",
+                            }}
+                          />
 
-              <Grid gutter="lg">
-                <Grid.Col span={{ base: 12, sm: 6, md: 3 }}>
-                  <Card radius="lg" p="lg" withBorder>
-                    <ThemeIcon
-                      size={56}
-                      radius="xl"
-                      color="blue"
-                      variant="light"
-                    >
-                      <IconCloudComputing size={28} />
-                    </ThemeIcon>
+                          {/* Light Gradient Overlay */}
+                          <Box
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              background:
+                                "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)",
+                              zIndex: 1,
+                            }}
+                          />
 
-                    <Text fw={700} mt="md">
-                      Cloud Ready
-                    </Text>
+                          {/* Content */}
+                          <Stack
+                            gap="md"
+                            p="xl"
+                            style={{
+                              height: "100%",
+                              position: "relative",
+                              zIndex: 2,
+                              minHeight: 240,
+                            }}
+                          >
+                            {/* Icon + Title - Always Side by Side */}
+                            <Group gap="sm" align="center" wrap="nowrap">
+                              <ThemeIcon
+                                size={44}
+                                radius="xl"
+                                variant="filled"
+                                color={item.color}
+                                style={{
+                                  boxShadow: "0 6px 18px rgba(0,0,0,0.25)",
+                                  border: "2px solid rgba(255,255,255,0.3)",
+                                  flexShrink: 0,
+                                }}
+                              >
+                                <Icon size={20} stroke={1.7} color="white" />
+                              </ThemeIcon>
 
-                    <Text size="sm" c="dimmed" mt={6}>
-                      Secure cloud infrastructure with easy accessibility.
-                    </Text>
-                  </Card>
-                </Grid.Col>
+                              <Text
+                                fw={700}
+                                size="md"
+                                c="white"
+                                style={{
+                                  textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+                                  lineHeight: 1.3,
+                                }}
+                              >
+                                {item.title}
+                              </Text>
+                            </Group>
 
-                <Grid.Col span={{ base: 12, sm: 6, md: 3 }}>
-                  <Card radius="lg" p="lg" withBorder>
-                    <ThemeIcon
-                      size={56}
-                      radius="xl"
-                      color="green"
-                      variant="light"
-                    >
-                      <IconCircleCheck size={28} />
-                    </ThemeIcon>
-
-                    <Text fw={700} mt="md">
-                      Easy to Use
-                    </Text>
-
-                    <Text size="sm" c="dimmed" mt={6}>
-                      Modern UI with an intuitive user experience.
-                    </Text>
-                  </Card>
-                </Grid.Col>
-
-                <Grid.Col span={{ base: 12, sm: 6, md: 3 }}>
-                  <Card radius="lg" p="lg" withBorder>
-                    <ThemeIcon
-                      size={56}
-                      radius="xl"
-                      color="orange"
-                      variant="light"
-                    >
-                      <IconApps size={28} />
-                    </ThemeIcon>
-
-                    <Text fw={700} mt="md">
-                      Modular
-                    </Text>
-
-                    <Text size="sm" c="dimmed" mt={6}>
-                      Flexible modules that fit businesses of every size.
-                    </Text>
-                  </Card>
-                </Grid.Col>
-
-                <Grid.Col span={{ base: 12, sm: 6, md: 3 }}>
-                  <Card radius="lg" p="lg" withBorder>
-                    <ThemeIcon
-                      size={56}
-                      radius="xl"
-                      color="cyan"
-                      variant="light"
-                    >
-                      <IconBrandReact size={28} />
-                    </ThemeIcon>
-
-                    <Text fw={700} mt="md">
-                      Modern Technology
-                    </Text>
-
-                    <Text size="sm" c="dimmed" mt={6}>
-                      Built using the latest technologies for performance and
-                      scalability.
-                    </Text>
-                  </Card>
-                </Grid.Col>
+                            {/* Description */}
+                            <Text
+                              size="sm"
+                              c="gray.2"
+                              style={{
+                                lineHeight: 1.65,
+                                textShadow: "0 1px 4px rgba(0,0,0,0.3)",
+                              }}
+                            >
+                              {item.description}
+                            </Text>
+                          </Stack>
+                        </Card>
+                      </motion.div>
+                    </Grid.Col>
+                  );
+                })}
               </Grid>
             </Stack>
           </Card>

@@ -79,7 +79,7 @@ const WebsiteDesignCTA = () => {
                 : "rgba(15,23,42,0.65)",
             }}
           >
-            Book a free consultation and let's build a website that works as
+            Book a call and let's build a website that works as
             hard as you do.
           </Text>
 
@@ -103,7 +103,7 @@ const WebsiteDesignCTA = () => {
               }}
               onClick={handleBookFreeConsultation}   
             >
-              Book Free Consultation
+              Schedule a Call
             </Button>
 
             {/* <Button

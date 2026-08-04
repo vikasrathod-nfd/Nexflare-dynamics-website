@@ -74,7 +74,7 @@ const APCTA = () => {
               marginBottom: 40,
             }}
           >
-            Get a free analytics audit and see exactly where your data is letting you down — and how to fix it.
+            Schedule a Call for analytics audit and see exactly where your data is letting you down — and how to fix it.
           </Text>
           {/* Buttons */}
           <Group justify="center" gap={16}>
@@ -91,7 +91,7 @@ const APCTA = () => {
               }}
               onClick={handleBookAudit}  
             >
-              Book Free Analytics Audit
+            Schedule a Call
             </Button>
             {/* <Button
               size="lg"

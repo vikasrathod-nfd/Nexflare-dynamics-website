@@ -3,9 +3,9 @@ import MediaManagementHero from "../../../components/SocialMediaManagementMain/M
 import MediaMangementServiceSection from "../../../components/SocialMediaManagementMain/MediaManagementService";
 import MediaMangementProcessSection from "../../../components/SocialMediaManagementMain/MediaManagementProcess";
 import MediaMangementWhyChooseUs from "../../../components/SocialMediaManagementMain/MediaManagementWhyChooseUs";
-import MediaMangementStatsSection from "../../../components/SocialMediaManagementMain/MediaManagementStatsSection";
+// import MediaMangementStatsSection from "../../../components/SocialMediaManagementMain/MediaManagementStatsSection";
 import MediaMangementTools from "../../../components/SocialMediaManagementMain/MediaManagementTools";
-import MediaMangementClientSuccess from "../../../components/SocialMediaManagementMain/MediaManagementClientSuccess";
+// import MediaMangementClientSuccess from "../../../components/SocialMediaManagementMain/MediaManagementClientSuccess";
 import MediaMangementFaq from "../../../components/SocialMediaManagementMain/MediaManagementFaq";
 import MediaManagementCTASection from "../../../components/SocialMediaManagementMain/MediaManagementCTASection";
 
@@ -35,9 +35,9 @@ const SocialMediaManagement = () => {
       <MediaMangementServiceSection/>
       <MediaMangementProcessSection/>
       <MediaMangementWhyChooseUs/>
-      <MediaMangementStatsSection/>
-      <MediaMangementTools/>
-      <MediaMangementClientSuccess/>
+      {/* <MediaMangementStatsSection/> */}
+      {/* <MediaMangementTools/> */}
+      {/* <MediaMangementClientSuccess/> */}
       <MediaMangementFaq/>
       <MediaManagementCTASection/>
     </Box>

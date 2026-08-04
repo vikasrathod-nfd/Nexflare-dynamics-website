@@ -3,9 +3,9 @@ import EmailHero from "../../../components/EmailMarketingMain/EmailHero";
 import EmailServiceSection from "../../../components/EmailMarketingMain/EmailServiceSection";
 import EmailProcessSection from "../../../components/EmailMarketingMain/EmailProcessSection";
 import EmailWhyChooseUs from "../../../components/EmailMarketingMain/EmailWhyChooseUs";
-import EmailStatsSection from "../../../components/EmailMarketingMain/EmailStatsSection";
+// import EmailStatsSection from "../../../components/EmailMarketingMain/EmailStatsSection";
 import EmailTools from "../../../components/EmailMarketingMain/EmailTools";
-import EmailClientSection from "../../../components/EmailMarketingMain/EmailClientSection";
+// import EmailClientSection from "../../../components/EmailMarketingMain/EmailClientSection";
 import EmailFaq from "../../../components/EmailMarketingMain/EmailFaq";
 import EmailCTA from "../../../components/EmailMarketingMain/EmailCTA";
 import EmailOffers from "../../../components/EmailMarketingMain/EmailOffers";
@@ -35,9 +35,9 @@ const EmailMarketing = () => {
         <EmailOffers/>
         <EmailProcessSection/>
         <EmailWhyChooseUs/>
-        <EmailStatsSection/>
-        <EmailTools/>
-        <EmailClientSection/>
+        {/* <EmailStatsSection/> */}
+        {/* <EmailTools/> */}
+        {/* <EmailClientSection/> */}
         <EmailFaq/>
         <EmailCTA/>
       

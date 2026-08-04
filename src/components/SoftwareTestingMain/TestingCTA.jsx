@@ -53,7 +53,7 @@ const TestingCTA = () => {
               fs="italic"
               style={{ color: ACCENT }}
             >
-              Ship with Confidence?
+            Validate Your Software ?
             </Text>
           </Title>
 
@@ -70,7 +70,7 @@ const TestingCTA = () => {
               marginBottom: 40,
             }}
           >
-            Book a free QA consultation and let's build a testing strategy that keeps your product defect-free at every release.
+            Book a call and let's build a testing strategy that keeps your product defect-free at every release.
           </Text>
 
           {/* Buttons */}
@@ -88,7 +88,7 @@ const TestingCTA = () => {
               }}
               onClick={handleBookQAConsultation} 
             >
-              Book Free QA Consultation
+              Schedule a Call
             </Button>
 
             {/* <Button

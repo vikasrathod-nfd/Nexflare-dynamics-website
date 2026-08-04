@@ -1,143 +1,243 @@
-import { Box, Container, Title, Text, Stack, Group, SimpleGrid, UnstyledButton, useComputedColorScheme } from "@mantine/core";
-const CHECKLIST = [
-  "Dedicated account manager who knows your brand voice",
-  "Posts go live daily — never a stale or inactive feed",
-  "Comments and DMs answered within hours, not days",
-  "Monthly reporting with clear, jargon-free insights",
-  "Content approved by you before it ever goes live",
-  "Crisis response plan in place for reputation issues",
+import React from "react";
+import {
+  Box,
+  Container,
+  Text,
+  Title,
+  Grid,
+  Group,
+  Button,
+  Image,
+  useComputedColorScheme,
+} from "@mantine/core";
+import { IconCheck, IconArrowRight } from "@tabler/icons-react";
+import { motion } from "framer-motion";
+
+const MotionBox = motion.create(Box);
+
+const ACCENT = "#2DD4BF";
+const ACCENT2 = "#22D3EE";
+
+const features = [
+  "Dedicated social media specialist committed to your brand's long-term growth",
+  "Strategic content publishing that keeps your brand consistently visible and relevant",
+  "Professional community engagement that strengthens customer relationships and trust",
+  "Comprehensive monthly reporting with measurable performance insights and recommendations",
+  "Collaborative content approval process to ensure every post reflects your brand standards",
+  "Proactive reputation monitoring and crisis management to protect your brand image",
 ];
+
 const MediaManagementWhyChooseUs = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
-  const colors = {
-    eyebrow: "#14b8a6",
-    heading: isDark ? "#ffffff" : "#0f172a",
-    headingAccent: "#14b8a6",
-    paragraph: isDark ? "rgba(226,232,240,0.72)" : "#475569",
-    checkIcon: "#14b8a6",
-    checkText: isDark ? "rgba(226,232,240,0.85)" : "#334155",
-    imageBorder: isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)",
-    imageShadow: isDark
-      ? "0 20px 60px rgba(0,0,0,0.5)"
-      : "0 20px 45px rgba(15,23,42,0.12)",
-  };
+
   const handleStartTodayClick = () => {
     window.location.href = "/contact"; // Change if your contact route is different
   };
+
   return (
-    <Box component="section" style={{ padding: "96px 0" }}>
-      <Container size="xl">
-        <SimpleGrid cols={{ base: 1, md: 2 }} spacing={64} verticalSpacing={40}>
-          <Box
-            style={{
-              borderRadius: 16,
-              overflow: "hidden",
-              border: `1px solid ${colors.imageBorder}`,
-              boxShadow: colors.imageShadow,
-              alignSelf: "start",
-            }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1200&q=80"
-              alt="Team managing social media accounts"
-              style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
-            />
-          </Box>
-          <Stack gap={20}>
-            <Stack gap={6}>
-              <Text
+    <Box
+      component="section"
+      style={{
+        position: "relative",
+        padding: "100px 0",
+        overflow: "hidden",
+      }}
+    >
+      <Box
+        style={{
+          position: "absolute",
+          width: 480,
+          height: 480,
+          borderRadius: "50%",
+          top: -160,
+          left: -200,
+          background:
+            "radial-gradient(circle, rgba(45,212,191,.12), transparent 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Grid gutter={{ base: 40, md: 56 }} align="stretch">
+          {/* Image - now takes more width and full height */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              style={{ position: "relative", height: "100%" }}
+            >
+              <Box
                 style={{
-                  color: colors.eyebrow,
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  fontSize: 13,
-                  letterSpacing: 1.2,
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  height: "100%",
+                  minHeight: 540,
+                  border: `1px solid ${
+                    isDark ? "rgba(45,212,191,0.35)" : "rgba(45,212,191,0.4)"
+                  }`,
+                  boxShadow: isDark
+                    ? "0 25px 70px rgba(0,0,0,0.5)"
+                    : "0 25px 70px rgba(15,23,42,0.14)",
                 }}
               >
-                Why Choose Us
+                <Image
+                  src="https://media.istockphoto.com/id/1367616997/photo/customer-feedback-experience-review-concept.jpg?s=612x612&w=0&k=20&c=oJH44hrjDvZadw2YWiR1bt7QDRiNoHBqn1g-lvhTyNc="
+                  alt="Team managing social media accounts"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+              </Box>
+
+              {/* Floating gradient accent behind image */}
+              <Box
+                style={{
+                  position: "absolute",
+                  inset: -14,
+                  borderRadius: 26,
+                  opacity: 0.18,
+                  zIndex: -1,
+                  filter: "blur(6px)",
+                }}
+              />
+            </MotionBox>
+          </Grid.Col>
+
+          {/* Content */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Text
+                fw={700}
+                style={{
+                  fontSize: 13,
+                  color: ACCENT,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  marginBottom: 14,
+                }}
+              >
+                ● Why Choose Us
               </Text>
+
               <Title
                 order={2}
                 style={{
-                  fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                  fontSize: "clamp(1.7rem, 2.6vw, 2.2rem)",
                   fontWeight: 800,
-                  lineHeight: 1.15,
-                  margin: 0,
-                  color: colors.heading,
+                  lineHeight: 1.25,
+                  marginBottom: 16,
+                  color: isDark ? "#F5F7FA" : "#0B1326",
                 }}
               >
                 Consistent Presence,{" "}
-                <Box component="span" style={{ color: colors.headingAccent }}>
+                <Text
+                  component="span"
+                  inherit
+                  variant="gradient"
+                  gradient={{ from: ACCENT2, to: ACCENT }}
+                >
                   Zero Hassle
-                </Box>
+                </Text>
               </Title>
+
               <Text
                 style={{
-                  fontSize: "1.0625rem",
+                  maxWidth: 560,
+                  fontSize: "0.98rem",
                   lineHeight: 1.7,
-                  color: colors.paragraph,
-                  marginTop: 8,
+                  color: isDark
+                    ? "rgba(226,232,240,0.75)"
+                    : "rgba(15,23,42,0.65)",
+                  marginBottom: 28,
                 }}
               >
-                We take social media off your plate completely — handling
-                the daily grind so you can focus on running your business.
+                Maintain a strong and consistent social media presence
+                without the daily workload. Our team manages content
+                planning, publishing, audience engagement, and performance
+                monitoring, allowing you to focus on growing your business
+                with confidence.
               </Text>
-            </Stack>
-            <Stack gap={14}>
-              {CHECKLIST.map((item) => (
-                <Group key={item} gap={12} wrap="nowrap" align="flex-start">
-                  <Box
-                    component="span"
+
+              <Box style={{ marginBottom: 32 }}>
+                {features.map((feature, index) => (
+                  <MotionBox
+                    key={index}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
                     style={{
-                      color: colors.checkIcon,
-                      fontWeight: 700,
-                      fontSize: 15,
-                      lineHeight: 1.6,
-                      flexShrink: 0,
+                      display: "flex",
+                      gap: 10,
+                      alignItems: "flex-start",
+                      marginBottom: 12,
                     }}
                   >
-                    ✓
-                  </Box>
-                  <Text
-                    style={{
-                      fontSize: "1rem",
-                      lineHeight: 1.6,
-                      color: colors.checkText,
-                    }}
-                  >
-                    {item}
-                  </Text>
-                </Group>
-              ))}
-            </Stack>
-            <UnstyledButton
-              style={{
-                backgroundColor: "#14b8a6",
-                color: "#04201c",
-                fontWeight: 700,
-                fontSize: 15,
-                paddingLeft: 28,
-                paddingRight: 28,
-                height: 52,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 999,
-                width: "fit-content",
-                marginTop: 12,
-                transition: "background-color 150ms ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#14b8a6")}
-              onClick={handleStartTodayClick}
-            >
-              Get Started Today
-            </UnstyledButton>
-          </Stack>
-        </SimpleGrid>
+                    <Box
+                      style={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        marginTop: 1,
+                        background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
+                      }}
+                    >
+                      <IconCheck size={12} stroke={3} color="#fff" />
+                    </Box>
+                    <Text
+                      style={{
+                        fontSize: "0.9rem",
+                        lineHeight: 1.55,
+                        color: isDark
+                          ? "rgba(226,232,240,0.85)"
+                          : "rgba(15,23,42,0.75)",
+                      }}
+                    >
+                      {feature}
+                    </Text>
+                  </MotionBox>
+                ))}
+              </Box>
+
+              <Button
+                size="md"
+                radius="xl"
+                rightSection={<IconArrowRight size={18} stroke={2.2} />}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%)",
+                  fontWeight: 700,
+                  fontSize: 15,
+                  padding: "0 30px",
+                  height: 48,
+                  border: "none",
+                }}
+                onClick={handleStartTodayClick}
+              >
+                Get Started Today
+              </Button>
+            </MotionBox>
+          </Grid.Col>
+        </Grid>
       </Container>
     </Box>
   );
 };
+
 export default MediaManagementWhyChooseUs;

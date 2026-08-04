@@ -1,368 +1,278 @@
-// import {
-//   Container,
-//   Title,
-//   Text,
-//   SimpleGrid,
-//   Paper,
-//   Stack,
-//   Avatar,
-//   Group,
-//   ActionIcon,
-// } from "@mantine/core";
-// import {
-//   IconBrandLinkedin,
-//   IconBrandTwitter,
-// } from "@tabler/icons-react";
-// import { motion } from "framer-motion";
-
-// const MotionPaper = motion.create(Paper);
-
-// const teamMembers = [
-//   {
-//     name: "Shubham Lokhande",
-//     role: "Founder & CEO",
-//     image:
-//       "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-//   },
-//   {
-//     name: "Rohit Lokhande",
-//     role: "Marketing Head",
-//     image:
-//       "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-//   },
-//   // {
-//   //   name: "Rahul Verma",
-//   //   role: "Lead Full Stack Developer",
-//   //   image:
-//   //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-//   // },
-//   // {
-//   //   name: "Sneha Joshi",
-//   //   role: "Project Manager",
-//   //   image:
-//   //     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-//   // },
-// ];
-
-// const MeetOurTeam = () => {
-//   return (
-//     <Container size="xl" py={90}>
-//       <Stack align="center" gap="md" mb={60}>
-//         <Text
-//           fw={700}
-//           c="blue"
-//           tt="uppercase"
-//           size="sm"
-//         >
-//           Meet Our Team
-//         </Text>
-
-//         <Title
-//           order={2}
-//           ta="center"
-//           maw={700}
-//         >
-//           The People Behind Our Success
-//         </Title>
-
-//         <Text
-//           ta="center"
-//           c="dimmed"
-//           size="lg"
-//           maw={850}
-//         >
-//           Our talented team of developers, designers, project
-//           managers, and technology experts work together to
-//           deliver innovative solutions that help businesses
-//           achieve their goals.
-//         </Text>
-//       </Stack>
-
-//       <SimpleGrid
-//         cols={{ base: 1, sm: 2, lg: 4 }}
-//         spacing="xl"
-
-//       >
-//         {teamMembers.map((member, index) => (
-//           <MotionPaper
-//             key={member.name}
-//             p="xl"
-//             radius="xl"
-
-//             shadow="sm"
-//             withBorder
-//             initial={{ opacity: 0, y: 40 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{
-//               duration: 0.5,
-//               delay: index * 0.15,
-//             }}
-//             viewport={{ once: true }}
-//             whileHover={{
-//               y: -10,
-//             }}
-//             style={{
-//               textAlign: "center",
-//               cursor: "pointer",
-//             }}
-//           >
-//             <Stack align="center">
-//               <Avatar
-//                 src={member.image}
-//                 size={120}
-//                 radius="50%"
-//               />
-
-//               <div>
-//                 <Title order={4}>
-//                   {member.name}
-//                 </Title>
-
-//                 <Text c="dimmed" size="sm">
-//                   {member.role}
-//                 </Text>
-//               </div>
-
-//               {/* <Group gap="xs">
-//                 <ActionIcon
-//                   variant="light"
-//                   radius="xl"
-//                 >
-//                   <IconBrandLinkedin size={18} />
-//                 </ActionIcon>
-
-//                 <ActionIcon
-//                   variant="light"
-//                   radius="xl"
-//                 >
-//                   <IconBrandTwitter size={18} />
-//                 </ActionIcon>
-//               </Group> */}
-//             </Stack>
-//           </MotionPaper>
-//         ))}
-//       </SimpleGrid>
-//     </Container>
-//   );
-// };
-
-// export default MeetOurTeam;
-
-import React from "react";
+import React, { useState } from "react";
 import {
-  ActionIcon,
   Box,
   Container,
-  Flex,
+  Grid,
   Group,
-  Paper,
-  SimpleGrid,
   Stack,
   Text,
   Title,
+  ActionIcon,
   useComputedColorScheme,
   useMantineTheme,
 } from "@mantine/core";
+import { IconChevronLeft, IconChevronRight, IconUserFilled } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { IconArrowUpRight } from "@tabler/icons-react";
-
-import { motion } from "framer-motion";
-
-const MotionPaper = motion.create(Paper);
+const CIRCLE_SIZE = 200;
 
 const teamMembers = [
   {
     id: 1,
     name: "Shubham Lokhande",
     role: "Founder & CEO",
-    image: "Images/ShubhamSirNewOnee.jpeg",
+    // image: "Images/ShubhamSirNewOnee.jpeg",
+    image: "Images/Shubham-Sir.jpeg",
   },
-
   {
     id: 2,
     name: "Rohit Lokhande",
-    role: "Marketing Head",
-    image: "Images/RohitSirNew.jpeg",
+    role: "Co-Founder & Marketing Head",
+    image: "Images/RohitSirNewOnee.jpeg",
   },
-
-  // {
-  //   id: 3,
-  //   name: "Vikas Rathod",
-  //   role: "Lead Software Engineer",
-  //   image: "Images/Vikas4.jpeg",
-  // },
+  {
+    id: 3,
+    name: "Isha Kulkarni",
+    role: "Human Resources Head",
+    image: "Images/DepartmentHead.jpeg",
+  },
+  {
+    id: 4,
+    name: "Masira Shah",
+    role: "Sales Head",
+    image: "Images/Masiraone.jpeg",
+  },
 ];
 
-const MeetOurTeam = () => {
+const AboutUs = () => {
   const theme = useMantineTheme();
   const colorScheme = useComputedColorScheme("light");
-
   const isDark = colorScheme === "dark";
+
+  const heading = isDark ? theme.white : theme.colors.dark[8];
+  const body = isDark ? theme.colors.gray[4] : theme.colors.gray[7];
+
+  const accent = isDark ? "#00D4C8" : "#0891B2";
+
+  const [startIndex, setStartIndex] = useState(0);
+  const [brokenImages, setBrokenImages] = useState({});
+  const [direction, setDirection] = useState(1); // 1 = forward (next), -1 = backward (prev)
+
+  const handleImageError = (id) => {
+    setBrokenImages((prev) => ({ ...prev, [id]: true }));
+  };
+
+  const total = teamMembers.length;
+  const visibleMembers = [
+    teamMembers[startIndex % total],
+    teamMembers[(startIndex + 1) % total],
+  ];
+
+  const handleNext = () => {
+    setDirection(1);
+    setStartIndex((prev) => (prev + 1) % total);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setStartIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const showArrows = teamMembers.length > 2;
+
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 120 : -120,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? -120 : 120,
+      opacity: 0,
+    }),
+  };
 
   return (
     <Box py={100}>
       <Container size="xl">
-        <Stack gap={8} mb={55} align="center">
-          <Group gap="sm">
-            <Box w={35} h={2} bg={theme.colors.teal[5]} />
+        {/* Heading */}
+        <Title
+          order={2}
+          mb={30}
+          style={{
+            fontSize: "clamp(2rem,4vw,3rem)",
+            fontWeight: 800,
+            color: heading,
+          }}
+        >
+          Nexflare Dynamics Private Limited
+        </Title>
 
-            <Text
-              fw={700}
-              size="14px"
-              // c="#1E293B"
-              tt="uppercase"
-              style={{
-                letterSpacing: "1px",
-              }}
-            >
-              OUR TEAM
-            </Text>
-          </Group>
+        {/* TOP full-width content */}
+        <Text
+          size="xl"
+          lh={1.9}
+          mb={50}
+          fw={700}
+          fs="italic"
+          c={heading}
+        >
+          "Nexflare Dynamics helps businesses grow through innovative software and result-driven digital marketing."
+        </Text>
 
-          <Title
-            order={2}
-            style={{
-              fontSize: "clamp(2rem,4vw,3.2rem)",
-              fontWeight: 800,
-              color: isDark ? theme.white : theme.colors.dark[8],
-            }}
-          >
-            Our Extraordinary Team
-          </Title>
-
-          <Text maw={560} c={isDark ? "gray.4" : "dimmed"} size="md" lh={1.8}>
-            Discover brilliance in action with our exceptional team, fusing
-            diverse talents to drive innovation and success.
-          </Text>
-        </Stack>
-
-        <Group justify="center" gap={30} align="flex-start" wrap="wrap">
-          {teamMembers.map((member, index) => (
-            <MotionPaper
-              key={member.id}
-              radius={0}
-              shadow="none"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-              }}
-              whileHover={{ y: -8 }}
-              style={{
-                width: 450,
-                maxWidth: "100%",
-                cursor: "pointer",
-                overflow: "hidden",
-                background: "transparent",
-                flex: "0 0 450px",
-              }}
-            >
-              {/* Image */}
-              <Box
-                style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  height: 500,
-                }}
-              >
-                <motion.img
-                  src={member.image}
-                  alt={member.name}
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.4 }}
+        {/* Photos LEFT + Content RIGHT */}
+        <Grid gutter={{ base: 30, md: 80 }} align="center">
+          {/* LEFT - Photos */}
+          <Grid.Col span={{ base: 12, md: 5 }}>
+            <Group gap={10} wrap="nowrap" justify="center" align="center">
+              {showArrows && (
+                <ActionIcon
+                  variant="light"
+                  radius="xl"
+                  size={40}
+                  onClick={handlePrev}
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "top",
-                    display: "block",
+                    color: accent,
+                    background: isDark
+                      ? "rgba(0,212,200,0.12)"
+                      : "rgba(8,145,178,0.10)",
+                    flexShrink: 0,
                   }}
-                />
-
-                {/* Bottom Information Card */}
-                <Paper
-                  radius={0}
-                  shadow="md"
-                  p="md"
-                  style={{
-                    position: "absolute",
-                    left: 18,
-                    right: 18,
-                    bottom: 18,
-                    background: isDark ? theme.colors.dark[7] : theme.white,
-                    border: isDark
-                      ? `1px solid ${theme.colors.dark[5]}`
-                      : "1px solid #ECECEC",
-                    boxShadow: isDark
-                      ? "0 10px 40px rgba(0,0,0,.45)"
-                      : "0 10px 30px rgba(0,0,0,.08)",
-                  }}
+                  aria-label="Previous team members"
                 >
-                  <Group justify="space-between" align="center" wrap="nowrap">
-                    <Stack gap={2}>
-                      <Text
-                        fw={700}
-                        size="sm"
-                        c={isDark ? theme.white : theme.colors.dark[8]}
-                      >
-                        {member.name}
-                      </Text>
+                  <IconChevronLeft size={20} />
+                </ActionIcon>
+              )}
 
-                      <Text size="xs" c={isDark ? "gray.5" : "dimmed"}>
-                        {member.role}
-                      </Text>
-                    </Stack>
-                  </Group>
-                </Paper>
-              </Box>
-            </MotionPaper>
-          ))}
-        </Group>
+              <Group gap={20} wrap="nowrap" justify="center" style={{ overflow: "hidden", padding: "6px 4px" }}>
+                <AnimatePresence mode="wait" custom={direction} initial={false}>
+                  <motion.div
+                    key={startIndex}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    style={{ display: "flex", gap: 20, flexWrap: "nowrap", justifyContent: "center" }}
+                  >
+                    {visibleMembers.map((member) => (
+                      <Box key={member.id} style={{ textAlign: "center" }}>
+                        <Box
+                          style={{
+                            width: CIRCLE_SIZE,
+                            height: CIRCLE_SIZE,
+                            borderRadius: "50%",
+                            overflow: "hidden",
+                            border: `3px solid ${isDark ? theme.colors.dark[5] : "#fff"}`,
+                            outline: `1px solid ${isDark ? theme.colors.dark[4] : "#E0E0E0"}`,
+                          }}
+                        >
+                          {member.image && !brokenImages[member.id] ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              onError={() => handleImageError(member.id)}
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top",
+                                display: "block",
+                              }}
+                            />
+                          ) : (
+                            <Box
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                background: isDark
+                                  ? theme.colors.dark[5]
+                                  : "#D9D9D9",
+                              }}
+                            >
+                              <IconUserFilled
+                                size={CIRCLE_SIZE * 0.55}
+                                color={isDark ? theme.colors.dark[2] : "#ffffff"}
+                              />
+                            </Box>
+                          )}
+                        </Box>
+                        <Text fw={700} size="sm" mt={10} c={heading}>
+                          {member.name}
+                        </Text>
+                        <Text size="xs" c={body}>
+                          {member.role}
+                        </Text>
+                      </Box>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </Group>
 
-        {/* Slider Dots */}
+              {showArrows && (
+                <ActionIcon
+                  variant="light"
+                  radius="xl"
+                  size={40}
+                  onClick={handleNext}
+                  style={{
+                    color: accent,
+                    background: isDark
+                      ? "rgba(0,212,200,0.12)"
+                      : "rgba(8,145,178,0.10)",
+                    flexShrink: 0,
+                  }}
+                  aria-label="Next team members"
+                >
+                  <IconChevronRight size={20} />
+                </ActionIcon>
+              )}
+            </Group>
+          </Grid.Col>
 
-        {/* <Group justify="center" mt={55} gap={10}>
-          <Box
-            w={34}
-            h={6}
-            style={{
-              borderRadius: 100,
-              background: "#0F766E",
-            }}
-          />
+          {/* RIGHT - Content (shifted more to the right) */}
+          <Grid.Col span={{ base: 12, md: 7 }} pl={{ base: 0, md: 70 }}>
+            <Stack gap={22}>
 
-          <Box
-            w={18}
-            h={6}
-            style={{
-              borderRadius: 100,
-              background: "#E5E7EB",
-            }}
-          />
+              <Text c={body} size="md" lh={1.9}>
+                Nexflare Dynamics Private Limited, is a technology-driven company dedicated to
+                helping businesses accelerate growth through innovative software
+                development, result-oriented{" "} 
+                <Text component="span" fw={700}>
+                  Performance Marketing
+                </Text>
+                , and scalable digital
+                solutions. We combine creativity, technology, and strategic thinking to
+                build products and marketing campaigns that deliver measurable business
+                outcomes.
+              </Text>
 
-          <Box
-            w={18}
-            h={6}
-            style={{
-              borderRadius: 100,
-              background: "#E5E7EB",
-            }}
-          />
+              <Text c={body} size="md" lh={1.9}>
+                At Nexflare Dynamics Private Limited, we believe in one simple philosophy:{" "}
+                <br />
+                <Text component="span" fw={700} fs="italic" c={heading}>
+                  "We Build Software. We Grow Brands."
+                </Text>
+              </Text>
 
-          <Box
-            w={18}
-            h={6}
-            style={{
-              borderRadius: 100,
-              background: "#E5E7EB",
-            }}
-          />
-        </Group> */}
+              <Text c={body} size="md" lh={1.9}>
+                We proudly serve businesses across India, London, and UAE
+
+                with scalable technology and strategic marketing solutions.
+              </Text>
+            </Stack>
+          </Grid.Col>
+        </Grid>
       </Container>
     </Box>
   );
 };
 
-export default MeetOurTeam;
+export default AboutUs;

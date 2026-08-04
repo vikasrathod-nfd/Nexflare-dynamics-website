@@ -74,7 +74,7 @@ const EDCTA = () => {
                 : "rgba(15,23,42,0.65)",
             }}
           >
-            Get a free eCommerce audit and strategy session. Discover
+            Get a Call eCommerce audit and strategy session. Discover
             what's stopping your store from converting — and how to fix
             it.
           </Text>
@@ -98,7 +98,7 @@ const EDCTA = () => {
               }}
               onClick={handleGetFreeStoreAudit}   
             >
-              Get Free Store Audit
+              Schedule a Call
             </Button>
             {/* <Button
               radius="xl"

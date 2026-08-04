@@ -79,7 +79,7 @@ const WebsiteDevelopmentCTA = () => {
                 : "rgba(15,23,42,0.65)",
             }}
           >
-            Tell us about your project and get a free quote within 24 hours.
+            Tell us about your project and get a call within 24 hours.
           </Text>
 
           <Group gap="md" mt={12}>
@@ -102,7 +102,7 @@ const WebsiteDevelopmentCTA = () => {
               }}
               onClick={handleGetFreeQuote}
             >
-              Get Free Quote
+              Schedule a Call
             </Button>
 
             {/* <Button

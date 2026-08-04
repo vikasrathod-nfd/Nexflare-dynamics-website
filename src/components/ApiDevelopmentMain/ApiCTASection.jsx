@@ -52,7 +52,7 @@ const ApiCTASection = () => {
             fs="italic"
             style={{ color: "#14b8a6" }}
           >
-            Reliable API?
+            Reliable API ?
           </Text>
         </Title>
         <Text
@@ -63,7 +63,7 @@ const ApiCTASection = () => {
           mb={40}
           style={{ color: mutedColor, lineHeight: 1.7 }}
         >
-          Get a free API architecture review and let&apos;s design something
+          Get a API architecture review and let&apos;s design something
           scalable, secure, and future-proof.
         </Text>
         <Group justify="center" gap={16}>
@@ -83,7 +83,7 @@ const ApiCTASection = () => {
             }}
             onClick={handleBookConsultation}
           >
-            Book Free API Consultation
+            Schedule a Call
           </Button>
           {/* <Button
             size="lg"

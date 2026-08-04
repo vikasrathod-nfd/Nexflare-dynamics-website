@@ -1,30 +1,176 @@
+// import {
+//   Badge,
+//   Box,
+//   Button,
+//   Container,
+//   Group,
+//   Stack,
+//   Text,
+//   Title,
+//   useComputedColorScheme,
+// } from "@mantine/core";
+// import { motion } from "framer-motion";
+// const MotionBox = motion.create(Box);
+
+// const TestingHeroSection = () => {
+//   const computedColorScheme = useComputedColorScheme("light");
+//   const isDark = computedColorScheme === "dark";
+
+//   const handleStartQA = () => {
+//     const contactForm = document.getElementById("contact-form");
+
+//     if (contactForm) {
+//       contactForm.scrollIntoView({
+//         behavior: "smooth",
+//         block: "start",
+//       });
+//     } else {
+//       window.location.href = "/contact"; // Change this if your contact page route is different
+//     }
+//   };
+
+//   return (
+//     <Box
+//       component="section"
+//       py={140}
+//       style={{
+//         position: "relative",
+//         overflow: "hidden",
+//         minHeight: "88vh",
+//         alignItems: "center",
+//       }}
+//     >
+//       {/* Background image - kept bright/visible, not washed out */}
+//       <Box
+//         style={{
+//           position: "absolute",
+//           inset: 0,
+//           backgroundImage:
+//             "url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')",
+//           backgroundSize: "cover",
+//           backgroundPosition: "center",
+//           filter: "brightness(1)",
+//         }}
+//       />
+//       {/* Text-side overlay only - fades quickly so most of the image stays visible */}
+//       <Box
+//         style={{
+//           position: "absolute",
+//           inset: 0,
+//           background: isDark
+//             ? `
+//               linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
+//               linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
+//             `
+//             : `
+//               linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
+//               linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
+//             `,
+//         }}
+//       />
+//       <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+//         <MotionBox
+//           initial={{ opacity: 0, x: -50 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.7 }}
+//           maw={640}
+//         >
+//           <Stack gap={30}>
+//             <Badge
+//               radius="xl"
+//               size="xl"
+//               color="teal"
+//               variant="filled"
+//               px={22}
+//               py={14}
+//               style={{
+//                 width: "fit-content",
+//                 letterSpacing: 1,
+//                 fontSize: 13,
+//                 fontWeight: 700,
+//               }}
+//             >
+//               ● Software Development
+//             </Badge>
+//             <Title
+//               style={{
+//                 fontSize: "clamp(2.8rem, 6vw, 4.2rem)",
+//                 lineHeight: 1.05,
+//                 fontWeight: 900,
+//                 color: "#ffffff",
+//                 textShadow: "0 2px 20px rgba(0,0,0,0.5)",
+//               }}
+//             >
+//               Software Testing
+//               <br />
+//               <Text
+//                 component="span"
+//                 inherit
+//                 variant="gradient"
+//                 gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+//               >
+//                 &amp; QA
+//               </Text>
+//             </Title>
+//             <Text
+//               lh={1.8}
+//               style={{
+//                 fontSize: 18,
+//                 color: "rgba(255,255,255,.92)",
+//                 textShadow: "0 1px 12px rgba(0,0,0,0.55)",
+//               }}
+//             >
+//               Quality is the foundation of every successful application. Our
+//               Software Testing & QA services combine strategic test
+//               planning, manual and automated testing, performance
+//               validation, security assessments, and continuous quality
+//               assurance to deliver stable, scalable, and high-performing
+//               software with every release.
+//             </Text>
+//             <Group mt={10}>
+//               <Button
+//                 size="lg"
+//                 radius="xl"
+//                 color="teal"
+//                 h={54}
+//                 px={34}
+//                 onClick={handleStartQA}
+//               >
+//                 Start Your Project
+//               </Button>
+//             </Group>
+//           </Stack>
+//         </MotionBox>
+//       </Container>
+//     </Box>
+//   );
+// };
+
+// export default TestingHeroSection;
+
+
+
 import {
-  Box,
-  Container,
-  Title,
-  Text,
-  Group,
-  SimpleGrid,
-  Stack,
-  Button,
   Badge,
+  Box,
+  Button,
+  Container,
+  Group,
+  Stack,
+  Text,
+  Title,
   useComputedColorScheme,
 } from "@mantine/core";
-
-const stats = [
-  { value: "500+", label: "PROJECTS TESTED" },
-  { value: "98%", label: "DEFECT DETECTION RATE" },
-  { value: "70%", label: "FASTER RELEASE CYCLES" },
-];
+import { motion } from "framer-motion";
+const MotionBox = motion.create(Box);
 
 const TestingHeroSection = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
-  // Added this function
   const handleStartQA = () => {
     const contactForm = document.getElementById("contact-form");
-    
+
     if (contactForm) {
       contactForm.scrollIntoView({
         behavior: "smooth",
@@ -38,13 +184,15 @@ const TestingHeroSection = () => {
   return (
     <Box
       component="section"
-      py={130}
+      py={180}
       style={{
         position: "relative",
         overflow: "hidden",
+        minHeight: "88vh",
+        alignItems: "center",
       }}
     >
-      {/* Background image - FIXED & RESTORED */}
+      {/* Background image - kept bright/visible, not washed out */}
       <Box
         style={{
           position: "absolute",
@@ -53,174 +201,98 @@ const TestingHeroSection = () => {
             "url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.45 : 0.45,
-          pointerEvents: "none",
+          filter: "brightness(1)",
         }}
       />
-
-      {/* Fade overlay so text stays readable */}
+      {/* Text-side overlay only - fades quickly so most of the image stays visible */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
           background: isDark
-            ? "linear-gradient(90deg, #060d18 0%, #060d18 35%, rgba(6,13,24,0.4) 70%, transparent 100%)"
-            : "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.5) 70%, transparent 100%)",
-          pointerEvents: "none",
+            ? `
+              linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
+              linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
+            `
+            : `
+              linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
+              linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
+            `,
         }}
       />
-
-      <Container size="lg" style={{ position: "relative", zIndex: 1 }}>
-        <Stack gap={24} maw={650}>
-          {/* Badge */}
-          <Badge
-            radius="xl"
-            size="lg"
-            variant="light"
-            style={{
-              alignSelf: "flex-start",
-              backgroundColor: isDark
-                ? "rgba(20,184,166,0.12)"
-                : "rgba(20,184,166,0.1)",
-              color: "#14b8a6",
-              textTransform: "uppercase",
-              letterSpacing: 1,
-              fontWeight: 700,
-              padding: "14px 18px",
-            }}
-          >
-            • Software Development
-          </Badge>
-
-          {/* Title */}
-          <Title
-            fw={800}
-            style={{
-              fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
-              lineHeight: 1.1,
-            }}
-          >
-            <Text
-              component="span"
-              fw={800}
-              style={{
-                display: "block",
-                fontSize: "inherit",
-                color: isDark ? "#f8fafc" : "#0f172a",
-              }}
-            >
-              Software Testing
-            </Text>
-            <Text
-              component="span"
-              fw={800}
-              style={{
-                display: "block",
-                fontSize: "inherit",
-                color: "#14b8a6",
-              }}
-            >
-              &amp; QA
-            </Text>
-          </Title>
-
-          {/* Description */}
-          <Text
-            style={{
-              fontSize: "1.1rem",
-              lineHeight: 1.7,
-              color: isDark
-                ? "rgba(226,232,240,0.75)"
-                : "rgba(15,23,42,0.65)",
-            }}
-          >
-            Ship bug-free software with confidence. Our QA engineers
-            deliver end-to-end testing services — from manual
-            exploratory testing to fully automated regression suites —
-            so your product works flawlessly at every release.
-          </Text>
-
-          {/* Buttons */}
-          <Group gap="md" mt={8}>
-            <Button
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <MotionBox
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          maw={640}
+        >
+          <Stack gap={30}>
+            <Badge
               radius="xl"
-              size="md"
+              size="xl"
+              color="teal"
+              variant="filled"
+              px={22}
+              py={14}
               style={{
-                backgroundColor: "#14b8a6",
+                width: "fit-content",
+                letterSpacing: 1,
+                fontSize: 13,
+                fontWeight: 700,
+              }}
+            >
+              ● Software Development
+            </Badge>
+            <Title
+              style={{
+                fontSize: "clamp(1.7rem, 6vw, 3.6rem)",
+                lineHeight: 1.1,
+                fontWeight: 900,
                 color: "#ffffff",
-                fontWeight: 700,
-                padding: "0 32px",
-                height: 50,
+                textShadow: "0 2px 20px rgba(0,0,0,0.5)",
+                whiteSpace: "nowrap",
               }}
-              styles={{
-                root: {
-                  "&:hover": {
-                    backgroundColor: "#0d9488",
-                  },
-                },
-              }}
-              onClick={handleStartQA}
             >
-              Start QA Engagement
-            </Button>
-
-            {/* <Button
-              radius="xl"
-              size="md"
-              variant="outline"
+              Software Testing{" "}
+              <Text
+                component="span"
+                inherit
+                variant="gradient"
+                gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+              >
+                &amp; QA
+              </Text>
+            </Title>
+            <Text
+              lh={1.8}
               style={{
-                borderColor: isDark
-                  ? "rgba(255,255,255,0.25)"
-                  : "rgba(15,23,42,0.2)",
-                color: isDark ? "#f8fafc" : "#0f172a",
-                fontWeight: 700,
-                padding: "0 32px",
-                height: 50,
-              }}
-              styles={{
-                root: {
-                  "&:hover": {
-                    backgroundColor: isDark
-                      ? "rgba(255,255,255,0.05)"
-                      : "rgba(15,23,42,0.03)",
-                  },
-                },
+                fontSize: 18,
+                color: "rgba(255,255,255,.92)",
+                textShadow: "0 1px 12px rgba(0,0,0,0.55)",
               }}
             >
-              Explore Services
-            </Button> */}
-          </Group>
-
-          {/* Stats */}
-          <SimpleGrid cols={3} spacing="xl" mt={40} maw={500}>
-            {stats.map((stat, index) => (
-              <Stack key={index} gap={4}>
-                <Text
-                  fw={800}
-                  style={{
-                    fontSize: "2rem",
-                    color: "#14b8a6",
-                    lineHeight: 1,
-                  }}
-                >
-                  {stat.value}
-                </Text>
-                <Text
-                  size="xs"
-                  fw={600}
-                  style={{
-                    letterSpacing: 0.5,
-                    color: isDark
-                      ? "rgba(226,232,240,0.6)"
-                      : "rgba(15,23,42,0.55)",
-                  }}
-                >
-                  {stat.label}
-                </Text>
-              </Stack>
-            ))}
-          </SimpleGrid>
-        </Stack>
+              Quality is the foundation of every successful application. Our
+              Software Testing & QA services combine strategic test
+              planning, manual and automated testing, performance
+              validation, security assessments, and continuous quality
+              assurance to deliver stable, scalable, and high-performing
+              software with every release.
+            </Text>
+            <Group mt={10}>
+              <Button
+                size="lg"
+                radius="xl"
+                color="teal"
+                h={54}
+                px={34}
+                onClick={handleStartQA}
+              >
+                Start Your Project
+              </Button>
+            </Group>
+          </Stack>
+        </MotionBox>
       </Container>
     </Box>
   );

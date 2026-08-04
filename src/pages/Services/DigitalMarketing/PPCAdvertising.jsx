@@ -3,9 +3,9 @@ import PPCHero from "../../../components/PPCAdvertisingMain/PPCHero"
 import PPCServiceSection from "../../../components/PPCAdvertisingMain/PPCServiceSection";
 import PPCProcessSection from "../../../components/PPCAdvertisingMain/PPCProcessSection";
 import PPCWhyChooseUs from "../../../components/PPCAdvertisingMain/PPCWhyChooseUs";
-import PPCStatsSection from "../../../components/PPCAdvertisingMain/PPCStatsSection";
+// import PPCStatsSection from "../../../components/PPCAdvertisingMain/PPCStatsSection";
 import PPCTools from "../../../components/PPCAdvertisingMain/PPCTools";
-import PPCClientSuccess from "../../../components/PPCAdvertisingMain/PPCClientSuccess";
+// import PPCClientSuccess from "../../../components/PPCAdvertisingMain/PPCClientSuccess";
 import PPCFaq from "../../../components/PPCAdvertisingMain/PPCFaq";
 import PPCCTASection from "../../../components/PPCAdvertisingMain/PPCCTASection";
 const PPCAdvertising = () => {
@@ -33,9 +33,9 @@ const PPCAdvertising = () => {
         <PPCServiceSection/>
         <PPCProcessSection/>
         <PPCWhyChooseUs/>
-        <PPCStatsSection/>
-        <PPCTools/>
-        <PPCClientSuccess/>
+        {/* <PPCStatsSection/> */}
+        {/* <PPCTools/> */}
+        {/* <PPCClientSuccess/> */}
         <PPCFaq/>
         <PPCCTASection/>
       
