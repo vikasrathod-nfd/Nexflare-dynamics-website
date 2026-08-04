@@ -3,9 +3,9 @@ import PMHero from "../../../components/PerformanceMarketingMain/PMHero";
 import PMServiceSection from "../../../components/PerformanceMarketingMain/PMServiceSection";
 import PMProcessSection from "../../../components/PerformanceMarketingMain/PMProcessSection";
 import PMWhyChooseUs from "../../../components/PerformanceMarketingMain/PMWhyChooseUs";
-import PMStatsSection from "../../../components/PerformanceMarketingMain/PMStatsSection";
+// import PMStatsSection from "../../../components/PerformanceMarketingMain/PMStatsSection";
 import PMTools from "../../../components/PerformanceMarketingMain/PMTools";
-import PMClientsSuccess from "../../../components/PerformanceMarketingMain/PMClientsSuccess";
+// import PMClientsSuccess from "../../../components/PerformanceMarketingMain/PMClientsSuccess";
 import PMFaq from "../../../components/PerformanceMarketingMain/PMFaq";
 import PMCTASection from "../../../components/PerformanceMarketingMain/PMCTASection";
 
@@ -34,9 +34,9 @@ const PerformanceMarketing = () => {
       <PMServiceSection />
       <PMProcessSection />
       <PMWhyChooseUs />
-      <PMStatsSection />
-      <PMTools />
-      <PMClientsSuccess />
+      {/* <PMStatsSection /> */}
+      {/* <PMTools /> */}
+      {/* <PMClientsSuccess /> */}
       <PMFaq />
       <PMCTASection />
     </Box>

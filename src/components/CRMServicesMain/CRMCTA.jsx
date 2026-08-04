@@ -57,7 +57,7 @@ const CRMCTA = () => {
               fs="italic"
               style={{ color: ACCENT }}
             >
-              Organize Your Sales?
+              Organize Your Sales ?
             </Text>
           </Title>
           {/* Description */}
@@ -73,7 +73,7 @@ const CRMCTA = () => {
               marginBottom: 40,
             }}
           >
-            Book a free CRM consultation and let's design a system your sales team will actually want to use.
+            Book a CRM Calland let's design a system your sales team will actually want to use.
           </Text>
           {/* Buttons */}
           <Group justify="center" gap={16}>
@@ -90,7 +90,7 @@ const CRMCTA = () => {
               }}
               onClick={handleBookFreeCrmConsultation}  
             >
-              Book Free CRM Consultation
+              Schedule a Call
             </Button>
             {/* <Button
               size="lg"

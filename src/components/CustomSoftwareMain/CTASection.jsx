@@ -48,7 +48,7 @@ const CTASection = () => {
               fs="italic"
               style={{ color: ACCENT }}
             >
-              Something Extraordinary?
+              Something Extraordinary ?
             </Text>
           </Title>
           {/* Description */}
@@ -64,7 +64,7 @@ const CTASection = () => {
               marginBottom: 40,
             }}
           >
-            Book a free discovery call and let's scope out exactly what your
+            Schedule call and let's scope out exactly what your
             custom software needs to achieve.
           </Text>
           {/* Buttons */}
@@ -82,25 +82,9 @@ const CTASection = () => {
               }}
               onClick={handleBookDiscoveryCall}
             >
-              Book Free Discovery Call
+              Schedule a Call
             </Button>
-            {/* <Button
-              size="lg"
-              radius="xl"
-              variant="outline"
-              style={{
-                borderColor: isDark
-                  ? "rgba(226,232,240,0.3)"
-                  : "rgba(15,23,42,0.25)",
-                color: isDark ? "#F5F7FA" : "#0B1326",
-                fontWeight: 700,
-                padding: "0 32px",
-                height: 52,
-                background: "transparent",
-              }}
-            >
-              Call Us Now
-            </Button> */}
+           
           </Group>
         </Box>
       </Container>

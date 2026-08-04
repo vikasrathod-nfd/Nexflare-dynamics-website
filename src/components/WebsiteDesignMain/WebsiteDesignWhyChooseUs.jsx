@@ -1,176 +1,243 @@
-import { Box, Container, SimpleGrid, Stack, Text, useComputedColorScheme } from "@mantine/core";
+import React from "react";
+import {
+  Box,
+  Container,
+  Text,
+  Title,
+  Grid,
+  Button,
+  Image,
+  useComputedColorScheme,
+} from "@mantine/core";
+import { IconCheck, IconArrowRight } from "@tabler/icons-react";
+import { motion } from "framer-motion";
+
+const MotionBox = motion.create(Box);
+
+const ACCENT = "#2DD4BF";
+const ACCENT2 = "#22D3EE";
 
 const features = [
-  "Dedicated designer assigned to your project",
-  "Full brand alignment — every page feels like you",
-  "Mobile-first approach for all designs",
-  "2 rounds of revisions included as standard",
-  "Delivered with a Figma design system file",
-  "Accessibility compliant (WCAG 2.1)",
+  "Dedicated UI/UX designer assigned to ensure a seamless and personalized design process throughout your project.",
+  "Consistent brand identity across every screen with designs tailored to reflect your business vision and values.",
+  "Mobile-first design approach that delivers responsive, intuitive, and engaging experiences across all devices.",
+  "Up to two rounds of design revisions included to refine the final product and ensure complete satisfaction.",
+  "Organized Figma design system with reusable components, style guides, and design assets for efficient collaboration.",
 ];
 
 const WebsiteDesignWhyChooseUs = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
-  // Added this function
   const handleStartProject = () => {
     const contactForm = document.getElementById("contact-form");
-    
+
     if (contactForm) {
       contactForm.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     } else {
-      // Redirect if contact form is on another page
-      window.location.href = "/contact"; // Change this if your contact page route is different
+      window.location.href = "/contact";
     }
   };
 
   return (
-    <Box component="section" py={{ base: 60, md: 90 }}>
-      <Container size="xl">
-        <SimpleGrid cols={{ base: 1, md: 2 }} spacing={{ base: 40, md: 60 }}>
-          {/* Left image */}
-          <Box
-            style={{
-              borderRadius: 20,
-              overflow: "hidden",
-              border: isDark
-                ? "1px solid rgba(255,255,255,0.08)"
-                : "1px solid rgba(11,19,38,0.08)",
-              minHeight: 320,
-            }}
-          >
-            <img
-              src="https://plus.unsplash.com/premium_photo-1661389425744-c31ddd55c7b6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"
-              alt="Design swatches, iPad sketches, and creative workspace"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
-          </Box>
+    <Box
+      component="section"
+      style={{
+        position: "relative",
+        padding: "100px 0",
+        overflow: "hidden",
+      }}
+    >
+      <Box
+        style={{
+          position: "absolute",
+          width: 480,
+          height: 480,
+          borderRadius: "50%",
+          top: -160,
+          left: -200,
+          background:
+            "radial-gradient(circle, rgba(45,212,191,.12), transparent 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* Right content */}
-          <Box>
-            {/* Label */}
-            <Text
-              fw={700}
-              size="sm"
-              mb={8}
-              style={{
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#06b6d4",
-              }}
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Grid gutter={{ base: 40, md: 56 }} align="stretch">
+          {/* Image */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              style={{ position: "relative", height: "100%" }}
             >
-              Why Choose Us
-            </Text>
-
-            {/* Heading */}
-            <Text
-              fw={800}
-              mb={20}
-              style={{
-                fontSize: "clamp(28px, 4vw, 42px)",
-                lineHeight: 1.2,
-                color: isDark ? "#ffffff" : "#0b1326",
-              }}
-            >
-              Design That{" "}
-              <Text
-                component="span"
-                inherit
+              <Box
                 style={{
-                  background: "linear-gradient(90deg, #2563eb, #06b6d4)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  height: "100%",
+                  minHeight: 550,
+                  border: `1px solid ${
+                    isDark ? "rgba(45,212,191,0.35)" : "rgba(45,212,191,0.4)"
+                  }`,
+                  boxShadow: isDark
+                    ? "0 25px 70px rgba(0,0,0,0.5)"
+                    : "0 25px 70px rgba(15,23,42,0.14)",
                 }}
               >
-                Drives Results
-              </Text>
-            </Text>
-
-            {/* Subtitle */}
-            <Text
-              mb={28}
-              style={{
-                fontSize: 16,
-                lineHeight: 1.7,
-                color: isDark ? "rgba(255,255,255,0.65)" : "rgba(11,19,38,0.65)",
-              }}
-            >
-              We don't just make websites look good — we design them to perform. Every decision is backed by data, strategy, and deep UX expertise.
-            </Text>
-
-            {/* Feature list */}
-            <Stack gap={16} mb={36}>
-              {features.map((feature, index) => (
-                <Box
-                  key={index}
+                <Image
+                  src="https://plus.unsplash.com/premium_photo-1661389425744-c31ddd55c7b6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"
+                  alt="Design swatches, iPad sketches, and creative workspace"
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 12,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
                   }}
-                >
-                  <Text
-                    fw={700}
-                    style={{
-                      color: "#06b6d4",
-                      fontSize: 15,
-                      lineHeight: 1.6,
-                      flexShrink: 0,
-                    }}
-                  >
-                    ✓
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 15.5,
-                      lineHeight: 1.6,
-                      color: isDark ? "rgba(255,255,255,0.75)" : "rgba(11,19,38,0.75)",
-                    }}
-                  >
-                    {feature}
-                  </Text>
-                </Box>
-              ))}
-            </Stack>
+                />
+              </Box>
 
-            {/* Button */}
-            <Box
-              component="button"
-              style={{
-                padding: "16px 32px",
-                borderRadius: 999,
-                border: "none",
-                background: "linear-gradient(90deg, #2563eb, #06b6d4)",
-                color: "#ffffff",
-                fontWeight: 700,
-                fontSize: 15,
-                cursor: "pointer",
-                transition: "transform 0.25s ease, box-shadow 0.25s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = "0 12px 28px rgba(6,182,212,0.35)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-              onClick={handleStartProject}
+              {/* Floating gradient accent behind image */}
+              <Box
+                style={{
+                  position: "absolute",
+                  inset: -14,
+                  borderRadius: 26,
+                  opacity: 0.18,
+                  zIndex: -1,
+                  filter: "blur(6px)",
+                }}
+              />
+            </MotionBox>
+          </Grid.Col>
+
+          {/* Content */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              Start Your Project
-            </Box>
-          </Box>
-        </SimpleGrid>
+              <Text
+                fw={700}
+                style={{
+                  fontSize: 13,
+                  color: ACCENT,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  marginBottom: 14,
+                }}
+              >
+                ● Why Choose Us
+              </Text>
+
+              <Title
+                order={2}
+                style={{
+                  fontSize: "clamp(1.7rem, 2.6vw, 2.2rem)",
+                  fontWeight: 800,
+                  lineHeight: 1.25,
+                  marginBottom: 16,
+                  color: isDark ? "#F5F7FA" : "#0B1326",
+                }}
+              >
+                Design That{" "}
+                <Text
+                  component="span"
+                  inherit
+                  variant="gradient"
+                  gradient={{ from: ACCENT2, to: ACCENT }}
+                >
+                  Drives Results
+                </Text>
+              </Title>
+
+              <Text
+                style={{
+                  maxWidth: 560,
+                  fontSize: "0.98rem",
+                  lineHeight: 1.7,
+                  color: isDark
+                    ? "rgba(226,232,240,0.75)"
+                    : "rgba(15,23,42,0.65)",
+                  marginBottom: 28,
+                }}
+              >
+                We create intuitive, user-focused digital experiences that combine visual excellence with data-driven insights, ensuring every interaction improves engagement, conversions, and overall business performance.
+              </Text>
+
+              <Box style={{ marginBottom: 32 }}>
+                {features.map((feature, index) => (
+                  <MotionBox
+                    key={index}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
+                    style={{
+                      display: "flex",
+                      gap: 10,
+                      alignItems: "flex-start",
+                      marginBottom: 12,
+                    }}
+                  >
+                    <Box
+                      style={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        marginTop: 1,
+                        background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
+                      }}
+                    >
+                      <IconCheck size={12} stroke={3} color="#fff" />
+                    </Box>
+                    <Text
+                      style={{
+                        fontSize: "0.9rem",
+                        lineHeight: 1.55,
+                        color: isDark
+                          ? "rgba(226,232,240,0.85)"
+                          : "rgba(15,23,42,0.75)",
+                      }}
+                    >
+                      {feature}
+                    </Text>
+                  </MotionBox>
+                ))}
+              </Box>
+
+              <Button
+                size="md"
+                radius="xl"
+                rightSection={<IconArrowRight size={18} stroke={2.2} />}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%)",
+                  fontWeight: 700,
+                  fontSize: 15,
+                  padding: "0 30px",
+                  height: 48,
+                  border: "none",
+                }}
+                onClick={handleStartProject}
+              >
+                Start Your Project
+              </Button>
+            </MotionBox>
+          </Grid.Col>
+        </Grid>
       </Container>
     </Box>
   );

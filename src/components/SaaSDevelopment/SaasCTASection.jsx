@@ -69,7 +69,7 @@ const SaasCTASection = () => {
               marginBottom: 40,
             }}
           >
-            Book a free discovery call and let's turn your concept into a live, revenue-generating SaaS product.
+            Book a call and let's turn your concept into a live, revenue-generating SaaS product.
           </Text>
 
           {/* Buttons */}
@@ -87,25 +87,7 @@ const SaasCTASection = () => {
               }}
               onClick={handleBookDiscoveryCall}
             >
-              Book Free Discovery Call
-            </Button>
-
-            <Button
-              size="lg"
-              radius="xl"
-              variant="outline"
-              style={{
-                borderColor: isDark
-                  ? "rgba(226,232,240,0.3)"
-                  : "rgba(15,23,42,0.25)",
-                color: isDark ? "#F5F7FA" : "#0B1326",
-                fontWeight: 700,
-                padding: "0 32px",
-                height: 52,
-                background: "transparent",
-              }}
-            >
-              Call +91-8237525097
+              Schedule a Call
             </Button>
           </Group>
         </Box>

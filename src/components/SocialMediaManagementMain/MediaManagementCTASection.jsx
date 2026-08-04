@@ -49,9 +49,8 @@ const MediaManagementCTASection = () => {
             color: isDark ? "rgba(255,255,255,0.65)" : "rgba(11,19,38,0.65)",
           }}
         >
-          Let us take social media off your plate — consistently, reliably, every day.
-          <br />
-          Free consultation — no strings attached.
+          Let us take social media off your plate consistently, reliably, every day.
+         
         </Text>
         <Group justify="center" gap={16}>
           <Box
@@ -77,7 +76,7 @@ const MediaManagementCTASection = () => {
             }}
             onClick={handleBookFreeConsultation}
           >
-            Book Free Consultation
+            Schedule a Call
           </Box>
           {/* <Box
             component="button"

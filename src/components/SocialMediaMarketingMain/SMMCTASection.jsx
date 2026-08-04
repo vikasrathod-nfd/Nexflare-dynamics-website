@@ -42,9 +42,9 @@ const SMMCTASection = () => {
         >
           Ready to{" "}
           <Text component="span" inherit fs="italic" style={{ color: "#14b8a6" }}>
-            Go Viral
+            Go Viral ?
           </Text>
-          ?
+        
         </Text>
 
         {/* Subtitle */}
@@ -59,7 +59,7 @@ const SMMCTASection = () => {
         >
           Let's build your brand's social media presence from the ground up.
           <br />
-          Free strategy call — no strings attached.
+          Free strategy call no strings attached.
         </Text>
 
         {/* Buttons */}
@@ -87,7 +87,7 @@ const SMMCTASection = () => {
             }}
             onClick={handleBookFreeStrategyCall}  
           >
-            Book Free Strategy Call
+            Schedule a Call
           </Box>
 
           {/* <Box

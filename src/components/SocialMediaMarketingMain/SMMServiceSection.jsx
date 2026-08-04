@@ -1,35 +1,55 @@
 import { Box, Container, Title, Text, SimpleGrid, Stack, useComputedColorScheme } from "@mantine/core";
+import {
+  IconBrandInstagram,
+  IconBrandFacebook,
+  IconBrandLinkedin,
+  IconBrandYoutube,
+  IconBrandX,
+  IconBrandPinterest,
+} from "@tabler/icons-react";
 
 const PLATFORMS = [
   {
-    icon: "📸",
+    icon: IconBrandInstagram,
     title: "Instagram",
-    description: "Reels, Stories, Carousels & Shopping",
+    description: "Reels, Stories, and shoppable content built for discovery",
+    color: "#E1306C",
+    gradient: "linear-gradient(135deg, #405DE6 0%, #C13584 50%, #FD1D1D 100%)",
   },
   {
-    icon: "📘",
+    icon: IconBrandFacebook,
     title: "Facebook",
-    description: "Pages, Groups & Community Building",
+    description: "Community management and page growth that builds trust",
+    color: "#1877F2",
+    gradient: "linear-gradient(135deg, #1877F2 0%, #0C63D4 100%)",
   },
   {
-    icon: "💼",
+    icon: IconBrandLinkedin,
     title: "LinkedIn",
-    description: "B2B Authority & Thought Leadership",
+    description: "B2B thought leadership that positions you as the authority",
+    color: "#0A66C2",
+    gradient: "linear-gradient(135deg, #0A66C2 0%, #084E96 100%)",
   },
   {
-    icon: "▶️",
+    icon: IconBrandYoutube,
     title: "YouTube",
-    description: "Video Strategy & Channel Growth",
+    description: "Video strategy and channel growth built for retention",
+    color: "#FF0000",
+    gradient: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
   },
   {
-    icon: "🎵",
-    title: "Twitter/X",
-    description: "Real-time Engagement & Trends",
+    icon: IconBrandX,
+    title: "Twitter / X",
+    description: "Real-time engagement that keeps your brand in the conversation",
+    color: "#000000",
+    gradient: "linear-gradient(135deg, #000000 0%, #3a3a3a 100%)",
   },
   {
-    icon: "📌",
+    icon: IconBrandPinterest,
     title: "Pinterest",
-    description: "Visual Discovery & Traffic",
+    description: "Visual discovery that drives qualified traffic long-term",
+    color: "#E60023",
+    gradient: "linear-gradient(135deg, #E60023 0%, #AD081B 100%)",
   },
 ];
 
@@ -37,8 +57,6 @@ const SMMServiceSection = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
-  // All colors are resolved here in JS and applied via inline `style`,
-  // so nothing depends on Mantine's built-in light/dark component CSS.
   const colors = {
     eyebrow: "#14b8a6",
     heading: isDark ? "#ffffff" : "#0f172a",
@@ -49,6 +67,9 @@ const SMMServiceSection = () => {
     cardShadow: isDark
       ? "0 1px 2px rgba(0,0,0,0.4)"
       : "0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04)",
+    cardShadowHover: isDark
+      ? "0 16px 40px rgba(0,0,0,0.5)"
+      : "0 16px 40px rgba(15,23,42,0.12)",
     cardTitle: isDark ? "#ffffff" : "#0f172a",
     cardText: isDark ? "rgba(226,232,240,0.65)" : "#64748b",
   };
@@ -99,42 +120,71 @@ const SMMServiceSection = () => {
         </Stack>
 
         <SimpleGrid cols={{ base: 2, sm: 3, lg: 6 }} spacing={20}>
-          {PLATFORMS.map((platform) => (
-            <Box
-              key={platform.title}
-              style={{
-                backgroundColor: colors.cardBg,
-                border: `1px solid ${colors.cardBorder}`,
-                borderRadius: 16,
-                padding: "32px 20px",
-                boxShadow: colors.cardShadow,
-                textAlign: "center",
-              }}
-            >
-              <Text style={{ fontSize: 32, marginBottom: 16, lineHeight: 1 }}>{platform.icon}</Text>
-
-              <Text
+          {PLATFORMS.map((platform) => {
+            const Icon = platform.icon;
+            return (
+              <Box
+                key={platform.title}
                 style={{
-                  fontSize: "1.0625rem",
-                  fontWeight: 700,
-                  color: colors.cardTitle,
-                  marginBottom: 8,
+                  backgroundColor: colors.cardBg,
+                  border: `1px solid ${colors.cardBorder}`,
+                  borderRadius: 16,
+                  padding: "32px 20px",
+                  boxShadow: colors.cardShadow,
+                  textAlign: "center",
+                  transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+                  cursor: "default",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow = colors.cardShadowHover;
+                  e.currentTarget.style.borderColor = platform.color;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = colors.cardShadow;
+                  e.currentTarget.style.borderColor = colors.cardBorder;
                 }}
               >
-                {platform.title}
-              </Text>
+                <Box
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: 14,
+                    background: platform.gradient,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "0 auto 18px",
+                    boxShadow: `0 8px 20px ${platform.color}33`,
+                  }}
+                >
+                  <Icon size={28} color="#ffffff" stroke={1.8} />
+                </Box>
 
-              <Text
-                style={{
-                  fontSize: "0.875rem",
-                  lineHeight: 1.55,
-                  color: colors.cardText,
-                }}
-              >
-                {platform.description}
-              </Text>
-            </Box>
-          ))}
+                <Text
+                  style={{
+                    fontSize: "1.0625rem",
+                    fontWeight: 700,
+                    color: colors.cardTitle,
+                    marginBottom: 8,
+                  }}
+                >
+                  {platform.title}
+                </Text>
+
+                <Text
+                  style={{
+                    fontSize: "0.875rem",
+                    lineHeight: 1.55,
+                    color: colors.cardText,
+                  }}
+                >
+                  {platform.description}
+                </Text>
+              </Box>
+            );
+          })}
         </SimpleGrid>
       </Container>
     </Box>

@@ -46,14 +46,14 @@ const MaintenanceCTA = () => {
               color: isDark ? "#F5F7FA" : "#0B1326",
             }}
           >
-            Keep Your Product{" "}
+            Maintain Peak{" "}
             <Text
               component="span"
               inherit
               fs="italic"
               style={{ color: ACCENT }}
             >
-              Running Flawlessly
+              Software Performance ?
             </Text>
           </Title>
 
@@ -70,7 +70,7 @@ const MaintenanceCTA = () => {
               marginBottom: 40,
             }}
           >
-            Book a free consultation and let's design a maintenance plan that keeps your platform fast, secure, and always available.
+            Book a call and let's design a maintenance plan that keeps your platform fast, secure, and always available.
           </Text>
 
           {/* Buttons */}
@@ -86,9 +86,9 @@ const MaintenanceCTA = () => {
                 height: 52,
                 border: "none",
               }}
-              onClick={handleBookFreeConsultation}   
+              onClick={handleBookFreeConsultation}
             >
-              Book Free Consultation
+              Schedule a Call
             </Button>
 
             {/* <Button

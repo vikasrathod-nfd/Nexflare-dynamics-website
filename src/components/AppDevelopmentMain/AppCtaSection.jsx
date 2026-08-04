@@ -74,7 +74,7 @@ const AppCtaSection = () => {
                 : "rgba(15,23,42,0.65)",
             }}
           >
-            Get a free consultation and project estimate. Let's turn your
+            Get a call consultation and project estimate. Let's turn your
             idea into a product your users will love.
           </Text>
           <Group gap="md" mt={12}>
@@ -97,7 +97,7 @@ const AppCtaSection = () => {
               }}
               onClick={handleGetFreeConsultation}   
             >
-              Get Free Consultation
+              Schedule a Call
             </Button>
             {/* <Button
               radius="xl"

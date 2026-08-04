@@ -3,9 +3,9 @@ import SMMHero from "../../../components/SocialMediaMarketingMain/SMMHero";
 import SMMServiceSection from "../../../components/SocialMediaMarketingMain/SMMServiceSection";
 import SMMProcessSection from "../../../components/SocialMediaMarketingMain/SMMProcessSection";
 import SMMWhyChooseUs from "../../../components/SocialMediaMarketingMain/SMMWhyChooseUs";
-import SMMStastsSection from "../../../components/SocialMediaMarketingMain/SMMStastsSection";
+// import SMMStastsSection from "../../../components/SocialMediaMarketingMain/SMMStastsSection";
 import SMMTools from "../../../components/SocialMediaMarketingMain/SMMTools";
-import SMMClientsSuccess from "../../../components/SocialMediaMarketingMain/SMMClientsSuccess";
+// import SMMClientsSuccess from "../../../components/SocialMediaMarketingMain/SMMClientsSuccess";
 import SMMFaq from "../../../components/SocialMediaMarketingMain/SMMFaq";
 import SMMCTASection from "../../../components/SocialMediaMarketingMain/SMMCTASection";
 const SEO = () => {
@@ -33,9 +33,9 @@ const SEO = () => {
         <SMMServiceSection/>
         <SMMProcessSection/>
         <SMMWhyChooseUs/>
-        <SMMStastsSection/>
-        <SMMTools/>
-        <SMMClientsSuccess/>
+        {/* <SMMStastsSection/> */}
+        {/* <SMMTools/> */}
+        {/* <SMMClientsSuccess/> */}
         <SMMFaq/>
         <SMMCTASection/>
       

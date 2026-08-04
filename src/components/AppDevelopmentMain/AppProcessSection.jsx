@@ -1,158 +1,270 @@
+import React from "react";
 import {
   Box,
   Container,
   Text,
   Title,
-  Stack,
   SimpleGrid,
   useComputedColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
+import { motion } from "framer-motion";
+import {
+  IconSearch,
+  IconPalette,
+  IconCode,
+  IconBug,
+  IconRocket,
+} from "@tabler/icons-react";
+
+const MotionBox = motion.create(Box);
+
 const steps = [
   {
     number: "01",
-    title: "Discovery & Planning",
+    title: "Discovery & Strategy",
     description:
-      "We define your goals, target users, feature set, and tech stack. Full project scope and timeline agreed upfront.",
+      "We begin by understanding your business objectives, target audience, and technical requirements to define a clear project roadmap, scalable architecture, and development strategy.",
+    icon: IconSearch,
   },
   {
     number: "02",
     title: "UI/UX Design",
     description:
-      "Wireframes to high-fidelity prototypes. User-tested designs that are beautiful, intuitive, and conversion-focused.",
+      "Our designers create intuitive user journeys, interactive prototypes, and visually engaging interfaces that deliver exceptional user experiences across all devices.",
+    icon: IconPalette,
   },
   {
     number: "03",
-    title: "Development",
+    title: "Agile Development",
     description:
-      "Agile sprints with fortnightly demos. Clean, documented code with rigorous version control throughout.",
+      "Using agile methodologies and modern technologies, we build secure, scalable, and high-performance applications with regular progress updates and continuous collaboration.",
+    icon: IconCode,
   },
   {
     number: "04",
-    title: "QA & Testing",
+    title: "Quality Assurance",
     description:
-      "Comprehensive testing across devices, OS versions, and edge cases. Zero critical bugs before launch — guaranteed.",
+      "Every application undergoes comprehensive functional, performance, security, and compatibility testing to ensure a reliable, bug-free, and seamless user experience.",
+    icon: IconBug,
   },
   {
     number: "05",
-    title: "Launch & Scale",
+    title: "Deployment & Growth",
     description:
-      "App store submission, launch support, analytics setup, and a roadmap to keep improving post-launch.",
+      "We manage app deployment, optimize performance, monitor stability, and provide ongoing maintenance, updates, and enhancements to support long-term business growth.",
+    icon: IconRocket,
   },
 ];
+
+const ACCENT = "#14b8a6";
+const ACCENT2 = "#0d9488";
+
 const AppProcessSection = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
+  const theme = useMantineTheme();
+
   return (
-    <Box component="section" py={100}>
-      <Container size="lg">
-        {/* Section Header */}
-        <Stack gap={10} mb={70} maw={700}>
+    <Box
+      component="section"
+      style={{
+        position: "relative",
+        padding: "110px 0",
+        overflow: "hidden",
+        background: isDark ? "transparent" : theme.colors.gray[0],
+      }}
+    >
+      {/* Decorative glow */}
+      <Box
+        style={{
+          position: "absolute",
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          top: -200,
+          right: -150,
+          background:
+            "radial-gradient(circle, rgba(20,184,166,.14), transparent 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Text
+          fw={700}
+          size="sm"
+          style={{
+            color: ACCENT,
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            marginBottom: 16,
+          }}
+        >
+          Our Process
+        </Text>
+
+        <Title
+          order={2}
+          style={{
+            fontSize: "clamp(2rem, 4vw, 2.75rem)",
+            fontWeight: 800,
+            lineHeight: 1.2,
+            marginBottom: 20,
+            color: isDark ? "#F5F7FA" : "#0B1326",
+          }}
+        >
+          How We{" "}
           <Text
-            fw={700}
-            size="sm"
-            style={{
-              letterSpacing: 3,
-              color: "#14b8a6",
-              textTransform: "uppercase",
-            }}
+            component="span"
+            inherit
+            variant="gradient"
+            gradient={{ from: ACCENT2, to: ACCENT }}
           >
-            Our Process
+            Build Your App
           </Text>
-          <Title
-            order={2}
-            fw={800}
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-              color: isDark ? "#f8fafc" : "#0f172a",
-              lineHeight: 1.2,
-            }}
-          >
-            How We <span style={{ color: "#14b8a6" }}>Build Your App</span>
-          </Title>
-          <Text
-            style={{
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              color: isDark
-                ? "rgba(226,232,240,0.75)"
-                : "rgba(15,23,42,0.65)",
-            }}
-          >
-            A battle-tested 5-phase development process that ensures
-            on-time delivery, quality code, and an app users love.
-          </Text>
-        </Stack>
-        {/* Steps */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="xl">
+        </Title>
+
+        <Text
+          style={{
+            maxWidth: 620,
+            fontSize: "1.05rem",
+            lineHeight: 1.7,
+            color: isDark ? "rgba(226,232,240,0.75)" : "rgba(15,23,42,0.65)",
+            marginBottom: 72,
+          }}
+        >
+          We follow a structured, end-to-end development methodology that transforms your ideas into powerful mobile applications. Through collaborative planning, iterative development, rigorous testing, and seamless deployment, we deliver solutions that align with your business objectives.
+        </Text>
+
+        <SimpleGrid
+          cols={{ base: 1, sm: 2, lg: 5 }}
+          spacing={{ base: 40, lg: 24 }}
+          verticalSpacing={48}
+        >
           {steps.map((step, index) => (
-            <Box key={index} style={{ position: "relative" }}>
-              {/* Connector line (hidden on last item of each row via nth-child in CSS below) */}
-              {index < steps.length - 1 && (
+            <MotionBox
+              key={step.number}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{ position: "relative" }}
+            >
+              {index !== steps.length - 1 && (
                 <Box
-                  className="app-process-connector"
+                  visibleFrom="lg"
                   style={{
                     position: "absolute",
-                    top: 28,
-                    left: "calc(100% + 4px)",
-                    width: "calc(100% - 20px)",
+                    top: 34,
+                    left: "calc(100% - 6px)",
+                    width: "calc(100% - 36px)",
                     height: 2,
                     background: isDark
-                      ? "rgba(20,184,166,0.15)"
-                      : "rgba(20,184,166,0.2)",
-                    display: "none",
+                      ? "repeating-linear-gradient(90deg, rgba(20,184,166,.4) 0, rgba(20,184,166,.4) 6px, transparent 6px, transparent 12px)"
+                      : "repeating-linear-gradient(90deg, rgba(20,184,166,.55) 0, rgba(20,184,166,.55) 6px, transparent 6px, transparent 12px)",
+                    zIndex: 0,
                   }}
                 />
               )}
-              <Stack gap={4}>
-                <Text
-                  fw={800}
+
+              <Box
+                p={26}
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  height: "100%",
+                  borderRadius: 20,
+                  background: isDark ? "rgba(18, 26, 36, 0.85)" : theme.white,
+                  border: isDark
+                    ? "1px solid rgba(255,255,255,.08)"
+                    : `1px solid ${theme.colors.gray[3]}`,
+                  boxShadow: isDark
+                    ? "0 16px 40px rgba(0,0,0,.3)"
+                    : "0 10px 26px rgba(0,0,0,.06)",
+                  transition: "transform .35s ease, box-shadow .35s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = isDark
+                    ? "0 22px 50px rgba(20,184,166,.18)"
+                    : "0 18px 36px rgba(20,184,166,.18)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = isDark
+                    ? "0 16px 40px rgba(0,0,0,.3)"
+                    : "0 10px 26px rgba(0,0,0,.06)";
+                }}
+              >
+                <Box
                   style={{
-                    fontSize: "3.2rem",
-                    lineHeight: 1,
-                    color: isDark
-                      ? "rgba(20,184,166,0.15)"
-                      : "rgba(20,184,166,0.18)",
-                    marginBottom: 8,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 14,
+                    marginBottom: 22,
                   }}
                 >
-                  {step.number}
-                </Text>
+                  <Box
+                    style={{
+                      width: 52,
+                      height: 52,
+                      borderRadius: 14,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
+                      boxShadow: "0 10px 22px rgba(20,184,166,.35)",
+                    }}
+                  >
+                    <step.icon size={26} stroke={1.8} color="#fff" />
+                  </Box>
+                  <Text
+                    style={{
+                      fontSize: "2.2rem",
+                      fontWeight: 800,
+                      lineHeight: 1,
+                      color: isDark
+                        ? "rgba(20,184,166,0.18)"
+                        : "rgba(13,148,136,0.3)",
+                      userSelect: "none",
+                    }}
+                  >
+                    {step.number}
+                  </Text>
+                </Box>
+
                 <Text
                   fw={700}
+                  size="lg"
                   style={{
-                    fontSize: "1.1rem",
-                    color: isDark ? "#f8fafc" : "#0f172a",
-                    marginBottom: 4,
+                    color: isDark ? "#F5F7FA" : "#0B1326",
+                    marginBottom: 10,
                   }}
                 >
                   {step.title}
                 </Text>
+
                 <Text
                   style={{
                     fontSize: "0.92rem",
                     lineHeight: 1.7,
                     color: isDark
-                      ? "rgba(226,232,240,0.65)"
+                      ? "rgba(203,213,225,0.7)"
                       : "rgba(15,23,42,0.6)",
                   }}
                 >
                   {step.description}
                 </Text>
-              </Stack>
-            </Box>
+              </Box>
+            </MotionBox>
           ))}
         </SimpleGrid>
       </Container>
-      <style>
-        {`
-          @media (min-width: 1200px) {
-            .app-process-connector {
-              display: block !important;
-            }
-          }
-        `}
-      </style>
     </Box>
   );
 };
+
 export default AppProcessSection;

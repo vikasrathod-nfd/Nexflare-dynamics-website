@@ -1,168 +1,244 @@
 import {
   Box,
+  Card,
   Container,
-  Text,
-  Title,
+  Grid,
+  Group,
   Stack,
-  SimpleGrid,
-  Paper,
-  useComputedColorScheme,
+  Text,
+  ThemeIcon,
+  Title,
+  useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
+import {
+  IconBrandShopee,
+  IconShoppingCart,
+  IconSettings,
+  IconCreditCard,
+  IconPackage,
+  IconTrendingUp,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
+
+const MotionCard = motion.create(Card);
+
 const services = [
   {
-    icon: "🛍️",
     title: "Shopify Development",
     description:
-      "Custom Shopify themes, apps, and integrations. Whether you're starting fresh or migrating, we build stores that convert and scale effortlessly.",
+      "Create powerful and scalable Shopify stores with custom themes, advanced integrations, and tailored features. We help businesses launch, migrate, and optimize online stores designed for higher conversions and seamless growth.",
+    icon: IconBrandShopee,
   },
   {
-    icon: "🛒",
     title: "WooCommerce Development",
     description:
-      "Flexible, feature-rich WooCommerce stores fully customised to your brand — with the power of WordPress for content and SEO built in.",
+      "Develop flexible and fully customized WooCommerce solutions that combine the power of WordPress with advanced eCommerce capabilities. From store setup to custom functionality, we build platforms optimized for performance and SEO.",
+    icon: IconShoppingCart,
   },
   {
-    icon: "⚙️",
     title: "Custom eCommerce Platforms",
     description:
-      "Fully bespoke eCommerce solutions for complex business models — multi-vendor marketplaces, B2B portals, and headless commerce architectures.",
+      "Build fully customized eCommerce platforms designed around your unique business requirements. We develop scalable solutions including B2B marketplaces, multi-vendor platforms, and headless commerce architectures.",
+    icon: IconSettings,
   },
   {
-    icon: "💳",
     title: "Payment Gateway Integration",
     description:
-      "Seamless integration with Razorpay, Stripe, PayU, CCAvenue, and 20+ payment providers. Multiple methods, one smooth checkout experience.",
+      "Enable secure and seamless transactions with reliable payment gateway integrations. We connect your store with leading payment providers to deliver smooth checkout experiences with multiple payment options.",
+    icon: IconCreditCard,
   },
   {
-    icon: "📦",
     title: "Inventory & Order Management",
     description:
-      "Real-time inventory tracking, automated order workflows, multi-warehouse management, and third-party logistics integrations (Shiprocket, Delhivery).",
+      "Streamline your business operations with intelligent inventory and order management solutions. We implement real-time tracking, automated workflows, warehouse management, and logistics integrations for efficient fulfillment.",
+    icon: IconPackage,
   },
   {
-    icon: "📈",
     title: "Conversion Rate Optimisation",
     description:
-      "Data-driven CRO — A/B testing, checkout optimisation, upsell funnels, and abandoned cart recovery to maximise revenue from existing traffic.",
+      "Improve your online revenue with data-driven conversion optimization strategies. From checkout improvements and customer journey analysis to upselling techniques and cart recovery solutions, we help maximize sales performance.",
+    icon: IconTrendingUp,
   },
 ];
+
 const EDServiceSection = () => {
-  const computedColorScheme = useComputedColorScheme("light");
-  const isDark = computedColorScheme === "dark";
+  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const isDark = colorScheme === "dark";
+
   return (
-    <Box component="section" py={100}>
-      <Container size="lg">
-        {/* Section Header */}
-        <Stack gap={10} mb={50} maw={700}>
+    <Box
+      py={120}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: isDark ? "transparent" : theme.colors.gray[0],
+      }}
+    >
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(20,184,166,.14), transparent 70%)",
+            top: 80,
+            left: -180,
+            filter: "blur(80px)",
+          }}
+        />
+      )}
+      {isDark && (
+        <Box
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(34,211,238,.14), transparent 70%)",
+            bottom: 0,
+            right: -180,
+            filter: "blur(90px)",
+          }}
+        />
+      )}
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Stack gap="md" mb={70}>
           <Text
             fw={700}
-            size="sm"
-            style={{
-              letterSpacing: 3,
-              color: "#14b8a6",
-              textTransform: "uppercase",
-            }}
+            c="teal"
+            tt="uppercase"
+            style={{ letterSpacing: 3, fontSize: 15 }}
           >
-            What We Offer
+            WHAT WE OFFER
           </Text>
+
           <Title
-            order={2}
-            fw={800}
             style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-              color: isDark ? "#f8fafc" : "#0f172a",
-              lineHeight: 1.2,
+              fontSize: "clamp(2rem,3vw,4.5rem)",
+              fontWeight: 900,
+              lineHeight: 1.15,
             }}
           >
             Complete{" "}
-            <span style={{ color: "#14b8a6" }}>eCommerce Solutions</span>
+            <Text
+              component="span"
+              inherit
+              variant="gradient"
+              gradient={{ from: "#22d3ee", to: "#14b8a6" }}
+            >
+              eCommerce Solutions
+            </Text>
           </Title>
+
           <Text
+            maw={760}
             style={{
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              color: isDark
-                ? "rgba(226,232,240,0.75)"
-                : "rgba(15,23,42,0.65)",
+              fontSize: 18,
+              lineHeight: 1.6,
+              color: isDark ? "rgba(255,255,255,.72)" : theme.colors.gray[7],
             }}
           >
-            Everything you need to sell online — from store design and
-            development to payment integrations, SEO, and ongoing
-            optimisation.
+            Build a powerful online marketplace with our complete eCommerce
+            solutions designed to drive sales, enhance customer experiences,
+            and support business growth. From custom store design and
+            development to secure payment integrations, product management,
+            SEO optimization, and ongoing support, we deliver scalable
+            eCommerce platforms tailored to your business needs.
           </Text>
         </Stack>
-        {/* Service Cards */}
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
-          {services.map((service, index) => (
-            <Paper
-              key={index}
-              radius="lg"
-              p="xl"
-              style={{
-                background: isDark
-                  ? "rgba(255,255,255,0.03)"
-                  : "#ffffff",
-                border: isDark
-                  ? "1px solid rgba(255,255,255,0.08)"
-                  : "1px solid rgba(15,23,42,0.08)",
-                boxShadow: isDark
-                  ? "0 8px 24px rgba(0,0,0,0.25)"
-                  : "0 8px 24px rgba(15,23,42,0.06)",
-                height: "100%",
-                transition: "transform .25s ease, box-shadow .25s ease",
-              }}
-              className="ed-service-card"
-            >
-              <Box
+
+        <Grid gutter={30}>
+          {services.map((item, index) => (
+            <Grid.Col key={item.title} span={{ base: 12, sm: 6, lg: 4 }}>
+              <MotionCard
+                p={0}
+                radius={24}
+                h="100%"
+                withBorder
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                viewport={{ once: true }}
                 style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 12,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.4rem",
-                  marginBottom: 20,
-                  background: isDark
-                    ? "rgba(20,184,166,0.1)"
-                    : "rgba(20,184,166,0.08)",
+                  position: "relative",
+                  overflow: "hidden",
+                  background: isDark ? "rgba(18, 26, 36, 0.92)" : theme.white,
+                  border: isDark
+                    ? "1px solid rgba(255,255,255,.08)"
+                    : `1px solid ${theme.colors.gray[3]}`,
+                  backdropFilter: isDark ? "blur(18px)" : "none",
+                  boxShadow: isDark
+                    ? "0 20px 60px rgba(0,0,0,.35)"
+                    : "0 10px 30px rgba(0,0,0,.06)",
+                  cursor: "pointer",
+                  transition: "all .35s ease",
                 }}
               >
-                {service.icon}
-              </Box>
-              <Text
-                fw={700}
-                mb={10}
-                style={{
-                  fontSize: "1.1rem",
-                  color: isDark ? "#f8fafc" : "#0f172a",
-                }}
-              >
-                {service.title}
-              </Text>
-              <Text
-                style={{
-                  fontSize: "0.92rem",
-                  lineHeight: 1.7,
-                  color: isDark
-                    ? "rgba(226,232,240,0.65)"
-                    : "rgba(15,23,42,0.6)",
-                }}
-              >
-                {service.description}
-              </Text>
-            </Paper>
+                {/* top gradient accent bar */}
+                <Box
+                  style={{
+                    height: 5,
+                    width: "100%",
+                    background: "linear-gradient(90deg, #22d3ee, #14b8a6)",
+                  }}
+                />
+
+                <Box p={40} style={{ position: "relative" }}>
+                  <Stack gap={20}>
+                    {/* Icon + Heading in one row */}
+                    <Group gap={16} wrap="nowrap" align="center">
+                      <ThemeIcon
+                        size={58}
+                        radius={16}
+                        variant="gradient"
+                        gradient={{ from: "#22d3ee", to: "#14b8a6", deg: 135 }}
+                        style={{
+                          boxShadow: "0 10px 24px rgba(20,184,166,.35)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <item.icon size={30} stroke={1.8} color="#fff" />
+                      </ThemeIcon>
+                      <Title
+                        order={3}
+                        style={{
+                          fontSize: 21,
+                          fontWeight: 800,
+                          lineHeight: 1.35,
+                          color: isDark ? theme.white : theme.black,
+                        }}
+                      >
+                        {item.title}
+                      </Title>
+                    </Group>
+
+                    <Text
+                      style={{
+                        fontSize: 16.5,
+                        lineHeight: 1.85,
+                        color: isDark
+                          ? "rgba(255,255,255,.68)"
+                          : theme.colors.gray[7],
+                      }}
+                    >
+                      {item.description}
+                    </Text>
+                  </Stack>
+                </Box>
+              </MotionCard>
+            </Grid.Col>
           ))}
-        </SimpleGrid>
+        </Grid>
       </Container>
-      <style>
-        {`
-          .ed-service-card:hover {
-            transform: translateY(-4px);
-          }
-        `}
-      </style>
     </Box>
   );
 };
+
 export default EDServiceSection;

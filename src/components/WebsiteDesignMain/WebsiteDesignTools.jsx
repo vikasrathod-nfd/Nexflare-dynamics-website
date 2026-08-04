@@ -1,131 +1,176 @@
-import { Box, Container, Group, Text, useComputedColorScheme } from "@mantine/core";
+import { Box, Container, SimpleGrid, Title, Text, Stack, useComputedColorScheme } from "@mantine/core";
+import { motion } from "framer-motion";
+import {
+  IconLayoutGrid,
+  IconLayoutBoard,
+  IconPhoto,
+  IconVector,
+  IconBrandFramer,
+  IconWorldWww,
+  IconEye,
+  IconRulerMeasure,
+  IconChartInfographic,
+} from "@tabler/icons-react";
 
-const tools = [
-  "Figma",
-  "Adobe XD",
-  "Adobe Photoshop",
-  "Adobe Illustrator",
-  "Framer",
-  "Webflow",
-  "InVision",
-  "Zeplin",
-  "Hotjar",
-  "Google Optimize",
+const MotionBox = motion.create(Box);
+
+// Note: Adobe icons and InVision have been dropped from most third-party icon
+// libraries (Adobe requires written permission for its trademarked icons;
+// InVision shut down its app in 2024). All tools below use close-fit generic
+// icons tinted with each brand's official color for a consistent, reliable look.
+const TOOLS = [
+  { name: "Figma", Icon: IconLayoutGrid, color: "#F24E1E" },
+  { name: "Adobe XD", Icon: IconLayoutBoard, color: "#FF61F6" },
+  { name: "Adobe Photoshop", Icon: IconPhoto, color: "#31A8FF" },
+  { name: "Adobe Illustrator", Icon: IconVector, color: "#FF9A00" },
+  { name: "Framer", Icon: IconBrandFramer, color: "#0055FF" },
+  { name: "Webflow", Icon: IconWorldWww, color: "#4353FF" },
+  { name: "InVision", Icon: IconEye, color: "#FF3366" },
+  { name: "Zeplin", Icon: IconRulerMeasure, color: "#FDBD39" },
+  { name: "Hotjar", Icon: IconChartInfographic, color: "#FF3C00" },
+  { name: "Google Optimize", Icon: IconChartInfographic, color: "#4285F4" },
 ];
 
 const WebsiteDesignTools = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
-  return (
-    <Box component="section" py={{ base: 60, md: 90 }}>
-      <Container size="xl">
-        {/* Section Label */}
-        <Text
-          fw={700}
-          size="sm"
-          mb={8}
-          style={{
-            letterSpacing: 3,
-            textTransform: "uppercase",
-            color: "#14b8a6",
-          }}
-        >
-          Tools We Use
-        </Text>
+  const colors = {
+    eyebrow: "#14b8a6",
+    heading: isDark ? "#ffffff" : "#0f172a",
+    headingAccent: "#14b8a6",
+    subtitle: isDark ? "rgba(226,232,240,0.72)" : "#475569",
+    cardBg: isDark ? "rgba(255,255,255,0.03)" : "rgba(20,184,166,0.03)",
+    cardBorder: isDark ? "rgba(255,255,255,0.10)" : "rgba(20,184,166,0.12)",
+    cardText: isDark ? "rgba(226,232,240,0.85)" : "#334155",
+    glow: isDark
+      ? "radial-gradient(circle, rgba(20,184,166,0.14), transparent 70%)"
+      : "radial-gradient(circle, rgba(20,184,166,0.10), transparent 70%)",
+  };
 
-        {/* Heading */}
-        <Text
-          fw={800}
-          mb={16}
-          style={{
-            fontSize: "clamp(28px, 4vw, 42px)",
-            lineHeight: 1.2,
-            color: isDark ? "#ffffff" : "#0b1326",
-          }}
-        >
-          Designed With{" "}
+  return (
+    <Box
+      component="section"
+      style={{ padding: "96px 0", position: "relative", overflow: "hidden" }}
+    >
+      {/* ambient glow */}
+      <Box
+        style={{
+          position: "absolute",
+          width: 520,
+          height: 520,
+          borderRadius: "50%",
+          top: -220,
+          right: -180,
+          background: colors.glow,
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+        <Stack gap={6} maw={720} mb={48}>
           <Text
-            component="span"
-            inherit
             style={{
-              background: "linear-gradient(90deg, #0d9488, #14b8a6)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: colors.eyebrow,
+              textTransform: "uppercase",
+              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: 1.2,
             }}
           >
-            Industry-Leading Tools
+            Tools We Use
           </Text>
-        </Text>
 
-        {/* Subtitle */}
-        <Text
-          mb={40}
-          maw={650}
-          style={{
-            fontSize: 17,
-            lineHeight: 1.6,
-            color: isDark ? "rgba(255,255,255,0.65)" : "rgba(11,19,38,0.65)",
-          }}
-        >
-          World-class design software to deliver pixel-perfect results every time.
-        </Text>
+          <Title
+            order={2}
+            style={{
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              margin: 0,
+              color: colors.heading,
+            }}
+          >
+            Designed With{" "}
+            <Box component="span" style={{ color: colors.headingAccent }}>
+              Industry-Leading Tools
+            </Box>
+          </Title>
 
-        {/* Tool Pills */}
-        <Group gap={14}>
-          {tools.map((tool, index) => (
-            <Box
-              key={index}
-              px={22}
-              py={10}
+          <Text
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.7,
+              color: colors.subtitle,
+              marginTop: 8,
+            }}
+          >
+           Our designers leverage modern design platforms and advanced prototyping tools to transform ideas into intuitive, pixel-perfect digital experiences. Every project is built with creativity, consistency, and usability at its core.
+          </Text>
+        </Stack>
+
+        <SimpleGrid cols={{ base: 2, xs: 3, sm: 4, md: 5 }} spacing={16} verticalSpacing={16}>
+          {TOOLS.map(({ name, Icon, color }, index) => (
+            <MotionBox
+              key={name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               style={{
-                borderRadius: 999,
-                background: isDark
-                  ? "rgba(255,255,255,0.04)"
-                  : "rgba(13,148,136,0.04)",
-                border: isDark
-                  ? "1px solid rgba(255,255,255,0.12)"
-                  : "1px solid rgba(13,148,136,0.15)",
-                transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                padding: "24px 12px",
+                borderRadius: 16,
+                textAlign: "center",
+                backgroundColor: colors.cardBg,
+                border: `1px solid ${colors.cardBorder}`,
                 cursor: "default",
+                transition:
+                  "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = isDark
-                  ? "0 10px 24px rgba(20,184,166,0.15)"
-                  : "0 10px 24px rgba(13,148,136,0.12)";
-                e.currentTarget.style.borderColor = isDark
-                  ? "rgba(20,184,166,0.4)"
-                  : "rgba(13,148,136,0.35)";
-                e.currentTarget.style.background = isDark
-                  ? "rgba(255,255,255,0.07)"
-                  : "rgba(13,148,136,0.07)";
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = `0 14px 28px ${color}26`;
+                e.currentTarget.style.borderColor = `${color}66`;
+                e.currentTarget.style.backgroundColor = isDark
+                  ? "rgba(255,255,255,0.06)"
+                  : "rgba(255,255,255,0.9)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
                 e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = isDark
-                  ? "rgba(255,255,255,0.12)"
-                  : "rgba(13,148,136,0.15)";
-                e.currentTarget.style.background = isDark
-                  ? "rgba(255,255,255,0.04)"
-                  : "rgba(13,148,136,0.04)";
+                e.currentTarget.style.borderColor = colors.cardBorder;
+                e.currentTarget.style.backgroundColor = colors.cardBg;
               }}
             >
-              <Text
-                size="sm"
-                fw={500}
+              <Box
                 style={{
-                  color: isDark ? "rgba(255,255,255,0.85)" : "rgba(11,19,38,0.8)",
-                  whiteSpace: "nowrap",
+                  width: 44,
+                  height: 44,
+                  borderRadius: 12,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: `${color}17`,
                 }}
               >
-                {tool}
+                <Icon size={22} color={color} />
+              </Box>
+              <Text
+                size="sm"
+                fw={600}
+                style={{ color: colors.cardText, lineHeight: 1.3 }}
+              >
+                {name}
               </Text>
-            </Box>
+            </MotionBox>
           ))}
-        </Group>
+        </SimpleGrid>
       </Container>
     </Box>
   );

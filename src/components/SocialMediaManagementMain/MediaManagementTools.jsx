@@ -1,22 +1,63 @@
-import { Box, Container, Group, Text, useComputedColorScheme } from "@mantine/core";
+import { Box, Container, SimpleGrid, Text, useComputedColorScheme } from "@mantine/core";
+import { motion } from "framer-motion";
+import { SiHootsuite, SiBuffer, SiMeta, SiZoho, SiYoutube } from "react-icons/si";
+import {
+  IconSeedling,
+  IconCalendarEvent,
+  IconPalette,
+  IconRadar,
+  IconInbox,
+} from "@tabler/icons-react";
+
+const MotionBox = motion.create(Box);
+
+// Real brand icons where available (react-icons/simple-icons).
+// Sprout Social, Later, Canva, Brandwatch, and Agorapulse don't have a
+// Simple Icons entry, so those use a close-fit Tabler icon instead, each
+// tinted with that brand's actual color so it still reads as intentional,
+// not generic.
 const tools = [
-  "Hootsuite",
-  "Buffer",
-  "Sprout Social",
-  "Meta Business Suite",
-  "Later",
-  "Canva Pro",
-  "Zoho Social",
-  "Brandwatch",
-  "Agorapulse",
-  "Creator Studio",
+  { name: "Hootsuite", Icon: SiHootsuite, color: "#F68121" },
+  { name: "Buffer", Icon: SiBuffer, color: "#2C4BFF" },
+  { name: "Sprout Social", Icon: IconSeedling, color: "#6D14D1" },
+  { name: "Meta Business Suite", Icon: SiMeta, color: "#0081FB" },
+  { name: "Later", Icon: IconCalendarEvent, color: "#5EC2C0" },
+  { name: "Canva Pro", Icon: IconPalette, color: "#00C4CC" },
+  { name: "Zoho Social", Icon: SiZoho, color: "#C8202F" },
+  { name: "Brandwatch", Icon: IconRadar, color: "#F97316" },
+  { name: "Agorapulse", Icon: IconInbox, color: "#F03E5E" },
+  { name: "Creator Studio", Icon: SiYoutube, color: "#FF0000" },
 ];
+
 const MediaManagementTools = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
+
   return (
-    <Box component="section" py={{ base: 60, md: 90 }}>
-      <Container size="lg">
+    <Box
+      component="section"
+      py={{ base: 60, md: 90 }}
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      {/* ambient glow */}
+      <Box
+        style={{
+          position: "absolute",
+          width: 520,
+          height: 520,
+          borderRadius: "50%",
+          top: -220,
+          right: -180,
+          background: isDark
+            ? "radial-gradient(circle, rgba(6,182,212,0.14), transparent 70%)"
+            : "radial-gradient(circle, rgba(37,99,235,0.10), transparent 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container size="lg" style={{ position: "relative", zIndex: 1 }}>
+        {/* Section Label */}
         <Text
           fw={700}
           size="sm"
@@ -29,6 +70,8 @@ const MediaManagementTools = () => {
         >
           Tools We Use
         </Text>
+
+        {/* Heading */}
         <Text
           fw={800}
           mb={16}
@@ -52,8 +95,10 @@ const MediaManagementTools = () => {
             Best-in-Class Tools
           </Text>
         </Text>
+
+        {/* Subtitle */}
         <Text
-          mb={40}
+          mb={48}
           maw={650}
           style={{
             fontSize: 17,
@@ -64,60 +109,87 @@ const MediaManagementTools = () => {
           Industry-leading platforms to schedule, monitor, and report on
           every account we manage.
         </Text>
-        <Group gap={14}>
-          {tools.map((tool, index) => (
-            <Box
-              key={index}
-              px={22}
-              py={10}
+
+        {/* Tool Cards */}
+        <SimpleGrid
+          cols={{ base: 2, xs: 3, sm: 4, md: 5 }}
+          spacing={16}
+          verticalSpacing={16}
+        >
+          {tools.map(({ name, Icon, color }, index) => (
+            <MotionBox
+              key={name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               style={{
-                borderRadius: 999,
-                background: isDark ? "rgba(255,255,255,0.04)" : "rgba(37,99,235,0.04)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                padding: "26px 14px",
+                borderRadius: 16,
+                textAlign: "center",
+                background: isDark
+                  ? "rgba(255,255,255,0.03)"
+                  : "rgba(37,99,235,0.03)",
                 border: isDark
-                  ? "1px solid rgba(255,255,255,0.12)"
-                  : "1px solid rgba(37,99,235,0.15)",
+                  ? "1px solid rgba(255,255,255,0.10)"
+                  : "1px solid rgba(37,99,235,0.12)",
+                cursor: "default",
                 transition:
                   "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease",
-                cursor: "default",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = isDark
-                  ? "0 10px 24px rgba(6,182,212,0.15)"
-                  : "0 10px 24px rgba(37,99,235,0.12)";
-                e.currentTarget.style.borderColor = isDark
-                  ? "rgba(6,182,212,0.4)"
-                  : "rgba(37,99,235,0.35)";
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = `0 14px 28px ${color}26`;
+                e.currentTarget.style.borderColor = `${color}66`;
                 e.currentTarget.style.background = isDark
-                  ? "rgba(255,255,255,0.07)"
-                  : "rgba(37,99,235,0.07)";
+                  ? "rgba(255,255,255,0.06)"
+                  : "rgba(255,255,255,0.9)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
                 e.currentTarget.style.boxShadow = "none";
                 e.currentTarget.style.borderColor = isDark
-                  ? "rgba(255,255,255,0.12)"
-                  : "rgba(37,99,235,0.15)";
+                  ? "rgba(255,255,255,0.10)"
+                  : "rgba(37,99,235,0.12)";
                 e.currentTarget.style.background = isDark
-                  ? "rgba(255,255,255,0.04)"
-                  : "rgba(37,99,235,0.04)";
+                  ? "rgba(255,255,255,0.03)"
+                  : "rgba(37,99,235,0.03)";
               }}
             >
-              <Text
-                size="sm"
-                fw={500}
+              <Box
                 style={{
-                  color: isDark ? "rgba(255,255,255,0.85)" : "rgba(11,19,38,0.8)",
-                  whiteSpace: "nowrap",
+                  width: 46,
+                  height: 46,
+                  borderRadius: 12,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: `${color}17`,
                 }}
               >
-                {tool}
+                <Icon size={24} color={color} />
+              </Box>
+              <Text
+                size="sm"
+                fw={600}
+                style={{
+                  color: isDark ? "rgba(255,255,255,0.85)" : "rgba(11,19,38,0.8)",
+                  lineHeight: 1.3,
+                }}
+              >
+                {name}
               </Text>
-            </Box>
+            </MotionBox>
           ))}
-        </Group>
+        </SimpleGrid>
       </Container>
     </Box>
   );
 };
+
 export default MediaManagementTools;

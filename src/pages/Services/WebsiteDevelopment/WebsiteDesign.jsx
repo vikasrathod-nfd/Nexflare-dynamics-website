@@ -33,9 +33,9 @@ const WebsiteDesign = () => {
         <WebsiteDesignServiceSection/>
         <WebsiteDesignWhyChooseUs/>
         <WebsiteDesignProcessSection/>
-        <WebsiteDesignStatsSection/>
-        <WebsiteDesignTools/>
-        <WebsiteDesignClientSection/>
+        {/* <WebsiteDesignStatsSection/> */}
+        {/* <WebsiteDesignTools/> */}
+        {/* <WebsiteDesignClientSection/> */}
         <WebsiteDesignFaq/>
         <WebsiteDesignCTA/>
       

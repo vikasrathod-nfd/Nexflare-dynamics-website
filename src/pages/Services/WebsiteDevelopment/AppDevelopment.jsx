@@ -33,9 +33,9 @@ const AppDevelopment= () => {
         <AppServiceSection/>
         <AppProcessSection/>
         <AppWhyChooseUs/>
-        <AppStatsSections/>
-        <AppTools/>
-        <AppClientSection/>
+        {/* <AppStatsSections/> */}
+        {/* <AppTools/> */}
+        {/* <AppClientSection/> */}
         <AppFaq/>
         <AppCtaSection/>
       
