@@ -12,9 +12,10 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { IconChevronLeft, IconChevronRight, IconUserFilled } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const CIRCLE_SIZE = 200;
+const ITEM_GAP = 20;
 
 const teamMembers = [
   {
@@ -56,44 +57,29 @@ const AboutUs = () => {
 
   const [startIndex, setStartIndex] = useState(0);
   const [brokenImages, setBrokenImages] = useState({});
-  const [direction, setDirection] = useState(1); // 1 = forward (next), -1 = backward (prev)
 
   const handleImageError = (id) => {
     setBrokenImages((prev) => ({ ...prev, [id]: true }));
   };
 
   const total = teamMembers.length;
-  const visibleMembers = [
-    teamMembers[startIndex % total],
-    teamMembers[(startIndex + 1) % total],
-  ];
+  const maxIndex = Math.max(total - 2, 0);
+
+  const isAtStart = startIndex <= 0;
+  const isAtEnd = startIndex >= maxIndex;
 
   const handleNext = () => {
-    setDirection(1);
-    setStartIndex((prev) => (prev + 1) % total);
+    if (isAtEnd) return;
+    setStartIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const handlePrev = () => {
-    setDirection(-1);
-    setStartIndex((prev) => (prev - 1 + total) % total);
+    if (isAtStart) return;
+    setStartIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const showArrows = teamMembers.length > 2;
-
-  const slideVariants = {
-    enter: (dir) => ({
-      x: dir > 0 ? 120 : -120,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir) => ({
-      x: dir > 0 ? -120 : 120,
-      opacity: 0,
-    }),
-  };
+  const viewportWidth = CIRCLE_SIZE * 2 + ITEM_GAP + 16;
 
   return (
     <Box py={100}>
@@ -134,12 +120,15 @@ const AboutUs = () => {
                   radius="xl"
                   size={40}
                   onClick={handlePrev}
+                  disabled={isAtStart}
                   style={{
                     color: accent,
                     background: isDark
                       ? "rgba(0,212,200,0.12)"
                       : "rgba(8,145,178,0.10)",
                     flexShrink: 0,
+                    opacity: isAtStart ? 0.35 : 1,
+                    cursor: isAtStart ? "not-allowed" : "pointer",
                   }}
                   aria-label="Previous team members"
                 >
@@ -147,74 +136,67 @@ const AboutUs = () => {
                 </ActionIcon>
               )}
 
-              <Group gap={20} wrap="nowrap" justify="center" style={{ overflow: "hidden", padding: "6px 4px" }}>
-                <AnimatePresence mode="wait" custom={direction} initial={false}>
-                  <motion.div
-                    key={startIndex}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.45, ease: "easeInOut" }}
-                    style={{ display: "flex", gap: 20, flexWrap: "nowrap", justifyContent: "center" }}
-                  >
-                    {visibleMembers.map((member) => (
-                      <Box key={member.id} style={{ textAlign: "center" }}>
-                        <Box
-                          style={{
-                            width: CIRCLE_SIZE,
-                            height: CIRCLE_SIZE,
-                            borderRadius: "50%",
-                            overflow: "hidden",
-                            border: `3px solid ${isDark ? theme.colors.dark[5] : "#fff"}`,
-                            outline: `1px solid ${isDark ? theme.colors.dark[4] : "#E0E0E0"}`,
-                          }}
-                        >
-                          {member.image && !brokenImages[member.id] ? (
-                            <img
-                              src={member.image}
-                              alt={member.name}
-                              onError={() => handleImageError(member.id)}
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                                objectPosition: "top",
-                                display: "block",
-                              }}
+              <Box style={{ width: viewportWidth, overflow: "hidden", padding: "6px 4px" }}>
+                <motion.div
+                  animate={{ x: -(startIndex * (CIRCLE_SIZE + ITEM_GAP)) }}
+                  transition={{ duration: 0.45, ease: "easeInOut" }}
+                  style={{ display: "flex", gap: ITEM_GAP, flexWrap: "nowrap" }}
+                >
+                  {teamMembers.map((member) => (
+                    <Box key={member.id} style={{ textAlign: "center", flexShrink: 0, width: CIRCLE_SIZE }}>
+                      <Box
+                        style={{
+                          width: CIRCLE_SIZE,
+                          height: CIRCLE_SIZE,
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                          border: `3px solid ${isDark ? theme.colors.dark[5] : "#fff"}`,
+                          outline: `1px solid ${isDark ? theme.colors.dark[4] : "#E0E0E0"}`,
+                        }}
+                      >
+                        {member.image && !brokenImages[member.id] ? (
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            onError={() => handleImageError(member.id)}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "top",
+                              display: "block",
+                            }}
+                          />
+                        ) : (
+                          <Box
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              background: isDark
+                                ? theme.colors.dark[5]
+                                : "#D9D9D9",
+                            }}
+                          >
+                            <IconUserFilled
+                              size={CIRCLE_SIZE * 0.55}
+                              color={isDark ? theme.colors.dark[2] : "#ffffff"}
                             />
-                          ) : (
-                            <Box
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                background: isDark
-                                  ? theme.colors.dark[5]
-                                  : "#D9D9D9",
-                              }}
-                            >
-                              <IconUserFilled
-                                size={CIRCLE_SIZE * 0.55}
-                                color={isDark ? theme.colors.dark[2] : "#ffffff"}
-                              />
-                            </Box>
-                          )}
-                        </Box>
-                        <Text fw={700} size="sm" mt={10} c={heading}>
-                          {member.name}
-                        </Text>
-                        <Text size="xs" c={body}>
-                          {member.role}
-                        </Text>
+                          </Box>
+                        )}
                       </Box>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
-              </Group>
+                      <Text fw={700} size="sm" mt={10} c={heading}>
+                        {member.name}
+                      </Text>
+                      <Text size="xs" c={body}>
+                        {member.role}
+                      </Text>
+                    </Box>
+                  ))}
+                </motion.div>
+              </Box>
 
               {showArrows && (
                 <ActionIcon
@@ -222,12 +204,15 @@ const AboutUs = () => {
                   radius="xl"
                   size={40}
                   onClick={handleNext}
+                  disabled={isAtEnd}
                   style={{
                     color: accent,
                     background: isDark
                       ? "rgba(0,212,200,0.12)"
                       : "rgba(8,145,178,0.10)",
                     flexShrink: 0,
+                    opacity: isAtEnd ? 0.35 : 1,
+                    cursor: isAtEnd ? "not-allowed" : "pointer",
                   }}
                   aria-label="Next team members"
                 >
