@@ -43,7 +43,7 @@ const WhatsAppChatWidget = () => {
 
           <div className="whatsapp-chat-body">
             <div className="chat-bubble">
-              <p>👋 Hi there! Mala website baddal madat karu ka?</p>
+              <p>👋 Welcome to Nexflare Dynamics! How can I help you today?</p>
               <span className="chat-time">Just now</span>
             </div>
           </div>
