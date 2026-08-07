@@ -207,9 +207,9 @@ import EcommerceDevelopment from "../pages/Services/WebsiteDevelopment/Ecommerce
 // ============================
 // Services Page
 // ============================
-import ERPSoftware from "../pages/MainPageServices/ERPSoftware";
-import WebApplications from "../pages/MainPageServices/WebApplication";
-import MobileApplications from "../pages/MainPageServices/MobileApplication";
+// import ERPSoftware from "../pages/MainPageServices/ERPSoftware";
+// import WebApplications from "../pages/MainPageServices/WebApplication";
+// import MobileApplications from "../pages/MainPageServices/MobileApplication";
 import CloudSolutions from "../pages/MainPageServices/CloudSolutions";
 import AISolutions from "../pages/MainPageServices/AISolutions";
 
@@ -357,7 +357,7 @@ const AppRoutes = () => {
         {/* Digital Marketing */}
         {/* ====================================================== */}
 
-
+{/* 
         <Route
           path="/services/custom-software-development/erp-software"
           element={<ERPSoftware />}
@@ -371,7 +371,7 @@ const AppRoutes = () => {
         <Route
           path="/services/website-development-design/mobile-applications"
           element={<MobileApplications />}
-        />
+        /> */}
 
         <Route
           path="/services/custom-software-development/cloud-solutions"

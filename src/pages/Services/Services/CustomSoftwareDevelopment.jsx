@@ -52,19 +52,19 @@ const services = [
     title: "Enterprise Resource Planning",
     icon: IconBuilding,
     color: "blue",
-    path: "/services/custom-software-development/erp-software",
+    // path: "/services/custom-software-development/erp-software",
   },
   {
     title: "Web Applications",
     icon: IconWorld,
     color: "cyan",
-    path: "/services/website-development-design/web-applications",
+    // path: "/services/website-development-design/web-applications",
   },
   {
     title: "Mobile Apps",
     icon: IconDeviceMobile,
     color: "grape",
-    path: "/services/website-development-design/mobile-applications",
+    // path: "/services/website-development-design/mobile-applications",
   },
   {
     title: "Cloud",

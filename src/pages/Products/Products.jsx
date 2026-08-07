@@ -13,6 +13,7 @@ import NexflareSuiteScreen from "./NexflareSuiteScreen";
 import Ctascreen from "./Ctascreen";
 import CTAScreen from "./Ctascreen";
 import PageTitle from "../../components/PageTitle";
+import FrieghtManagement from "./FrieghtManagement";
 
 
 const Products = () => {
@@ -42,7 +43,7 @@ const Products = () => {
       <HRMSoftwareScreen />
       <ERPSoftwareScreen />
       <CRMSoftwareScreen />
-      {/* frieght mgt */}
+      <FrieghtManagement/>
       <BookingScreen />
       <ProjectManagementScreen />
       <MobileAppScreen />

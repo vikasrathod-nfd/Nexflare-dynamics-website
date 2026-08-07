@@ -35,7 +35,7 @@ const teamMembers = [
     id: 3,
     name: "Isha Kulkarni",
     role: "Human Resources Head",
-    image: "Images/DepartmentHead.jpeg",
+    image: "Images/IshaOne.jpeg",
   },
   {
     id: 4,
