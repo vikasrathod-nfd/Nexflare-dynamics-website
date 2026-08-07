@@ -1865,7 +1865,7 @@ const socialLinks = [
   { Icon: FacebookIcon, href: "https://www.facebook.com/NexflareDynamics", label: "Facebook" },
   { Icon: InstagramIcon, href: "https://www.instagram.com/nexflare_dynamics/", label: "Instagram" },
   { Icon: LinkedInIcon, href: "https://www.linkedin.com/company/nexflare-dynamics/", label: "LinkedIn" },
-  { Icon: XIcon, href: "https://twitter.com/NexflareDynamics", label: "X" },
+  { Icon: XIcon, href: "https://twitter.com/NexflareDynamics", label: "Twitter" },
 ];
 
 const CONTACT_ACCENT = "#06B6D4";
@@ -2256,7 +2256,7 @@ const Footer = () => {
               Dynamics Private Limited
             </Text>
 
-            <Group
+            {/* <Group
               gap={10}
               align="center"
               className="f-back-to-top"
@@ -2283,7 +2283,7 @@ const Footer = () => {
                   <IconArrowUp size={18} />
                 </ActionIcon>
               </Tooltip>
-            </Group>
+            </Group> */}
           </Box>
         </motion.div>
       </Box>
