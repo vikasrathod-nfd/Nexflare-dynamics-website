@@ -105,9 +105,7 @@ const HRMSoftwareScreen = () => {
                   >
                     HRM SOFTWARE
                   </Badge>
-                  <Text fz={12} fw={600} style={{ color:textDim, letterSpacing:1.5, textTransform:"uppercase" }}>
-                    NEX HRM
-                  </Text>
+                  
                 </Group>
 
                 {/* headline with gradient highlight */}
