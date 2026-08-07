@@ -23,7 +23,7 @@ const MediaManagementHero = () => {
   return (
     <Box
       component="section"
-      py={160}
+      py={200}
       style={{
         position: "relative",
         overflow: "hidden",

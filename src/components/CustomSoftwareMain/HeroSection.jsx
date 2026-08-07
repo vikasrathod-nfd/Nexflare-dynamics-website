@@ -1,3 +1,4 @@
+
 import {
   Badge,
   Box,
@@ -21,8 +22,8 @@ const HeroSection = () => {
   return (
     <Box
       component="section"
-      py={140}
-      style={{ 
+      py={200}
+      style={{
         position: "relative",
         overflow: "hidden",
         minHeight: "88vh",
@@ -35,26 +36,21 @@ const HeroSection = () => {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTESWjpnXvwpMBnliWPcDzA472luESWrm9lETIxR3_ZD9eWekXCyyS2ypY&s=10')",
+            "url('https://images.openai.com/static-rsc-4/GxIPcQXCN0gCyxV1_J7lcZKXAqGXiBm3qF3udMgY9M7k1fXodgzEvPDOn5C7sU6LznslViBzdQYQbcrFeLLeeyAXrAN8OeDwrMHVxwMlpmnAaVn4ctV3KfcZ-iM7NAFWzU9V9u-7HFh3JroXjx8GCPcgjQ9oqGw5PAy2AxSlgmJgcn4YC1wC9zzrIlTEz90Z?purpose=fullsize')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(1)",
         }}
       />
-      {/* Text-side overlay only - fades quickly so most of the image stays visible */}
+      {/* Text-side overlay only - much lighter now, image stays true to its original colors */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
-          background: isDark
-            ? `
-              linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
-              linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
-            `
-            : `
-              linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
-              linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
-            `,
+          background: `
+            linear-gradient(90deg, rgba(6,12,24,0.55) 0%, rgba(6,12,24,0.4) 30%, rgba(6,12,24,0.12) 55%, rgba(6,12,24,0) 72%),
+            linear-gradient(0deg, rgba(6,12,24,0.2) 0%, rgba(6,12,24,0) 30%)
+          `,
         }}
       />
       <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
@@ -109,7 +105,11 @@ const HeroSection = () => {
                 textShadow: "0 1px 12px rgba(0,0,0,0.55)",
               }}
             >
-             Your business deserves software that works the way you do. We develop intelligent, customized solutions that automate processes, enhance efficiency, and seamlessly integrate with your existing systems helping you reduce costs, accelerate growth, and deliver exceptional customer experiences.
+              Your business deserves software that works the way you do. We
+              develop intelligent, customized solutions that automate
+              processes, enhance efficiency, and seamlessly integrate with
+              your existing systems helping you reduce costs, accelerate
+              growth, and deliver exceptional customer experiences.
             </Text>
             <Group mt={10}>
               <Button
