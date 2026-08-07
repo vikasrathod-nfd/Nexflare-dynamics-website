@@ -298,7 +298,8 @@ const teamMembers = [
     id: 3,
     name: "Isha Kulkarni",
     role: "Human Resources Head",
-    image: "Images/IshaImage.jpeg",
+    // image: "Images/IshaImage.jpeg",
+    image: "Images/RohitSirNewOnee.jpeg",
   },
   {
     id: 4,
