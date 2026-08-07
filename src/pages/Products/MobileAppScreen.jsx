@@ -295,6 +295,9 @@ const MobileAppScreen = () => {
           }
         `}</style>
       </Container>
+   
+
+    {/* </Box> */}
     </Box>
   );
 };
