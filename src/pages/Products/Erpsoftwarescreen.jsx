@@ -22,6 +22,7 @@ import {
   IconPointFilled,
   IconSparkles,
   IconShieldCheck,
+  IconStarFilled,
   IconTrendingUp,
 } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
@@ -36,16 +37,12 @@ const features = [
 
 const bullets = [
   "Built specifically for Indian SMEs & MSMEs",
-  "Fast implementation in 4–6 weeks",
-  "Affordable pricing for growing businesses",
-  "GST E-Invoicing & compliance ready",
+  "Fast implementation",
 ];
 
-
-
-/* Hero image - replace this URL with your own asset anytime */
+/* Hero image — fresh Indian factory floor photo (Unsplash) */
 const HERO_IMAGE_URL =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBtxvkRDSJGB9SUkwWeTVq2jv4cPFarRQcUa2Pugl1brClXKmYcwan_bMk&s=10";
+  "https://st4.depositphotos.com/9999814/37811/i/1600/depositphotos_378112068-stock-photo-enterprise-resource-management-erp-software.jpg";
 
 /* ── component ─────────────────────────────────────── */
 const ERPSoftwareScreen = () => {
@@ -53,27 +50,16 @@ const ERPSoftwareScreen = () => {
   const isDark = useComputedColorScheme("light") === "dark";
 
   /* ── semantic tokens (same pattern as HRMSoftwareScreen) ── */
-  const accent      = isDark ? "#00D4C8"                    : "#0891B2";
-  const accent2     = isDark ? "#6366F1"                    : "#2563EB";
-  const accentDim   = isDark ? "rgba(0,212,200,0.12)"       : "rgba(8,145,178,0.10)";
-  const surface     = isDark ? "rgba(255,255,255,0.04)"      : "rgba(255,255,255,0.85)";
-  const surface2    = isDark ? "rgba(255,255,255,0.06)"      : "rgba(255,255,255,0.95)";
-  const border      = isDark ? "rgba(255,255,255,0.08)"      : "rgba(37,99,235,0.12)";
-  const textMain    = isDark ? "#ffffff"                    : "#0f172a";
-  const textSub     = isDark ? "rgba(255,255,255,0.75)"      : "#334155";
-  const textDim     = isDark ? "rgba(255,255,255,0.45)"      : "#64748b";
-  const statGood    = isDark ? "#00D4C8"                    : "#0891B2";
-  const statNeutral = isDark ? "rgba(255,255,255,0.75)"      : "#475569";
-  const statWarn    = isDark ? "#f87171"                    : "#ef4444";
-  const barEmpty    = isDark ? "rgba(255,255,255,0.10)"      : "rgba(37,99,235,0.10)";
-  const btnPrimCol  = isDark ? "#0a0f1e"                    : "#ffffff";
-
-  const dashStats = [
-    { label: "Production Orders",   value: "247 Active", color: statGood    },
-    { label: "GST Filing Status",   value: "Compliant ✓",color: statGood    },
-    { label: "Inventory Accuracy",  value: "98.4%",      color: statNeutral },
-    { label: "Implementation Time", value: "4–6 Weeks",  color: statWarn    },
-  ];
+  const accent      = isDark ? "#00D4C8"                : "#0891B2";
+  const accent2     = isDark ? "#6366F1"                : "#2563EB";
+  const accentDim   = isDark ? "rgba(0,212,200,0.12)"   : "rgba(8,145,178,0.10)";
+  const surface     = isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.85)";
+  const border      = isDark ? "rgba(255,255,255,0.08)" : "rgba(37,99,235,0.12)";
+  const textMain    = isDark ? "#ffffff"                : "#0f172a";
+  const textSub     = isDark ? "rgba(255,255,255,0.75)" : "#334155";
+  const textDim     = isDark ? "rgba(255,255,255,0.45)" : "#64748b";
+  const btnPrimCol  = isDark ? "#0a0f1e"                : "#ffffff";
+  const cardBg      = isDark ? "#0f1729"                : "#ffffff";
 
   return (
     <Box style={{ position: "relative", overflow: "hidden" }}>
@@ -91,140 +77,80 @@ const ERPSoftwareScreen = () => {
       }}/>
 
       <Container size="xl" py={{ base:50, md:80 }} style={{ position:"relative", zIndex:1 }}>
-        <Grid gutter={{ base:40, md:60 }} align="flex-start">
+        <Grid gutter={{ base:40, md:60 }} align="stretch">
 
-          {/* ══════════════ LEFT — visuals ══════════════ */}
+          {/* ══════════════ LEFT — bigger hero image ══════════════ */}
           <Grid.Col span={{ base:12, md:6 }}>
             <motion.div
-              initial={{ opacity:0, x:-30 }}
-              animate={{ opacity:1, x:0 }}
+              initial={{ opacity:0, x:-30, scale:0.97 }}
+              animate={{ opacity:1, x:0, scale:1 }}
               transition={{ duration:0.7 }}
+              style={{ height:"100%" }}
             >
-              <Stack gap={16}>
-
-                {/* Hero image card — real photo with floating stat pills */}
-                <Box style={{ borderRadius:20, overflow:"visible", position:"relative" }}>
-                  <Box style={{
-                    borderRadius:20, overflow:"hidden", position:"relative",
-                    border:`1px solid ${border}`, height:260,
-                    boxShadow: isDark
-                      ? "0 20px 50px rgba(0,0,0,0.45)"
-                      : "0 20px 50px rgba(37,99,235,0.15)",
-                  }}>
-                    <img
-                      src={HERO_IMAGE_URL}
-                      alt="Factory production floor"
-                      style={{
-                        position:"absolute", inset:0,
-                        width:"100%", height:"100%",
-                        objectFit:"cover",
-                        filter: isDark ? "brightness(0.75) saturate(1.05)" : "brightness(0.98)",
-                      }}
-                      loading="lazy"
-                    />
-
-                    {/* subtle overlay for text legibility */}
-                    <Box style={{
+              <Box style={{
+                position:"relative",
+                height:"93%",
+                minHeight: 560,
+                borderRadius:28,
+                padding:3,
+                background: `linear-gradient(145deg, ${accent}55, transparent 40%, ${accent2}45)`,
+              }}>
+                <Box style={{
+                  borderRadius:26, overflow:"hidden", position:"relative",
+                  height:"100%", minHeight: 554,
+                  border:`1px solid ${border}`,
+                  boxShadow: isDark
+                    ? "0 30px 70px rgba(0,0,0,0.55)"
+                    : "0 30px 70px rgba(37,99,235,0.20)",
+                }}>
+                  <img
+                    src={HERO_IMAGE_URL}
+                    alt="Indian factory production floor with machinery"
+                    style={{
                       position:"absolute", inset:0,
-                      background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.60) 100%)",
-                    }}/>
+                      width:"100%", height:"100%",
+                      objectFit:"cover",
+                      filter: isDark ? "brightness(0.78) saturate(1.08)" : "brightness(0.98) saturate(1.05)",
+                    }}
+                    loading="lazy"
+                  />
 
-                    {/* bottom labels */}
-                    <Box style={{
-                      position:"absolute", bottom:0, left:0, right:0,
-                      display:"flex", justifyContent:"space-between", alignItems:"flex-end",
-                      padding:"14px 18px",
-                    }}>
-                      <Text fw={700} size="sm" c="white">NEX ERP</Text>
-                      <Badge
-                        size="sm"
-                        style={{
-                          border: `1px solid ${accent}55`,
-                          background: `${accent}22`,
-                          color: "#fff",
-                          fontWeight: 700,
-                          letterSpacing: 1,
-                        }}
-                      >
-                        MANUFACTURING
-                      </Badge>
-                    </Box>
+                  {/* gradient overlay for legibility */}
+                  <Box style={{
+                    position:"absolute", inset:0,
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.68) 100%)",
+                  }}/>
+
+                
+
+                  {/* bottom labels */}
+                  <Box style={{
+                    position:"absolute", bottom:0, left:0, right:0,
+                    display:"flex", justifyContent:"space-between", alignItems:"flex-end",
+                    padding:"18px 20px",
+                  }}>
+                    <Stack gap={2}>
+                      <Text fw={800} size="lg" c="white">NEX ERP</Text>
+                      <Text size="xs" c="rgba(255,255,255,0.75)">Trusted by Indian SMEs & MSMEs</Text>
+                    </Stack>
+                    <Badge
+                      size="md"
+                      style={{
+                        border: `1px solid ${accent}55`,
+                        background: `${accent}33`,
+                        color: "#fff",
+                        fontWeight: 700,
+                        letterSpacing: 1,
+                      }}
+                    >
+                      MANUFACTURING
+                    </Badge>
                   </Box>
-
-                  {/* floating stat pill overlapping the image */}
-                  <motion.div
-                    initial={{ opacity:0, y:14 }}
-                    animate={{ opacity:1, y:0 }}
-                    transition={{ delay:0.5, duration:0.5 }}
-                    style={{ position:"absolute", left:16, top:-20 }}
-                  >
-                  </motion.div>
                 </Box>
 
-                {/* Dashboard card */}
-                <motion.div
-                  initial={{ opacity:0, y:20 }}
-                  animate={{ opacity:1, y:0 }}
-                  transition={{ delay:0.4, duration:0.55 }}
-                >
-                  <Box style={{
-                    background: surface2,
-                    border: `1px solid ${border}`,
-                    borderRadius: 18,
-                    padding: "20px 20px 16px",
-                    position: "relative",
-                    overflow: "hidden",
-                    backdropFilter: "blur(12px)",
-                    boxShadow: isDark
-                      ? "0 14px 34px rgba(0,0,0,0.35)"
-                      : "0 14px 34px rgba(37,99,235,0.10)",
-                  }}>
-                    {/* top accent line */}
-                    <Box style={{
-                      position:"absolute", top:0, left:0, right:0, height:3,
-                      background:`linear-gradient(90deg,${accent},${accent2})`,
-                    }}/>
+               
 
-                    {/* header */}
-                    <Group justify="space-between" mb={18} align="center">
-                      <Group gap={6}>
-                        {["#ef4444","#f59e0b","#22c55e"].map((c,i)=>(
-                          <Box key={i} style={{ width:10, height:10, borderRadius:"50%", background:c }}/>
-                        ))}
-                      </Group>
-                      <Group gap={5}>
-                        <Box style={{ width:6, height:6, borderRadius:"50%", background:"#22c55e" }}/>
-                        <Text fz={11} style={{ color:textDim, letterSpacing:1 }}>
-                          ERP Dashboard — Live
-                        </Text>
-                      </Group>
-                    </Group>
-
-                    {/* stat rows */}
-                    <Stack gap={10}>
-                      {dashStats.map(({ label, value, color }, i) => (
-                        <Group key={i} justify="space-between" align="center">
-                          <Text size="xs" style={{ color:textDim }}>{label}</Text>
-                          <Text size="xs" fw={700} style={{ color }}>{value}</Text>
-                        </Group>
-                      ))}
-                    </Stack>
-
-                    {/* progress bars */}
-                    <Group gap={8} mt={18} wrap="nowrap">
-                      {[false,true,false,true,true].map((fill, i) => (
-                        <Box key={i} style={{
-                          flex:`${[28,22,20,18,12][i]}%`, height:8, borderRadius:4, minWidth:8,
-                          background: fill
-                            ? `linear-gradient(90deg, ${accent}, ${accent2})`
-                            : barEmpty,
-                        }}/>
-                      ))}
-                    </Group>
-                  </Box>
-                </motion.div>
-
-              </Stack>
+              </Box>
             </motion.div>
           </Grid.Col>
 
@@ -270,25 +196,24 @@ const ERPSoftwareScreen = () => {
                     letterSpacing: -0.5,
                   }}
                 >
-                  Best{" "}
+                  Streamline{" "}
                   <span style={{
                     background: `linear-gradient(90deg, ${accent}, ${accent2})`,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}>
-                    ERP
+                    Operations
                   </span>{" "}
-                  <br />Companies in India
+                  <br />with NEX ERP
                 </Title>
 
                 {/* description */}
                 <Text size="sm" lh={1.85} style={{ color:textSub, maxWidth:480 }}>
-                  NEX ERP is a manufacturing ERP software designed for Indian
-                  businesses to manage production, inventory, finance, and GST
-                  compliance in one integrated system. It helps manufacturers
-                  streamline operations, reduce manual work, and improve real-time
-                  decision making — simplifying production planning, inventory
-                  tracking, and GST compliance through a single centralized platform.
+                  NEX ERP is an all-in-one platform that centralizes production,
+                  inventory, finance, procurement, and GST compliance.
+                  With automated workflows and real-time insights,
+                  it enhances efficiency, improves visibility,
+                  and simplifies every operation.
                 </Text>
 
                 {/* feature 2×2 grid */}
@@ -373,18 +298,6 @@ const ERPSoftwareScreen = () => {
                   >
                     Get Free Consultation
                   </Button>
-                </Group>
-
-                {/* trust strip */}
-                <Group gap={20} mt={14}>
-                  <Group gap={6}>
-                    <IconShieldCheck size={16} color={accent} />
-                    <Text size="xs" fw={600} style={{ color:textDim }}>GST Compliant</Text>
-                  </Group>
-                  <Group gap={6}>
-                    <IconTrendingUp size={16} color={accent} />
-                    <Text size="xs" fw={600} style={{ color:textDim }}>Trusted by 300+ factories</Text>
-                  </Group>
                 </Group>
 
               </Stack>
