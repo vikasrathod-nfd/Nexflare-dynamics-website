@@ -20,22 +20,25 @@ import {
   IconReportAnalytics,
   IconArrowRight,
   IconPointFilled,
+  IconSparkles,
 } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 const features = [
-  { icon: IconChartBar,            title: "Gantt Charts & Timelines",    desc: "Visualize project progress and identify delays before they happen" },
-  { icon: IconUsersGroup,          title: "Real-Time Collaboration",      desc: "Shared workspaces, instant messaging, and document sharing for all teams" },
-  { icon: IconAutomaticGearbox,    title: "Automated Workflows",          desc: "Automate approvals, notifications, and task updates to save hours weekly" },
-  { icon: IconReportAnalytics,     title: "Performance Analytics",        desc: "In-depth reports to measure KPIs, spot bottlenecks, and drive decisions" },
+  { icon: IconChartBar,            title: "Gantt Charts & Timelines",    desc: "Visualize project progress and identify delays before they happen", color: "#6366F1" },
+  { icon: IconUsersGroup,          title: "Real-Time Collaboration",      desc: "Shared workspaces, instant messaging, and document sharing for all teams", color: "#F59E0B" },
+  { icon: IconAutomaticGearbox,    title: "Automated Workflows",          desc: "Automate approvals, notifications, and task updates to save hours weekly", color: "#10B981" },
+  { icon: IconReportAnalytics,     title: "Performance Analytics",        desc: "In-depth reports to measure KPIs, spot bottlenecks, and drive decisions", color: "#EC4899" },
 ];
 
 const bullets = [
   "Minimizes manual effort with streamlined processes",
   "Comprehensive dashboards for full project visibility",
-  "Scales from 5 to 500+ team members",
-  "Fully customizable to your unique workflows",
 ];
+
+/* Hero image - fresh Indian, project/team collaboration themed. Replace this URL with your own asset anytime */
+const HERO_IMAGE_URL =
+  "https://media.licdn.com/dms/image/v2/D4D12AQHAzpZZDBIkfA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1710486640359?e=2147483647&v=beta&t=9iRUJ8yBIVaBKctslR9DBFXaD7R21PBHugsefN3ZcoM";
 
 const ProjectManagementScreen = () => {
 
@@ -43,254 +46,255 @@ const ProjectManagementScreen = () => {
   const isDark = useComputedColorScheme("light") === "dark";
 
   const accent      = isDark ? "#00D4C8"                    : "#0891B2";
+  const accent2     = isDark ? "#6366F1"                    : "#2563EB";
   const accentDim   = isDark ? "rgba(0,212,200,0.12)"       : "rgba(8,145,178,0.10)";
   const surface     = isDark ? "rgba(255,255,255,0.04)"      : "rgba(255,255,255,0.85)";
-  const surface2    = isDark ? "rgba(255,255,255,0.06)"      : "rgba(255,255,255,0.95)";
   const border      = isDark ? "rgba(255,255,255,0.08)"      : "rgba(37,99,235,0.12)";
   const textMain    = isDark ? "#ffffff"                    : "#0f172a";
   const textSub     = isDark ? "rgba(255,255,255,0.75)"      : "#334155";
   const textDim     = isDark ? "rgba(255,255,255,0.45)"      : "#64748b";
-  const statGood    = isDark ? "#00D4C8"                    : "#0891B2";
-  const statNeutral = isDark ? "rgba(255,255,255,0.75)"      : "#475569";
-  const barEmpty    = isDark ? "rgba(255,255,255,0.10)"      : "rgba(37,99,235,0.10)";
-  const btnOutline  = isDark ? "rgba(255,255,255,0.22)"      : "rgba(37,99,235,0.35)";
-  const btnTextOut  = isDark ? "#ffffff"                    : "#1e40af";
   const btnPrimCol  = isDark ? "#0a0f1e"                    : "#ffffff";
 
-  const imgBg    = isDark
-    ? "linear-gradient(160deg,#162032 0%,#0a1520 60%,#071018 100%)"
-    : "linear-gradient(160deg,#dbeafe 0%,#bfdbfe 60%,#93c5fd 100%)";
-  const silShade = isDark
-    ? ["#1e3048","#162840","#1a2e44","#122034"]
-    : ["#93c5fd","#60a5fa","#7dd3fc","#38bdf8"];
-
-  const dashStats = [
-    { label: "Tasks Completed",  value: "73 / 91",  color: statGood    },
-    { label: "Sprint Velocity",  value: "84 pts",   color: statGood    },
-    { label: "Team Utilization", value: "91%",      color: statNeutral },
-    { label: "Deadline On Track",value: "Yes ✓",    color: statGood    },
-  ];
-
   return (
-    <Container size="xl" py={{ base:50, md:80 }}>
-      <Grid gutter={{ base:40, md:60 }} align="flex-start">
+    <Box style={{ position: "relative", overflow: "hidden" }}>
 
-        {/* ══════════ LEFT — visuals ══════════ */}
-        <Grid.Col span={{ base:12, md:6 }}>
-          <motion.div
-            initial={{ opacity:0, x:-30 }}
-            animate={{ opacity:1, x:0 }}
-            transition={{ duration:0.7 }}
-          >
-            <Stack gap={16}>
+      {/* ── decorative background glows ── */}
+      <Box style={{
+        position: "absolute", top: -120, right: -120, width: 380, height: 380,
+        borderRadius: "50%", background: accent, opacity: isDark ? 0.10 : 0.12,
+        filter: "blur(100px)", pointerEvents: "none",
+      }}/>
+      <Box style={{
+        position: "absolute", bottom: -140, left: -140, width: 420, height: 420,
+        borderRadius: "50%", background: accent2, opacity: isDark ? 0.10 : 0.10,
+        filter: "blur(110px)", pointerEvents: "none",
+      }}/>
 
-              {/* Hero image card */}
+      <Container size="xl" py={{ base:50, md:80 }} style={{ position:"relative", zIndex:1 }}>
+        <Grid gutter={{ base:40, md:60 }} align="stretch">
+
+          {/* ══════════ LEFT — bigger hero image, matches text column height ══════════ */}
+          <Grid.Col span={{ base:12, md:6 }}>
+            <motion.div
+              initial={{ opacity:0, x:-30, scale:0.97 }}
+              animate={{ opacity:1, x:0, scale:1 }}
+              transition={{ duration:0.7 }}
+              style={{ height:"100%" }}
+            >
               <Box style={{
-                borderRadius:16, overflow:"hidden", position:"relative",
-                border:`1px solid ${border}`, height:240,
+                position:"relative",
+                height:"93%",
+                minHeight: 560,
+                borderRadius:28,
+                padding:3,
+                background: `linear-gradient(145deg, ${accent}55, transparent 40%, ${accent2}45)`,
               }}>
-                <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project Management Team Collaboration"
-                  style={{
-                    width:"100%", height:"100%", objectFit:"cover",
-                    position:"absolute", inset:0,
-                  }}
-                />
-
                 <Box style={{
-                  position:"absolute", bottom:0, left:0, right:0,
-                  display:"flex", justifyContent:"space-between", alignItems:"flex-end",
-                  padding:"12px 16px",
-                  background:"linear-gradient(0deg,rgba(0,0,0,0.65) 0%,transparent 100%)",
+                  borderRadius:26, overflow:"hidden", position:"relative",
+                  height:"100%", minHeight: 554,
+                  border:`1px solid ${border}`,
+                  boxShadow: isDark
+                    ? "0 30px 70px rgba(0,0,0,0.55)"
+                    : "0 30px 70px rgba(37,99,235,0.20)",
                 }}>
-                  <Text fw={700} size="sm" c="white">NEX PM</Text>
-                  <Badge size="sm" style={{
-                    background:accentDim, color:accent,
-                    border:`1px solid ${accent}55`, fontWeight:700, letterSpacing:1,
-                  }}>
-                    PRODUCTIVITY TOOL
-                  </Badge>
-                </Box>
-              </Box>
+                  <img
+                    src={HERO_IMAGE_URL}
+                    alt="Indian coworkers collaborating on a project"
+                    style={{
+                      position:"absolute", inset:0,
+                      width:"100%", height:"100%",
+                      objectFit:"cover",
+                      objectPosition:"center 30%",
+                      filter: isDark ? "brightness(0.78) saturate(1.08)" : "brightness(0.98) saturate(1.05)",
+                    }}
+                    loading="lazy"
+                  />
 
-              {/* Dashboard card */}
-              <motion.div
-                initial={{ opacity:0, y:20 }}
-                animate={{ opacity:1, y:0 }}
-                transition={{ delay:0.35, duration:0.55 }}
-              >
-                <Box style={{
-                  background:surface2, border:`1px solid ${border}`,
-                  borderRadius:16, padding:"20px 20px 16px",
-                  position:"relative", overflow:"hidden", backdropFilter:"blur(12px)",
-                }}>
+                  {/* gradient overlay for legibility */}
                   <Box style={{
-                    position:"absolute", top:0, left:0, right:0, height:2,
-                    background:`linear-gradient(90deg,${accent},#6366F1)`,
+                    position:"absolute", inset:0,
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.68) 100%)",
                   }}/>
 
-                  <Group justify="space-between" mb={18} align="center">
-                    <Group gap={6}>
-                      {["#ef4444","#f59e0b","#22c55e"].map((c,i)=>(
-                        <Box key={i} style={{ width:10, height:10, borderRadius:"50%", background:c }}/>
-                      ))}
-                    </Group>
-                    <Text fz={11} style={{ color:textDim, letterSpacing:1 }}>
-                      Sprint Board — Week 12
-                    </Text>
-                  </Group>
-
-                  <Stack gap={10}>
-                    {dashStats.map(({ label, value, color }, i) => (
-                      <Group key={i} justify="space-between" align="center">
-                        <Text size="xs" style={{ color:textDim }}>{label}</Text>
-                        <Text size="xs" fw={700} style={{ color }}>{value}</Text>
-                      </Group>
-                    ))}
-                  </Stack>
-
-                  <Group gap={8} mt={18} wrap="nowrap">
-                    {[true,false,true,false,true].map((fill, i) => (
-                      <Box key={i} style={{
-                        flex:`${[30,18,24,16,12][i]}%`, height:8, borderRadius:4, minWidth:8,
-                        background: fill ? accent : barEmpty,
-                      }}/>
-                    ))}
-                  </Group>
-                </Box>
-              </motion.div>
-
-            </Stack>
-          </motion.div>
-        </Grid.Col>
-
-        {/* ══════════ RIGHT — content ══════════ */}
-        <Grid.Col span={{ base:12, md:6 }}>
-          <motion.div
-            initial={{ opacity:0, x:30 }}
-            animate={{ opacity:1, x:0 }}
-            transition={{ duration:0.7, delay:0.1 }}
-          >
-            <Stack gap={20}>
-
-              <Text fz={11} fw={700} style={{ color:accent, letterSpacing:2.5, textTransform:"uppercase" }}>
-                Project Management
-              </Text>
-
-              <Text fz={12} fw={600} style={{ color:textDim, letterSpacing:1.5, textTransform:"uppercase" }}>
-                NEX Project Manager
-              </Text>
-
-              <Title
-                order={1}
-                style={{
-                  color:textMain, fontWeight:900,
-                  fontSize:"clamp(1.9rem,3.5vw,2.8rem)",
-                  lineHeight:1.12, letterSpacing:-0.5,
-                }}
-              >
-                Simplify & Accelerate Your
-                <br />Projects
-              </Title>
-
-              <Text size="sm" lh={1.85} style={{ color:textSub, maxWidth:480 }}>
-                NEX Project Manager is a powerful, intuitive software designed to
-                streamline workflows, enhance team collaboration, and ensure timely
-                delivery of projects. Whether you're managing small tasks or
-                large-scale initiatives, our solution empowers you with the tools and
-                insights to stay on track, meet deadlines, and drive measurable
-                outcomes — from sprint planning to final delivery.
-              </Text>
-
-              <SimpleGrid cols={2} spacing={12} mt={4}>
-                {features.map((f, i) => {
-                  const Icon = f.icon;
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity:0, y:20 }}
-                      animate={{ opacity:1, y:0 }}
-                      transition={{ delay:0.15 + i*0.08, duration:0.5 }}
+                  {/* bottom labels */}
+                  <Box style={{
+                    position:"absolute", bottom:0, left:0, right:0,
+                    display:"flex", justifyContent:"space-between", alignItems:"flex-end",
+                    padding:"18px 20px",
+                  }}>
+                    <Stack gap={2}>
+                      <Text fw={800} size="lg" c="white">NEX PM</Text>
+                      <Text size="xs" c="rgba(255,255,255,0.75)">Trusted by teams across India</Text>
+                    </Stack>
+                    <Badge
+                      size="md"
+                      style={{
+                        border: `1px solid ${accent}55`,
+                        background: `${accent}33`,
+                        color: "#fff",
+                        fontWeight: 700,
+                        letterSpacing: 1,
+                      }}
                     >
-                      <Box
-                        className="pm-feat-card"
-                        style={{
-                          background:surface, border:`1px solid ${border}`,
-                          borderRadius:12, padding:"16px 14px", height:"100%",
-                          backdropFilter:"blur(12px)",
-                          transition:"border-color .25s, box-shadow .25s",
-                        }}
+                      PRODUCTIVITY TOOL
+                    </Badge>
+                  </Box>
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid.Col>
+
+          {/* ══════════ RIGHT — content ══════════ */}
+          <Grid.Col span={{ base:12, md:6 }}>
+            <motion.div
+              initial={{ opacity:0, x:30 }}
+              animate={{ opacity:1, x:0 }}
+              transition={{ duration:0.7, delay:0.1 }}
+            >
+              <Stack gap={20}>
+
+                {/* eyebrow pill */}
+                <Group gap={8} align="center">
+                  <Badge
+                    size="lg"
+                    radius="xl"
+                    variant="light"
+                    leftSection={<IconSparkles size={13} />}
+                    style={{
+                      background: accentDim,
+                      color: accent,
+                      fontWeight: 700,
+                      letterSpacing: 1,
+                      border: `1px solid ${accent}33`,
+                    }}
+                  >
+                    PROJECT MANAGEMENT
+                  </Badge>
+                  
+                </Group>
+
+                {/* headline with gradient highlight */}
+                <Title
+                  order={1}
+                  style={{
+                    color:textMain, fontWeight:900,
+                    fontSize:"clamp(1.9rem,3.5vw,2.9rem)",
+                    lineHeight:1.14, letterSpacing:-0.5,
+                  }}
+                >
+                  Simplify &{" "}
+                  <span style={{
+                    background: `linear-gradient(90deg, ${accent}, ${accent2})`,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}>
+                    Accelerate
+                  </span>
+                  <br />Your Projects
+                </Title>
+
+                <Text size="sm" lh={1.85} style={{ color:textSub, maxWidth:480 }}>
+                  Project Management is a comprehensive and scalable solution that simplifies project execution, improves team collaboration, and ensures projects are delivered on time and within scope. From task planning and resource allocation to progress tracking and final delivery, our platform provides the visibility and control businesses need to drive efficiency and achieve measurable outcomes.
+                </Text>
+
+                <SimpleGrid cols={2} spacing={12} mt={4}>
+                  {features.map((f, i) => {
+                    const Icon = f.icon;
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity:0, y:20 }}
+                        animate={{ opacity:1, y:0 }}
+                        transition={{ delay:0.15 + i*0.08, duration:0.5 }}
+                        style={{ height:"100%" }}
                       >
-                        <Group gap={8} mb={8} wrap="nowrap">
-                          <Box style={{
-                            width:28, height:28, borderRadius:8, background:accentDim,
-                            display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0,
-                          }}>
-                            <Icon size={15} color={accent} />
-                          </Box>
-                          <Text size="xs" fw={700} style={{ color:textMain, lineHeight:1.3 }}>
-                            {f.title}
-                          </Text>
-                        </Group>
-                        <Text size="xs" lh={1.7} style={{ color:textDim }}>{f.desc}</Text>
+                        <Box
+                          className="pm-feat-card"
+                          style={{
+                            background:surface, border:`1px solid ${border}`,
+                            borderRadius:14, padding:"16px 14px", height:"100%",
+                            backdropFilter:"blur(12px)",
+                            transition:"transform .25s, border-color .25s, box-shadow .25s",
+                            position:"relative", overflow:"hidden",
+                          }}
+                        >
+                          <Group gap={8} mb={8} wrap="nowrap">
+                            <Box style={{
+                              width:30, height:30, borderRadius:9,
+                              background: `${f.color}1F`,
+                              display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0,
+                            }}>
+                              <Icon size={16} color={f.color} />
+                            </Box>
+                            <Text size="xs" fw={700} style={{ color:textMain, lineHeight:1.3 }}>
+                              {f.title}
+                            </Text>
+                          </Group>
+                          <Text size="xs" lh={1.7} style={{ color:textDim }}>{f.desc}</Text>
+                        </Box>
+                      </motion.div>
+                    );
+                  })}
+                </SimpleGrid>
+
+                <Stack gap={8} mt={4}>
+                  {bullets.map((b, i) => (
+                    <Group key={i} gap={8} wrap="nowrap" align="flex-start">
+                      <Box style={{
+                        width:18, height:18, borderRadius:"50%",
+                        background: accentDim, display:"flex", alignItems:"center",
+                        justifyContent:"center", flexShrink:0, marginTop:1,
+                      }}>
+                        <IconPointFilled size={9} color={accent} />
                       </Box>
-                    </motion.div>
-                  );
-                })}
-              </SimpleGrid>
+                      <Text size="sm" style={{ color:textSub }}>{b}</Text>
+                    </Group>
+                  ))}
+                </Stack>
 
-              <Stack gap={8} mt={4}>
-                {bullets.map((b, i) => (
-                  <Group key={i} gap={8} wrap="nowrap" align="flex-start">
-                    <IconPointFilled size={10} color={accent} style={{ flexShrink:0, marginTop:5 }} />
-                    <Text size="sm" style={{ color:textSub }}>{b}</Text>
-                  </Group>
-                ))}
+                <Group gap={12} mt={10}>
+                  <Button
+                    size="md" radius="xl"
+                    rightSection={<IconArrowRight size={16}/>}
+                    style={{
+                      background: `linear-gradient(90deg, ${accent}, ${accent2})`,
+                      color: btnPrimCol,
+                      fontWeight: 700,
+                      border: "none",
+                      boxShadow: `0 10px 26px ${accentDim}`,
+                    }}
+                    className="pm-btn"
+                    onClick={()=> navigate("/contact")}
+                  >
+                    Start Free Trial
+                  </Button>
+                </Group>
+
               </Stack>
+            </motion.div>
+          </Grid.Col>
 
-              <Group gap={12} mt={8}>
-                <Button
-                  size="md" radius="xl"
-                  rightSection={<IconArrowRight size={16}/>}
-                  style={{ background:accent, color:btnPrimCol, fontWeight:700, border:"none" }}
-                  className="pm-btn"
-                   onClick={()=> navigate("/contact")}
-                >
-                  Start Free Trial
-                </Button>
-                {/* <Button
-                  size="md" radius="xl" variant="outline"
-                  style={{ borderColor:btnOutline, color:btnTextOut }}
-                  className="pm-btn"
-                >
-                  Learn More
-                </Button> */}
-              </Group>
+        </Grid>
 
-            </Stack>
-          </motion.div>
-        </Grid.Col>
-
-      </Grid>
-
-      <style>{`
-        .pm-feat-card:hover {
-          border-color: ${accent}55 !important;
-          box-shadow: 0 8px 28px ${accentDim} !important;
-        }
-        .pm-btn {
-          transition: transform .22s ease, box-shadow .22s ease !important;
-        }
-        .pm-btn:hover {
-          transform: translateY(-2px) !important;
-          box-shadow: 0 10px 28px ${accentDim} !important;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .pm-feat-card, .pm-btn { transition: none !important; }
-        }
-      `}</style>
-    </Container>
+        <style>{`
+          .pm-feat-card:hover {
+            transform: translateY(-4px);
+            border-color: ${accent}55 !important;
+            box-shadow: 0 10px 30px ${accentDim} !important;
+          }
+          .pm-btn {
+            transition: transform .22s ease, box-shadow .22s ease !important;
+          }
+          .pm-btn:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 14px 32px ${accentDim} !important;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .pm-feat-card, .pm-btn { transition: none !important; }
+          }
+        `}</style>
+      </Container>
+    </Box>
   );
 };
 

@@ -42,13 +42,15 @@ const Products = () => {
       <HRMSoftwareScreen />
       <ERPSoftwareScreen />
       <CRMSoftwareScreen />
+      {/* frieght mgt */}
+      <BookingScreen />
       <ProjectManagementScreen />
       <MobileAppScreen />
-      <BookingScreen />
-      <FinanceScreen />
-      <ComparisonScreen />
-      <IndustriesScreen />
-      <NexflareSuiteScreen />
+      
+      {/* <FinanceScreen /> */}
+      {/* <ComparisonScreen /> */}
+      {/* <IndustriesScreen /> */}
+      {/* <NexflareSuiteScreen /> */}
       <CTAScreen />
 
      
