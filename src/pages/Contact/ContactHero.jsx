@@ -144,9 +144,9 @@ const GetInTouchScreen = () => {
             </Title>
 
             <Text style={{ color: bodyColor, lineHeight: 1.7 }}>
-              Have a project in mind or just want to say hello? Reach out to
-              us through any of the channels alongside — we'd love to hear
-              from you.
+              Have a project in mind or want to learn more about our services?
+              Contact us through any of the channels alongside we look forward
+              to connecting with you.
             </Text>
 
             <Box mt={12}>

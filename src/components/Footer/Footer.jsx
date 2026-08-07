@@ -2088,7 +2088,8 @@ const Footer = () => {
               className="f-col f-col-contact"
               style={{
                 background: cardBg,
-                border: cardBorder,
+                // border: cardBorder,
+                border: "2px solid aqua",
                 borderRadius: 20,
                 padding: "28px 28px 24px",
                 position: "relative",
