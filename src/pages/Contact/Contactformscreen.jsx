@@ -15,47 +15,91 @@ import {
   Paper,
   Loader,
 } from "@mantine/core";
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import axios from "axios";
-import { IconCheck, IconSend } from "@tabler/icons-react";
+import { IconSend } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
 const teal = "#06b6d4";
 
-const expectations = [
-  {
-    number: "01",
-    title: "Prompt Response",
-    description:
-      "We aim to respond to all inquiries within 24 hours, every working day.",
-  },
-  {
-    number: "02",
-    title: "Personalized Attention",
-    description:
-      "Your needs are unique, and we tailor our solutions accordingly.",
-  },
-  {
-    number: "03",
-    title: "Expert Guidance",
-    description:
-      "Our experienced team provides insights and recommendations for your goals.",
-  },
-  {
-    number: "04",
-    title: "Transparent Communication",
-    description:
-      "From discussions to delivery, we keep you informed every step.",
-  },
-];
+// Decorative illustration for the right column
+const ContactSideIllustration = () => (
+  <svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="560" cy="120" r="110" fill="#06b6d4" opacity="0.07" />
+    <circle cx="100" cy="500" r="90" fill="#06b6d4" opacity="0.06" />
+    <circle cx="70" cy="90" r="34" fill="#06b6d4" opacity="0.12" />
+
+    <g transform="translate(190,80)">
+      <rect x="0" y="0" width="300" height="360" rx="20" fill="#06b6d4" opacity="0.08" />
+      <rect x="30" y="40" width="240" height="280" rx="16" fill="#ffffff" stroke="#06b6d4" strokeWidth="1.5" />
+
+      <circle cx="150" cy="120" r="42" fill="#06b6d4" opacity="0.15" />
+      <circle cx="150" cy="105" r="18" fill="#06b6d4" />
+      <path d="M108 165 Q150 130 192 165 L192 185 L108 185 Z" fill="#06b6d4" />
+
+      <rect x="65" y="215" width="150" height="10" rx="5" fill="#06b6d4" opacity="0.3" />
+      <rect x="65" y="238" width="110" height="10" rx="5" fill="#06b6d4" opacity="0.18" />
+
+      <rect x="65" y="270" width="150" height="34" rx="10" fill="#06b6d4" />
+      <text
+        x="140"
+        y="292"
+        textAnchor="middle"
+        fontSize="13"
+        fill="#ffffff"
+        fontFamily="Arial, sans-serif"
+        fontWeight="600"
+      >
+        We're here to help
+      </text>
+    </g>
+
+    <g transform="translate(60,270)">
+      <path
+        d="M0 30 Q0 0 30 0 L110 0 Q140 0 140 30 L140 70 Q140 100 110 100 L45 100 L15 128 L22 100 L30 100 Q0 100 0 70 Z"
+        fill="#06b6d4"
+        opacity="0.85"
+      />
+      <circle cx="35" cy="48" r="6" fill="#ffffff" />
+      <circle cx="70" cy="48" r="6" fill="#ffffff" />
+      <circle cx="105" cy="48" r="6" fill="#ffffff" />
+    </g>
+
+    <g transform="translate(480,380)">
+      <rect x="0" y="0" width="150" height="100" rx="16" fill="#ffffff" stroke="#06b6d4" strokeWidth="1.5" />
+      <circle cx="34" cy="38" r="14" fill="#06b6d4" opacity="0.2" />
+      <circle cx="34" cy="38" r="7" fill="#06b6d4" />
+      <rect x="62" y="30" width="65" height="7" rx="3.5" fill="#06b6d4" opacity="0.35" />
+      <rect x="62" y="48" width="45" height="7" rx="3.5" fill="#06b6d4" opacity="0.2" />
+      <rect x="18" y="72" width="114" height="8" rx="4" fill="#06b6d4" opacity="0.12" />
+    </g>
+
+    <g stroke="#06b6d4" strokeWidth="1.5" opacity="0.45">
+      <line x1="200" y1="300" x2="150" y2="330" />
+      <line x1="480" y1="300" x2="510" y2="330" />
+    </g>
+    <circle cx="150" cy="330" r="5" fill="#06b6d4" />
+    <circle cx="510" cy="330" r="5" fill="#06b6d4" />
+
+    <g transform="translate(430,60)">
+      <circle cx="0" cy="0" r="26" fill="#06b6d4" opacity="0.15" />
+      <path
+        d="M-10 0 L-2 8 L12 -8"
+        fill="none"
+        stroke="#06b6d4"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+  </svg>
+);
 
 const ContactFormScreen = () => {
   const computedColorScheme = useComputedColorScheme("light");
   const isDark = computedColorScheme === "dark";
 
   const [submitted, setSubmitted] = useState(false);
-
-  // const [query, setQuery] = useState("");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -67,7 +111,6 @@ const ContactFormScreen = () => {
 
   const headingColor = isDark ? "#f8fafc" : "#0b1326";
   const bodyColor = isDark ? "rgba(226,232,240,0.6)" : "rgba(11,19,38,0.65)";
-  const cardBg = isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)";
   const cardBorder = isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.08)";
   const labelColor = isDark ? "rgba(226,232,240,0.85)" : "rgba(15,23,42,0.85)";
   const inputBg = isDark ? "rgba(255,255,255,0.03)" : "#ffffff";
@@ -94,15 +137,6 @@ const ContactFormScreen = () => {
     try {
       setLoading(true);
 
-      const formData = new FormData();
-
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("phone", phone);
-      formData.append("service", service);
-      formData.append("company", company);
-      formData.append("query", query);
-
       const response = await axios.post("/api/contact", {
         name,
         email,
@@ -111,11 +145,6 @@ const ContactFormScreen = () => {
         company,
         message: query,
       });
-
-      //  const response = await axios.post(
-      //   "https://nexflaredynamics.com/wp-content/themes/nexflaredynamics/submit-contact.php",
-      //   formData,
-      // );
 
       console.log(response.data);
 
@@ -143,90 +172,7 @@ const ContactFormScreen = () => {
           spacing={{ base: 40, lg: 48 }}
           style={{ alignItems: "start" }}
         >
-          {/* Left column */}
-          <Stack gap={0}>
-            <Text
-              fw={700}
-              size="xs"
-              mb={14}
-              style={{
-                color: teal,
-                letterSpacing: 1.4,
-                textTransform: "uppercase",
-              }}
-            >
-              Why Contact Us
-            </Text>
-
-            <Title
-              order={2}
-              style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                fontWeight: 600,
-                fontSize: "clamp(1.7rem, 3vw, 2.3rem)",
-                lineHeight: 1.25,
-                color: headingColor,
-              }}
-            >
-              What to Expect When
-              <br />
-              You Reach Us
-            </Title>
-
-            <Text
-              mt={16}
-              size="sm"
-              maw={420}
-              style={{ color: bodyColor, lineHeight: 1.7 }}
-            >
-              Our experienced team will respond quickly with personalized
-              attention and expert guidance to meet your goals.
-            </Text>
-
-            <Stack gap={14} mt={30}>
-              {expectations.map(({ number, title, description }) => (
-                <Box
-                  key={number}
-                  style={{
-                    display: "flex",
-                    gap: 16,
-                    background: cardBg,
-                    border: `1px solid ${cardBorder}`,
-                    borderRadius: 12,
-                    padding: "18px 20px",
-                  }}
-                >
-                  <Text
-                    fw={700}
-                    size="xs"
-                    style={{ color: teal, minWidth: 20, paddingTop: 2 }}
-                  >
-                    {number}
-                  </Text>
-                  <Text size="sm" style={{ color: bodyColor, lineHeight: 1.6 }}>
-                    <Text
-                      component="span"
-                      fw={700}
-                      style={{ color: headingColor }}
-                    >
-                      {title}
-                    </Text>{" "}
-                    — {description}
-                  </Text>
-                </Box>
-              ))}
-            </Stack>
-          </Stack>
-
-          {/* Right column — form */}
-          {/* <Box
-            style={{
-              background: isDark ? "rgba(255,255,255,0.02)" : "#ffffff",
-              border: `1px solid ${cardBorder}`,
-              borderRadius: 18,
-              padding: "32px",
-            }}
-          > */}
+          {/* Left column — form */}
           <Box
             style={{
               background: isDark ? "#1B2434" : "#FFFFFF",
@@ -252,6 +198,20 @@ const ContactFormScreen = () => {
                 background: "linear-gradient(90deg,#2563EB,#38BDF8)",
               }}
             />
+
+            <Text
+              fw={700}
+              size="xs"
+              mb={10}
+              style={{
+                color: teal,
+                letterSpacing: 1.4,
+                textTransform: "uppercase",
+              }}
+            >
+              Why Contact Us
+            </Text>
+
             <Title
               order={3}
               style={{
@@ -268,35 +228,11 @@ const ContactFormScreen = () => {
               size="sm"
               style={{ color: bodyColor, lineHeight: 1.6 }}
             >
-              Have questions or need assistance? Fill out the form below and our
-              team will get back to you promptly.
+              Our experienced team will respond quickly with personalized
+              attention and expert guidance to meet your goals.
             </Text>
 
             {submitted ? (
-              // <Stack align="center" justify="center" gap="lg" py={40}>
-              //   <ThemeIcon size={90} radius="xl" color="teal" variant="light">
-              //     <IconCheck size={50} stroke={2.5} />
-              //   </ThemeIcon>
-
-              //   <Title order={2} ta="center">
-              //     Message Sent Successfully!
-              //   </Title>
-
-              //   <Text ta="center" c="dimmed" maw={420} size="sm" lh={1.7}>
-              //     Thank you for contacting us. Our team has received your
-              //     enquiry and will get back to you within 24 hours.
-              //   </Text>
-
-              //   <Button
-              //     radius="md"
-              //     size="md"
-              //     variant="gradient"
-              //     gradient={{ from: "cyan", to: "teal" }}
-              //     onClick={() => setSubmitted(false)}
-              //   >
-              //     Submit Another Form
-              //   </Button>
-              // </Stack>
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -459,28 +395,6 @@ const ContactFormScreen = () => {
                   </Text>
                 </Box>
 
-                {/* <Box
-                  component="button"
-                  type="button"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 8,
-                    width: "100%",
-                    padding: "14px 0",
-                    borderRadius: 10,
-                    border: "none",
-                    background: "linear-gradient(135deg,#0891b2,#06b6d4)",
-                    color: "#fff",
-                    fontWeight: 600,
-                    fontSize: 15,
-                    cursor: "pointer",
-                  }}
-                  onClick={handleSubmit}
-                >
-                  Send Message <ArrowRight size={16} />
-                </Box> */}
                 <Button
                   fullWidth
                   radius="md"
@@ -512,6 +426,11 @@ const ContactFormScreen = () => {
               </Stack>
             )}
           </Box>
+
+          {/* Right column — illustration */}
+          <Stack justify="center" style={{ height: "100%" }}>
+            <ContactSideIllustration />
+          </Stack>
         </SimpleGrid>
       </Container>
     </Box>

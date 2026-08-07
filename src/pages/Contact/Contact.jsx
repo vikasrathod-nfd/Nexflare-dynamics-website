@@ -3,7 +3,7 @@ import { Box, useComputedColorScheme } from "@mantine/core";
 import ContactHero from "./ContactHero";
 import ContactFormScreen from "./Contactformscreen";
 import OfficeLocation from "./Officelocation";
-import SocialConnect from "./Socialconnect";
+// import SocialConnect from "./Socialconnect";
 import ReadyToStart from "./ReadyToStart";
 import PageTitle from "../../components/PageTitle";
 
@@ -40,7 +40,7 @@ const Contact = () => {
         <ContactFormScreen />
         <ContactHero />
         <OfficeLocation />
-        <SocialConnect />
+        {/* <SocialConnect /> */}
         <ReadyToStart />
       </Box>
     </>

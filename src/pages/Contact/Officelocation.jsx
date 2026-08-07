@@ -56,24 +56,9 @@ const OfficeLocation = () => {
                 </Text>
               </Group>
 
-              <Title
-                order={2}
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
-                  fontSize: "40px",
-                  fontWeight: 700,
-                  lineHeight: 1.15,
-                  color: textPrimary,
-                }}
-              >
-                Find Us in {OFFICE.city}
-              </Title>
+             
 
-              <Text size="sm" maw={420} style={{ color: textSecondary, lineHeight: 1.6 }}>
-                We're based at the {OFFICE.name} in Kharadi, Pune — one of
-                Maharashtra's premier tech zones. Drop by for an in-person
-                consultation.
-              </Text>
+              
             </Stack>
           </Grid.Col>
 
