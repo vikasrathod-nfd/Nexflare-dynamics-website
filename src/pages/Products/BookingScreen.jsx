@@ -21,8 +21,6 @@ import {
   IconArrowRight,
   IconPointFilled,
   IconSparkles,
-  IconShieldCheck,
-  IconTrendingUp,
 } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
@@ -34,16 +32,13 @@ const features = [
 ];
 
 const bullets = [
-  "Ideal for healthcare, salons, fitness, consulting & more",
+  "Centralized scheduling with real-time availability",
   "Multi-channel: website, app, and social media booking",
-  "Flexible: recurring, group & multi-location scheduling",
-  "Customizable branding for your booking pages",
 ];
 
-
-/* Hero image - replace this URL with your own asset anytime */
+/* Hero image - fresh Indian, booking/appointment themed. Replace this URL with your own asset anytime */
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80";
+  "https://thumbs.dreamstime.com/b/scheduling-booking-online-appointment-calendar-using-laptop-275149473.jpg";
 
 const BookingScreen = () => {
   const navigate = useNavigate();
@@ -53,23 +48,11 @@ const BookingScreen = () => {
   const accent2     = isDark ? "#6366F1"                    : "#2563EB";
   const accentDim   = isDark ? "rgba(0,212,200,0.12)"       : "rgba(8,145,178,0.10)";
   const surface     = isDark ? "rgba(255,255,255,0.04)"      : "rgba(255,255,255,0.85)";
-  const surface2    = isDark ? "rgba(255,255,255,0.06)"      : "rgba(255,255,255,0.95)";
   const border      = isDark ? "rgba(255,255,255,0.08)"      : "rgba(37,99,235,0.12)";
   const textMain    = isDark ? "#ffffff"                    : "#0f172a";
   const textSub     = isDark ? "rgba(255,255,255,0.75)"      : "#334155";
   const textDim     = isDark ? "rgba(255,255,255,0.45)"      : "#64748b";
-  const statGood    = isDark ? "#00D4C8"                    : "#0891B2";
-  const statWarn    = isDark ? "#f87171"                    : "#ef4444";
-  const statNeutral = isDark ? "rgba(255,255,255,0.75)"      : "#475569";
-  const barEmpty    = isDark ? "rgba(255,255,255,0.10)"      : "rgba(37,99,235,0.10)";
   const btnPrimCol  = isDark ? "#0a0f1e"                    : "#ffffff";
-
-  const dashStats = [
-    { label: "Appointments Today", value: "48 Booked", color: statGood    },
-    { label: "No-Show Rate",        value: "↓ 3.2%",   color: statWarn    },
-    { label: "Reminders Sent",      value: "124 SMS",  color: statNeutral },
-    { label: "Revenue (Month)",     value: "₹2.8L",    color: statGood    },
-  ];
 
   return (
     <Box style={{ position: "relative", overflow: "hidden" }}>
@@ -87,133 +70,76 @@ const BookingScreen = () => {
       }}/>
 
       <Container size="xl" py={{ base:50, md:80 }} style={{ position:"relative", zIndex:1 }}>
-        <Grid gutter={{ base:40, md:60 }} align="flex-start">
+        <Grid gutter={{ base:40, md:60 }} align="stretch">
 
-          {/* ══════════ LEFT — visuals ══════════ */}
+          {/* ══════════ LEFT — bigger hero image, matches text column height ══════════ */}
           <Grid.Col span={{ base:12, md:6 }}>
             <motion.div
-              initial={{ opacity:0, x:-30 }}
-              animate={{ opacity:1, x:0 }}
+              initial={{ opacity:0, x:-30, scale:0.97 }}
+              animate={{ opacity:1, x:0, scale:1 }}
               transition={{ duration:0.7 }}
+              style={{ height:"100%" }}
             >
-              <Stack gap={16}>
-
-                {/* Hero image card — real photo with floating stat pills */}
-                <Box style={{ borderRadius:20, overflow:"visible", position:"relative" }}>
-                  <Box style={{
-                    borderRadius:20, overflow:"hidden", position:"relative",
-                    border:`1px solid ${border}`, height:260,
-                    boxShadow: isDark
-                      ? "0 20px 50px rgba(0,0,0,0.45)"
-                      : "0 20px 50px rgba(37,99,235,0.15)",
-                  }}>
-                    <img
-                      src={HERO_IMAGE_URL}
-                      alt="Appointment calendar and scheduling"
-                      style={{
-                        position:"absolute", inset:0,
-                        width:"100%", height:"100%",
-                        objectFit:"cover",
-                        filter: isDark ? "brightness(0.75) saturate(1.05)" : "brightness(0.98)",
-                      }}
-                      loading="lazy"
-                    />
-
-                    {/* subtle overlay for text legibility */}
-                    <Box style={{
+              <Box style={{
+                position:"relative",
+                height:"93%",
+                minHeight: 560,
+                borderRadius:28,
+                padding:3,
+                background: `linear-gradient(145deg, ${accent}55, transparent 40%, ${accent2}45)`,
+              }}>
+                <Box style={{
+                  borderRadius:26, overflow:"hidden", position:"relative",
+                  height:"100%", minHeight: 554,
+                  border:`1px solid ${border}`,
+                  boxShadow: isDark
+                    ? "0 30px 70px rgba(0,0,0,0.55)"
+                    : "0 30px 70px rgba(37,99,235,0.20)",
+                }}>
+                  <img
+                    src={HERO_IMAGE_URL}
+                    alt="Indian client scheduling an appointment"
+                    style={{
                       position:"absolute", inset:0,
-                      background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.60) 100%)",
-                    }}/>
+                      width:"100%", height:"100%",
+                      objectFit:"cover",
+                      objectPosition:"center 20%",
+                      filter: isDark ? "brightness(0.78) saturate(1.08)" : "brightness(0.98) saturate(1.05)",
+                    }}
+                    loading="lazy"
+                  />
 
-                    {/* bottom labels */}
-                    <Box style={{
-                      position:"absolute", bottom:0, left:0, right:0,
-                      display:"flex", justifyContent:"space-between", alignItems:"flex-end",
-                      padding:"14px 18px",
-                    }}>
-                      <Text fw={700} size="sm" c="white">Booking System</Text>
-                      <Badge
-                        size="sm"
-                        style={{
-                          border: `1px solid ${accent}55`,
-                          background: `${accent}22`,
-                          color: "#fff",
-                          fontWeight: 700,
-                          letterSpacing: 1,
-                        }}
-                      >
-                        SCHEDULING
-                      </Badge>
-                    </Box>
-                  </Box>
-
-                  {/* floating stat pill overlapping the image */}
-                  <motion.div
-                    initial={{ opacity:0, y:14 }}
-                    animate={{ opacity:1, y:0 }}
-                    transition={{ delay:0.5, duration:0.5 }}
-                    style={{ position:"absolute", left:16, top:-20 }}
-                  >
-                    
-                  </motion.div>
-                </Box>
-
-                {/* Dashboard card */}
-                <motion.div
-                  initial={{ opacity:0, y:20 }}
-                  animate={{ opacity:1, y:0 }}
-                  transition={{ delay:0.4, duration:0.55 }}
-                >
+                  {/* gradient overlay for legibility */}
                   <Box style={{
-                    background:surface2, border:`1px solid ${border}`,
-                    borderRadius:18, padding:"20px 20px 16px",
-                    position:"relative", overflow:"hidden", backdropFilter:"blur(12px)",
-                    boxShadow: isDark
-                      ? "0 14px 34px rgba(0,0,0,0.35)"
-                      : "0 14px 34px rgba(37,99,235,0.10)",
+                    position:"absolute", inset:0,
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.68) 100%)",
+                  }}/>
+
+                  {/* bottom labels */}
+                  <Box style={{
+                    position:"absolute", bottom:0, left:0, right:0,
+                    display:"flex", justifyContent:"space-between", alignItems:"flex-end",
+                    padding:"18px 20px",
                   }}>
-                    <Box style={{
-                      position:"absolute", top:0, left:0, right:0, height:3,
-                      background:`linear-gradient(90deg,${accent},${accent2})`,
-                    }}/>
-
-                    <Group justify="space-between" mb={18} align="center">
-                      <Group gap={6}>
-                        {["#ef4444","#f59e0b","#22c55e"].map((c,i)=>(
-                          <Box key={i} style={{ width:10, height:10, borderRadius:"50%", background:c }}/>
-                        ))}
-                      </Group>
-                      <Group gap={5}>
-                        <Box style={{ width:6, height:6, borderRadius:"50%", background:"#22c55e" }}/>
-                        <Text fz={11} style={{ color:textDim, letterSpacing:1 }}>
-                          Booking Dashboard — Today
-                        </Text>
-                      </Group>
-                    </Group>
-
-                    <Stack gap={10}>
-                      {dashStats.map(({ label, value, color }, i) => (
-                        <Group key={i} justify="space-between" align="center">
-                          <Text size="xs" style={{ color:textDim }}>{label}</Text>
-                          <Text size="xs" fw={700} style={{ color }}>{value}</Text>
-                        </Group>
-                      ))}
+                    <Stack gap={2}>
+                      <Text fw={800} size="lg" c="white">Booking System</Text>
+                      <Text size="xs" c="rgba(255,255,255,0.75)">Trusted by businesses across India</Text>
                     </Stack>
-
-                    <Group gap={8} mt={18} wrap="nowrap">
-                      {[true,false,true,true,false].map((fill, i) => (
-                        <Box key={i} style={{
-                          flex:`${[26,14,24,20,16][i]}%`, height:8, borderRadius:4, minWidth:8,
-                          background: fill
-                            ? `linear-gradient(90deg, ${accent}, ${accent2})`
-                            : barEmpty,
-                        }}/>
-                      ))}
-                    </Group>
+                    <Badge
+                      size="md"
+                      style={{
+                        border: `1px solid ${accent}55`,
+                        background: `${accent}33`,
+                        color: "#fff",
+                        fontWeight: 700,
+                        letterSpacing: 1,
+                      }}
+                    >
+                      SCHEDULING
+                    </Badge>
                   </Box>
-                </motion.div>
-
-              </Stack>
+                </Box>
+              </Box>
             </motion.div>
           </Grid.Col>
 
@@ -266,12 +192,10 @@ const BookingScreen = () => {
                 </Title>
 
                 <Text size="sm" lh={1.85} style={{ color:textSub, maxWidth:480 }}>
-                  In a world where time is money, efficient scheduling can make all
-                  the difference. Our Appointment Booking Software is an intelligent
-                  platform that automates the scheduling process, enabling businesses
-                  to manage appointments effortlessly — with real-time updates,
-                  automated reminders, and an intuitive interface that eliminates
-                  manual scheduling errors.
+                  Optimize scheduling with a centralized appointment booking platform
+                  featuring automated confirmations, real-time calendar updates, and
+                  smart reminders. Ensure a smooth booking experience while minimizing
+                  scheduling conflicts and no-shows.
                 </Text>
 
                 <SimpleGrid cols={2} spacing={12} mt={4}>
@@ -345,18 +269,6 @@ const BookingScreen = () => {
                   >
                     Get a Demo
                   </Button>
-                </Group>
-
-                {/* trust strip */}
-                <Group gap={20} mt={14}>
-                  <Group gap={6}>
-                    <IconShieldCheck size={16} color={accent} />
-                    <Text size="xs" fw={600} style={{ color:textDim }}>Secure Payments</Text>
-                  </Group>
-                  <Group gap={6}>
-                    <IconTrendingUp size={16} color={accent} />
-                    <Text size="xs" fw={600} style={{ color:textDim }}>No-shows down 3.2%</Text>
-                  </Group>
                 </Group>
 
               </Stack>

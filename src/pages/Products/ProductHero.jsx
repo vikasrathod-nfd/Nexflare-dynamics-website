@@ -115,7 +115,7 @@
 //                     maxWidth: 620,
 //                   }}
 //                 >
-//                   Designed with advanced technology and innovative techniques
+//                    technology and innovative techniques
 //                   for your business growth. Our software products minimize
 //                   operational loads, reduce human error, and boost production
 //                   capacity with intelligent automation.
@@ -664,23 +664,6 @@ const ProductHero = () => {
                 </Stack>
 
                 <Group mt="lg">
-                  <Button
-                    size="lg"
-                    radius="xl"
-                    variant="gradient"
-                    gradient={{ from: "blue", to: "cyan" }}
-                    rightSection={<IconArrowRight size={18} />}
-                    styles={{
-                      root: {
-                        paddingInline: 28,
-                        height: 52,
-                        fontWeight: 600,
-                      },
-                    }}
-                    onClick={() => navigate("/contact")}
-                  >
-                    Explore Products
-                  </Button>
 
                   <Button
                     size="lg"
