@@ -35,11 +35,46 @@ const contactCards = [
   },
 ];
 
-const stats = [
-  { value: "24", suffix: "h", label: "Response Time" },
-  { value: "50", suffix: "+", label: "Happy Clients" },
-  { value: "100", suffix: "%", label: "Satisfaction" },
-];
+// Decorative illustration for the left column
+const ContactIllustration = () => (
+  <svg width="100%" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="120" cy="90" r="70" fill="#06b6d4" opacity="0.08" />
+    <circle cx="580" cy="420" r="90" fill="#06b6d4" opacity="0.06" />
+    <circle cx="600" cy="80" r="30" fill="#06b6d4" opacity="0.12" />
+
+    <g transform="translate(150,150)">
+      <rect x="0" y="0" width="300" height="200" rx="16" fill="#06b6d4" opacity="0.1" />
+      <rect x="20" y="30" width="260" height="150" rx="10" fill="#ffffff" stroke="#06b6d4" strokeWidth="1.5" />
+      <path d="M20 30 L150 130 L280 30" fill="none" stroke="#06b6d4" strokeWidth="1.5" />
+    </g>
+
+    <g transform="translate(420,260)">
+      <path
+        d="M0 40 Q0 0 40 0 L140 0 Q180 0 180 40 L180 90 Q180 130 140 130 L60 130 L20 165 L30 130 L40 130 Q0 130 0 90 Z"
+        fill="#06b6d4"
+        opacity="0.9"
+      />
+      <circle cx="45" cy="60" r="7" fill="#ffffff" />
+      <circle cx="90" cy="60" r="7" fill="#ffffff" />
+      <circle cx="135" cy="60" r="7" fill="#ffffff" />
+    </g>
+
+    <g stroke="#06b6d4" strokeWidth="1.5" opacity="0.5">
+      <line x1="450" y1="180" x2="500" y2="250" />
+      <line x1="130" y1="380" x2="200" y2="330" />
+    </g>
+    <circle cx="450" cy="180" r="5" fill="#06b6d4" />
+    <circle cx="130" cy="380" r="5" fill="#06b6d4" />
+
+    <g transform="translate(60,340)">
+      <rect x="0" y="0" width="130" height="90" rx="14" fill="#ffffff" stroke="#06b6d4" strokeWidth="1.5" />
+      <circle cx="30" cy="35" r="12" fill="#06b6d4" opacity="0.2" />
+      <circle cx="30" cy="35" r="6" fill="#06b6d4" />
+      <rect x="55" y="27" width="55" height="6" rx="3" fill="#06b6d4" opacity="0.35" />
+      <rect x="55" y="42" width="40" height="6" rx="3" fill="#06b6d4" opacity="0.2" />
+    </g>
+  </svg>
+);
 
 const GetInTouchScreen = () => {
   const computedColorScheme = useComputedColorScheme("light");
@@ -64,8 +99,8 @@ const GetInTouchScreen = () => {
           py={60}
         >
           {/* Left column */}
-          <Stack gap={0}>
-            {/* <Box
+          <Stack gap={20} justify="center">
+            <Box
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -77,7 +112,7 @@ const GetInTouchScreen = () => {
                 background: isDark
                   ? "rgba(6,182,212,0.08)"
                   : "rgba(6,182,212,0.06)",
-                marginBottom: 22,
+                marginBottom: 4,
               }}
             >
               <Box
@@ -99,60 +134,24 @@ const GetInTouchScreen = () => {
               >
                 Get In Touch
               </Text>
-            </Box> */}
+            </Box>
 
             <Title
               order={2}
-              style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                fontWeight: 600,
-                fontSize: "clamp(2rem, 4vw, 2.9rem)",
-                lineHeight: 1.15,
-                color: headingColor,
-              }}
+              style={{ color: headingColor, fontSize: 36, lineHeight: 1.2 }}
             >
-              Let's Build <span style={{ color: teal }}>Your</span>
-              <br />
-              <span style={{ color: teal }}>Vision</span> Together
+              Let's start a conversation
             </Title>
 
-            <Text
-              mt={22}
-              size="md"
-              maw={440}
-              style={{ color: bodyColor, lineHeight: 1.75 }}
-            >
-              At Nexflare Dynamics, we value communication and collaboration.
-              Reach out for project discussions, service enquiries, or expert
-              consultations — our team is ready to assist at every step.
+            <Text style={{ color: bodyColor, lineHeight: 1.7 }}>
+              Have a project in mind or just want to say hello? Reach out to
+              us through any of the channels alongside — we'd love to hear
+              from you.
             </Text>
 
-            <Group mt={36} gap={44}>
-              {stats.map(({ value, suffix, label }) => (
-                <Stack key={label} gap={4}>
-                  <Text
-                    style={{
-                      fontFamily: "Georgia, 'Times New Roman', serif",
-                      fontWeight: 700,
-                      fontSize: 32,
-                      color: headingColor,
-                      lineHeight: 1,
-                    }}
-                  >
-                    {value}
-                    <Text
-                      component="span"
-                      style={{ color: teal, fontSize: 16, fontWeight: 700 }}
-                    >
-                      {suffix}
-                    </Text>
-                  </Text>
-                  <Text size="xs" style={{ color: statLabelColor }}>
-                    {label}
-                  </Text>
-                </Stack>
-              ))}
-            </Group>
+            <Box mt={12}>
+              <ContactIllustration />
+            </Box>
           </Stack>
 
           {/* Right column */}
@@ -213,33 +212,6 @@ const GetInTouchScreen = () => {
                 </Stack>
               </Box>
             ))}
-
-            <Box
-              style={{
-                alignSelf: "flex-start",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "8px 18px",
-                borderRadius: 999,
-                border: `1px solid ${teal}55`,
-                background: isDark
-                  ? "rgba(6,182,212,0.08)"
-                  : "rgba(6,182,212,0.06)",
-              }}
-            >
-              <Box
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: 999,
-                  background: teal,
-                }}
-              />
-              <Text size="xs" fw={600} style={{ color: teal }}>
-                We're open Mon–Sat · 9 AM – 7 PM IST
-              </Text>
-            </Box>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -180,9 +180,7 @@ const ERPSoftwareScreen = () => {
                   >
                     ERP SOFTWARE
                   </Badge>
-                  <Text fz={12} fw={600} style={{ color:textDim, letterSpacing:1.5, textTransform:"uppercase" }}>
-                    NEX ERP
-                  </Text>
+                  
                 </Group>
 
                 {/* headline with gradient highlight */}

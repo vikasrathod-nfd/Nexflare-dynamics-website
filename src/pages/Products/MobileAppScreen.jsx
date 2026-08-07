@@ -38,7 +38,7 @@ const bullets = [
 
 /* Hero image - fresh Indian, mobile app themed. Replace this URL with your own asset anytime */
 const HERO_IMAGE_URL =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQk2mQhgtCeYBXUNa4dahDJUu9FWoySeBGkveCKOwYHQ&s";
+  "https://www.devicemagic.com/wp-content/uploads/2021/06/mobile-apps-1-scaled.jpg";
 
 const MobileAppScreen = () => {
   const navigate = useNavigate();
@@ -98,9 +98,7 @@ const MobileAppScreen = () => {
                   >
                     MOBILE APPLICATION
                   </Badge>
-                  <Text fz={12} fw={600} style={{ color:textDim, letterSpacing:1.5, textTransform:"uppercase" }}>
-                    Android &amp; iOS Development
-                  </Text>
+                  
                 </Group>
 
                 {/* headline with gradient highlight */}
@@ -204,13 +202,15 @@ const MobileAppScreen = () => {
             </motion.div>
           </Grid.Col>
 
-          {/* ══════════ RIGHT — bigger hero image, matches text column height ══════════ */}
-          <Grid.Col span={{ base:12, md:6 }}>
+
+
+
+<Grid.Col span={{ base:12, md:6 }}>
             <motion.div
               initial={{ opacity:0, x:30, scale:0.97 }}
               animate={{ opacity:1, x:0, scale:1 }}
               transition={{ duration:0.7, delay:0.1 }}
-              style={{ height:"100%" }}
+              style={{ height:"95%" }}
             >
               <Box style={{
                 position:"relative",
@@ -274,6 +274,11 @@ const MobileAppScreen = () => {
               </Box>
             </motion.div>
           </Grid.Col>
+
+
+          
+          {/* ══════════ RIGHT — bigger hero image, matches text column height ══════════ */}
+          
 
         </Grid>
 
