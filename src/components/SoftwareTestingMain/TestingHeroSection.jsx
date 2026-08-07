@@ -184,7 +184,7 @@ const TestingHeroSection = () => {
   return (
     <Box
       component="section"
-      py={180}
+      py={200}
       style={{
         position: "relative",
         overflow: "hidden",
@@ -198,7 +198,7 @@ const TestingHeroSection = () => {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')",
+            "url('https://images.openai.com/static-rsc-4/BdDe_Px9tAdpALolxVLqTgsyqDhx9Lenb38SZk3mdV6XTJ_G6D9vO10aM6gjlBPz3JNjplPn2sPEOZj428uXypZnkVPyoP5-0KnACMvCLCeH8haMUcdFY0SatV4YibcETpWxhsv9y6SGzfLsg_qkE104f9QFcPsbcYDnnWMG66TUm8qZALBen22l0ZEnynYq?purpose=fullsize')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(1)",

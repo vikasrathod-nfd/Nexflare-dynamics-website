@@ -33,7 +33,7 @@ const HeroSaas = () => {
   return (
     <Box
       component="section"
-      py={140}
+      py={200}
       style={{
         position: "relative",
         overflow: "hidden",
@@ -47,27 +47,22 @@ const HeroSaas = () => {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80')",
+            "url('https://bpckuwait.com/wp-content/uploads/2019/11/SAAS-1170x694.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(1)",
         }}
       />
 
-      {/* Text-side overlay only - fades quickly so most of the image stays visible */}
+      {/* Text-side overlay only - much lighter now, image stays true to its original colors */}
       <Box
         style={{
           position: "absolute",
           inset: 0,
-          background: isDark
-            ? `
-              linear-gradient(90deg, rgba(4,10,18,0.92) 0%, rgba(4,10,18,0.78) 32%, rgba(4,10,18,0.35) 55%, rgba(4,10,18,0) 72%),
-              linear-gradient(0deg, rgba(4,10,18,0.55) 0%, rgba(4,10,18,0) 30%)
-            `
-            : `
-              linear-gradient(90deg, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.68) 32%, rgba(6,12,24,0.28) 55%, rgba(6,12,24,0) 72%),
-              linear-gradient(0deg, rgba(6,12,24,0.45) 0%, rgba(6,12,24,0) 30%)
-            `,
+          background: `
+            linear-gradient(90deg, rgba(6,12,24,0.55) 0%, rgba(6,12,24,0.4) 30%, rgba(6,12,24,0.12) 55%, rgba(6,12,24,0) 72%),
+            linear-gradient(0deg, rgba(6,12,24,0.2) 0%, rgba(6,12,24,0) 30%)
+          `,
         }}
       />
 
