@@ -5,7 +5,7 @@ const WhatsAppChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
 
-  const phoneNumber = "9834496938";
+  const phoneNumber = "919834496938";
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
