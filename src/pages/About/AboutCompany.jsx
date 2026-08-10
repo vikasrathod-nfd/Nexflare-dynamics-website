@@ -120,7 +120,13 @@ const MotionPaper = motion.create(Paper);
 
 const AboutCompany = () => {
   return (
-    <Container size="xl" py={80}>
+    <Container
+      size="xl"
+      py={{ base: 50, md: 80 }}
+      style={{
+        overflowX: "clip",
+      }}
+    >
       <Grid align="center" gutter={60}>
         {/* Left Content */}
         <Grid.Col span={{ base: 12, md: 7 }}>
@@ -182,7 +188,7 @@ const AboutCompany = () => {
                 Our expertise includes custom software development, web and
                 mobile application development, enterprise software, cloud
                 solutions, UI/UX design, and API integrations. Alongside
-                technology, we provide social media marketing, branding, SEO, 
+                technology, we provide social media marketing, branding, SEO,
                 performance marketing, and digital advertising to help
                 businesses increase visibility, generate quality leads, and
                 achieve measurable results.
