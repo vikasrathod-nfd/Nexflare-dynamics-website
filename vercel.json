@@ -4,6 +4,11 @@
       "source": "/Softwaredevelopmentcompany/our-products",
       "destination": "/products",
       "permanent": true
+    },
+    {
+      "source": "/Softwaredevelopmentcompany/our-products/",
+      "destination": "/products",
+      "permanent": true
     }
   ],
   "rewrites": [
