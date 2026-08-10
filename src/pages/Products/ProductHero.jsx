@@ -585,8 +585,14 @@ const ProductHero = () => {
   };
 
   return (
-    <Box py={100}>
-      <Container size="xl" py={60}>
+    <Box
+      py={{ base: 50, md: 100 }}
+      style={{
+        width: "100%",
+        overflowX: "clip",
+      }}
+    >
+      <Container size="xl" py={{ base: 30, md: 60 }} px={{ base: 16, md: 24 }}>
         <Grid align="center" gutter={70}>
           {/* ================= LEFT SIDE ================= */}
           <Grid.Col span={{ base: 12, md: 6 }}>
@@ -664,7 +670,6 @@ const ProductHero = () => {
                 </Stack>
 
                 <Group mt="lg">
-
                   <Button
                     size="lg"
                     radius="xl"
@@ -718,7 +723,12 @@ const ProductHero = () => {
                       </Text>
                     </Box>
 
-                    <ThemeIcon size={55} radius="xl" variant="light" color="blue">
+                    <ThemeIcon
+                      size={55}
+                      radius="xl"
+                      variant="light"
+                      color="blue"
+                    >
                       <IconApps size={28} />
                     </ThemeIcon>
                   </Group>
@@ -756,7 +766,11 @@ const ProductHero = () => {
                               </Text>
                             </Box>
                           </Group>
-                          <Badge radius="xl" color={product.color} variant="light">
+                          <Badge
+                            radius="xl"
+                            color={product.color}
+                            variant="light"
+                          >
                             {product.status}
                           </Badge>
                         </Group>
@@ -895,8 +909,7 @@ const ProductHero = () => {
                                     product.status === "Live"
                                       ? "pointer"
                                       : "not-allowed",
-                                  opacity:
-                                    product.status === "Live" ? 1 : 0.6,
+                                  opacity: product.status === "Live" ? 1 : 0.6,
                                 }}
                               >
                                 {product.status === "Live"
@@ -982,7 +995,10 @@ const ProductHero = () => {
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <Grid.Col key={item.title} span={{ base: 12, sm: 6, md: 3 }}>
+                    <Grid.Col
+                      key={item.title}
+                      span={{ base: 12, sm: 6, md: 3 }}
+                    >
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -1004,7 +1020,8 @@ const ProductHero = () => {
                             border: "1px solid rgba(255,255,255,0.15)",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = "translateY(-10px)";
+                            e.currentTarget.style.transform =
+                              "translateY(-10px)";
                             e.currentTarget.style.boxShadow =
                               "0 20px 40px rgba(37, 99, 235, 0.25)";
                           }}
