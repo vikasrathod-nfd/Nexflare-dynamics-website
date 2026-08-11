@@ -50,6 +50,7 @@ const HeroSaas = () => {
             "url('https://bpckuwait.com/wp-content/uploads/2019/11/SAAS-1170x694.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          
           filter: "brightness(1)",
         }}
       />
