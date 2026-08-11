@@ -89,40 +89,7 @@ const HRMSCTA = () => {
           >
             Request Demo
           </Box>
-
-          {/* Secondary Button */}
-          <Box
-            component="button"
-            style={{
-              padding: "16px 36px",
-              borderRadius: 999,
-              background: "transparent",
-              border: isDark
-                ? "1px solid rgba(255,255,255,0.35)"
-                : "1px solid rgba(37,99,235,0.3)",
-              color: isDark ? "#ffffff" : "#1e40af",
-              fontWeight: 700,
-              fontSize: 16,
-              cursor: "pointer",
-              transition: "transform 0.25s ease, border-color 0.25s ease, background 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.borderColor = "#3b82f6";
-              e.currentTarget.style.background = isDark
-                ? "rgba(59,130,246,0.1)"
-                : "rgba(59,130,246,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.borderColor = isDark
-                ? "rgba(255,255,255,0.35)"
-                : "rgba(37,99,235,0.3)";
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            Learn More
-          </Box>
+ 
         </Group>
       </Container>
     </Box>

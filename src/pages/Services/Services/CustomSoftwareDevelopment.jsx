@@ -70,13 +70,13 @@ const services = [
     title: "Cloud",
     icon: IconCloud,
     color: "teal",
-    path: "/services/custom-software-development/cloud-solutions",
+    // path: "/services/custom-software-development/cloud-solutions",
   },
   {
     title: "AI",
     icon: IconBrain,
     color: "indigo",
-    path: "/services/custom-software-development/ai-solutions",
+    // path: "/services/custom-software-development/ai-solutions",
   },
 ];
 
