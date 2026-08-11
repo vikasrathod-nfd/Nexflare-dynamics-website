@@ -3,7 +3,7 @@ import PageTitle from "../../components/PageTitle";
 
 import HRMSHero from "../../components/NexHRMSPageMain/HRMSHero";
 import HRMSServiceSection from "../../components/NexHRMSPageMain/HRMSServiceSection";
-import HRMSStatsSection from "../../components/NexHRMSPageMain/HRMSStatsSection";
+// import HRMSStatsSection from "../../components/NexHRMSPageMain/HRMSStatsSection";
 import HRMSResults from "../../components/NexHRMSPageMain/HRMSResults";
 import HRMSTools from "../../components/NexHRMSPageMain/HRMSTools";
 import HRMSClientSection from "../../components/NexHRMSPageMain/HRMSClientSection";
@@ -36,10 +36,10 @@ const NexHRMSPage = () => {
       >
         <HRMSHero />
         <HRMSServiceSection />
-        <HRMSStatsSection />
+        {/* <HRMSStatsSection /> */}
         <HRMSResults />
-        <HRMSTools />
-        <HRMSClientSection />
+        {/* <HRMSTools /> */}
+        {/* <HRMSClientSection /> */}
         <HRMSFaq />
         <HRMSCTA />
       </Box>

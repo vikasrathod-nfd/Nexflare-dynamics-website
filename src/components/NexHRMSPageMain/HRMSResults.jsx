@@ -61,22 +61,21 @@
 
 // export default HRMSResults;
 
-
 import { Box, Card, SimpleGrid, Stack, Text, Title, useComputedColorScheme } from "@mantine/core";
 import { motion } from "framer-motion";
 
 const screenshots = [
   { 
     label: "Dashboard Overview",
-    image: "/dashboard-overview.png" 
+    image: "/Images/dashboard-overview.png" 
   },
   { 
     label: "Attendance & Leave",
-    image: "/attendance-leave.png" 
+    image: "/Images/attendance-leave.png" 
   },
   { 
     label: "Payroll Summary",
-    image: "/payroll-summary.png" 
+    image: "/Images/payroll-summary.png" 
   },
 ];
 
