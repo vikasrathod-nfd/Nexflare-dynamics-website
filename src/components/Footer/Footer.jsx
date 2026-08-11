@@ -2136,7 +2136,7 @@ const Footer = () => {
                       key={idx}
                       gap={12}
                       wrap="nowrap"
-                      align="flex-start"
+                      // align="flex-start"
                       className="f-contact-row"
                       style={{ minWidth: 0, width: "100%" }}
                     >
@@ -2162,7 +2162,7 @@ const Footer = () => {
                         style={{
                           flex: 1,
                           minWidth: 0,
-                          paddingTop: 8,
+                          // paddingTop: 8,
                           display: "flex",
                           flexDirection: isMail ? "column" : "row",
                           flexWrap: isMail ? "nowrap" : "wrap",
