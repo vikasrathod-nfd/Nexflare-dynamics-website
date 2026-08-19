@@ -804,7 +804,6 @@
 // };
 // export default AboutUs;
 
-
 import React, { useState } from "react";
 import {
   Box,
@@ -848,7 +847,11 @@ const teamMembers = [
     id: 4,
     name: "Masira Shah",
     role: "Sales Head",
-    image: "Images/Masiraone.jpeg",
+    image: "Images/MasiraNew.jpeg",
+    // subject stands farther back in this particular photo than the others,
+    // so we zoom + reposition it a bit to visually match the rest of the row
+    imageScale: 1.5,
+    imagePosition: "center 20%",
   },
 ];
 
@@ -1029,7 +1032,11 @@ const AboutUs = () => {
                               width: "100%",
                               height: "100%",
                               objectFit: "cover",
-                              objectPosition: "top",
+                              objectPosition: member.imagePosition || "top",
+                              transform: member.imageScale
+                                ? `scale(${member.imageScale})`
+                                : undefined,
+                              transformOrigin: "center 20%",
                               display: "block",
                             }}
                           />

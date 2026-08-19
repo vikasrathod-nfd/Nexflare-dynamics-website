@@ -55,28 +55,28 @@ const services = [
     // path: "/services/custom-software-development/erp-software",
   },
   {
-    title: "Web Applications",
+    title: "Website Development",
     icon: IconWorld,
     color: "cyan",
-    // path: "/services/website-development-design/web-applications",
+    path: "/services/website-development-design/web-development",
   },
   {
     title: "Mobile Apps",
     icon: IconDeviceMobile,
     color: "grape",
-    // path: "/services/website-development-design/mobile-applications",
+    path: "/services/website-development-design/app-development",
   },
   {
     title: "Cloud",
     icon: IconCloud,
     color: "teal",
-    // path: "/services/custom-software-development/cloud-solutions",
+    path: "/services/custom-software-development/cloud-solutions",
   },
   {
     title: "AI",
     icon: IconBrain,
     color: "indigo",
-    // path: "/services/custom-software-development/ai-solutions",
+    path: "/services/custom-software-development/ai-solutions",
   },
 ];
 
@@ -99,9 +99,7 @@ const CustomSoftwareDevelopment = () => {
         }}
       >
         <Grid gutter={0}>
-          {/* ===========================================================
-    LEFT CONTENT
-=========================================================== */}
+          {/* ===========================================================LEFT CONTENT=========================================================== */}
 
           <Grid.Col span={{ base: 12, lg: 6 }}>
             <Box
