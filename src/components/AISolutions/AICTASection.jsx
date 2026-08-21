@@ -55,7 +55,7 @@ const AICTASection = () => {
               className="aisv-btn"
               onClick={() => navigate("/contact")}
             >
-              Book a Free Consultation
+              Book a Call
             </Button>
           </Stack>
         </Box>

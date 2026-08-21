@@ -461,6 +461,668 @@
 // };
 
 // export default ProductHero;
+
+// import {
+//   Badge,
+//   Box,
+//   Button,
+//   Container,
+//   Grid,
+//   Group,
+//   Stack,
+//   Text,
+//   ThemeIcon,
+//   Title,
+//   Card,
+//   Divider,
+//   useComputedColorScheme,
+// } from "@mantine/core";
+
+// import { useState, useRef } from "react";
+
+// import {
+//   IconApps,
+//   IconArrowRight,
+//   IconCircleCheck,
+//   IconBrandWindows,
+//   IconBrandReact,
+//   IconCloudComputing,
+//   IconTruck,
+//   IconClipboardList,
+// } from "@tabler/icons-react";
+
+// import { motion, AnimatePresence } from "framer-motion";
+// import { useNavigate } from "react-router-dom";
+
+// const products = [
+//   {
+//     name: "NexHRMS",
+//     status: "Live",
+//     color: "green",
+//     icon: IconBrandWindows,
+//   },
+//   {
+//     name: "Smart CRM",
+//     status: "Coming Soon",
+//     color: "orange",
+//     icon: IconBrandReact,
+//   },
+//   {
+//     name: "Project Hub",
+//     status: "Coming Soon",
+//     color: "orange",
+//     icon: IconCloudComputing,
+//   },
+// ];
+
+// const allProducts = [
+//   {
+//     name: "NexHRMS",
+//     description: "Human Resource Management System",
+//     icon: IconBrandWindows,
+//     color: "blue",
+//     status: "Live",
+//     statusColor: "green",
+//     route: "/products/hrms",
+//   },
+//   {
+//     name: "ERP",
+//     description: "Enterprise Resource Planning",
+//     icon: IconCloudComputing,
+//     color: "cyan",
+//     status: "Coming Soon",
+//     statusColor: "orange",
+//     route: "/products/erp",
+//   },
+//   {
+//     name: "Project Management",
+//     description: "Plan, track & manage projects",
+//     icon: IconClipboardList,
+//     color: "orange",
+//     status: "Coming Soon",
+//     statusColor: "orange",
+//     route: "/products/project-management",
+//   },
+//   {
+//     name: "Freight Management",
+//     description: "Manage logistics & freight operations",
+//     icon: IconTruck,
+//     color: "grape",
+//     status: "Coming Soon",
+//     statusColor: "orange",
+//     route: "/products/freight-management",
+//   },
+// ];
+
+// const features = [
+//   "Enterprise Ready",
+//   "Cloud Based Platform",
+//   "Secure & Scalable",
+//   "Modern User Experience",
+// ];
+
+// const ProductHero = () => {
+//   const navigate = useNavigate();
+//   const colorScheme = useComputedColorScheme("light");
+//   const isDark = colorScheme === "dark";
+
+//   const [showAllProducts, setShowAllProducts] = useState(false);
+//   const allProductsRef = useRef(null);
+
+//   const handleToggleProducts = () => {
+//     setShowAllProducts((prev) => {
+//       const next = !prev;
+//       if (next) {
+//         // Wait a bit for the AnimatePresence height animation to start rendering
+//         setTimeout(() => {
+//           allProductsRef.current?.scrollIntoView({
+//             behavior: "smooth",
+//             block: "start",
+//           });
+//         }, 150);
+//       }
+//       return next;
+//     });
+//   };
+
+//   return (
+//     <Box
+//       py={{ base: 50, md: 100 }}
+//       style={{
+//         width: "100%",
+//         overflowX: "clip",
+//       }}
+//     >
+//       <Container size="xl" py={{ base: 30, md: 60 }} px={{ base: 16, md: 24 }}>
+//         <Grid align="center" gutter={70}>
+//           {/* ================= LEFT SIDE ================= */}
+//           <Grid.Col span={{ base: 12, md: 6 }}>
+//             <motion.div
+//               initial={{ opacity: 0, x: -60 }}
+//               whileInView={{ opacity: 1, x: 0 }}
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.7 }}
+//             >
+//               <Stack gap="xl">
+//                 <Badge
+//                   size="lg"
+//                   radius="xl"
+//                   variant="light"
+//                   color="#06b6d4"
+//                   leftSection={<IconApps size={14} />}
+//                 >
+//                   Software Products
+//                 </Badge>
+
+//                 <Title
+//                   order={1}
+//                   style={{
+//                     fontSize: "clamp(2.8rem,5vw,5rem)",
+//                     lineHeight: 1.08,
+//                     fontWeight: 900,
+//                     color: isDark ? "#fff" : "#0F172A",
+//                   }}
+//                 >
+//                   Best
+//                   <br />
+//                   <span
+//                     style={{
+//                       background: "linear-gradient(90deg,#2563EB,#38BDF8)",
+//                       WebkitBackgroundClip: "text",
+//                       WebkitTextFillColor: "transparent",
+//                     }}
+//                   >
+//                     Software Products
+//                   </span>
+//                   <br />
+//                   For Growing Businesses
+//                 </Title>
+
+//                 <Text
+//                   size="lg"
+//                   c={isDark ? "gray.3" : "dimmed"}
+//                   style={{
+//                     lineHeight: 1.9,
+//                     maxWidth: 620,
+//                   }}
+//                 >
+//                   Designed with advanced technology and innovative techniques
+//                   for your business growth. Our software products minimize
+//                   operational loads, reduce human error, and boost production
+//                   capacity with intelligent automation.
+//                 </Text>
+
+//                 <Stack gap="md">
+//                   {features.map((feature) => (
+//                     <Group key={feature} gap="sm" align="center">
+//                       <ThemeIcon
+//                         size={28}
+//                         radius="xl"
+//                         color="blue"
+//                         variant="light"
+//                       >
+//                         <IconCircleCheck size={16} />
+//                       </ThemeIcon>
+//                       <Text fw={500} size="md" c={isDark ? "gray.1" : "dark"}>
+//                         {feature}
+//                       </Text>
+//                     </Group>
+//                   ))}
+//                 </Stack>
+
+//                 <Group mt="lg">
+//                   <Button
+//                     size="lg"
+//                     radius="xl"
+//                     variant="outline"
+//                     color="blue"
+//                     styles={{
+//                       root: {
+//                         paddingInline: 28,
+//                         height: 52,
+//                         fontWeight: 600,
+//                       },
+//                     }}
+//                     onClick={() => navigate("/contact")}
+//                   >
+//                     Request Demo
+//                   </Button>
+//                 </Group>
+//               </Stack>
+//             </motion.div>
+//           </Grid.Col>
+
+//           {/* ================= RIGHT SIDE ================= */}
+//           <Grid.Col span={{ base: 12, md: 6 }}>
+//             <motion.div
+//               initial={{ opacity: 0, x: 60 }}
+//               whileInView={{ opacity: 1, x: 0 }}
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.7 }}
+//             >
+//               <Card
+//                 radius={24}
+//                 p="xl"
+//                 shadow="xl"
+//                 withBorder
+//                 style={{
+//                   background: isDark
+//                     ? "rgba(255,255,255,0.04)"
+//                     : "rgba(255,255,255,0.9)",
+//                   backdropFilter: "blur(14px)",
+//                 }}
+//               >
+//                 <Stack gap="lg">
+//                   <Group justify="space-between">
+//                     <Box>
+//                       <Text fw={700} size="xl">
+//                         Our Software Suite
+//                       </Text>
+//                       <Text size="sm" c="dimmed" mt={4}>
+//                         Modern enterprise products designed to help businesses
+//                         grow with powerful digital solutions.
+//                       </Text>
+//                     </Box>
+
+//                     <ThemeIcon
+//                       size={55}
+//                       radius="xl"
+//                       variant="light"
+//                       color="blue"
+//                     >
+//                       <IconApps size={28} />
+//                     </ThemeIcon>
+//                   </Group>
+
+//                   <Divider />
+
+//                   {products.map((product) => {
+//                     const Icon = product.icon;
+//                     return (
+//                       <Card
+//                         key={product.name}
+//                         radius="lg"
+//                         withBorder
+//                         p="md"
+//                         shadow="sm"
+//                         style={{
+//                           transition: "all .3s ease",
+//                           cursor: "pointer",
+//                         }}
+//                       >
+//                         <Group justify="space-between">
+//                           <Group>
+//                             <ThemeIcon
+//                               size={48}
+//                               radius="xl"
+//                               variant="light"
+//                               color="blue"
+//                             >
+//                               <Icon size={24} />
+//                             </ThemeIcon>
+//                             <Box>
+//                               <Text fw={700}>{product.name}</Text>
+//                               <Text size="sm" c="dimmed">
+//                                 Enterprise Software
+//                               </Text>
+//                             </Box>
+//                           </Group>
+//                           <Badge
+//                             radius="xl"
+//                             color={product.color}
+//                             variant="light"
+//                           >
+//                             {product.status}
+//                           </Badge>
+//                         </Group>
+//                       </Card>
+//                     );
+//                   })}
+
+//                   <Divider />
+
+//                   <Group grow>
+//                     <Button
+//                       radius="xl"
+//                       variant="light"
+//                       color="blue"
+//                       onClick={handleToggleProducts}
+//                     >
+//                       {showAllProducts ? "Hide Products" : "View All Products"}
+//                     </Button>
+
+//                     <Button
+//                       radius="xl"
+//                       variant="gradient"
+//                       gradient={{ from: "blue", to: "cyan" }}
+//                       rightSection={<IconArrowRight size={18} />}
+//                       onClick={() => navigate("/contact")}
+//                     >
+//                       Get Started
+//                     </Button>
+//                   </Group>
+//                 </Stack>
+//               </Card>
+//             </motion.div>
+//           </Grid.Col>
+//         </Grid>
+
+//         {/* ================= 4 PRODUCT CARDS ================= */}
+//         <AnimatePresence>
+//           {showAllProducts && (
+//             <motion.div
+//               initial={{ opacity: 0, height: 0 }}
+//               animate={{ opacity: 1, height: "auto" }}
+//               exit={{ opacity: 0, height: 0 }}
+//               transition={{ duration: 0.4 }}
+//               style={{ overflow: "hidden" }}
+//             >
+//               <Box mt={60} ref={allProductsRef}>
+//                 <Grid gutter="xl">
+//                   {allProducts.map((product, index) => {
+//                     const Icon = product.icon;
+//                     return (
+//                       <Grid.Col
+//                         key={product.name}
+//                         span={{ base: 12, sm: 6, md: 3 }}
+//                       >
+//                         <motion.div
+//                           initial={{ opacity: 0, y: 30 }}
+//                           animate={{ opacity: 1, y: 0 }}
+//                           transition={{ duration: 0.4, delay: index * 0.1 }}
+//                           style={{ height: "100%" }}
+//                         >
+//                           <Card
+//                             radius="xl"
+//                             p="lg"
+//                             withBorder
+//                             shadow="md"
+//                             style={{
+//                               height: "100%",
+//                               cursor: "pointer",
+//                               transition: "all .3s ease",
+//                               background: isDark
+//                                 ? "rgba(255,255,255,0.03)"
+//                                 : "#ffffff",
+//                             }}
+//                             onMouseEnter={(e) => {
+//                               e.currentTarget.style.transform =
+//                                 "translateY(-6px)";
+//                               e.currentTarget.style.boxShadow =
+//                                 "0 12px 30px rgba(37,99,235,0.18)";
+//                             }}
+//                             onMouseLeave={(e) => {
+//                               e.currentTarget.style.transform = "translateY(0)";
+//                               e.currentTarget.style.boxShadow = "";
+//                             }}
+//                           >
+//                             <Stack gap="md" style={{ height: "100%" }}>
+//                               <Group justify="space-between" align="flex-start">
+//                                 <ThemeIcon
+//                                   size={56}
+//                                   radius="xl"
+//                                   variant="gradient"
+//                                   gradient={{ from: product.color, to: "cyan" }}
+//                                 >
+//                                   <Icon size={28} />
+//                                 </ThemeIcon>
+//                                 <Badge
+//                                   radius="xl"
+//                                   size="sm"
+//                                   color={product.statusColor}
+//                                   variant="light"
+//                                 >
+//                                   {product.status}
+//                                 </Badge>
+//                               </Group>
+
+//                               <Box style={{ flexGrow: 1 }}>
+//                                 <Text fw={700} size="lg">
+//                                   {product.name}
+//                                 </Text>
+//                                 <Text size="sm" c="dimmed" mt={4}>
+//                                   {product.description}
+//                                 </Text>
+//                               </Box>
+
+//                               <Divider />
+
+//                               <Button
+//                                 radius="xl"
+//                                 variant="light"
+//                                 color={
+//                                   product.status === "Live" ? "blue" : "gray"
+//                                 }
+//                                 fullWidth
+//                                 disabled={product.status !== "Live"}
+//                                 rightSection={
+//                                   product.status === "Live" ? (
+//                                     <IconArrowRight size={16} />
+//                                   ) : null
+//                                 }
+//                                 onClick={() => {
+//                                   if (product.status === "Live") {
+//                                     navigate(product.route);
+//                                   }
+//                                 }}
+//                                 style={{
+//                                   cursor:
+//                                     product.status === "Live"
+//                                       ? "pointer"
+//                                       : "not-allowed",
+//                                   opacity: product.status === "Live" ? 1 : 0.6,
+//                                 }}
+//                               >
+//                                 {product.status === "Live"
+//                                   ? "View Details"
+//                                   : "Coming Soon"}
+//                               </Button>
+//                             </Stack>
+//                           </Card>
+//                         </motion.div>
+//                       </Grid.Col>
+//                     );
+//                   })}
+//                 </Grid>
+//               </Box>
+//             </motion.div>
+//           )}
+//         </AnimatePresence>
+
+//         {/* ================= PRODUCT HIGHLIGHTS ================= */}
+//         <Box mt={80}>
+//           <Card
+//             radius={24}
+//             p={{ base: "xl", md: 40 }}
+//             withBorder
+//             shadow="md"
+//             style={{
+//               background: isDark
+//                 ? "rgba(255,255,255,0.04)"
+//                 : "rgba(255,255,255,0.9)",
+//               backdropFilter: "blur(14px)",
+//             }}
+//           >
+//             <Stack gap="xl">
+//               <Box ta="center">
+//                 <Title order={2} fw={800} mb={8}>
+//                   Why Choose Our Products?
+//                 </Title>
+//                 <Text maw={700} mx="auto" c="dimmed" size="md">
+//                   Our enterprise software products are designed to improve
+//                   productivity, automate business processes, and help your
+//                   organization scale with confidence.
+//                 </Text>
+//               </Box>
+
+//               <Grid gutter={24}>
+//                 {[
+//                   {
+//                     icon: IconCloudComputing,
+//                     title: "Cloud Ready",
+//                     description:
+//                       "Secure cloud infrastructure with easy accessibility from anywhere.",
+//                     color: "blue",
+//                     image:
+//                       "https://www.epsoftinc.com/wp-content/uploads/2021/03/cloud-1.jpg",
+//                   },
+//                   {
+//                     icon: IconCircleCheck,
+//                     title: "Easy to Use",
+//                     description:
+//                       "Modern & intuitive UI that requires minimal training for your team.",
+//                     color: "teal",
+//                     image:
+//                       "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
+//                   },
+//                   {
+//                     icon: IconApps,
+//                     title: "Modular Design",
+//                     description:
+//                       "Flexible modules that scale perfectly with businesses of every size.",
+//                     color: "orange",
+//                     image:
+//                       "https://thumbs.dreamstime.com/b/internet-information-technology-businessman-hand-showing-concept-75784736.jpg",
+//                   },
+//                   {
+//                     icon: IconBrandReact,
+//                     title: "Modern Technology",
+//                     description:
+//                       "Built with the latest stack for high performance and scalability.",
+//                     color: "cyan",
+//                     image:
+//                       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+//                   },
+//                 ].map((item, index) => {
+//                   const Icon = item.icon;
+//                   return (
+//                     <Grid.Col
+//                       key={item.title}
+//                       span={{ base: 12, sm: 6, md: 3 }}
+//                     >
+//                       <motion.div
+//                         initial={{ opacity: 0, y: 20 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         viewport={{ once: true }}
+//                         transition={{ duration: 0.4, delay: index * 0.1 }}
+//                         style={{ height: "100%" }}
+//                       >
+//                         <Card
+//                           radius="xl"
+//                           p={0}
+//                           withBorder
+//                           shadow="md"
+//                           style={{
+//                             height: "100%",
+//                             overflow: "hidden",
+//                             transition: "all 0.35s ease",
+//                             cursor: "default",
+//                             position: "relative",
+//                             border: "1px solid rgba(255,255,255,0.15)",
+//                           }}
+//                           onMouseEnter={(e) => {
+//                             e.currentTarget.style.transform =
+//                               "translateY(-10px)";
+//                             e.currentTarget.style.boxShadow =
+//                               "0 20px 40px rgba(37, 99, 235, 0.25)";
+//                           }}
+//                           onMouseLeave={(e) => {
+//                             e.currentTarget.style.transform = "translateY(0)";
+//                             e.currentTarget.style.boxShadow = "";
+//                           }}
+//                         >
+//                           {/* Background Image */}
+//                           <Box
+//                             style={{
+//                               position: "absolute",
+//                               inset: 0,
+//                               backgroundImage: `url(${item.image})`,
+//                               backgroundSize: "cover",
+//                               backgroundPosition: "center",
+//                               zIndex: 0,
+//                               filter: "brightness(0.85)",
+//                             }}
+//                           />
+
+//                           {/* Light Gradient Overlay */}
+//                           <Box
+//                             style={{
+//                               position: "absolute",
+//                               inset: 0,
+//                               background:
+//                                 "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)",
+//                               zIndex: 1,
+//                             }}
+//                           />
+
+//                           {/* Content */}
+//                           <Stack
+//                             gap="md"
+//                             p="xl"
+//                             style={{
+//                               height: "100%",
+//                               position: "relative",
+//                               zIndex: 2,
+//                               minHeight: 240,
+//                             }}
+//                           >
+//                             {/* Icon + Title - Always Side by Side */}
+//                             <Group gap="sm" align="center" wrap="nowrap">
+//                               <ThemeIcon
+//                                 size={44}
+//                                 radius="xl"
+//                                 variant="filled"
+//                                 color={item.color}
+//                                 style={{
+//                                   boxShadow: "0 6px 18px rgba(0,0,0,0.25)",
+//                                   border: "2px solid rgba(255,255,255,0.3)",
+//                                   flexShrink: 0,
+//                                 }}
+//                               >
+//                                 <Icon size={20} stroke={1.7} color="white" />
+//                               </ThemeIcon>
+
+//                               <Text
+//                                 fw={700}
+//                                 size="md"
+//                                 c="white"
+//                                 style={{
+//                                   textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+//                                   lineHeight: 1.3,
+//                                 }}
+//                               >
+//                                 {item.title}
+//                               </Text>
+//                             </Group>
+
+//                             {/* Description */}
+//                             <Text
+//                               size="sm"
+//                               c="gray.2"
+//                               style={{
+//                                 lineHeight: 1.65,
+//                                 textShadow: "0 1px 4px rgba(0,0,0,0.3)",
+//                               }}
+//                             >
+//                               {item.description}
+//                             </Text>
+//                           </Stack>
+//                         </Card>
+//                       </motion.div>
+//                     </Grid.Col>
+//                   );
+//                 })}
+//               </Grid>
+//             </Stack>
+//           </Card>
+//         </Box>
+//       </Container>
+//     </Box>
+//   );
+// };
+
+// export default ProductHero;
+
 import {
   Badge,
   Box,
@@ -540,7 +1202,7 @@ const allProducts = [
     color: "orange",
     status: "Coming Soon",
     statusColor: "orange",
-    route: "/products/project-management",
+    // route: "/products/project-management",
   },
   {
     name: "Freight Management",
@@ -549,7 +1211,7 @@ const allProducts = [
     color: "grape",
     status: "Coming Soon",
     statusColor: "orange",
-    route: "/products/freight-management",
+    // route: "/products/freight-management",
   },
 ];
 
@@ -886,6 +1548,14 @@ const ProductHero = () => {
 
                               <Divider />
 
+                              {/*
+                                CHANGED: button is no longer disabled for
+                                "Coming Soon" products. It now always
+                                navigates to the product's route. Live
+                                products go to their real product page,
+                                Coming Soon products go to the shared
+                                ComingSoonPage which shows planned details.
+                              */}
                               <Button
                                 radius="xl"
                                 variant="light"
@@ -893,28 +1563,13 @@ const ProductHero = () => {
                                   product.status === "Live" ? "blue" : "gray"
                                 }
                                 fullWidth
-                                disabled={product.status !== "Live"}
-                                rightSection={
-                                  product.status === "Live" ? (
-                                    <IconArrowRight size={16} />
-                                  ) : null
-                                }
-                                onClick={() => {
-                                  if (product.status === "Live") {
-                                    navigate(product.route);
-                                  }
-                                }}
-                                style={{
-                                  cursor:
-                                    product.status === "Live"
-                                      ? "pointer"
-                                      : "not-allowed",
-                                  opacity: product.status === "Live" ? 1 : 0.6,
-                                }}
+                                rightSection={<IconArrowRight size={16} />}
+                                onClick={() => navigate(product.route)}
+                                style={{ cursor: "pointer" }}
                               >
                                 {product.status === "Live"
                                   ? "View Details"
-                                  : "Coming Soon"}
+                                  : "See What's Coming"}
                               </Button>
                             </Stack>
                           </Card>

@@ -302,21 +302,8 @@
 // export default WebApplications;
 
 
-import React from "react";
-// import {
-//   Container,
-//   Title,
-//   Text,
-//   SimpleGrid,
-//   Card,
-//   Group,
-//   ThemeIcon,
-//   Button,
-//   Box,
-//   Badge,
-//   useComputedColorScheme,
-//   Image,
-// } from "@mantine/core";
+
+
 import {
   Container,
   Title,

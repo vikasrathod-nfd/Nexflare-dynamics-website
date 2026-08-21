@@ -38,7 +38,8 @@ const AICapabilitiesSection = () => {
             What We Can Build For You
           </Title>
           <Text c={isDark ? "gray.5" : "gray.6"} maw={560} size="md">
-            End-to-end AI capabilities across the stack — from data to
+            End-to-end AI capabilities across the stack
+             from data to
             deployed, monitored models.
           </Text>
         </Stack>

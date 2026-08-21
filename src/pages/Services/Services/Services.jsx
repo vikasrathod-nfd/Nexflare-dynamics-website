@@ -17,6 +17,7 @@ import PageTitle from "../../../components/PageTitle";
 import HRMS from "./HRMS";
 import WebApplications from "./WebApplications";
 import DigitalMarketing from "./DigitalMarketing";
+import Applicationdevelopment from "./Applicationdevelopment";
 
 const Services = () => {
   const computedColorScheme = useComputedColorScheme("light");
@@ -78,6 +79,10 @@ const Services = () => {
 
         <section id="website-development">
           <WebApplications />
+        </section>
+
+        <section id="application-development">
+          <Applicationdevelopment />
         </section>
 
         <section id="devops">

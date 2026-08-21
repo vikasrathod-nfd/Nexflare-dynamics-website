@@ -212,6 +212,7 @@ import EcommerceDevelopment from "../pages/Services/WebsiteDevelopment/Ecommerce
 // import MobileApplications from "../pages/MainPageServices/MobileApplication";
 import CloudSolutions from "../pages/MainPageServices/CloudSolutions";
 import AISolutions from "../pages/MainPageServices/AISolutions";
+import ERPPageMain from "../components/ERPPageMain";
 
 const AppRoutes = () => {
   return (
@@ -223,6 +224,8 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/hrms" element={<NexHRMSPage />} />
+        <Route path="/products/erp" element={<ERPPageMain />} />
+        {/* <Route path="/products/hrms" element={<NexHRMSPage />} /> */}
         {/* <Route path="/careers" element={<Careers />} /> */}
 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
